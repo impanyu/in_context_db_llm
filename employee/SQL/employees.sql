@@ -1031,3 +1031,251 @@ INSERT INTO `salaries` VALUES
 (200000,70076,'2002-06-01','9999-01-01'),
 
 
+
+
+-- select
+-- 1. Select all employees with the first name 'John'
+SELECT * FROM employees WHERE first_name = 'John';
+
+-- 2. Select all departments with the department name 'Sales'
+SELECT * FROM departments WHERE dept_name = 'Sales';
+
+-- 3. Select all employees with gender 'F'
+SELECT * FROM employees WHERE gender = 'F';
+
+-- 4. Select all titles with the title 'Manager'
+SELECT * FROM titles WHERE title = 'Manager';
+
+-- 5. Select all salaries greater than 50000
+SELECT * FROM salaries WHERE salary > 50000;
+
+-- 6. Select all department managers who started after '2000-01-01'
+SELECT * FROM dept_manager WHERE from_date > '2000-01-01';
+
+
+-- 1. Select all male employees with the first name 'John'
+SELECT * FROM employees WHERE first_name = 'John' AND gender = 'M';
+
+-- 2. Select all employees in the 'Sales' department
+SELECT e.* FROM employees e
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no
+WHERE d.dept_name = 'Sales' AND e.gender = 'F';
+
+-- 3. Select all employees hired after '2000-01-01' and born before '1980-01-01'
+SELECT * FROM employees WHERE hire_date > '2000-01-01' AND birth_date < '1980-01-01';
+
+-- 4. Select all employees with the title 'Manager' and a salary greater than 70000
+SELECT t.* FROM titles t
+JOIN salaries s ON t.emp_no = s.emp_no
+WHERE t.title = 'Manager' AND s.salary > 70000;
+
+-- 5. Select all department managers who started after '2000-01-01' and are still active
+SELECT * FROM dept_manager WHERE from_date > '2000-01-01' AND to_date = '9999-01-01';
+
+-- 6. Select all employees with the title 'Engineer' in the 'R&D' department
+SELECT e.* FROM employees e
+JOIN titles t ON e.emp_no = t.emp_no
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no
+WHERE t.title = 'Engineer' AND d.dept_name = 'R&D';
+
+-- 1. Select all female employees with the first name 'Jane' born after '1985-01-01'
+SELECT * FROM employees WHERE first_name = 'Jane' AND gender = 'F' AND birth_date > '1985-01-01';
+
+-- 2. Select all employees in the 'Sales' department with the title 'Sales Representative'
+SELECT e.* FROM employees e
+JOIN titles t ON e.emp_no = t.emp_no
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no
+WHERE d.dept_name = 'Sales' AND t.title = 'Sales Representative' AND e.gender = 'M';
+
+-- 3. Select all employees with a salary greater than 80000, hired after '2005-01-01', and still active
+SELECT e.* FROM employees e
+JOIN salaries s ON e.emp_no = s.emp_no
+WHERE s.salary > 80000 AND e.hire_date > '2005-01-01' AND s.to_date = '9999-01-01';
+
+-- 4. Select all department managers in the 'Finance' department who started after '1990-01-01'
+SELECT * FROM dept_manager dm
+JOIN departments d ON dm.dept_no = d.dept_no
+WHERE d.dept_name = 'Finance' AND dm.from_date > '1990-01-01' AND dm.to_date = '9999-01-01';
+
+-- 5. Select all employees with the title 'Senior Engineer' who were hired after '2000-01-01' and born before '1980-01-01'
+SELECT e.* FROM employees e
+JOIN titles t ON e.emp_no = t.emp_no
+WHERE t.title = 'Senior Engineer' AND e.hire_date > '2000-01-01' AND e.birth_date < '1980-01-01';
+
+-- 6. Select all department managers who are female, manage the 'Marketing' department, and started after '2000-01-01'
+SELECT e.* FROM employees e
+JOIN dept_manager dm ON e.emp_no = dm.emp_no
+JOIN departments d ON dm.dept_no = d.dept_no
+WHERE e.gender = 'F' AND d.dept_name = 'Marketing' AND dm.from_date > '2000-01-01';
+
+
+-- 1. Count the number of employees
+SELECT COUNT(*) FROM employees;
+
+-- 2. Count the number of employees in the 'Sales' department
+SELECT COUNT(*) FROM employees e
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no
+WHERE d.dept_name = 'Sales';
+
+-- 3. Count the number of male employees
+SELECT COUNT(*) FROM employees WHERE gender = 'M';
+
+-- 4. Count the number of employees with the title 'Engineer'
+SELECT COUNT(*) FROM titles WHERE title = 'Engineer';
+
+-- 5. Count the number of department managers
+SELECT COUNT(*) FROM dept_manager;
+
+-- 6. Count the number of employees with a salary greater than 50000
+SELECT COUNT(*) FROM salaries WHERE salary > 50000;
+
+-- 1. Rank employees by salary within the 'Sales' department
+SELECT e.emp_no, e.first_name, e.last_name, s.salary, 
+       RANK() OVER (ORDER BY s.salary DESC) AS salary_rank
+FROM employees e
+JOIN salaries s ON e.emp_no = s.emp_no
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no
+WHERE d.dept_name = 'Sales';
+
+-- 2. Rank employees by hire_date
+SELECT emp_no, first_name, last_name, hire_date, 
+       RANK() OVER (ORDER BY hire_date ASC) AS hire_rank
+FROM employees;
+
+-- 3. Rank employees by birth_date
+SELECT emp_no, first_name, last_name, birth_date, 
+       RANK() OVER (ORDER BY birth_date ASC) AS age_rank
+FROM employees;
+
+-- 4. Rank employees by the length of employment within each department
+SELECT e.emp_no, e.first_name, e.last_name, 
+       TIMESTAMPDIFF(YEAR, e.hire_date, CURDATE()) AS years_employed, 
+       RANK() OVER (PARTITION BY d.dept_name ORDER BY e.hire_date ASC) AS employment_rank
+FROM employees e
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no;
+
+-- 5. Rank employees by the total salary they have earned
+SELECT e.emp_no, e.first_name, e.last_name, 
+       SUM(s.salary) AS total_salary, 
+       RANK() OVER (ORDER BY SUM(s.salary) DESC) AS salary_rank
+FROM employees e
+JOIN salaries s ON e.emp_no = s.emp_no
+GROUP BY e.emp_no;
+
+-- 6. Rank employees by the number of titles they have held
+SELECT e.emp_no, e.first_name, e.last_name, 
+       COUNT(t.title) AS title_count, 
+       RANK() OVER (ORDER BY COUNT(t.title) DESC) AS title_rank
+FROM employees e
+JOIN titles t ON e.emp_no = t.emp_no
+GROUP BY e.emp_no;
+
+
+
+
+-- 1. Select all employees and their corresponding department names
+SELECT e.emp_no, e.first_name, e.last_name, d.dept_name
+FROM employees e
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no;
+
+-- 2. Select all employees and their current titles
+SELECT e.emp_no, e.first_name, e.last_name, t.title
+FROM employees e
+JOIN titles t ON e.emp_no = t.emp_no
+WHERE t.to_date = '9999-01-01';
+
+-- 3. Select all department managers and their department names
+SELECT e.emp_no, e.first_name, e.last_name, d.dept_name
+FROM employees e
+JOIN dept_manager dm ON e.emp_no = dm.emp_no
+JOIN departments d ON dm.dept_no = d.dept_no;
+
+
+-- 1. Select employees, their departments, and their current titles
+SELECT e.emp_no, e.first_name, e.last_name, d.dept_name, t.title
+FROM employees e
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no
+JOIN titles t ON e.emp_no = t.emp_no
+WHERE de.to_date = '9999-01-01' AND t.to_date = '9999-01-01';
+
+-- 2. Select employees, their managers, and the departments they manage
+SELECT e.emp_no, e.first_name, e.last_name, m.emp_no AS manager_emp_no, d.dept_name
+FROM employees e
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no
+JOIN dept_manager dm ON d.dept_no = dm.dept_no
+JOIN employees m ON dm.emp_no = m.emp_no
+WHERE de.to_date = '9999-01-01' AND dm.to_date = '9999-01-01';
+
+-- 3. Select employees, their salaries, and the departments they belong to
+SELECT e.emp_no, e.first_name, e.last_name, s.salary, d.dept_name
+FROM employees e
+JOIN salaries s ON e.emp_no = s.emp_no
+JOIN dept_emp de ON e.emp_no = de.emp_no
+JOIN departments d ON de.dept_no = d.dept_no
+WHERE s.to_date = '9999-01-01' AND de.to_date = '9999-01-01';
+
+
+
+-- 1. Delete a specific employee by employee number
+DELETE FROM employees
+WHERE emp_no = 10001;
+
+-- 2. Delete all employees from a specific department
+DELETE FROM dept_emp
+WHERE dept_no = 'd001';
+
+-- 3. Delete all records of a specific employee from the salaries table
+DELETE FROM salaries
+WHERE emp_no = 10002;
+
+-- 4. Delete a specific title record for an employee
+DELETE FROM titles
+WHERE emp_no = 10003 AND title = 'Senior Engineer';
+
+-- 5. Delete all department managers from a specific department
+DELETE FROM dept_manager
+WHERE dept_no = 'd002';
+
+-- 6. Delete all records from a department (including employees and managers) using cascading deletes
+DELETE FROM departments
+WHERE dept_no = 'd003';
+
+
+-- 1. Update an employee's first name and last name by employee number
+UPDATE employees
+SET first_name = 'John', last_name = 'Doe'
+WHERE emp_no = 10001;
+
+-- 2. Update the salary of a specific employee for a particular date range
+UPDATE salaries
+SET salary = 75000
+WHERE emp_no = 10002 AND from_date = '2023-01-01';
+
+-- 3. Update the department of a specific employee
+UPDATE dept_emp
+SET dept_no = 'd003'
+WHERE emp_no = 10003;
+
+-- 4. Update the title of an employee for a specific date range
+UPDATE titles
+SET title = 'Senior Engineer'
+WHERE emp_no = 10004 AND from_date = '2022-06-01';
+
+-- 5. Update the manager of a specific department
+UPDATE dept_manager
+SET emp_no = 10005
+WHERE dept_no = 'd004';
+
+-- 6. Update the department name
+UPDATE departments
+SET dept_name = 'Human Resources'
+WHERE dept_no = 'd005';
