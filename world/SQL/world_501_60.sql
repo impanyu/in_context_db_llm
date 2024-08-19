@@ -57,30 +57,33 @@ INSERT INTO `city` VALUES (3,'Herat','AFG','Herat',186800);
 INSERT INTO `city` VALUES (4,'Mazar-e-Sharif','AFG','Balkh',127800);
 INSERT INTO `city` VALUES (33,'Willemstad','ANT','Curaçao',2345);
 INSERT INTO `city` VALUES (34,'Tirana','ALB','Tirana',270000);
-INSERT INTO `city` VALUES (35,'Alger','DZA','Alger',2168000);
-INSERT INTO `city` VALUES (36,'Oran','DZA','Oran',609823);
+
 INSERT INTO `city` VALUES (37,'Constantine','DZA','Constantine',443727);
 INSERT INTO `city` VALUES (38,'Annaba','DZA','Annaba',222518);
 INSERT INTO `city` VALUES (39,'Batna','DZA','Batna',183377);
 INSERT INTO `city` VALUES (40,'Sétif','DZA','Sétif',179055);
 INSERT INTO `city` VALUES (41,'Sidi Bel Abbès','DZA','Sidi Bel Abbès',153106);
-INSERT INTO `city` VALUES (42,'Skikda','DZA','Skikda',128747);
-INSERT INTO `city` VALUES (43,'Biskra','DZA','Biskra',128281);
+
 INSERT INTO `city` VALUES (44,'Blida (el-Boulaida)','DZA','Blida',127284);
 INSERT INTO `city` VALUES (45,'Béjaïa','DZA','Béjaïa',117162);
 INSERT INTO `city` VALUES (46,'Mostaganem','DZA','Mostaganem',115212);
 INSERT INTO `city` VALUES (47,'Tébessa','DZA','Tébessa',112007);
 INSERT INTO `city` VALUES (48,'Tlemcen (Tilimsen)','DZA','Tlemcen',110242);
-INSERT INTO `city` VALUES (49,'Béchar','DZA','Béchar',107311);
-INSERT INTO `city` VALUES (50,'Tiaret','DZA','Tiaret',100118);
+
 
 DELETE FROM `city` WHERE `ID` = 10;
 DELETE FROM `city` WHERE `ID` = 40;
 DELETE FROM `city` WHERE `CountryCode` = 'ANT';
 DELETE FROM `city` WHERE `CountryCode` = 'DZA' and `Population` < 150000;
-
 Update `city` set `Population` = 100300 where `ID` = 50;
 Update `city` set `Population` = 117200 where `Name` = 'Béjaïa';
+
+DELETE FROM `city` WHERE `ID` = 11;
+DELETE FROM `city` WHERE `ID` = 41;
+DELETE FROM `city` WHERE `CountryCode` = 'ALB';
+DELETE FROM `city` WHERE `CountryCode` = 'AFG' and `Population` > 200000;
+Update `city` set `Population` = 610000 where `ID` = 36;
+Update `city` set `Population` = 120000 where `Name` = 'Mostaganem';
 
 
 
@@ -92,22 +95,20 @@ INSERT INTO `city` VALUES (55,'Andorra la Vella','AND','Andorra la Vella',21189)
 INSERT INTO `city` VALUES (56,'Luanda','AGO','Luanda',2022000);
 INSERT INTO `city` VALUES (57,'Huambo','AGO','Huambo',163100);
 INSERT INTO `city` VALUES (58,'Lobito','AGO','Benguela',130000);
-INSERT INTO `city` VALUES (59,'Benguela','AGO','Benguela',128300);
+
 INSERT INTO `city` VALUES (60,'Namibe','AGO','Namibe',118200);
 INSERT INTO `city` VALUES (61,'South Hill','AIA','–',961);
 INSERT INTO `city` VALUES (62,'The Valley','AIA','–',595);
 INSERT INTO `city` VALUES (63,'Saint John´s','ATG','St John',24000);
 INSERT INTO `city` VALUES (64,'Dubai','ARE','Dubai',669181);
-INSERT INTO `city` VALUES (65,'Abu Dhabi','ARE','Abu Dhabi',398695);
-INSERT INTO `city` VALUES (81,'General San Martín','ARG','Buenos Aires',422542);
+
 INSERT INTO `city` VALUES (82,'Salta','ARG','Salta',367550);
 INSERT INTO `city` VALUES (83,'Moreno','ARG','Buenos Aires',356993);
 INSERT INTO `city` VALUES (84,'Santa Fé','ARG','Santa Fé',353063);
 INSERT INTO `city` VALUES (85,'Avellaneda','ARG','Buenos Aires',353046);
 INSERT INTO `city` VALUES (86,'Tres de Febrero','ARG','Buenos Aires',352311);
 INSERT INTO `city` VALUES (87,'Morón','ARG','Buenos Aires',349246);
-INSERT INTO `city` VALUES (88,'Florencio Varela','ARG','Buenos Aires',315432);
-INSERT INTO `city` VALUES (89,'San Isidro','ARG','Buenos Aires',306341);
+
 INSERT INTO `city` VALUES (90,'Tigre','ARG','Buenos Aires',296226);
 INSERT INTO `city` VALUES (91,'Malvinas Argentinas','ARG','Buenos Aires',290335);
 INSERT INTO `city` VALUES (92,'Vicente López','ARG','Buenos Aires',288341);
@@ -123,9 +124,14 @@ INSERT INTO `city` VALUES (100,'Paraná','ARG','Entre Rios',207041);
 DELETE FROM `city` WHERE `ID` = 90;
 DELETE FROM `city` WHERE `ID` = 2;
 DELETE FROM `city` WHERE `CountryCode` = 'ARG' and `Population` < 200000;
-
 DELETE FROM `city` WHERE `NAME` = 'Resistencia';
 Update `city` set `Population` = 207000 where `Name` = 'Paraná';
+
+DELETE FROM `city` WHERE `ID` = 91;
+DELETE FROM `city` WHERE `ID` = 3;
+DELETE FROM `city` WHERE `CountryCode` = 'ARG' and `Population` < 300000;
+DELETE FROM `city` WHERE `NAME` = 'Bahía Blanca';
+Update `city` set `Population` = 237000 where `Name` = 'José C. Paz';
 
 INSERT INTO `city` VALUES (101,'Godoy Cruz','ARG','Mendoza',206998);
 INSERT INTO `city` VALUES (102,'Posadas','ARG','Misiones',201273);
@@ -243,11 +249,6 @@ INSERT INTO `city` VALUES (213,'Recife','BRA','Pernambuco',1378087);
 INSERT INTO `city` VALUES (214,'Porto Alegre','BRA','Rio Grande do Sul',1314032);
 INSERT INTO `city` VALUES (215,'Manaus','BRA','Amazonas',1255049);
 INSERT INTO `city` VALUES (216,'Belém','BRA','Pará',1186926);
-INSERT INTO `city` VALUES (217,'Guarulhos','BRA','São Paulo',1095874);
-INSERT INTO `city` VALUES (218,'Goiânia','BRA','Goiás',1056330);
-INSERT INTO `city` VALUES (219,'Campinas','BRA','São Paulo',950043);
-INSERT INTO `city` VALUES (220,'São Gonçalo','BRA','Rio de Janeiro',869254);
-INSERT INTO `city` VALUES (221,'Nova Iguaçu','BRA','Rio de Janeiro',862225);
 
 INSERT INTO `city` VALUES (1980,'Zhenjiang','CHN','Jiangsu',368316);
 INSERT INTO `city` VALUES (1981,'Huaibei','CHN','Anhui',366549);
@@ -289,16 +290,20 @@ INSERT INTO `city` VALUES (3853,'Aurora','USA','Colorado',276393);
 INSERT INTO `city` VALUES (3854,'Raleigh','USA','North Carolina',276093);
 INSERT INTO `city` VALUES (3855,'Newark','USA','New Jersey',273546);
 INSERT INTO `city` VALUES (3856,'Lexington-Fayette','USA','Kentucky',260512);
-INSERT INTO `city` VALUES (3857,'Anchorage','USA','Alaska',260283);
-INSERT INTO `city` VALUES (3858,'Louisville','USA','Kentucky',256231);
 
 
 DELETE FROM `city` WHERE `ID` = 3011;
 DELETE FROM `city` WHERE `ID` = 2000;
 DELETE FROM `city` WHERE `CountryCode` = 'CHN' and `Population` < 310000;
-
 Update `city` set `Population` = 1790000 where `ID` = 1;
 Update `city` set `Population` = 127900 where `Name` = 'Mazar-e-Sharif';
+
+
+DELETE FROM `city` WHERE `ID` = 3012;
+DELETE FROM `city` WHERE `ID` = 2001;
+DELETE FROM `city` WHERE `CountryCode` = 'USA' and `Population` < 300000;
+Update `city` set `Population` = 240000 where `ID` = 2;
+Update `city` set `Population` = 310000 where `Name` = 'Tampa';
 
 commit;
 
@@ -398,17 +403,15 @@ INSERT INTO `country` VALUES ('DNK','Denmark','Europe','Nordic Countries',43094.
 INSERT INTO `country` VALUES ('DOM','Dominican Republic','North America','Caribbean',48511.00,1844,8495000,73.2,15846.00,15076.00,'República Dominicana','Republic','Hipólito Mejía Domínguez',587,'DO');
 INSERT INTO `country` VALUES ('DZA','Algeria','Africa','Northern Africa',2381741.00,1962,31471000,69.7,49982.00,46966.00,'Al-Jaza’ir/Algérie','Republic','Abdelaziz Bouteflika',35,'DZ');
 
-DELETE FROM `country` WHERE `Code` = 'DZA';
+DELETE FROM `country` WHERE `Code` = 'DOM';
 DELETE FROM `country` WHERE `Code` = 'DJI';
 
-INSERT INTO `country` VALUES ('ECU','Ecuador','South America','South America',283561.00,1822,12646000,71.1,19770.00,19769.00,'Ecuador','Republic','Gustavo Noboa Bejarano',594,'EC');
-INSERT INTO `country` VALUES ('EGY','Egypt','Africa','Northern Africa',1001449.00,1922,68470000,63.3,82710.00,75617.00,'Misr','Republic','Hosni Mubarak',608,'EG');
-INSERT INTO `country` VALUES ('ERI','Eritrea','Africa','Eastern Africa',117600.00,1993,3850000,55.8,650.00,755.00,'Ertra','Republic','Isayas Afewerki [Isaias Afwerki]',652,'ER');
-INSERT INTO `country` VALUES ('ESH','Western Sahara','Africa','Northern Africa',266000.00,NULL,293000,49.8,60.00,NULL,'As-Sahrawiya','Occupied by Marocco','Mohammed Abdel Aziz',2453,'EH');
+DELETE FROM `country` WHERE `Code` = 'CYM';
+DELETE FROM `country` WHERE `Code` = 'CUB';
+
 INSERT INTO `country` VALUES ('ESP','Spain','Europe','Southern Europe',505992.00,1492,39441700,78.8,553233.00,532031.00,'España','Constitutional Monarchy','Juan Carlos I',653,'ES');
 INSERT INTO `country` VALUES ('EST','Estonia','Europe','Baltic Countries',45227.00,1991,1439200,69.5,5328.00,3371.00,'Eesti','Republic','Lennart Meri',3791,'EE');
-INSERT INTO `country` VALUES ('ETH','Ethiopia','Africa','Eastern Africa',1104300.00,-1000,62565000,45.2,6353.00,6180.00,'YeItyop´iya','Republic','Negasso Gidada',756,'ET');
-INSERT INTO `country` VALUES ('FIN','Finland','Europe','Nordic Countries',338145.00,1917,5171300,77.4,121914.00,119833.00,'Suomi','Republic','Tarja Halonen',3236,'FI');
+
 INSERT INTO `country` VALUES ('FJI','Fiji Islands','Oceania','Melanesia',18274.00,1970,817000,67.9,1536.00,2149.00,'Fiji Islands','Republic','Josefa Iloilo',764,'FJ');
 INSERT INTO `country` VALUES ('FLK','Falkland Islands','South America','South America',12173.00,NULL,2000,NULL,0.00,NULL,'Falkland Islands','Dependent Territory of the UK','Elisabeth II',763,'FK');
 INSERT INTO `country` VALUES ('FRA','France','Europe','Western Europe',551500.00,843,59225700,78.8,1424285.00,1392448.00,'France','Republic','Jacques Chirac',2974,'FR');
@@ -455,9 +458,16 @@ DELETE FROM `country` WHERE `Code` = 'ITA';
 DELETE FROM `country` WHERE `Code` = 'IOT';
 DELETE FROM `country` WHERE `Name` = 'Haiti';
 DELETE FROM `country` WHERE `Name` = 'Honduras';
-
 UPDATE `country` SET `Population` = 126724000 WHERE `Code` = 'JPN';
 UPDATE `country` SET `LifeExpectancy` = 65 WHERE `Code` = 'IND';  
+
+
+DELETE FROM `country` WHERE `Code` = 'HRV';
+DELETE FROM `country` WHERE `Code` = 'GUY';
+DELETE FROM `country` WHERE `Name` = 'Guinea-Bissau';
+DELETE FROM `country` WHERE `Name` = 'Micronesia';
+UPDATE `country` SET `Population` = 39441800 WHERE `Code` = 'ESP';
+UPDATE `country` SET `LifeExpectancy` = 66 WHERE `Code` = 'IND';  
 
 commit;
 
@@ -508,15 +518,15 @@ INSERT INTO `countrylanguage` VALUES ('ALB','Albaniana','T',97.9);
 INSERT INTO `countrylanguage` VALUES ('ALB','Greek','F',1.8);
 INSERT INTO `countrylanguage` VALUES ('ALB','Macedonian','F',0.1);
 INSERT INTO `countrylanguage` VALUES ('AND','Catalan','T',32.3);
-INSERT INTO `countrylanguage` VALUES ('AND','French','F',6.2);
-INSERT INTO `countrylanguage` VALUES ('AND','Portuguese','F',10.8);
-INSERT INTO `countrylanguage` VALUES ('AND','Spanish','F',44.6);
 
 
 DELETE FROM `countrylanguage` WHERE `CountryCode` = 'AND';
 DELETE FROM `countrylanguage` WHERE `Language` = 'Mbundu';
-
 UPDATE `countrylanguage` SET `Percentage` = 1.0 WHERE `CountryCode` = 'AIA' AND `Language` = 'English';
+
+DELETE FROM `countrylanguage` WHERE `CountryCode` = 'AGO';
+DELETE FROM `countrylanguage` WHERE `Language` = 'Luvale';
+UPDATE `countrylanguage` SET `Percentage` = 2.0 WHERE `CountryCode` = 'AFG' AND `Language` = 'Turkmenian';
 
 INSERT INTO `countrylanguage` VALUES ('ANT','Dutch','T',0.0);
 INSERT INTO `countrylanguage` VALUES ('ANT','English','F',7.8);
@@ -608,10 +618,11 @@ INSERT INTO `countrylanguage` VALUES ('BRA','German','F',0.5);
 INSERT INTO `countrylanguage` VALUES ('BRA','Indian Languages','F',0.2);
 INSERT INTO `countrylanguage` VALUES ('BRA','Italian','F',0.4);
 INSERT INTO `countrylanguage` VALUES ('BRA','Japanese','F',0.4);
-INSERT INTO `countrylanguage` VALUES ('BRA','Portuguese','T',97.5);
+
 
 DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BRA';
 
+DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BLZ';
 
 INSERT INTO `countrylanguage` VALUES ('BRB','Bajan','F',95.1);
 INSERT INTO `countrylanguage` VALUES ('BRB','English','T',0.0);
@@ -665,12 +676,13 @@ INSERT INTO `countrylanguage` VALUES ('CHN','Puyi','F',0.2);
 INSERT INTO `countrylanguage` VALUES ('CHN','Tibetan','F',0.4);
 INSERT INTO `countrylanguage` VALUES ('CHN','Tujia','F',0.5);
 INSERT INTO `countrylanguage` VALUES ('CHN','Uighur','F',0.6);
-INSERT INTO `countrylanguage` VALUES ('CHN','Yi','F',0.6);
-INSERT INTO `countrylanguage` VALUES ('CHN','Zhuang','F',1.4);
 
 
 UPDATE `countrylanguage` SET `Percentage` = 91.8 WHERE `CountryCode` = 'CHN' AND `Language` = 'Chinese';
 DELETE FROM `countrylanguage` WHERE `CountryCode` = 'CAN' AND `Language` = 'Italian';
+
+UPDATE `countrylanguage` SET `Percentage` = 8.0 WHERE `CountryCode` = 'CHE' AND `Language` = 'Italian';
+DELETE FROM `countrylanguage` WHERE `CountryCode` = 'CAN' AND `Language` = 'Spanish';
 
 commit;
 
@@ -857,228 +869,224 @@ The SQL query is as follows:
 */
 
 
--- 1. select
--- return the names of all countries
+-- select
+-- 1. return the names of all countries
 -- no filtering.
 SELECT Name FROM country
--- return the ID of all the cities in China with population greater than 350000. 
+-- 2. return the ID of all the cities in China with population greater than 350000. 
 -- Double filtering. Range filtering.
 SELECT ID FROM city WHERE CountryCode = 'CHN' AND Population > 350000
--- return the names of all the countries with population greater than 100000000. 
+-- 3. return the names of all the countries with population greater than 100000000. 
 -- Single filtering. Range filtering.
 SELECT Name FROM country WHERE Population > 100000000
--- return the languages with percentage greater than 50.0. 
+-- 4. return the languages with percentage greater than 50.0. 
 -- Single filtering. Range filtering.
 SELECT DISTINCT Language FROM countrylanguage WHERE Percentage > 50.0
--- return the population of the city with ID = 50
+-- 5. return the population of the city with ID = 50
 -- Single filtering. 
 SELECT Population FROM city WHERE ID = 50
--- return the population of Japan
+-- 6. return the population of Japan
 -- Single filtering. 
 SELECT Population FROM country WHERE Code = 'JPN'
--- return the names of all the countries in Asia with population greater than 50000000 and life expectancy greater than 60.0
+-- 7. return the names of all the countries in Asia with population greater than 50000000 and life expectancy greater than 60.0
 -- triple filtering. Range filtering.
 SELECT Name FROM country WHERE Continent = 'Asia' AND Population > 50000000 AND LifeExpectancy > 60.0
 
--- return the names of all the cities with countrycode = 'CHN', ID in between 50 and 100, population greater than 100000 and less than 500000 
+-- 8. return the names of all the cities with countrycode = 'CHN', ID in between 50 and 100, population greater than 100000 and less than 500000 
 -- triple filtering. Range filtering.
 SELECT Name FROM city WHERE CountryCode = 'CHN' AND ID BETWEEN 50 AND 100 AND Population > 100000 AND Population < 500000
 
 
 
 
--- return the ID for all the cities in countries with population greater than 100000000
+-- 9. return the ID for all the cities in countries with population greater than 100000000
 -- single filtering. Range filtering. Join.
 SELECT city.ID FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Population > 100000000
 
--- return all the languages with percentage greater than 50.0 in asia
+-- 10. return all the languages with percentage greater than 50.0 in asia
 -- single filtering. Range filtering. join.
 SELECT DISTINCT countrylanguage.Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode = country.Code WHERE country.Continent = 'Asia' AND countrylanguage.Percentage > 50.0
 
--- return all the cities in countries in Asia
+-- 11. return all the cities in countries in Asia
 -- single filtering. Join.
 SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Continent = 'Asia'
 
--- return all the cities with life expectancy greater than 80
+-- 12. return all the cities with life expectancy greater than 80
 -- single filtering. Range filtering. Join.
 SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.LifeExpectancy > 80.0
 
--- return the distinct languages in countries in Asia
+-- 13. return the distinct languages in countries in Asia
 -- single filtering. Join.
 SELECT DISTINCT countrylanguage.Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode = country.Code WHERE country.Continent = 'Asia'
 
--- return all the cities and the languages spoken in the countries in Asia with population greater than 100000000
+-- 14. return all the cities and the languages spoken in the countries in Asia with population greater than 100000000
 -- double filtering. Range filtering. Triple Join.
 SELECT city.Name, countrylanguage.Language FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE country.Continent = 'Asia' AND country.Population > 100000000
 
--- return all the cities in countries which English is spoken with percentage greater than 50.0
+-- 15. eturn all the cities in countries which English is spoken with percentage greater than 50.0
 -- double filtering. Range filtering. Triple Join.
 SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English' AND countrylanguage.Percentage > 50.0
 
--- return all the cities in countries with life expectancy greater than 60 and which speak English with percentage greater than 10.0
+-- 16. return all the cities in countries with life expectancy greater than 60 and which speak English with percentage greater than 10.0
 -- triple filtering. Range filtering. Triple Join.
 SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE  country.LifeExpectancy > 60.0 AND countrylanguage.Language = 'English' AND countrylanguage.Percentage > 10.0
 
 
 
--- return the number of cities in China
+-- 17. return the number of cities in China
 -- single filtering. count.
 SELECT COUNT(ID) FROM city WHERE CountryCode = 'CHN'
 
--- return the number of countries in Asia with population greater than 50000000
+-- 18. return the number of countries in Asia with population greater than 50000000
 -- double filtering. count. range filtering.
 SELECT COUNT(Code) FROM country WHERE Continent = 'Asia' AND Population > 50000000
 
--- return the number of cities with population between 100000 and 500000 with countrycode = 'DZA'
+-- 19. return the number of cities with population between 100000 and 500000 with countrycode = 'DZA'
 -- double filtering. Range filtering. count.
 SELECT COUNT(ID) FROM city WHERE CountryCode = 'DZA' AND Population BETWEEN 100000 AND 500000
 
 
 
--- return the number of distinct languages
+-- 20. return the number of distinct languages
 -- no filtering. count.
 SELECT COUNT(DISTINCT Language) FROM countrylanguage
 
--- return the number of cities in Algeria
+-- 21. return the number of cities in Algeria
 -- single filtering. count. join.
 SELECT COUNT(city.ID) FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Name = 'Algeria'
 
 
--- return the total number of countries
+-- 22. return the total number of countries
 -- no filtering. count.
 SELECT COUNT(Code) FROM country
 
 
 
--- return the names of city in China sorted by population
+-- 23. return the names of city in China sorted by population
 -- single filtering. ranking.
 SELECT Name FROM city WHERE CountryCode = 'CHN' ORDER BY Population
 
--- return the names of countries in Asia sorted by surface area
+-- 24. return the names of countries in Asia sorted by surface area
 -- single filtering. ranking.
 SELECT Name FROM country WHERE Continent = 'Asia' ORDER BY SurfaceArea
 
--- return the names of countries which speak English sorted by percentage
+-- 25. return the names of countries which speak English sorted by percentage
 -- single filtering. ranking. join.
 SELECT country.Name FROM country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English' ORDER BY countrylanguage.Percentage
 
--- return the names of countries in Europe with GNP greater than 500000 sorted by population
+-- 26. return the names of countries in Europe with GNP greater than 500000 sorted by population
 -- double filtering. Range filtering. ranking.
 SELECT Name FROM country WHERE Continent = 'Europe' AND GNP > 500000 ORDER BY Population
 
 
--- 2. Insert
--- fail
--- insert a new city with ID = 188, Name = 'Djougou', CountryCode = 'BEN', Population = 134099
+-- Insert
+
+-- 27. insert a new city with ID = 188, Name = 'Djougou', CountryCode = 'BEN', Population = 134099
 -- primary key violation. insert.
 INSERT INTO city VALUES (188, 'Djougou', 'BEN', 134099)
 
--- insert a new  city with ID = 1, Name = 'Kabul', CountryCode = 'AFG', Population = 1780000
+-- 28. insert a new  city with ID = 1, Name = 'Kabul', CountryCode = 'AFG', Population = 1780000
 -- primary key violation. insert.
 INSERT INTO city VALUES (1, 'Kabul', 'AFG', 1780000)
 
--- insert a new city with ID = 2, Name = 'Qandahar', CountryCode = 'AFF', Population = 237500
+-- 29. insert a new city with ID = 2, Name = 'Qandahar', CountryCode = 'AFF', Population = 237500
 -- foreign key violation. insert.
 INSERT INTO city VALUES (2, 'Qandahar', 'AFF', 237500)
 
--- insert a language = English in coutnrycode = 'CCC' with percentage = 1.0 and isofficial = 'F'
+-- 30. insert a language = English in coutnrycode = 'CCC' with percentage = 1.0 and isofficial = 'F'
 -- foreign key violation. insert.
 INSERT INTO countrylanguage VALUES ('CCC', 'English', 'F', 1.0)
 
--- success
--- insert a new city with ID = 1532, Name = 'Tokyo', CountryCode = 'JPN', Population = 7980230
+
+-- 31. insert a new city with ID = 1532, Name = 'Tokyo', CountryCode = 'JPN', Population = 7980230
 -- insert.
 INSERT INTO city VALUES (1532, 'Tokyo', 'JPN', 7980230)
 
--- insert a new city with ID = 3795, Name = 'Chicago', CountryCode = 'USA', Population = 2896016
+-- 32. insert a new city with ID = 3795, Name = 'Chicago', CountryCode = 'USA', Population = 2896016
 -- insert.
 INSERT INTO city VALUES (3795, 'Chicago', 'USA', 2896016)
 
--- insert a new country with Code = 'THA', Name = 'Thailand', Continent = 'Asia', Region = 'Southeast Asia', SurfaceArea = 513115.00, Population = 61399000, LifeExpectancy = 68.6, GNP = 116416.00
+-- 33. insert a new country with Code = 'THA', Name = 'Thailand', Continent = 'Asia', Region = 'Southeast Asia', SurfaceArea = 513115.00, Population = 61399000, LifeExpectancy = 68.6, GNP = 116416.00
 -- insert.
 INSERT INTO country VALUES ('THA', 'Thailand', 'Asia', 'Southeast Asia', 513115.00, 61399000, 68.6, 116416.00)
 
--- insert a language = English in coutnrycode = 'CHN' with percentage = 1.0 and isofficial = 'F'
+-- 34. insert a language = English in coutnrycode = 'CHN' with percentage = 1.0 and isofficial = 'F'
 -- insert.
 INSERT INTO countrylanguage VALUES ('CHN', 'English', 'F', 1.0)
 
 
 -- 3. Delete
--- fail
--- delete the country with code = 'ARG'
+-- 35. delete the country with code = 'ARG'
 -- foreign key violation. single filtering.
 DELETE FROM country WHERE Code = 'ARG'
 
--- delete all the countries in Asia with population greater than 5000000
+-- 36. delete all the countries in Asia with population greater than 5000000
 -- double filtering. Range filtering. foreign key violation.
 DELETE FROM country WHERE Continent = 'Asia' AND Population > 5000000
 
--- delete all the countries with GNP greater than 300000 and less than 1000000
+-- 37. delete all the countries with GNP greater than 300000 and less than 1000000
 -- single filtering. Range filtering. foreign key violation.
 DELETE FROM country WHERE GNP > 300000 AND GNP < 1000000
 
--- delete all the countries with life expectancy larger than 60
+-- 38. delete all the countries with life expectancy larger than 60
 -- single filtering. Range filtering. foreign key violation.
 DELETE FROM country WHERE LifeExpectancy > 60.0
 
--- delete all the languages in Europe
+-- 39. delete all the languages in Europe
 -- single filtering. foreign key violation. Join.
 DELETE FROM countrylanguage JOIN country ON countrylanguage.CountryCode = country.Code WHERE country.Continent = 'Europe'
 
 
--- success
--- delete the city with ID = 3795
+-- 40. delete the city with ID = 3795
 -- single filtering. delete.
 DELETE FROM city WHERE ID = 3795
 
--- delete the city with ID = 1
+-- 41. delete the city with ID = 1
 -- single filtering. delete.
 DELETE FROM city WHERE ID = 1
 
--- delete the country with code = 'JPN'
+-- 42. delete the country with code = 'JPN'
 -- single filtering.
 DELETE FROM country WHERE Code = 'JPN'
 
--- delete all the cities in China with population greater than 300000
+-- 43. delete all the cities in China with population greater than 300000
 -- single filtering. Range filtering. delete.
 DELETE FROM city WHERE CountryCode = 'CHN' AND Population > 300000
 
--- delete all the languages with percentage greater than 50.0
+-- 44. delete all the languages with percentage greater than 50.0
 -- single filtering. Range filtering. delete.
 DELETE FROM countrylanguage WHERE Percentage > 50.0
 
 
--- 4. Update
--- fail
+-- Update
 
--- update the code of country with name = "China" to 'CHI'
+-- 45. update the code of country with name = "China" to 'CHI'
 -- foreign key violation. single filtering. update
 UPDATE country SET Code = 'CHI' WHERE Name = 'China'
 
--- update the code of country with name = "Argentina" to 'AAA'
+-- 46. update the code of country with name = "Argentina" to 'AAA'
 -- foreign key violation. single filtering. update
 UPDATE country SET Code = 'AAA' WHERE Name = 'Argentina'
 
--- update the code of country with population = 126724000 to 'JPA'
+-- 47. update the code of country with population = 126724000 to 'JPA'
 -- foreign key violation. single filtering. update
 UPDATE country SET Code = 'JPA' WHERE Population = 126724000
 
 
--- success
--- update the population of the city with ID = 50 to 100120
+-- 48. update the population of the city with ID = 50 to 100120
 -- single filtering. update.
 UPDATE city SET Population = 100120 WHERE ID = 50
 
--- update the life expectancy of the country with code = 'CHN' to 80.0
+-- 49. update the life expectancy of the country with code = 'CHN' to 80.0
 -- single filtering. update.
 UPDATE country SET LifeExpectancy = 80.0 WHERE Code = 'CHN'
 
--- update the percentage of language = Chinese in countrycode = 'CHN' to 93
+-- 50. update the percentage of language = Chinese in countrycode = 'CHN' to 93
 -- double filtering. update.
 UPDATE countrylanguage SET Percentage = 93 WHERE CountryCode = 'CHN' AND Language = 'Chinese'
 
 
---update all the cities in China with population greater than 300000, increate the population by 10%
+-- 51. update all the cities in China with population greater than 300000, increate the population by 10%
 -- double filtering. Range filtering. update. join
 UPDATE city join country ON city.CountryCode = country.Code SET city.Population = city.Population * 1.1 WHERE country.Name = 'China' AND city.Population > 300000
 
