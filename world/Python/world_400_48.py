@@ -96,9 +96,6 @@ db.insert("country",{"GNP": 9333.00, "Code": "CYP", "Name": "Cyprus", "Region": 
 db.insert("country",{"GNP": 55017.00, "Code": "CZE", "Name": "Czech Republic", "Region": "Eastern Europe", "Continent": "Europe", "Population": 10278100, "SurfaceArea": 78866.00, "LifeExpectancy": 74.5})
 db.insert("country",{"GNP": 2133367.00, "Code": "DEU", "Name": "Germany", "Region": "Western Europe", "Continent": "Europe", "Population": 82164700, "SurfaceArea": 357022.00, "LifeExpectancy": 77.4})
 db.insert("country",{"GNP": 382.00, "Code": "DJI", "Name": "Djibouti", "Region": "Eastern Africa", "Continent": "Africa", "Population": 638000, "SurfaceArea": 23200.00, "LifeExpectancy": 50.8})
-db.insert("country",{"GNP": 256.00, "Code": "DMA", "Name": "Dominica", "Region": "Caribbean", "Continent": "North America", "Population": 71000, "SurfaceArea": 751.00, "LifeExpectancy": 73.4})
-db.insert("country",{"GNP": 174099.00, "Code": "DNK", "Name": "Denmark", "Region": "Nordic Countries", "Continent": "Europe", "Population": 5330000, "SurfaceArea": 43094.00, "LifeExpectancy": 76.5})
-
 
 db.delete("country",{"Code":"DOM"})
 db.delete("country",{"Code":"DJI"})
@@ -107,17 +104,10 @@ db.delete("country",{"Code":"CYM"})
 db.delete("country",{"Code":"CUB"})
 
 
-db.delete("country",{"Code":"CXR"})
-db.delete("country",{"Code":"CRI"})
-
-
-db.delete("country",{"Code":"COL"})
-db.delete("country",{"Code":"COM"})
-
-
-db.insert("country",{"GNP": 553233.00, "Code": "ESP", "Name": "Spain", "Region": "Southern Europe", "Continent": "Europe", "Population": 39441700, "SurfaceArea": 505992.00, "LifeExpectancy": 78.8})
-db.insert("country",{"GNP": 5328.00, "Code": "EST", "Name": "Estonia", "Region": "Baltic Countries", "Continent": "Europe", "Population": 1439200, "SurfaceArea": 45227.00, "LifeExpectancy": 69.5})
-
+db.insert("country",{"GNP": 7137.00, "Code": "GHA", "Name": "Ghana", "Region": "Western Africa", "Continent": "Africa", "Population": 20212000, "SurfaceArea": 238533.00, "LifeExpectancy": 57.4})
+db.insert("country",{"GNP": 258.00, "Code": "GIB", "Name": "Gibraltar", "Region": "Southern Europe", "Continent": "Europe", "Population": 25000, "SurfaceArea": 6.00, "LifeExpectancy": 79.0})
+db.insert("country",{"GNP": 2352.00, "Code": "GIN", "Name": "Guinea", "Region": "Western Africa", "Continent": "Africa", "Population": 7430000, "SurfaceArea": 245857.00, "LifeExpectancy": 45.6})
+db.insert("country",{"GNP": 3501.00, "Code": "GLP", "Name": "Guadeloupe", "Region": "Caribbean", "Continent": "North America", "Population": 456000, "SurfaceArea": 1705.00, "LifeExpectancy": 77.0})
 db.insert("country",{"GNP": 320.00, "Code": "GMB", "Name": "Gambia", "Region": "Western Africa", "Continent": "Africa", "Population": 1305000, "SurfaceArea": 11295.00, "LifeExpectancy": 53.2})
 db.insert("country",{"GNP": 293.00, "Code": "GNB", "Name": "Guinea-Bissau", "Region": "Western Africa", "Continent": "Africa", "Population": 1213000, "SurfaceArea": 36125.00, "LifeExpectancy": 49.0})
 db.insert("country",{"GNP": 283.00, "Code": "GNQ", "Name": "Equatorial Guinea", "Region": "Central Africa", "Continent": "Africa", "Population": 453000, "SurfaceArea": 28051.00, "LifeExpectancy": 53.6})
@@ -154,28 +144,7 @@ db.delete("country",{"Code":"ITA"})
 db.update("country",{"Population":126724000}, {"Code":'JPN'})
 db.update("country",{"LifeExpectancy":65}, {"Code":'IND'})
 
-db.delete("country",{"Code":"HRV"})
-db.delete("country",{"Code":"GUY"})
-db.delete("country",{"Name":"Guinea-Bissau"})
-db.delete("country",{"Name":"Micronesia"})
-db.update("country",{"Population":39441800}, {"Code":'ESP'})
-db.update("country",{"LifeExpectancy":66}, {"Code":'IND'})
 
-
-db.delete("country",{"Code":"HTI"})
-db.delete("country",{"Code":"HMD"})
-db.delete("country",{"Name":"Greece"})
-db.delete("country",{"Name":"Fiji Islands"})
-db.update("country",{"Population":24115000}, {"Code":'IRQ'})
-db.update("country",{"LifeExpectancy":70}, {"Code":'IND'})
-
-
-db.delete("country",{"Code":"GTM"})
-db.delete("country",{"Code":"GUF"})
-db.delete("country",{"Name":"Iceland"})
-db.delete("country",{"Name":"Iraq"})
-db.update("country",{"Population":24115000}, {"Code":'IRN'})
-db.update("country",{"LifeExpectancy":72}, {"Code":'IND'})
 
 
 
@@ -186,25 +155,14 @@ db.insert("city",{"ID": 4, "Name": "Mazar-e-Sharif", "Population": 127800, "Coun
 db.insert("city",{"ID": 33, "Name": "Willemstad", "Population": 2345, "CountryCode": "ANT"})
 db.insert("city",{"ID": 34, "Name": "Tirana", "Population": 270000, "CountryCode": "ALB"})
 
-db.insert("city",{"ID": 45, "Name": "Béjaïa", "Population": 117162, "CountryCode": "DZA"})
-db.insert("city",{"ID": 46, "Name": "Mostaganem", "Population": 115212, "CountryCode": "DZA"})
-db.insert("city",{"ID": 47, "Name": "Tébessa", "Population": 112007, "CountryCode": "DZA"})
-db.insert("city",{"ID": 48, "Name": "Tlemcen (Tilimsen)", "Population": 110242, "CountryCode": "DZA"})
+db.insert("city",{"ID": 37, "Name": "Constantine", "Population": 443727, "CountryCode": "DZA"})
+db.insert("city",{"ID": 38, "Name": "Annaba", "Population": 222518, "CountryCode": "DZA"})
+db.insert("city",{"ID": 39, "Name": "Batna", "Population": 183377, "CountryCode": "DZA"})
+db.insert("city",{"ID": 40, "Name": "Sétif", "Population": 179055, "CountryCode": "DZA"})
+db.insert("city",{"ID": 41, "Name": "Sidi Bel Abbès", "Population": 153106, "CountryCode": "DZA"})
 
-db.insert("city",{"ID": 51, "Name": "Ech-Chleff (el-Asnam)", "Population": 96794, "CountryCode": "DZA"})
-db.insert("city",{"ID": 52, "Name": "Ghardaïa", "Population": 89415, "CountryCode": "DZA"})
-db.insert("city",{"ID": 53, "Name": "Tafuna", "Population": 5200, "CountryCode": "ASM"})
-db.insert("city",{"ID": 54, "Name": "Fagatogo", "Population": 2323, "CountryCode": "ASM"})
-db.insert("city",{"ID": 55, "Name": "Andorra la Vella", "Population": 21189, "CountryCode": "AND"})
-db.insert("city",{"ID": 56, "Name": "Luanda", "Population": 2022000, "CountryCode": "AGO"})
-db.insert("city",{"ID": 57, "Name": "Huambo", "Population": 163100, "CountryCode": "AGO"})
-db.insert("city",{"ID": 58, "Name": "Lobito", "Population": 130000, "CountryCode": "AGO"})
 
-db.insert("city",{"ID": 60, "Name": "Namibe", "Population": 118200, "CountryCode": "AGO"})
-db.insert("city",{"ID": 61, "Name": "South Hill", "Population": 961, "CountryCode": "AIA"})
-db.insert("city",{"ID": 62, "Name": "The Valley", "Population": 595, "CountryCode": "AIA"})
-db.insert("city",{"ID": 63, "Name": "Saint John´s", "Population": 24000, "CountryCode": "ATG"})
-db.insert("city",{"ID": 64, "Name": "Dubai", "Population": 669181, "CountryCode": "ARE"})
+
 
 db.delete("city",{"ID":10})
 db.delete("city",{"ID":40})  
@@ -214,29 +172,13 @@ db.update("city",{"Population":100300}, {"ID":50})
 db.update("city",{"Population":117200}, {"Name":'Béjaïa'})
 
 
-db.delete("city",{"ID": 11})
-db.delete("city",{"ID": 41})
-db.delete("city",{"CountryCode": 'ALB'})
-db.delete("city",{"CountryCode": 'AFG',"Population":[200000,INF]})
-db.update("city",{"Population":610000}, {"ID":36})
-db.update("city",{"Population":120000}, {"Name":'Mostaganem'})
 
 
-db.delete("city",{"ID": 51})
-db.delete("city",{"ID": 52})
-db.delete("city",{"CountryCode": 'ATG'})
-db.delete("city",{"CountryCode": 'AGO',"Population":[0,200000]})
-db.update("city",{"Population":119200}, {"ID":60})
-db.update("city",{"Population":679181}, {"Name":'Dubai'})
-
-
-db.delete("city",{"ID": 61})
-db.delete("city",{"ID": 62})
-db.delete("city",{"CountryCode": 'AIA'})
-db.delete("city",{"CountryCode": 'DZA',"Population":[0,100000]})
-db.update("city",{"Population":25000}, {"ID":63})
-db.update("city",{"Population":140000}, {"Name":'Lobito'})
-
+db.insert("city",{"ID": 60, "Name": "Namibe", "Population": 118200, "CountryCode": "AGO"})
+db.insert("city",{"ID": 61, "Name": "South Hill", "Population": 961, "CountryCode": "AIA"})
+db.insert("city",{"ID": 62, "Name": "The Valley", "Population": 595, "CountryCode": "AIA"})
+db.insert("city",{"ID": 63, "Name": "Saint John´s", "Population": 24000, "CountryCode": "ATG"})
+db.insert("city",{"ID": 64, "Name": "Dubai", "Population": 669181, "CountryCode": "ARE"})
 
 db.insert("city",{"ID": 82, "Name": "Salta", "Population": 367550, "CountryCode": "ARG"})
 db.insert("city",{"ID": 83, "Name": "Moreno", "Population": 356993, "CountryCode": "ARG"})
@@ -251,7 +193,11 @@ db.insert("city",{"ID": 92, "Name": "Vicente López", "Population": 288341, "Cou
 db.insert("city",{"ID": 93, "Name": "Berazategui", "Population": 276916, "CountryCode": "ARG"})
 db.insert("city",{"ID": 94, "Name": "Corrientes", "Population": 258103, "CountryCode": "ARG"})
 db.insert("city",{"ID": 95, "Name": "San Miguel", "Population": 248700, "CountryCode": "ARG"})
-
+db.insert("city",{"ID": 96, "Name": "Bahía Blanca", "Population": 239810, "CountryCode": "ARG"})
+db.insert("city",{"ID": 97, "Name": "Esteban Echeverría", "Population": 235760, "CountryCode": "ARG"})
+db.insert("city",{"ID": 98, "Name": "Resistencia", "Population": 229212, "CountryCode": "ARG"})
+db.insert("city",{"ID": 99, "Name": "José C. Paz", "Population": 221754, "CountryCode": "ARG"})
+db.insert("city",{"ID": 100, "Name": "Paraná", "Population": 207041, "CountryCode": "ARG"})
 
 db.delete("city",{"ID":90})
 db.delete("city",{"ID":2})
@@ -266,19 +212,10 @@ db.delete("city",{"Name":'Bahía Blanca'})
 db.update("city",{"Population":237000}, {"Name":'José C. Paz'})
 
 
-db.delete("city",{"ID": 95})
-db.delete("city",{"ID": 4})
-db.delete("city",{"CountryCode":'ARG', "Population":[0, 150000]})
-db.delete("city",{"Name":'Esteban Echeverría'})
-db.update("city",{"Population":349546}, {"Name":'Morón'})
-
-
-db.delete("city",{"ID": 96})
-db.delete("city",{"ID": 5})
-db.delete("city",{"CountryCode":'ARG', "Population":[0, 100000]})
-db.delete("city",{"Name":'Berazategui'})
-db.update("city",{"Population":297226}, {"Name":'Tigre'})
-
+db.insert("city",{"ID": 108, "Name": "Ituzaingó", "Population": 158197, "CountryCode": "ARG"})
+db.insert("city",{"ID": 109, "Name": "San Fernando", "Population": 153036, "CountryCode": "ARG"})
+db.insert("city",{"ID": 110, "Name": "Formosa", "Population": 147636, "CountryCode": "ARG"})
+db.insert("city",{"ID": 111, "Name": "Las Heras", "Population": 145823, "CountryCode": "ARG"})
 db.insert("city",{"ID": 112, "Name": "La Rioja", "Population": 138117, "CountryCode": "ARG"})
 db.insert("city",{"ID": 113, "Name": "San Fernando del Valle de Cata", "Population": 134935, "CountryCode": "ARG"})
 db.insert("city",{"ID": 114, "Name": "Río Cuarto", "Population": 134355, "CountryCode": "ARG"})
@@ -368,29 +305,8 @@ db.insert("city",{"ID": 197, "Name": "Oruro", "Population": 223553, "CountryCode
 db.insert("city",{"ID": 198, "Name": "Sucre", "Population": 178426, "CountryCode": "BOL"})
 db.insert("city",{"ID": 199, "Name": "Potosí", "Population": 140642, "CountryCode": "BOL"})
 db.insert("city",{"ID": 200, "Name": "Tarija", "Population": 125255, "CountryCode": "BOL"})
-db.insert("city",{"ID": 201, "Name": "Sarajevo", "Population": 360000, "CountryCode": "BIH"})
-db.insert("city",{"ID": 202, "Name": "Banja Luka", "Population": 143079, "CountryCode": "BIH"})
-db.insert("city",{"ID": 203, "Name": "Zenica", "Population": 96027, "CountryCode": "BIH"})
-db.insert("city",{"ID": 204, "Name": "Gaborone", "Population": 213017, "CountryCode": "BWA"})
-db.insert("city",{"ID": 205, "Name": "Francistown", "Population": 101805, "CountryCode": "BWA"})
-db.insert("city",{"ID": 206, "Name": "São Paulo", "Population": 9968485, "CountryCode": "BRA"})
-db.insert("city",{"ID": 207, "Name": "Rio de Janeiro", "Population": 5598953, "CountryCode": "BRA"})
-db.insert("city",{"ID": 208, "Name": "Salvador", "Population": 2302832, "CountryCode": "BRA"})
-db.insert("city",{"ID": 209, "Name": "Belo Horizonte", "Population": 2139125, "CountryCode": "BRA"})
-db.insert("city",{"ID": 210, "Name": "Fortaleza", "Population": 2097757, "CountryCode": "BRA"})
-db.insert("city",{"ID": 211, "Name": "Brasília", "Population": 1969868, "CountryCode": "BRA"})
 
 
-db.insert("city",{"ID": 1980, "Name": "Zhenjiang", "Population": 368316, "CountryCode": "CHN"})
-db.insert("city",{"ID": 1981, "Name": "Huaibei", "Population": 366549, "CountryCode": "CHN"})
-db.insert("city",{"ID": 1982, "Name": "Qinhuangdao", "Population": 364972, "CountryCode": "CHN"})
-db.insert("city",{"ID": 1983, "Name": "Guilin", "Population": 364130, "CountryCode": "CHN"})
-db.insert("city",{"ID": 1984, "Name": "Liupanshui", "Population": 363954, "CountryCode": "CHN"})
-db.insert("city",{"ID": 1985, "Name": "Panjin", "Population": 362773, "CountryCode": "CHN"})
-db.insert("city",{"ID": 1986, "Name": "Yangquan", "Population": 362268, "CountryCode": "CHN"})
-db.insert("city",{"ID": 1987, "Name": "Jinxi", "Population": 357052, "CountryCode": "CHN"})
-db.insert("city",{"ID": 1988, "Name": "Liaoyuan", "Population": 354141, "CountryCode": "CHN"})
-db.insert("city",{"ID": 1989, "Name": "Lianyungang", "Population": 354139, "CountryCode": "CHN"})
 db.insert("city",{"ID": 1990, "Name": "Xianyang", "Population": 352125, "CountryCode": "CHN"})
 db.insert("city",{"ID": 1991, "Name": "Tai´an", "Population": 350696, "CountryCode": "CHN"})
 db.insert("city",{"ID": 1992, "Name": "Chifeng", "Population": 350077, "CountryCode": "CHN"})
@@ -414,8 +330,13 @@ db.insert("city",{"ID": 2009, "Name": "Changde", "Population": 301276, "CountryC
 db.insert("city",{"ID": 2010, "Name": "Shihezi", "Population": 299676, "CountryCode": "CHN"})
 db.insert("city",{"ID": 3842, "Name": "Wichita", "Population": 344284, "CountryCode": "USA"})
 db.insert("city",{"ID": 3849, "Name": "Tampa", "Population": 303447, "CountryCode": "USA"})
-
-
+db.insert("city",{"ID": 3850, "Name": "Buffalo", "Population": 292648, "CountryCode": "USA"})
+db.insert("city",{"ID": 3851, "Name": "Saint Paul", "Population": 287151, "CountryCode": "USA"})
+db.insert("city",{"ID": 3852, "Name": "Corpus Christi", "Population": 277454, "CountryCode": "USA"})
+db.insert("city",{"ID": 3853, "Name": "Aurora", "Population": 276393, "CountryCode": "USA"})
+db.insert("city",{"ID": 3854, "Name": "Raleigh", "Population": 276093, "CountryCode": "USA"})
+db.insert("city",{"ID": 3855, "Name": "Newark", "Population": 273546, "CountryCode": "USA"})
+db.insert("city",{"ID": 3856, "Name": "Lexington-Fayette", "Population": 260512, "CountryCode": "USA"})
 
 
 db.delete("city",{"ID":3011})
@@ -429,20 +350,6 @@ db.delete("city",{"ID": 2001})
 db.delete("city",{"CountryCode":'USA', "Population":[0, 300000]})
 db.update("city",{"Population":240000}, {"ID":2})
 db.update("city",{"Population":310000}, {"Name":'Tampa'})
-
-
-db.delete("city",{"ID": 3013})
-db.delete("city",{"ID": 1993})
-db.delete("city",{"CountryCode":'USA', "Population":[0, 100000]})
-db.update("city",{"Population":283546}, {"ID":3855})
-db.update("city",{"Population":286393}, {"Name":'Aurora'})
-
-
-db.delete("city",{"ID": 3014})
-db.delete("city",{"ID": 1995})
-db.delete("city",{"CountryCode":'BOL', "Population":[0, 100000]})
-db.update("city",{"Population":283546}, {"ID":3856})
-db.update("city",{"Population":360043}, {"Name":'Shaoguan'})
 
 db.insert("countrylanguage",{"Language": "Dutch", "IsOfficial": "T", "Percentage": 5.3, "CountryCode": "ABW"})
 db.insert("countrylanguage",{"Language": "English", "IsOfficial": "F", "Percentage": 9.5, "CountryCode": "ABW"})
@@ -459,27 +366,18 @@ db.insert("countrylanguage",{"Language": "Kongo", "IsOfficial": "F", "Percentage
 db.insert("countrylanguage",{"Language": "Luchazi", "IsOfficial": "F", "Percentage": 2.4, "CountryCode": "AGO"})
 db.insert("countrylanguage",{"Language": "Luimbe-nganguela", "IsOfficial": "F", "Percentage": 5.4, "CountryCode": "AGO"})
 db.insert("countrylanguage",{"Language": "Luvale", "IsOfficial": "F", "Percentage": 3.6, "CountryCode": "AGO"})
-db.insert("countrylanguage",{"Language": "Mbundu", "IsOfficial": "F", "Percentage": 21.6, "CountryCode": "AGO"})
-db.insert("countrylanguage",{"Language": "Nyaneka-nkhumbi", "IsOfficial": "F", "Percentage": 5.4, "CountryCode": "AGO"})
+
+
 
 db.delete("countrylanguage",{"CountryCode":'AND'})
 db.delete("countrylanguage", {"Language":'Mbundu'})
 db.update("countrylanguage",{ "Percentage": 1.0}, {"Language":'English', "CountryCode":'AIA'})
 
+
+
 db.delete("countrylanguage",{"CountryCode":'AGO'})
 db.delete("countrylanguage", {"Language":'Luvale'})
 db.update("countrylanguage",{ "Percentage": 2.0}, {"Language":'Turkmenian', "CountryCode":'AFG'})
-
-
-db.delete("countrylanguage",{"CountryCode":'ABW'})
-db.delete("countrylanguage", {"Language":'Ovimbundu'})
-db.update("countrylanguage",{ "Percentage": 32.0}, {"Language":'Dari', "CountryCode":'AFG'})
-
-
-db.delete("countrylanguage",{"CountryCode":'ALB'})
-db.delete("countrylanguage",{"Language":'Chokwe'})
-db.update("countrylanguage",{"Percentage":32.0}, {"CountryCode":'AFG', "Language":'Pashto'})
-
 
 db.insert("countrylanguage",{"Language": "Dutch", "IsOfficial": "T", "Percentage": 0.0, "CountryCode": "ANT"})
 db.insert("countrylanguage",{"Language": "English", "IsOfficial": "F", "Percentage": 7.8, "CountryCode": "ANT"})
@@ -561,35 +459,13 @@ db.insert("countrylanguage",{"Language": "Ukrainian", "IsOfficial": "F", "Percen
 db.insert("countrylanguage",{"Language": "English", "IsOfficial": "T", "Percentage": 50.8, "CountryCode": "BLZ"})
 db.insert("countrylanguage",{"Language": "Garifuna", "IsOfficial": "F", "Percentage": 6.8, "CountryCode": "BLZ"})
 db.insert("countrylanguage",{"Language": "Maya Languages", "IsOfficial": "F", "Percentage": 9.6, "CountryCode": "BLZ"})
-db.insert("countrylanguage",{"Language": "Spanish", "IsOfficial": "F", "Percentage": 31.6, "CountryCode": "BLZ"})
-db.insert("countrylanguage",{"Language": "English", "IsOfficial": "T", "Percentage": 100.0, "CountryCode": "BMU"})
-db.insert("countrylanguage",{"Language": "Aimará", "IsOfficial": "T", "Percentage": 3.2, "CountryCode": "BOL"})
-db.insert("countrylanguage",{"Language": "Guaraní", "IsOfficial": "F", "Percentage": 0.1, "CountryCode": "BOL"})
-db.insert("countrylanguage",{"Language": "Ketšua", "IsOfficial": "T", "Percentage": 8.1, "CountryCode": "BOL"})
-db.insert("countrylanguage",{"Language": "Spanish", "IsOfficial": "T", "Percentage": 87.7, "CountryCode": "BOL"})
 
 
 db.delete("countrylanguage", {"CountryCode":'BRA'})
 
 db.delete("countrylanguage", {"CountryCode":'BLZ'})
 
-db.delete("countrylanguage", {"CountryCode":'BOL'})
 
-
-db.delete("countrylanguage", {"CountryCode":'BGR'})
-
-
-
-db.insert("countrylanguage",{"Language": "Bajan", "IsOfficial": "F", "Percentage": 95.1, "CountryCode": "BRB"})
-db.insert("countrylanguage",{"Language": "English", "IsOfficial": "T", "Percentage": 0.0, "CountryCode": "BRB"})
-db.insert("countrylanguage",{"Language": "Chinese", "IsOfficial": "F", "Percentage": 9.3, "CountryCode": "BRN"})
-db.insert("countrylanguage",{"Language": "English", "IsOfficial": "F", "Percentage": 3.1, "CountryCode": "BRN"})
-db.insert("countrylanguage",{"Language": "Malay", "IsOfficial": "T", "Percentage": 45.5, "CountryCode": "BRN"})
-db.insert("countrylanguage",{"Language": "Malay-English", "IsOfficial": "F", "Percentage": 28.8, "CountryCode": "BRN"})
-db.insert("countrylanguage",{"Language": "Asami", "IsOfficial": "F", "Percentage": 15.2, "CountryCode": "BTN"})
-db.insert("countrylanguage",{"Language": "Dzongkha", "IsOfficial": "T", "Percentage": 50.0, "CountryCode": "BTN"})
-db.insert("countrylanguage",{"Language": "Nepali", "IsOfficial": "F", "Percentage": 34.8, "CountryCode": "BTN"})
-db.insert("countrylanguage",{"Language": "Khoekhoe", "IsOfficial": "F", "Percentage": 2.5, "CountryCode": "BWA"})
 db.insert("countrylanguage",{"Language": "Ndebele", "IsOfficial": "F", "Percentage": 1.3, "CountryCode": "BWA"})
 db.insert("countrylanguage",{"Language": "San", "IsOfficial": "F", "Percentage": 3.5, "CountryCode": "BWA"})
 db.insert("countrylanguage",{"Language": "Shona", "IsOfficial": "F", "Percentage": 12.3, "CountryCode": "BWA"})
@@ -630,6 +506,8 @@ db.insert("countrylanguage",{"Language": "Miao", "IsOfficial": "F", "Percentage"
 db.insert("countrylanguage",{"Language": "Mongolian", "IsOfficial": "F", "Percentage": 0.4, "CountryCode": "CHN"})
 db.insert("countrylanguage",{"Language": "Puyi", "IsOfficial": "F", "Percentage": 0.2, "CountryCode": "CHN"})
 db.insert("countrylanguage",{"Language": "Tibetan", "IsOfficial": "F", "Percentage": 0.4, "CountryCode": "CHN"})
+db.insert("countrylanguage",{"Language": "Tujia", "IsOfficial": "F", "Percentage": 0.5, "CountryCode": "CHN"})
+db.insert("countrylanguage",{"Language": "Uighur", "IsOfficial": "F", "Percentage": 0.6, "CountryCode": "CHN"})
 
 
 db.update("countrylanguage", {"Percentage": 91.8}, {"CountryCode":'CHN', "Language":'Chinese'})
@@ -640,12 +518,6 @@ db.update("countrylanguage", {"Percentage": 8.0}, {"CountryCode":'CHE', "Languag
 db.delete("countrylanguage", {"CountryCode":'CAN', "Language":'Spanish'})
 
 
-db.update("countrylanguage", {"Percentage": 0.8}, {"CountryCode":'CAN', "Language":'Ukrainian'})
-db.delete("countrylanguage", {"CountryCode":'CAN', "Language":'Portuguese'})
-
-
-db.update("countrylanguage", {"Percentage": 0.1}, {"CountryCode":'CCk', "Language":'Malay'})
-db.delete("countrylanguage", {"CountryCode":'BTN', "Language":'Nepali'})
 
 
 # Example for few shots:

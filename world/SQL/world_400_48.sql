@@ -58,18 +58,13 @@ INSERT INTO `city` VALUES (4,'Mazar-e-Sharif','AFG','Balkh',127800);
 INSERT INTO `city` VALUES (33,'Willemstad','ANT','Curaçao',2345);
 INSERT INTO `city` VALUES (34,'Tirana','ALB','Tirana',270000);
 
-INSERT INTO `city` VALUES (45,'Béjaïa','DZA','Béjaïa',117162);
-INSERT INTO `city` VALUES (46,'Mostaganem','DZA','Mostaganem',115212);
-INSERT INTO `city` VALUES (47,'Tébessa','DZA','Tébessa',112007);
-INSERT INTO `city` VALUES (48,'Tlemcen (Tilimsen)','DZA','Tlemcen',110242);
+INSERT INTO `city` VALUES (37,'Constantine','DZA','Constantine',443727);
+INSERT INTO `city` VALUES (38,'Annaba','DZA','Annaba',222518);
+INSERT INTO `city` VALUES (39,'Batna','DZA','Batna',183377);
+INSERT INTO `city` VALUES (40,'Sétif','DZA','Sétif',179055);
+INSERT INTO `city` VALUES (41,'Sidi Bel Abbès','DZA','Sidi Bel Abbès',153106);
 
-INSERT INTO `city` VALUES (51,'Ech-Chleff (el-Asnam)','DZA','Chlef',96794);
-INSERT INTO `city` VALUES (52,'Ghardaïa','DZA','Ghardaïa',89415);
-INSERT INTO `city` VALUES (53,'Tafuna','ASM','Tutuila',5200);
-INSERT INTO `city` VALUES (54,'Fagatogo','ASM','Tutuila',2323);
-INSERT INTO `city` VALUES (55,'Andorra la Vella','AND','Andorra la Vella',21189);
-INSERT INTO `city` VALUES (56,'Luanda','AGO','Luanda',2022000);
-INSERT INTO `city` VALUES (57,'Huambo','AGO','Huambo',163100);
+
 
 
 DELETE FROM `city` WHERE `ID` = 10;
@@ -79,42 +74,24 @@ DELETE FROM `city` WHERE `CountryCode` = 'DZA' and `Population` < 150000;
 Update `city` set `Population` = 100300 where `ID` = 50;
 Update `city` set `Population` = 117200 where `Name` = 'Béjaïa';
 
-DELETE FROM `city` WHERE `ID` = 11;
-DELETE FROM `city` WHERE `ID` = 41;
-DELETE FROM `city` WHERE `CountryCode` = 'ALB';
-DELETE FROM `city` WHERE `CountryCode` = 'AFG' and `Population` > 200000;
-Update `city` set `Population` = 610000 where `ID` = 36;
-Update `city` set `Population` = 120000 where `Name` = 'Mostaganem';
-
-DELETE FROM `city` WHERE `ID` = 51;
-DELETE FROM `city` WHERE `ID` = 52;
-DELETE FROM `city` WHERE `CountryCode` = 'ATG';
-DELETE FROM `city` WHERE `CountryCode` = 'AGO' and `Population` < 200000;
-Update `city` set `Population` = 119200 where `ID` = 60;
-Update `city` set `Population` = 679181 where `Name` = 'Dubai';
-
-DELETE FROM `city` WHERE `ID` = 53;
-DELETE FROM `city` WHERE `ID` = 56;
-DELETE FROM `city` WHERE `CountryCode` = 'AIA';
-DELETE FROM `city` WHERE `CountryCode` = 'DZA' and `Population` < 100000;
-Update `city` set `Population` = 25000 where `ID` = 63;
-Update `city` set `Population` = 140000 where `Name` = 'Lobito';
-
-DELETE FROM `city` WHERE `ID` = 61;
-DELETE FROM `city` WHERE `ID` = 62;
-DELETE FROM `city` WHERE `CountryCode` = 'ATG';
-DELETE FROM `city` WHERE `CountryCode` = 'AFG' and `Population` < 100000;
-Update `city` set `Population` = 25000 where `ID` = 63;
-Update `city` set `Population` = 6000 where `Name` = 'Tafuna';
-
-DELETE FROM `city` WHERE `ID` = 201;
-DELETE FROM `city` WHERE `ID` = 202;
-DELETE FROM `city` WHERE `CountryCode` = 'AGO';
-DELETE FROM `city` WHERE `CountryCode` = 'ARG' and `Population` < 200000;
-Update `city` set `Population` = 377550 where `ID` = 83;
-Update `city` set `Population` = 363063 where `Name` = 'Santa Fé';
 
 
+
+
+
+
+INSERT INTO `city` VALUES (60,'Namibe','AGO','Namibe',118200);
+INSERT INTO `city` VALUES (61,'South Hill','AIA','–',961);
+INSERT INTO `city` VALUES (62,'The Valley','AIA','–',595);
+INSERT INTO `city` VALUES (63,'Saint John´s','ATG','St John',24000);
+INSERT INTO `city` VALUES (64,'Dubai','ARE','Dubai',669181);
+
+INSERT INTO `city` VALUES (82,'Salta','ARG','Salta',367550);
+INSERT INTO `city` VALUES (83,'Moreno','ARG','Buenos Aires',356993);
+INSERT INTO `city` VALUES (84,'Santa Fé','ARG','Santa Fé',353063);
+INSERT INTO `city` VALUES (85,'Avellaneda','ARG','Buenos Aires',353046);
+INSERT INTO `city` VALUES (86,'Tres de Febrero','ARG','Buenos Aires',352311);
+INSERT INTO `city` VALUES (87,'Morón','ARG','Buenos Aires',349246);
 
 INSERT INTO `city` VALUES (90,'Tigre','ARG','Buenos Aires',296226);
 INSERT INTO `city` VALUES (91,'Malvinas Argentinas','ARG','Buenos Aires',290335);
@@ -122,7 +99,11 @@ INSERT INTO `city` VALUES (92,'Vicente López','ARG','Buenos Aires',288341);
 INSERT INTO `city` VALUES (93,'Berazategui','ARG','Buenos Aires',276916);
 INSERT INTO `city` VALUES (94,'Corrientes','ARG','Corrientes',258103);
 INSERT INTO `city` VALUES (95,'San Miguel','ARG','Buenos Aires',248700);
-
+INSERT INTO `city` VALUES (96,'Bahía Blanca','ARG','Buenos Aires',239810);
+INSERT INTO `city` VALUES (97,'Esteban Echeverría','ARG','Buenos Aires',235760);
+INSERT INTO `city` VALUES (98,'Resistencia','ARG','Chaco',229212);
+INSERT INTO `city` VALUES (99,'José C. Paz','ARG','Buenos Aires',221754);
+INSERT INTO `city` VALUES (100,'Paraná','ARG','Entre Rios',207041);
 
 DELETE FROM `city` WHERE `ID` = 90;
 DELETE FROM `city` WHERE `ID` = 2;
@@ -136,31 +117,21 @@ DELETE FROM `city` WHERE `CountryCode` = 'ARG' and `Population` < 300000;
 DELETE FROM `city` WHERE `NAME` = 'Bahía Blanca';
 Update `city` set `Population` = 237000 where `Name` = 'José C. Paz';
 
-DELETE FROM `city` WHERE `ID` = 95;
-DELETE FROM `city` WHERE `ID` = 4;
-DELETE FROM `city` WHERE `CountryCode` = 'ARG' and `Population` < 150000;
-DELETE FROM `city` WHERE `NAME` = 'Esteban Echeverría';
-Update `city` set `Population` = 349546 where `Name` = 'Morón';
 
-DELETE FROM `city` WHERE `ID` = 96;
-DELETE FROM `city` WHERE `ID` = 5;
-DELETE FROM `city` WHERE `CountryCode` = 'ARG' and `Population` < 100000;
-DELETE FROM `city` WHERE `NAME` = 'Berazategui';
-Update `city` set `Population` = 297226 where `Name` = 'Tigre';
-
-DELETE FROM `city` WHERE `ID` = 87;
-DELETE FROM `city` WHERE `ID` = 6;
-DELETE FROM `city` WHERE `CountryCode` = 'ARG' and `Population` < 80000;
-DELETE FROM `city` WHERE `NAME` = 'Corrientes';
-Update `city` set `Population` = 187800 where `Name` = 'Herat';
-
-DELETE FROM `city` WHERE `ID` = 88;
-DELETE FROM `city` WHERE `ID` = 7;
-DELETE FROM `city` WHERE `CountryCode` = 'ARG' and `Population` < 60000;
-DELETE FROM `city` WHERE `NAME` = 'Pilar';
-Update `city` set `Population` = 188800 where `Name` = 'Herat';
-
-
+INSERT INTO `city` VALUES (108,'Ituzaingó','ARG','Buenos Aires',158197);
+INSERT INTO `city` VALUES (109,'San Fernando','ARG','Buenos Aires',153036);
+INSERT INTO `city` VALUES (110,'Formosa','ARG','Formosa',147636);
+INSERT INTO `city` VALUES (111,'Las Heras','ARG','Mendoza',145823);
+INSERT INTO `city` VALUES (112,'La Rioja','ARG','La Rioja',138117);
+INSERT INTO `city` VALUES (113,'San Fernando del Valle de Cata','ARG','Catamarca',134935);
+INSERT INTO `city` VALUES (114,'Río Cuarto','ARG','Córdoba',134355);
+INSERT INTO `city` VALUES (115,'Comodoro Rivadavia','ARG','Chubut',124104);
+INSERT INTO `city` VALUES (116,'Mendoza','ARG','Mendoza',123027);
+INSERT INTO `city` VALUES (117,'San Nicolás de los Arroyos','ARG','Buenos Aires',119302);
+INSERT INTO `city` VALUES (118,'San Juan','ARG','San Juan',119152);
+INSERT INTO `city` VALUES (119,'Escobar','ARG','Buenos Aires',116675);
+INSERT INTO `city` VALUES (120,'Concordia','ARG','Entre Rios',116485);
+INSERT INTO `city` VALUES (121,'Pilar','ARG','Buenos Aires',113428);
 INSERT INTO `city` VALUES (122,'San Luis','ARG','San Luis',110136);
 INSERT INTO `city` VALUES (123,'Ezeiza','ARG','Buenos Aires',99578);
 INSERT INTO `city` VALUES (124,'San Rafael','ARG','Mendoza',94651);
@@ -240,24 +211,9 @@ INSERT INTO `city` VALUES (197,'Oruro','BOL','Oruro',223553);
 INSERT INTO `city` VALUES (198,'Sucre','BOL','Chuquisaca',178426);
 INSERT INTO `city` VALUES (199,'Potosí','BOL','Potosí',140642);
 INSERT INTO `city` VALUES (200,'Tarija','BOL','Tarija',125255);
-INSERT INTO `city` VALUES (201,'Sarajevo','BIH','Federaatio',360000);
-INSERT INTO `city` VALUES (202,'Banja Luka','BIH','Republika Srpska',143079);
-INSERT INTO `city` VALUES (203,'Zenica','BIH','Federaatio',96027);
-INSERT INTO `city` VALUES (204,'Gaborone','BWA','Gaborone',213017);
-INSERT INTO `city` VALUES (205,'Francistown','BWA','Francistown',101805);
-INSERT INTO `city` VALUES (206,'São Paulo','BRA','São Paulo',9968485);
 
 
-INSERT INTO `city` VALUES (1980,'Zhenjiang','CHN','Jiangsu',368316);
-INSERT INTO `city` VALUES (1981,'Huaibei','CHN','Anhui',366549);
-INSERT INTO `city` VALUES (1982,'Qinhuangdao','CHN','Hebei',364972);
-INSERT INTO `city` VALUES (1983,'Guilin','CHN','Guangxi',364130);
-INSERT INTO `city` VALUES (1984,'Liupanshui','CHN','Guizhou',363954);
-INSERT INTO `city` VALUES (1985,'Panjin','CHN','Liaoning',362773);
-INSERT INTO `city` VALUES (1986,'Yangquan','CHN','Shanxi',362268);
-INSERT INTO `city` VALUES (1987,'Jinxi','CHN','Liaoning',357052);
-INSERT INTO `city` VALUES (1988,'Liaoyuan','CHN','Jilin',354141);
-INSERT INTO `city` VALUES (1989,'Lianyungang','CHN','Jiangsu',354139);
+
 INSERT INTO `city` VALUES (1990,'Xianyang','CHN','Shaanxi',352125);
 INSERT INTO `city` VALUES (1991,'Tai´an','CHN','Shandong',350696);
 INSERT INTO `city` VALUES (1992,'Chifeng','CHN','Inner Mongolia',350077);
@@ -276,7 +232,18 @@ INSERT INTO `city` VALUES (2004,'Dongwan','CHN','Guangdong',308669);
 INSERT INTO `city` VALUES (2005,'Ma´anshan','CHN','Anhui',305421);
 INSERT INTO `city` VALUES (2006,'Foshan','CHN','Guangdong',303160);
 INSERT INTO `city` VALUES (2007,'Yueyang','CHN','Hunan',302800);
-
+INSERT INTO `city` VALUES (2008,'Xingtai','CHN','Hebei',302789);
+INSERT INTO `city` VALUES (2009,'Changde','CHN','Hunan',301276);
+INSERT INTO `city` VALUES (2010,'Shihezi','CHN','Xinxiang',299676);
+INSERT INTO `city` VALUES (3842,'Wichita','USA','Kansas',344284);
+INSERT INTO `city` VALUES (3849,'Tampa','USA','Florida',303447);
+INSERT INTO `city` VALUES (3850,'Buffalo','USA','New York',292648);
+INSERT INTO `city` VALUES (3851,'Saint Paul','USA','Minnesota',287151);
+INSERT INTO `city` VALUES (3852,'Corpus Christi','USA','Texas',277454);
+INSERT INTO `city` VALUES (3853,'Aurora','USA','Colorado',276393);
+INSERT INTO `city` VALUES (3854,'Raleigh','USA','North Carolina',276093);
+INSERT INTO `city` VALUES (3855,'Newark','USA','New Jersey',273546);
+INSERT INTO `city` VALUES (3856,'Lexington-Fayette','USA','Kentucky',260512);
 
 
 DELETE FROM `city` WHERE `ID` = 3011;
@@ -291,30 +258,6 @@ DELETE FROM `city` WHERE `ID` = 2001;
 DELETE FROM `city` WHERE `CountryCode` = 'USA' and `Population` < 300000;
 Update `city` set `Population` = 240000 where `ID` = 2;
 Update `city` set `Population` = 310000 where `Name` = 'Tampa';
-
-DELETE FROM `city` WHERE `ID` = 3013;
-DELETE FROM `city` WHERE `ID` = 1993;
-DELETE FROM `city` WHERE `CountryCode` = 'USA' and `Population` < 100000;
-Update `city` set `Population` = 283546 where `ID` = 3855;
-Update `city` set `Population` = 286393 where `Name` = 'Aurora';
-
-DELETE FROM `city` WHERE `ID` = 3014;
-DELETE FROM `city` WHERE `ID` = 1995;
-DELETE FROM `city` WHERE `CountryCode` = 'BOL' and `Population` < 100000;
-Update `city` set `Population` = 283546 where `ID` = 3856;
-Update `city` set `Population` = 360043 where `Name` = 'Shaoguan';
-
-DELETE FROM `city` WHERE `ID` = 3015;
-DELETE FROM `city` WHERE `ID` = 1996;
-DELETE FROM `city` WHERE `CountryCode` = 'BOL' and `Population` > 300000;
-Update `city` set `Population` = 283546 where `ID` = 3860;
-Update `city` set `Population` = 362125 where `Name` = 'Xianyang';
-
-DELETE FROM `city` WHERE `ID` = 3025;
-DELETE FROM `city` WHERE `ID` = 2006;
-DELETE FROM `city` WHERE `CountryCode` = 'BOL' and `Population` > 350000;
-Update `city` set `Population` = 293546 where `ID` = 3860;
-Update `city` set `Population` = 372125 where `Name` = 'Xianyang';
 
 commit;
 
@@ -407,6 +350,8 @@ INSERT INTO `country` VALUES ('CXR','Christmas Island','Oceania','Australia and 
 INSERT INTO `country` VALUES ('CYM','Cayman Islands','North America','Caribbean',264.00,NULL,38000,78.9,1263.00,1186.00,'Cayman Islands','Dependent Territory of the UK','Elisabeth II',553,'KY');
 INSERT INTO `country` VALUES ('CYP','Cyprus','Asia','Middle East',9251.00,1960,754700,76.7,9333.00,8246.00,'Kýpros/Kibris','Republic','Glafkos Klerides',2430,'CY');
 INSERT INTO `country` VALUES ('CZE','Czech Republic','Europe','Eastern Europe',78866.00,1993,10278100,74.5,55017.00,52037.00,'¸esko','Republic','Václav Havel',3339,'CZ');
+INSERT INTO `country` VALUES ('DEU','Germany','Europe','Western Europe',357022.00,1955,82164700,77.4,2133367.00,2102826.00,'Deutschland','Federal Republic','Johannes Rau',3068,'DE');
+INSERT INTO `country` VALUES ('DJI','Djibouti','Africa','Eastern Africa',23200.00,1977,638000,50.8,382.00,373.00,'Djibouti/Jibuti','Republic','Ismail Omar Guelleh',585,'DJ');
 
 DELETE FROM `country` WHERE `Code` = 'DOM';
 DELETE FROM `country` WHERE `Code` = 'DJI';
@@ -414,22 +359,23 @@ DELETE FROM `country` WHERE `Code` = 'DJI';
 DELETE FROM `country` WHERE `Code` = 'CYM';
 DELETE FROM `country` WHERE `Code` = 'CUB';
 
-DELETE FROM `country` WHERE `Code` = 'CXR';
-DELETE FROM `country` WHERE `Code` = 'CRI';
 
-DELETE FROM `country` WHERE `Code` = 'COL';
-DELETE FROM `country` WHERE `Code` = 'COM';
-
-DELETE FROM `country` WHERE `Code` = 'DNK';
-DELETE FROM `country` WHERE `Code` = 'DMA';
-
-DELETE FROM `country` WHERE `Code` = 'CYP';
-DELETE FROM `country` WHERE `Code` = 'CPV';
-
-
-INSERT INTO `country` VALUES ('ESP','Spain','Europe','Southern Europe',505992.00,1492,39441700,78.8,553233.00,532031.00,'España','Constitutional Monarchy','Juan Carlos I',653,'ES');
-INSERT INTO `country` VALUES ('EST','Estonia','Europe','Baltic Countries',45227.00,1991,1439200,69.5,5328.00,3371.00,'Eesti','Republic','Lennart Meri',3791,'EE');
-
+INSERT INTO `country` VALUES ('GHA','Ghana','Africa','Western Africa',238533.00,1957,20212000,57.4,7137.00,6884.00,'Ghana','Republic','John Kufuor',910,'GH');
+INSERT INTO `country` VALUES ('GIB','Gibraltar','Europe','Southern Europe',6.00,NULL,25000,79.0,258.00,NULL,'Gibraltar','Dependent Territory of the UK','Elisabeth II',915,'GI');
+INSERT INTO `country` VALUES ('GIN','Guinea','Africa','Western Africa',245857.00,1958,7430000,45.6,2352.00,2383.00,'Guinée','Republic','Lansana Conté',926,'GN');
+INSERT INTO `country` VALUES ('GLP','Guadeloupe','North America','Caribbean',1705.00,NULL,456000,77.0,3501.00,NULL,'Guadeloupe','Overseas Department of France','Jacques Chirac',919,'GP');
+INSERT INTO `country` VALUES ('GMB','Gambia','Africa','Western Africa',11295.00,1965,1305000,53.2,320.00,325.00,'The Gambia','Republic','Yahya Jammeh',904,'GM');
+INSERT INTO `country` VALUES ('GNB','Guinea-Bissau','Africa','Western Africa',36125.00,1974,1213000,49.0,293.00,272.00,'Guiné-Bissau','Republic','Kumba Ialá',927,'GW');
+INSERT INTO `country` VALUES ('GNQ','Equatorial Guinea','Africa','Central Africa',28051.00,1968,453000,53.6,283.00,542.00,'Guinea Ecuatorial','Republic','Teodoro Obiang Nguema Mbasogo',2972,'GQ');
+INSERT INTO `country` VALUES ('GRC','Greece','Europe','Southern Europe',131626.00,1830,10545700,78.4,120724.00,119946.00,'Elláda','Republic','Kostis Stefanopoulos',2401,'GR');
+INSERT INTO `country` VALUES ('GRD','Grenada','North America','Caribbean',344.00,1974,94000,64.5,318.00,NULL,'Grenada','Constitutional Monarchy','Elisabeth II',916,'GD');
+INSERT INTO `country` VALUES ('GRL','Greenland','North America','North America',2166090.00,NULL,56000,68.1,0.00,NULL,'Kalaallit Nunaat/Grønland','Part of Denmark','Margrethe II',917,'GL');
+INSERT INTO `country` VALUES ('GTM','Guatemala','North America','Central America',108889.00,1821,11385000,66.2,19008.00,17797.00,'Guatemala','Republic','Alfonso Portillo Cabrera',922,'GT');
+INSERT INTO `country` VALUES ('GUF','French Guiana','South America','South America',90000.00,NULL,181000,76.1,681.00,NULL,'Guyane française','Overseas Department of France','Jacques Chirac',3014,'GF');
+INSERT INTO `country` VALUES ('GUM','Guam','Oceania','Micronesia',549.00,NULL,168000,77.8,1197.00,1136.00,'Guam','US Territory','George W. Bush',921,'GU');
+INSERT INTO `country` VALUES ('GUY','Guyana','South America','South America',214969.00,1966,861000,64.0,722.00,743.00,'Guyana','Republic','Bharrat Jagdeo',928,'GY');
+INSERT INTO `country` VALUES ('HKG','Hong Kong','Asia','Eastern Asia',1075.00,NULL,6782000,79.5,166448.00,173610.00,'Xianggang/Hong Kong','Special Administrative Region of China','Jiang Zemin',937,'HK');
+INSERT INTO `country` VALUES ('HMD','Heard Island and McDonald Islands','Antarctica','Antarctica',359.00,NULL,0,NULL,0.00,NULL,'Heard and McDonald Islands','Territory of Australia','Elisabeth II',NULL,'HM');
 INSERT INTO `country` VALUES ('HND','Honduras','North America','Central America',112088.00,1838,6485000,69.9,5333.00,4697.00,'Honduras','Republic','Carlos Roberto Flores Facussé',933,'HN');
 INSERT INTO `country` VALUES ('HRV','Croatia','Europe','Southern Europe',56538.00,1991,4473000,73.7,20208.00,19300.00,'Hrvatska','Republic','Štipe Mesic',2409,'HR');
 INSERT INTO `country` VALUES ('HTI','Haiti','North America','Caribbean',27750.00,1804,8222000,49.2,3459.00,3107.00,'Haïti/Dayti','Republic','Jean-Bertrand Aristide',929,'HT');
@@ -455,41 +401,6 @@ DELETE FROM `country` WHERE `Name` = 'Honduras';
 UPDATE `country` SET `Population` = 126724000 WHERE `Code` = 'JPN';
 UPDATE `country` SET `LifeExpectancy` = 65 WHERE `Code` = 'IND';  
 
-DELETE FROM `country` WHERE `Code` = 'HRV';
-DELETE FROM `country` WHERE `Code` = 'GUY';
-DELETE FROM `country` WHERE `Name` = 'Guinea-Bissau';
-DELETE FROM `country` WHERE `Name` = 'Micronesia';
-UPDATE `country` SET `Population` = 39441800 WHERE `Code` = 'ESP';
-UPDATE `country` SET `LifeExpectancy` = 66 WHERE `Code` = 'IND';  
-
-DELETE FROM `country` WHERE `Code` = 'HTI';
-DELETE FROM `country` WHERE `Code` = 'HMD';
-DELETE FROM `country` WHERE `Name` = 'Greece';
-DELETE FROM `country` WHERE `Name` = 'Fiji Islands';
-UPDATE `country` SET `Population` = 24115000 WHERE `Code` = 'IRQ';
-UPDATE `country` SET `LifeExpectancy` = 70 WHERE `Code` = 'IND';  
-
-DELETE FROM `country` WHERE `Code` = 'GTM';
-DELETE FROM `country` WHERE `Code` = 'GUF';
-DELETE FROM `country` WHERE `Name` = 'Iceland';
-DELETE FROM `country` WHERE `Name` = 'Iraq';
-UPDATE `country` SET `Population` = 24115000 WHERE `Code` = 'IRN';
-UPDATE `country` SET `LifeExpectancy` = 72 WHERE `Code` = 'IND';  
-
-
-DELETE FROM `country` WHERE `Code` = 'HUN';
-DELETE FROM `country` WHERE `Code` = 'GNB';
-DELETE FROM `country` WHERE `Name` = 'Hong Kong';
-DELETE FROM `country` WHERE `Name` = 'Iraq';
-UPDATE `country` SET `Population` = 24135000 WHERE `Code` = 'IRN';
-UPDATE `country` SET `LifeExpectancy` = 73 WHERE `Code` = 'IND';  
-
-DELETE FROM `country` WHERE `Code` = 'GUM';
-DELETE FROM `country` WHERE `Code` = 'GNB';
-DELETE FROM `country` WHERE `Name` = 'Iran';
-DELETE FROM `country` WHERE `Name` = 'Iraq';
-UPDATE `country` SET `Population` = 24235000 WHERE `Code` = 'IRN';
-UPDATE `country` SET `LifeExpectancy` = 74 WHERE `Code` = 'IND';  
 
 
 
@@ -533,6 +444,7 @@ INSERT INTO `countrylanguage` VALUES ('AGO','Chokwe','F',4.2);
 INSERT INTO `countrylanguage` VALUES ('AGO','Kongo','F',13.2);
 INSERT INTO `countrylanguage` VALUES ('AGO','Luchazi','F',2.4);
 INSERT INTO `countrylanguage` VALUES ('AGO','Luimbe-nganguela','F',5.4);
+INSERT INTO `countrylanguage` VALUES ('AGO','Luvale','F',3.6);
 
 
 
@@ -544,23 +456,9 @@ DELETE FROM `countrylanguage` WHERE `CountryCode` = 'AGO';
 DELETE FROM `countrylanguage` WHERE `Language` = 'Luvale';
 UPDATE `countrylanguage` SET `Percentage` = 2.0 WHERE `CountryCode` = 'AFG' AND `Language` = 'Turkmenian';
 
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'ABW';
-DELETE FROM `countrylanguage` WHERE `Language` = 'Ovimbundu';
-UPDATE `countrylanguage` SET `Percentage` = 32.0 WHERE `CountryCode` = 'AFG' AND `Language` = 'Dari';
-
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'ALB';
-DELETE FROM `countrylanguage` WHERE `Language` = 'Chokwe';
-UPDATE `countrylanguage` SET `Percentage` = 32.0 WHERE `CountryCode` = 'AFG' AND `Language` = 'Pashto';
-
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'ANT';
-DELETE FROM `countrylanguage` WHERE `Language` = 'Spanish';
-UPDATE `countrylanguage` SET `Percentage` = 33.0 WHERE `CountryCode` = 'AFG' AND `Language` = 'Pashto';
-
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'ARE';
-DELETE FROM `countrylanguage` WHERE `Language` = 'Dutch';
-UPDATE `countrylanguage` SET `Percentage` = 33.0 WHERE `CountryCode` = 'ARM' AND `Language` = 'Azerbaijani';
-
-
+INSERT INTO `countrylanguage` VALUES ('ANT','Dutch','T',0.0);
+INSERT INTO `countrylanguage` VALUES ('ANT','English','F',7.8);
+INSERT INTO `countrylanguage` VALUES ('ANT','Papiamento','T',86.2);
 INSERT INTO `countrylanguage` VALUES ('ARE','Arabic','T',42.0);
 INSERT INTO `countrylanguage` VALUES ('ARE','Hindi','F',0.0);
 INSERT INTO `countrylanguage` VALUES ('ARG','Indian Languages','F',0.3);
@@ -638,35 +536,13 @@ INSERT INTO `countrylanguage` VALUES ('BLR','Ukrainian','F',1.3);
 INSERT INTO `countrylanguage` VALUES ('BLZ','English','T',50.8);
 INSERT INTO `countrylanguage` VALUES ('BLZ','Garifuna','F',6.8);
 INSERT INTO `countrylanguage` VALUES ('BLZ','Maya Languages','F',9.6);
-INSERT INTO `countrylanguage` VALUES ('BLZ','Spanish','F',31.6);
-INSERT INTO `countrylanguage` VALUES ('BMU','English','T',100.0);
-INSERT INTO `countrylanguage` VALUES ('BOL','Aimará','T',3.2);
-INSERT INTO `countrylanguage` VALUES ('BOL','Guaraní','F',0.1);
-
 
 
 DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BRA';
 
 DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BLZ';
 
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BOL';
 
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BGR';
-
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BRB';
-
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BRN';
-
-INSERT INTO `countrylanguage` VALUES ('BRB','Bajan','F',95.1);
-INSERT INTO `countrylanguage` VALUES ('BRB','English','T',0.0);
-INSERT INTO `countrylanguage` VALUES ('BRN','Chinese','F',9.3);
-INSERT INTO `countrylanguage` VALUES ('BRN','English','F',3.1);
-INSERT INTO `countrylanguage` VALUES ('BRN','Malay','T',45.5);
-INSERT INTO `countrylanguage` VALUES ('BRN','Malay-English','F',28.8);
-INSERT INTO `countrylanguage` VALUES ('BTN','Asami','F',15.2);
-INSERT INTO `countrylanguage` VALUES ('BTN','Dzongkha','T',50.0);
-INSERT INTO `countrylanguage` VALUES ('BTN','Nepali','F',34.8);
-INSERT INTO `countrylanguage` VALUES ('BWA','Khoekhoe','F',2.5);
 INSERT INTO `countrylanguage` VALUES ('BWA','Ndebele','F',1.3);
 INSERT INTO `countrylanguage` VALUES ('BWA','San','F',3.5);
 INSERT INTO `countrylanguage` VALUES ('BWA','Shona','F',12.3);
@@ -703,9 +579,12 @@ INSERT INTO `countrylanguage` VALUES ('CHN','Chinese','T',92.0);
 INSERT INTO `countrylanguage` VALUES ('CHN','Dong','F',0.2);
 INSERT INTO `countrylanguage` VALUES ('CHN','Hui','F',0.8);
 INSERT INTO `countrylanguage` VALUES ('CHN','Mantšu','F',0.9);
-
-
-
+INSERT INTO `countrylanguage` VALUES ('CHN','Miao','F',0.7);
+INSERT INTO `countrylanguage` VALUES ('CHN','Mongolian','F',0.4);
+INSERT INTO `countrylanguage` VALUES ('CHN','Puyi','F',0.2);
+INSERT INTO `countrylanguage` VALUES ('CHN','Tibetan','F',0.4);
+INSERT INTO `countrylanguage` VALUES ('CHN','Tujia','F',0.5);
+INSERT INTO `countrylanguage` VALUES ('CHN','Uighur','F',0.6);
 
 
 UPDATE `countrylanguage` SET `Percentage` = 91.8 WHERE `CountryCode` = 'CHN' AND `Language` = 'Chinese';
@@ -713,18 +592,6 @@ DELETE FROM `countrylanguage` WHERE `CountryCode` = 'CAN' AND `Language` = 'Ital
 
 UPDATE `countrylanguage` SET `Percentage` = 8.0 WHERE `CountryCode` = 'CHE' AND `Language` = 'Italian';
 DELETE FROM `countrylanguage` WHERE `CountryCode` = 'CAN' AND `Language` = 'Spanish';
-
-UPDATE `countrylanguage` SET `Percentage` = 0.8 WHERE `CountryCode` = 'CAN' AND `Language` = 'Ukrainian';
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'CAN' AND `Language` = 'Portuguese';
-
-UPDATE `countrylanguage` SET `Percentage` = 0.1 WHERE `CountryCode` = 'CCK' AND `Language` = 'Malay';
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BTN' AND `Language` = 'Nepali';
-
-UPDATE `countrylanguage` SET `Percentage` = 0.2 WHERE `CountryCode` = 'CCK' AND `Language` = 'Malay';
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BWA' AND `Language` = 'Ndebele';
-
-UPDATE `countrylanguage` SET `Percentage` = 0.2 WHERE `CountryCode` = 'CHN' AND `Language` = 'Mantšu';
-DELETE FROM `countrylanguage` WHERE `CountryCode` = 'BWA' AND `Language` = 'San';
 
 commit;
 

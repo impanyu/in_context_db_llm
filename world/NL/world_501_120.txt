@@ -167,8 +167,6 @@ insert a city with ID 45, Name "Béjaïa", Population 117162, CountryCode "DZA" 
 insert a city with ID 46, Name "Mostaganem", Population 115212, CountryCode "DZA" into the table "city"
 insert a city with ID 47, Name "Tébessa", Population 112007, CountryCode "DZA" into the table "city"
 insert a city with ID 48, Name "Tlemcen (Tilimsen)", Population 110242, CountryCode "DZA" into the table "city"
-insert a city with ID 49, Name "Béchar", Population 107311, CountryCode "DZA" into the table "city"
-insert a city with ID 50, Name "Tiaret", Population 100118, CountryCode "DZA" into the table "city"
 
 
 insert a city with ID 51, Name "Ech-Chleff (el-Asnam)", Population 96794, CountryCode "DZA" into the table "city"

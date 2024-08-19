@@ -76,8 +76,6 @@ insert a country with GNP 0.00, Code "CXR", Name "Christmas Island", Region "Aus
 insert a country with GNP 1263.00, Code "CYM", Name "Cayman Islands", Region "Caribbean", Continent "North America", Population 38000, SurfaceArea 264.00, LifeExpectancy 78.9 into the table "country"
 insert a country with GNP 9333.00, Code "CYP", Name "Cyprus", Region "Middle East", Continent "Asia", Population 754700, SurfaceArea 9251.00, LifeExpectancy 76.7 into the table "country"
 insert a country with GNP 55017.00, Code "CZE", Name "Czech Republic", Region "Eastern Europe", Continent "Europe", Population 10278100, SurfaceArea 78866.00, LifeExpectancy 74.5 into the table "country"
-insert a country with GNP 2133367.00, Code "DEU", Name "Germany", Region "Western Europe", Continent "Europe", Population 82164700, SurfaceArea 357022.00, LifeExpectancy 77.4 into the table "country" 
-insert a country with GNP 382.00, Code "DJI", Name "Djibouti", Region "Eastern Africa", Continent "Africa", Population 638000, SurfaceArea 23200.00, LifeExpectancy 50.8 into the table "country"
 
 delete the country with Code "DOM" from the table "country"
 delete the country with Code "DJI" from the table "country"
@@ -95,15 +93,12 @@ delete the country with code "COM"
 delete the country with code "CNK"
 delete the country with code "CMA"
 
+delete the country with code "CYP"
+delete the country with code "CPV"
+
 insert a country with GNP 553233.00, Code "ESP", Name "Spain", Region "Southern Europe", Continent "Europe", Population 39441700, SurfaceArea 505992.00, LifeExpectancy 78.8 into the table "country"
 insert a country with GNP 5328.00, Code "EST", Name "Estonia", Region "Baltic Countries", Continent "Europe", Population 1439200, SurfaceArea 45227.00, LifeExpectancy 69.5 into the table "country"
 
-insert a country with GNP 19008.00, Code "GTM", Name "Guatemala", Region "Central America", Continent "North America", Population 11385000, SurfaceArea 108889.00, LifeExpectancy 66.2 into the table "country"
-insert a country with GNP 681.00, Code "GUF", Name "French Guiana", Region "South America", Continent "South America", Population 181000, SurfaceArea 90000.00, LifeExpectancy 76.1 into the table "country"
-insert a country with GNP 1197.00, Code "GUM", Name "Guam", Region "Micronesia", Continent "Oceania", Population 168000, SurfaceArea 549.00, LifeExpectancy 77.8 into the table "country"
-insert a country with GNP 722.00, Code "GUY", Name "Guyana", Region "South America", Continent "South America", Population 861000, SurfaceArea 214969.00, LifeExpectancy 64.0 into the table "country"
-insert a country with GNP 166448.00, Code "HKG", Name "Hong Kong", Region "Eastern Asia", Continent "Asia", Population 6782000, SurfaceArea 1075.00, LifeExpectancy 79.5 into the table "country"
-insert a country with GNP 0.00, Code "HMD", Name "Heard Island and McDonald Islands", Region "Antarctica", Continent "Antarctica", Population 0, SurfaceArea 359.00, LifeExpectancy NULL into the table "country"
 insert a country with GNP 5333.00, Code "HND", Name "Honduras", Region "Central America", Continent "North America", Population 6485000, SurfaceArea 112088.00, LifeExpectancy 69.9 into the table "country"
 insert a country with GNP 20208.00, Code "HRV", Name "Croatia", Region "Southern Europe", Continent "Europe", Population 4473000, SurfaceArea 56538.00, LifeExpectancy 73.7 into the table "country"
 insert a country with GNP 3459.00, Code "HTI", Name "Haiti", Region "Caribbean", Continent "North America", Population 8222000, SurfaceArea 27750.00, LifeExpectancy 49.2 into the table "country"
@@ -159,6 +154,14 @@ delete country with name "Iraq"
 update population of country with code "IRN" to 24135000
 update life expectancy of country with code "IND" to 73
 
+
+delete the country with code "GUM"
+delete the country with code "GNB"
+delete the country with name "Iran"
+delete the country with name "Iraq"
+update the population of the country with code "IRN" to 24,235,000
+update the life expectancy of the country with code "IND" to 74
+
 insert a city with ID 1, Name "Kabul", Population 1780000, CountryCode "AFG" into the table "city"
 insert a city with ID 2, Name "Qandahar", Population 237500, CountryCode "AFG" into the table "city"
 insert a city with ID 3, Name "Herat", Population 186800, CountryCode "AFG" into the table "city"
@@ -170,8 +173,6 @@ insert a city with ID 45, Name "Béjaïa", Population 117162, CountryCode "DZA" 
 insert a city with ID 46, Name "Mostaganem", Population 115212, CountryCode "DZA" into the table "city"
 insert a city with ID 47, Name "Tébessa", Population 112007, CountryCode "DZA" into the table "city"
 insert a city with ID 48, Name "Tlemcen (Tilimsen)", Population 110242, CountryCode "DZA" into the table "city"
-insert a city with ID 49, Name "Béchar", Population 107311, CountryCode "DZA" into the table "city"
-insert a city with ID 50, Name "Tiaret", Population 100118, CountryCode "DZA" into the table "city"
 
 
 insert a city with ID 51, Name "Ech-Chleff (el-Asnam)", Population 96794, CountryCode "DZA" into the table "city"
@@ -218,14 +219,13 @@ delete city with CountryCode 'AFG' and Population between 0 and 100000
 update city with ID 63 and set Population to 25000
 update city with Name 'Tafuna' and set Population to 6000
 
+delete the city with ID 201
+delete the city with ID 202
+delete the city with CountryCode 'AGO'
+delete the city with CountryCode 'ARG' and Population between 0 and 200000
+update the city with ID 83 and set the Population to 377550
+update the city with Name 'Santa Fé' and set the Population to 363063
 
-
-insert a city with ID 82, Name "Salta", Population 367550, CountryCode "ARG" into the table "city"
-insert a city with ID 83, Name "Moreno", Population 356993, CountryCode "ARG" into the table "city"
-insert a city with ID 84, Name "Santa Fé", Population 353063, CountryCode "ARG" into the table "city"
-insert a city with ID 85, Name "Avellaneda", Population 353046, CountryCode "ARG" into the table "city"
-insert a city with ID 86, Name "Tres de Febrero", Population 352311, CountryCode "ARG" into the table "city"
-insert a city with ID 87, Name "Morón", Population 349246, CountryCode "ARG" into the table "city"
 
 insert a city with ID 90, Name "Tigre", Population 296226, CountryCode "ARG" into the table "city"
 insert a city with ID 91, Name "Malvinas Argentinas", Population 290335, CountryCode "ARG" into the table "city"
@@ -266,11 +266,12 @@ delete city where CountryCode = 'ARG' and Population between 0 and 80000
 delete city where Name = 'Corrientes'
 update city set Population = 187800 where Name = 'Hera'
 
-insert a city with ID 117, Name "San Nicolás de los Arroyos", Population 119302, CountryCode "ARG" into the table "city"
-insert a city with ID 118, Name "San Juan", Population 119152, CountryCode "ARG" into the table "city"
-insert a city with ID 119, Name "Escobar", Population 116675, CountryCode "ARG" into the table "city"
-insert a city with ID 120, Name "Concordia", Population 116485, CountryCode "ARG" into the table "city"
-insert a city with ID 121, Name "Pilar", Population 113428, CountryCode "ARG" into the table "city"
+delete the city with ID 88
+delete the city with ID 7
+delete the city with CountryCode 'ARG' and Population between 0 and 60000
+delete the city with Name 'Pilar'
+update the Population of the city with Name 'Herat' to 188800
+
 insert a city with ID 122, Name "San Luis", Population 110136, CountryCode "ARG" into the table "city"
 insert a city with ID 123, Name "Ezeiza", Population 99578, CountryCode "ARG" into the table "city"
 insert a city with ID 124, Name "San Rafael", Population 94651, CountryCode "ARG" into the table "city"
@@ -385,11 +386,6 @@ insert a city with ID 2004, Name "Dongwan", Population 308669, CountryCode "CHN"
 insert a city with ID 2005, Name "Ma´anshan", Population 305421, CountryCode "CHN" into the table "city"
 insert a city with ID 2006, Name "Foshan", Population 303160, CountryCode "CHN" into the table "city"
 insert a city with ID 2007, Name "Yueyang", Population 302800, CountryCode "CHN" into the table "city"
-insert a city with ID 2008, Name "Xingtai", Population 302789, CountryCode "CHN" into the table "city"
-insert a city with ID 2009, Name "Changde", Population 301276, CountryCode "CHN" into the table "city"
-insert a city with ID 2010, Name "Shihezi", Population 299676, CountryCode "CHN" into the table "city"
-insert a city with ID 3842, Name "Wichita", Population 344284, CountryCode "USA" into the table "city"
-insert a city with ID 3849, Name "Tampa", Population 303447, CountryCode "USA" into the table "city"
 
 
 delete the city with ID 3011 from the table "city"
@@ -421,6 +417,15 @@ delete city with ID 1996
 delete city with CountryCode 'BOL' and Population larger than 300000
 update city with ID 3860 to have Population 283546
 update city with Name 'Xianyang' to have Population 362125
+
+delete the city with ID 3025
+delete the city with ID 2006
+delete the city with CountryCode 'BOL' and Population larger than 350000
+update the city with ID 3860 to have a Population of 293546
+update the city with Name 'Xianyang' to have a Population of 372125 
+
+
+
 
 
 insert an item with language "Dutch", isOfficial "T", percentage 5.3, countryCode "ABW" into the table "countrylanguage"
@@ -458,10 +463,11 @@ delete the countrylanguage with CountryCode = 'ANT'
 delete the countrylanguage with Language = 'Spanish'
 update the countrylanguage with CountryCode = 'AFG' and Language = 'Pashto' to have a Percentage of 33.0
 
+delete the countrylanguage with CountryCode = 'ARE'
+delete the countrylanguage with Language = 'Dutch'
+update the countrylanguage with CountryCode = 'ARM' and Language = 'Azerbaijani' to have a Percentage of 33.0
 
-insert an item with language "Dutch", isOfficial "T", percentage 0.0, countryCode "ANT" into the table "countrylanguage"
-insert an item with language "English", isOfficial "F", percentage 7.8, countryCode "ANT" into the table "countrylanguage"
-insert an item with language "Papiamento", isOfficial "T", percentage 86.2, countryCode "ANT" into the table "countrylanguage"
+
 insert an item with language "Arabic", isOfficial "T", percentage 42.0, countryCode "ARE" into the table "countrylanguage"
 insert an item with language "Hindi", isOfficial "F", percentage 0.0, countryCode "ARE" into the table "countrylanguage"
 insert an item with language "Indian Languages", isOfficial "F", percentage 0.3, countryCode "ARG" into the table "countrylanguage"
@@ -543,7 +549,7 @@ insert an item with language "Spanish", isOfficial "F", percentage 31.6, country
 insert an item with language "English", isOfficial "T", percentage 100.0, countryCode "BMU" into the table "countrylanguage"
 insert an item with language "Aimará", isOfficial "F", percentage 3.2, countryCode "BOL" into the table "countrylanguage"
 insert an item with language "Guaraní", isOfficial "F", percentage 0.1, countryCode "BOL" into the table "countrylanguage"
-insert an item with language "Ketšua", isOfficial "T", percentage 8.1, countryCode "BOL" into the table "countrylanguage"
+
 
 
 delete the items with countryCode "BRA" from the table "countrylanguage"
@@ -555,6 +561,8 @@ delete all the languages of the country with the code 'BOL'
 delete the countrylanguage with CountryCode = 'BGR'
 
 delete the countrylanguage with CountryCode = 'BRB'
+
+delete the countrylanguage with CountryCode = 'BRN'
 
 insert an item with language "Bajan", isOfficial "F", percentage 95.1, countryCode "BRB" into the table "countrylanguage"
 insert an item with language "English", isOfficial "T", percentage 0.0, countryCode "BRB" into the table "countrylanguage"
@@ -602,8 +610,7 @@ insert an item with language "Chinese", isOfficial "T", percentage 92.0, country
 insert an item with language "Dong", isOfficial "F", percentage 0.2, countryCode "CHN" into the table "countrylanguage"
 insert an item with language "Hui", isOfficial "F", percentage 0.8, countryCode "CHN" into the table "countrylanguage"
 insert an item with language "Mantšu", isOfficial "F", percentage 0.9, countryCode "CHN" into the table "countrylanguage"
-insert an item with language "Miao", isOfficial "F", percentage 0.7, countryCode "CHN" into the table "countrylanguage"
-insert an item with language "Mongolian", isOfficial "F", percentage 0.4, countryCode "CHN" into the table "countrylanguage"
+
 
 update the item with countryCode "CHN" and language "Chinese" to have a percentage of 91.8
 delete the items with countryCode "CAN" and language "Italian" from the table "countrylanguage"
@@ -621,6 +628,8 @@ delete the countrylanguage with CountryCode = 'BTN' and Language = 'Nepali'
 update the countrylanguage with CountryCode = 'CCK' and Language = 'Malay' to have Percentage = 0.2
 delete the countrylanguage with CountryCode = 'BW' and Language = 'Ndebele'
 
+update the countrylanguage with CountryCode = 'CHN' and Language = 'Mantšu' to have Percentage = 0.2
+delete the countrylanguage with CountryCode = 'BWA' and Language = 'San'
 
 Example for few shots:
 1. create a database "example"

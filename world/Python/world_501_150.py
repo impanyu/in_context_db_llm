@@ -415,11 +415,7 @@ db.insert("city",{"ID": 2009, "Name": "Changde", "Population": 301276, "CountryC
 db.insert("city",{"ID": 2010, "Name": "Shihezi", "Population": 299676, "CountryCode": "CHN"})
 db.insert("city",{"ID": 3842, "Name": "Wichita", "Population": 344284, "CountryCode": "USA"})
 db.insert("city",{"ID": 3849, "Name": "Tampa", "Population": 303447, "CountryCode": "USA"})
-db.insert("city",{"ID": 3850, "Name": "Buffalo", "Population": 292648, "CountryCode": "USA"})
-db.insert("city",{"ID": 3851, "Name": "Saint Paul", "Population": 287151, "CountryCode": "USA"})
-db.insert("city",{"ID": 3852, "Name": "Corpus Christi", "Population": 277454, "CountryCode": "USA"})
-db.insert("city",{"ID": 3853, "Name": "Aurora", "Population": 276393, "CountryCode": "USA"})
-db.insert("city",{"ID": 3854, "Name": "Raleigh", "Population": 276093, "CountryCode": "USA"})
+
 
 
 
