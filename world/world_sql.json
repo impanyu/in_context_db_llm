@@ -1,5 +1,8 @@
 {
-"system_prompt":"Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.",
+"system_prompt_1":"Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.",
+"system_prompt_2":"Now you need to execute the following SQL commands to populate the database:",
+"user_prompt_1":"Please execute the following SQL command and you need output the result",
+
 "zero_shot":"",
 "zero_shot_COT":"To answer the single query from the user, you need to first execute the populating SQL commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result.",
 "few_shot_example":[
@@ -181,6 +184,7 @@
     "then the query will fail, with foreign key constraint violation."
 
 ],
+
 
 
 "drop_database": "DROP DATABASE IF EXISTS world;",
