@@ -1,8 +1,9 @@
 {
+"system_prompt":"Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.",
 "zero_shot":"",
-"zero_shot_COT":"To answer the queries, you need to execute the above SQL step by step, and figure out the current data in the database.",
+"zero_shot_COT":"To answer the single query from the user, you need to first execute the populating SQL commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result.",
 "few_shot_example":[
-    "Example for few shots:",
+    "Here is an example database and queries on it:",
     "create a table named 'Custumers' with columns CustomerID CustomerName ContactName Address City PostalCode Country",
     
     "1. create table Customers (",
