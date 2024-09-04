@@ -1,5 +1,5 @@
 {
-"system_prompt_1":"Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output succeed or fail, with no extra words.",
+"system_prompt_1":"Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'succeed' or 'fail', with no extra words.",
 "system_prompt_2":"Now you need to execute the following SQL commands to populate the database:",
 "user_prompt_1":"Please execute the following SQL command and you need output the result",
 
@@ -7,7 +7,6 @@
 "zero_shot_COT":"To answer the single query from the user, you need to first execute the populating SQL commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result.",
 "few_shot_example":[
     "Here is an example database and queries on it:",
-    "create a table named 'Custumers' with columns CustomerID CustomerName ContactName Address City PostalCode Country",
     
     "1. create table Customers (CustomerID int NOT NULL AUTO_INCREMENT, CustomerName varchar(255) NOT NULL, ContactName varchar(255) NOT NULL, Address varchar(255) NOT NULL, City varchar(255) NOT NULL, PostalCode varchar(255) NOT NULL, Country varchar(255) NOT NULL, primary key (CustomerID));",
     
@@ -171,7 +170,7 @@
 
 
 
-"drop_database": "DROP DATABASE IF EXISTS world;",
+"drop_database": "DROP DATABASE world IF EXISTS world;",
 "create_database": "CREATE DATABASE IF NOT EXISTS world;",
 "use_database": "USE world;",
      
@@ -2869,8 +2868,7 @@
     "DELETE FROM `country` WHERE `Code` = 'ZAF';",
     "DELETE FROM `country` WHERE `Code` = 'ARG';",
     "DELETE FROM `country` WHERE `Code` = 'AUS';",
-    
-    
+       
     "DELETE FROM `country` WHERE `Name` = 'Canada';",
     "DELETE FROM `country` WHERE `Name` = 'Brazil';",
     "DELETE FROM `country` WHERE `Name` = 'Australia';",
@@ -2881,8 +2879,7 @@
     "DELETE FROM `country` WHERE `Name` = 'Russia';",
     "DELETE FROM `country` WHERE `Name` = 'South Africa';",
     "DELETE FROM `country` WHERE `Name` = 'United States';",
-    
-    
+     
     "DELETE FROM `country` WHERE `Continent` = 'Asia' AND `Population` > 100000000;",
     "DELETE FROM `country` WHERE `Continent` = 'Africa' AND `LifeExpectancy` < 50;",
     "DELETE FROM `country` WHERE `Continent` = 'Europe' AND `GNP` > 500000;",
@@ -2893,8 +2890,7 @@
     "DELETE FROM `country` WHERE `Population` = 0;",
     "DELETE FROM `country` WHERE `Population` > 100000000;",
     "DELETE FROM `country` WHERE `GNP` < 1000;",
-    
-    
+      
     "DELETE FROM `country` WHERE `Name` LIKE 'A%';",
     "DELETE FROM `country` WHERE `Name` LIKE 'B%';",
     "DELETE FROM `country` WHERE `Name` LIKE 'C%';",
@@ -2906,7 +2902,6 @@
     "DELETE FROM `country` WHERE `Name` LIKE 'I%';",
     "DELETE FROM `country` WHERE `Name` LIKE 'J%';",
     
- 
     "DELETE FROM `country` WHERE `Population` BETWEEN 1000000 AND 5000000;",
     "DELETE FROM `country` WHERE `GNP` BETWEEN 1000 AND 5000;",
     "DELETE FROM `country` WHERE `SurfaceArea` BETWEEN 100000 AND 500000;",
@@ -2918,20 +2913,17 @@
     "DELETE FROM `country` WHERE `Population` BETWEEN 10000000 AND 50000000;",
     "DELETE FROM `country` WHERE `GNP` BETWEEN 10000 AND 50000;",
     
-    
     "DELETE FROM `country` WHERE `IndepYear` IS NULL;",
     "DELETE FROM `country` WHERE `LifeExpectancy` IS NULL;",
     "DELETE FROM `country` WHERE `GNP` IS NULL;",
     "DELETE FROM `country` WHERE `GNPOld` IS NULL;",
     "DELETE FROM `country` WHERE `HeadOfState` IS NULL;",
-    
-    
+     
     "DELETE FROM `country` WHERE `Code` IN ('USA', 'CAN', 'MEX');",
     "DELETE FROM `country` WHERE `Name` IN ('China', 'India', 'Russia');",
     "DELETE FROM `country` WHERE `Continent` IN ('Europe', 'Asia');",
     "DELETE FROM `country` WHERE `Region` IN ('Caribbean', 'Polynesia');",
     "DELETE FROM `country` WHERE `SurfaceArea` IN (1, 10, 100, 1000);",
-    
     
     "DELETE FROM `country` WHERE `Code` NOT IN ('USA', 'CAN', 'MEX');",
     "DELETE FROM `country` WHERE `Name` NOT IN ('China', 'India', 'Russia');",
@@ -2944,7 +2936,6 @@
     "DELETE FROM `country` ORDER BY `LifeExpectancy` DESC LIMIT 5;",
     "DELETE FROM `country` ORDER BY `SurfaceArea` ASC LIMIT 5;",
     "DELETE FROM `country` ORDER BY `IndepYear` DESC LIMIT 10;",
-    
     
     "DELETE FROM `country` WHERE `Population` / `SurfaceArea` > 100;",
     "DELETE FROM `country` WHERE `GNP` / `Population` < 1;",
@@ -3437,15 +3428,12 @@
 "UPDATE `countrylanguage` SET `Percentage` = 91.0 WHERE `CountryCode` = 'ROU' AND `Language` = 'Romanian';",
 "UPDATE `countrylanguage` SET `IsOfficial` = 'F' WHERE `CountryCode` = 'ROU' AND `Language` = 'Hungarian';",
 "UPDATE `countrylanguage` SET `Percentage` = 7.2 WHERE `CountryCode` = 'ROU' AND `Language` = 'Hungarian';"
-
-
-
 ],
-
 "select_data": {
   "no_filtering":[
   "SELECT Code FROM `country`;",
-  "SELECT ID FROM `city` ;"
+  "SELECT ID FROM `city` ;",
+  "SELECT Distinct Language FROM `countrylanguage`;"
   ],
   "single_filtering":[
     "SELECT DISTINCT Language FROM `countrylanguage` WHERE `CountryCode` = 'USA';",
@@ -3453,7 +3441,7 @@
     "SELECT ID FROM `city` WHERE `CountryCode` = 'USA';",
     "SELECT ID FROM `city` WHERE `Population` > 1000000;",
     "SELECT Code FROM `country` WHERE `Continent` = 'Asia';",
-    "SELECT * FROM `country` WHERE `Population` > 50000000;"
+    "SELECT Code FROM `country` WHERE `Population` > 50000000;"
   ],
   "double_filtering":[
     "SELECT DISTINCT Language FROM `countrylanguage` WHERE `CountryCode` = 'USA' AND `IsOfficial` = 'T';",
@@ -3466,12 +3454,11 @@
   "triple_filtering":[
     "SELECT ID FROM city WHERE CountryCode = 'USA' AND District = 'California' AND Population > 1000000;",
     "SELECT Code FROM country WHERE Continent = 'Europe' AND Population > 5000000 AND LifeExpectancy > 75.0;",
-    "SELECT Distinct Language FROM countrylanguage WHERE Region = 'Eastern Asia' AND Percentage > 20.0 AND IsOfficial = 'T';",
+    "SELECT Distinct Language FROM countrylanguage WHERE CountryCode = 'JPN' AND IsOfficial = 'T' AND Percentage > 50.0;",
     "SELECT ID FROM city WHERE CountryCode = 'IND' AND Population BETWEEN 500000 AND 1000000 AND District = 'Maharashtra';",
     "SELECT Code FROM country WHERE Continent = 'North America' AND GovernmentForm = 'Federal Republic' AND GNP > 100000.00;",
-    "SELECT Language, Percentage FROM countrylanguage WHERE LocalName = 'Deutschland' AND IsOfficial = 'F' AND Percentage < 5.0;"
+    "SELECT Language, Percentage FROM countrylanguage WHERE CountryCode = 'CHN' AND IsOfficial = 'F' AND Percentage < 5.0;"
  ],
- 
     "range_filtering":[
     "SELECT ID FROM `city` WHERE `Population` BETWEEN 50000 AND 100000;",
     "SELECT Code FROM `country` WHERE `SurfaceArea` BETWEEN 10000.00 AND 50000.00;",
@@ -3480,7 +3467,6 @@
     "SELECT ID FROM `city` WHERE `Population` BETWEEN 20000 AND 80000 AND `District` = 'California';",
     "SELECT Code FROM `country` WHERE `LifeExpectancy` BETWEEN 60.0 AND 75.0;"
     ],
-   
     "double_table":[
         "SELECT city.ID FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Population > 100000000;",
         "SELECT country.Code FROM country JOIN city ON country.Code = city.CountryCode WHERE city.Population > 10000000;",
@@ -3488,10 +3474,9 @@
         "SELECT DISTINCT countrylanguage.Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode = country.Code WHERE country.Continent = 'Asia' AND countrylanguage.Percentage > 50.0;",
         "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.LifeExpectancy > 80.0;"
     ],
-
     "three_table":[
       
-        "SELECT city.Name, countrylanguage.Language FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE country.Continent = 'Asia' AND country.Population > 100000000;",
+        "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE country.Continent = 'Asia' AND country.Population > 100000000 AND countrylanguage.Percentage > 60.0;;",
         "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English' AND countrylanguage.Percentage > 50.0;", 
         "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE  country.LifeExpectancy > 60.0 AND countrylanguage.Language = 'English' AND countrylanguage.Percentage > 10.0;"
     ],
@@ -3509,7 +3494,6 @@
         "SELECT COUNT(city.ID) FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Name = 'Algeria';",
         "SELECT COUNT(Code) FROM country;"
     ]
-
 }   
 
 }
