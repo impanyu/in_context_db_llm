@@ -1,5 +1,5 @@
 {
-"system_prompt_1":"Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.",
+"system_prompt_1":"Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output succeed or fail, with no extra words.",
 "system_prompt_2":"Now you need to execute the following SQL commands to populate the database:",
 "user_prompt_1":"Please execute the following SQL command and you need output the result",
 
@@ -77,44 +77,43 @@
    
     "Now if the user send query:",
     "select CustomerID from Customers Join Orders on Customers.CustomerID = Orders.CustomerID Join OrderDetails on Orders.OrderID = OrderDetails.OrderID Join Products on OrderDetails.ProductID = Products.ProductID where Products.ID = 11;",
-    "then the query result is 3.",
+    "then you should output [3]",
 
     "If the user send query:",
     "select Count(*) from Products where Price > 20;",
-    
-    "then the query result is 2.",
+    "then you should output [2].",
 
     "If the user send query:",
     "select OrderDate from Orders where OrderID = 10308;",
-    "then the query result is 9/19/1996.",
+    "then you should output ['9/19/1996']",
 
     "If the user send query:",
     "insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
-    "then the query will be successfully executed.",
+    "then you should output 'succeed'",
 
     "If the user send query:",
     "insert into Orders values (10249, 4, '7/5/1996');",
-    "then the query will fail, with foreign key constraint violation.",
+    "then you should output 'fail'.",
 
     "If the user send query:",
     "insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
-    "then the query will fail, with primary key constraint violation.",
+    "then you should output 'fail'.",
 
     "If the user send query:",
     "delete from Customers where CustomerID = 1;",
-    "then the query will be successfully executed.",
+    "then yout should output 'succeed'.",
 
     "If the user send query:",
     "delete from Orders where OrderID = 10308;",
-    "then the query will fail, with foreign key constraint violation.",
+    "then you should 'fail'",
 
     "If the user send query:",
     "update OrderDetails set Quantity = 2 where OrderDetailID = 162;",
-    "then the query will be successfully executed.",
+    "then you should output 'succeed'.",
 
     "If the user send query:",
     "update OrderDetails set ProductID = 1 where OrderDetailID = 162;",
-    "then the query will fail, with foreign key constraint violation."
+    "then you should output 'fail'."
 
 ],
 
@@ -145,43 +144,58 @@
 
     "Now if the user send query:",
     "select CustomerID from Customers Join Orders on Customers.CustomerID = Orders.CustomerID Join OrderDetails on Orders.OrderID = OrderDetails.OrderID Join Products on OrderDetails.ProductID = Products.ProductID where Products.ID = 11;",
-    "then the query result is 3.",
-
+    "When joining table of OrderDetails with table of Products by OrderDetails.ProductID = Products.ProductID, the row (314, 10365, 11, 24) in OrderDetails and the row (11, 'Queso Cabrales', '1 kg pkg.', 21) in Products will be joined",
+    "Then when joining Orders with OrderDetails by  Orders.OrderID = OrderDetails.OrderID, the row (10365, 3, '11/27/1996') in Orders and the row (314, 10365, 11, 24) in OrderDetails will be joined",
+    "Then when joining Customers with Orders by  Customers.CustomerID = Orders.CustomerID, the row (3, 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico') in Customers and the row (10365, 3, '11/27/1996') in Orders will be joined",
+    "Then we know the CustomerID of the customer who ordered the product with ProductID = 11 is 3.",
+    "then you should output [3]",
+ 
     "If the user send query:",
     "select Count(*) from Products where Price > 20;",
-    "then the query result is 2.",
+    "When selecting rows from Products where Price > 20, the rows (69, 'Gudbrandsdalsost', '10 kg pkg.', 36) and (11, 'Queso Cabrales', '1 kg pkg.', 21) will be selected",
+    "The count of selected rows is 2,",
+    "then you should output [2].",
 
     "If the user send query:",
     "select OrderDate from Orders where OrderID = 10308;",
-    "then the query result is 9/19/1996.",
+    "The row with OrderID = 10308 in Orders table is (10308, 2, '9/18/1996')",
+    "The we find in step 12, the OrderDate of the order with OrderID = 10308 is updated to '9/19/1996'",
+    "then you should output ['9/19/1996']",
 
     "If the user send query:",
     "insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
-    "then the query will be successfully executed.",
+    "there's no constraint violation,",
+    "then you should output 'succeed'",
 
     "If the user send query:",
     "insert into Orders values (10249, 4, '7/5/1996');",
-    "then the query will fail, with foreign key constraint violation.",
+    "since there's no customer with CustomerID = 4,",
+    "then you should output 'fail'.",
 
     "If the user send query:",
     "insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
-    "then the query will fail, with primary key constraint violation.",
+    "since there's already a product with ProductID = 11,",
+    "then you should output 'fail'.",
 
     "If the user send query:",
     "delete from Customers where CustomerID = 1;",
-    "then the query will be successfully executed.",
+    "since there's no Orders with CustomerID = 1,",
+    "then yout should output 'succeed'.",
 
     "If the user send query:",
     "delete from Orders where OrderID = 10308;",
-    "then the query will fail, with foreign key constraint violation.",
+    "since there's OrderDetails with OrderID = 10308,",
+    "then you should 'fail'",
 
     "If the user send query:",
     "update OrderDetails set Quantity = 2 where OrderDetailID = 162;",
-    "then the query will be successfully executed.",
+    "since there's OrderDetails with OrderDetailID = 162,",
+    "then you should output 'succeed'.",
 
     "If the user send query:",
     "update OrderDetails set ProductID = 1 where OrderDetailID = 162;",
-    "then the query will fail, with foreign key constraint violation."
+    "since in step 20, the product with ProductID = 1 is deleted,",
+    "then you should output 'fail'."
 
 ],
 
