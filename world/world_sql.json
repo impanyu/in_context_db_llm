@@ -1,13 +1,13 @@
 {
-"system_prompt_1":"Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'succeed' or 'fail', with no extra words.",
-"system_prompt_2":"Now you need to execute the following SQL commands to populate the database:",
-"user_prompt_1":"Please execute the following SQL command and you need output the result",
-
-"zero_shot":"",
-"zero_shot_COT":"To answer the single query from the user, you need to first execute the populating SQL commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result.",
+"system_prompt_1":["Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'succeed' or 'fail', with no extra words."],
+"system_prompt_2":[],
+"system_prompt_3":["Now you need to execute the following SQL commands to populate the database:"],
+"user_prompt_1":["Please execute the following SQL command and you need output the result"],
+"zero_shot":[],
+"zero_shot_COT":["To answer the single query from the user, you need to first execute the populating SQL commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result."],
 "few_shot_example":[
     "Here is an example database and queries on it:",
-    
+    "0. create database example; use example;",
     "1. create table Customers (CustomerID int NOT NULL AUTO_INCREMENT, CustomerName varchar(255) NOT NULL, ContactName varchar(255) NOT NULL, Address varchar(255) NOT NULL, City varchar(255) NOT NULL, PostalCode varchar(255) NOT NULL, Country varchar(255) NOT NULL, primary key (CustomerID));",
     
     "2. create table Orders (OrderID int NOT NULL AUTO_INCREMENT,CustomerID int NOT NULL,OrderDate date NOT NULL,primary key (OrderID),constraint fk_customer  foreign key (CustomerID) references customers(CustomerID));",
@@ -170,9 +170,9 @@
 
 
 
-"drop_database": "DROP DATABASE world IF EXISTS world;",
-"create_database": "CREATE DATABASE IF NOT EXISTS world;",
-"use_database": "USE world;",
+"drop_database": ["DROP DATABASE world IF EXISTS world;"],
+"create_database": ["CREATE DATABASE IF NOT EXISTS world;"],
+"use_database": ["USE world;"],
      
 "create_table": [
     "CREATE TABLE `city` (`ID` int NOT NULL AUTO_INCREMENT,`Name` char(35) NOT NULL DEFAULT '',`CountryCode` char(3) NOT NULL DEFAULT '',`District` char(20) NOT NULL DEFAULT '', `Population` int NOT NULL DEFAULT '0',PRIMARY KEY (`ID`),KEY `CountryCode` (`CountryCode`),CONSTRAINT `city_ibfk_1` FOREIGN KEY (`CountryCode`) REFERENCES `country` (`Code`))ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;",
@@ -201,6 +201,8 @@
 "INSERT INTO `country` VALUES ('SAU','Saudi Arabia','Asia','Middle East',2149690.00,1932,21607000,67.8,137635.00,146171.00,'Al-´Arabiya as-Sa´udiya','Monarchy','Fahd ibn Abdul-Aziz al-Sa´ud',3173,'SA');",
 "INSERT INTO `country` VALUES ('MEX','Mexico','North America','Central America',1958201.00,1810,98881000,71.5,414972.00,401461.00,'México','Federal Republic','Vicente Fox Quesada',2515,'MX');"
 ],
+
+
 
 "insert_data": [
 "INSERT INTO `city` VALUES (69,'Buenos Aires','ARG','Distrito Federal',2982146);",
