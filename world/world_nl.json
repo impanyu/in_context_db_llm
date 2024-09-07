@@ -3459,7 +3459,7 @@
     "return all the distinct language of 'countrylanguage' with CountryCode = 'JPN' and IsOfficial = 'T' and Percentage > 50.0",
     "return all the ID of 'city' with CountryCode = 'IND' and Population BETWEEN 500000 AND 1000000 and District = 'Maharashtra'",
     "return all the Code of 'country' with Continent = 'North America' and GovernmentForm = 'Federal Republic' and GNP > 100000.00",
-    "return all the Language of 'countrylanguage' with CountryCode = 'CHN' and IsOfficial = 'F' and Percentage < 5.0"
+    "return all the distinct Language of 'countrylanguage' with CountryCode = 'CHN' and IsOfficial = 'F' and Percentage < 5.0"
  ],
     "range_filtering":[
     "return all the ID of 'city' with Population BETWEEN 50000 AND 100000",
