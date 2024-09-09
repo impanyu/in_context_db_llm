@@ -170,7 +170,7 @@
 
 
 
-"drop_database": ["DROP DATABASE world IF EXISTS world;"],
+"drop_database": ["DROP DATABASE IF EXISTS world;"],
 "create_database": ["CREATE DATABASE IF NOT EXISTS world;"],
 "use_database": ["USE world;"],
      
