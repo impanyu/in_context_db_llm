@@ -78,12 +78,13 @@ def read_data(dataset,encoding,scale, balance, overlap, operation):
         for q in must_insert:
             db_populating_query += q + "\n" 
 
-        scale -= len(must_insert)
-        insert_scale = int(scale * balance)
+        
+        all_insert_scale = int(scale * balance)
+        insert_scale = all_insert_scale - len(must_insert)
         delete_update_scale = int(scale * (1 - balance))
 
   
-        radius = int(overlap * insert_scale)
+        radius = int(overlap * all_insert_scale)
    
 
         tmp_db_insert_populating_queries = []
