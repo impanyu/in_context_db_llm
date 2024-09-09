@@ -165,7 +165,7 @@ def main():
     encoding = args.encoding
     operation = args.operation
 
-    TIMES = 10
+    TIMES = 20
 
     accuracy = 0
 
