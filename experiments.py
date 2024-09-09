@@ -160,6 +160,9 @@ def main():
     encoding = args.encoding
     operation = args.operation
 
+    TIMES = 3
+
+    # repeat the experiment TIMES times
     # generate populating query and query 
     db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
 
