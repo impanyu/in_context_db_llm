@@ -18,8 +18,7 @@ def execute_query(connection, query):
     except Error as e:
         print(f"Error: '{e}'")
         return "Fail"
-    finally:
-        cursor.close()
+
 
 
 def connect_to_server():
