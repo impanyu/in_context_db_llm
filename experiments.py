@@ -276,9 +276,12 @@ def main():
             if "Succeed" in result:
                 accuracy += 1
         else:
+            true_result = [r[0] for r in true_result]
             result_overlap = set(true_result).intersection(set(result))
             result_union = set(true_result).union(set(result))
             accuracy += len(result_overlap) / len(result_union)
+            print(f"result_overlap: {result_overlap}")
+            print(f"result_union: {result_union}")
             
 
         print(true_result)
