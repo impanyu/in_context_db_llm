@@ -263,7 +263,7 @@ def main():
                     {"role": "system", "content": prompt},
                     {"role": "user", "content": user_prompt},
                 ],
-                temperature=0.7  # Set the temperature here (adjust as needed)
+                temperature=0.5  # Set the temperature here (adjust as needed)
             )
 
             # get the response
