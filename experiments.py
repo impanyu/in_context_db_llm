@@ -282,7 +282,7 @@ def main():
             result = json.loads(result)
             print(result)
             if len(result) > 0:
-                if type(result[0]) == dict:
+                if type(result[0]) == list:
                     result = [r[0] for r in result]
            
 
