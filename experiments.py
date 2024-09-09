@@ -14,8 +14,10 @@ def execute_query(connection, query):
         cursor.execute(query)
         result = cursor.fetchall()  # Fetch all the rows from the result
         connection.commit()
+        # change all the letter in query to lower case
+        query = query.lower()
 
-        if "insert" in query or "delete" in query or "update" in query or "Insert" in query or "Update" in query or "Delete" in query:
+        if "insert" in query or "delete" in query or "update" in query:
             return "Succeed"
         else:
             return result
@@ -277,13 +279,15 @@ def main():
             overlap = set(true_result).intersection(set(result))
             union = set(true_result).union(set(result))
             accuracy += len(overlap) / len(union)
-            print(f"Accuracy: {accuracy}")
+            
 
         print(true_result)
         print(result)
 
-        accuracy = accuracy / TIMES
-        print(f"Total Accuracy: {accuracy}")
+        print(f"Accuracy: {accuracy}")
+
+    accuracy = accuracy / TIMES
+    print(f"Total Accuracy: {accuracy}")
       
         
 
