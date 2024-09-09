@@ -74,28 +74,30 @@ def read_data(dataset,encoding,scale, balance, overlap, operation):
 
 
         must_insert = data["must_insert_data"]
+        tmp_db_insert_populating_queries = []
+        tmp_db_delete_update_populating_queries = {}
 
         for q in must_insert:
-            db_populating_query += q + "\n" 
+            #db_populating_query += q + "\n"
+            tmp_db_insert_populating_queries.append(q)
 
         
-        all_insert_scale = int(scale * balance)
-        insert_scale = all_insert_scale - len(must_insert)
+        insert_scale = int(scale * balance)
+        remaining_insert_scale = max(0,insert_scale - len(must_insert))
         delete_update_scale = int(scale * (1 - balance))
 
   
-        radius = int(overlap * all_insert_scale)
+        radius = int(overlap * insert_scale)
    
 
-        tmp_db_insert_populating_queries = []
-        tmp_db_delete_update_populating_queries = {}
+        
         # populate the tmp_db_delete_update_populating_queries with 0 to insert_scale keys with the value of []
         for i in range(insert_scale+1):
             tmp_db_delete_update_populating_queries[i] = []
 
 
 
-        for i in range(insert_scale):
+        for i in range(remaining_insert_scale):
             # get a random number between 0 and len(data["insert"])
             random_index = random.randint(0, len(data["insert_data"])-1)
             tmp_db_insert_populating_queries.append(data["insert_data"][random_index])
