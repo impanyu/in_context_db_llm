@@ -85,7 +85,7 @@ def read_data(dataset,encoding,scale, balance, overlap, operation):
         for q in must_insert:
             #db_populating_query += q + "\n"
             tmp_db_insert_populating_queries.append(q)
-        print(len(tmp_db_delete_update_populating_queries))
+        print(len(tmp_db_insert_populating_queries))
 
         
         insert_scale = int(scale * balance)
