@@ -51,7 +51,7 @@ def read_data(dataset,encoding,scale, balance, overlap, operation):
             random_index = random.randint(0, len(data[operation])-1)
             db_query = data[operation][random_index]
 
-        elif operation == "select":
+        elif operation == "select_data":
 
 
             db_query_categories = list(data["select_data"].keys())
@@ -211,28 +211,28 @@ def main():
     user_prompt = concatenate_prompt(user_prompt_1)
     user_prompt += user_query
 
+    if model == "gpt4":
+        client = OpenAI()
+        # Load environment variables from the .env file
+        load_dotenv()
 
-    client = OpenAI()
-    # Load environment variables from the .env file
-    load_dotenv()
+        # Fetch the API key from the environment variable
+        api_key = os.getenv("OPENAI_API_KEY")
 
-    # Fetch the API key from the environment variable
-    api_key = os.getenv("OPENAI_API_KEY")
+        # Initialize the OpenAI client with the API key
+        client = OpenAI(api_key=api_key)
 
-    # Initialize the OpenAI client with the API key
-    client = OpenAI(api_key=api_key)
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {"role": "system", "content": prompt},
+                {"role": "user", "content": user_prompt},
 
-    response = client.chat.completions.create(
-        model="gpt-4o",
-        messages=[
-            {"role": "system", "content": prompt},
-            {"role": "user", "content": user_prompt},
+            ]
+        )
 
-        ]
-    )
-
-    # get the response
-    result = response.choices[0].message['content']
+        # get the response
+        result = response.choices[0].message['content']
 
     print(true_result)
     print(result)
