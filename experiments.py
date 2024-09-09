@@ -158,9 +158,9 @@ def main():
     db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
 
     drop_db_query = data["drop_database"][0]
-    create_db_query = data["create_database"]
+    create_db_query = data["create_database"][0]
     use_db_query = data["use_database"][0]
-    create_table_query = data["create_table"][0]
+    create_table_query = data["create_table"]
 
     print(user_query)
 
