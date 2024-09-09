@@ -3434,9 +3434,9 @@
 ],
 "select_data": {
   "no_filtering":[
-  "SELECT Code FROM `country`;",
-  "SELECT ID FROM `city` ;",
-  "SELECT Distinct Language FROM `countrylanguage`;"
+    "SELECT Code FROM `country`;",
+    "SELECT ID FROM `city` ;",
+    "SELECT Distinct Language FROM `countrylanguage`;"
   ],
   "single_filtering":[
     "SELECT DISTINCT Language FROM `countrylanguage` WHERE `CountryCode` = 'USA';",
@@ -3453,7 +3453,7 @@
     "SELECT Code FROM `country` WHERE `Population` > 50000000 AND `GNP` > 100000000;",
     "SELECT Code FROM `country` WHERE `Continent` = 'Asia' AND `LifeExpectancy` < 50;",
     "SELECT Code FROM `country` WHERE `Continent` = 'Europe' AND `GNP` > 500000;"
-    ],
+  ],
   "triple_filtering":[
     "SELECT ID FROM city WHERE CountryCode = 'USA' AND District = 'California' AND Population > 1000000;",
     "SELECT Code FROM country WHERE Continent = 'Europe' AND Population > 5000000 AND LifeExpectancy > 75.0;",
@@ -3461,7 +3461,7 @@
     "SELECT ID FROM city WHERE CountryCode = 'IND' AND Population BETWEEN 500000 AND 1000000 AND District = 'Maharashtra';",
     "SELECT Code FROM country WHERE Continent = 'North America' AND GovernmentForm = 'Federal Republic' AND GNP > 100000.00;",
     "SELECT Distinct Language FROM countrylanguage WHERE CountryCode = 'CHN' AND IsOfficial = 'F' AND Percentage < 5.0;"
- ],
+    ],
     "range_filtering":[
     "SELECT ID FROM `city` WHERE `Population` BETWEEN 50000 AND 100000;",
     "SELECT Code FROM `country` WHERE `SurfaceArea` BETWEEN 10000.00 AND 50000.00;",
@@ -3471,31 +3471,30 @@
     "SELECT Code FROM `country` WHERE `LifeExpectancy` BETWEEN 60.0 AND 75.0;"
     ],
     "double_table":[
-        "SELECT city.ID FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Population > 100000000;",
-        "SELECT country.Code FROM country JOIN city ON country.Code = city.CountryCode WHERE city.Population > 10000000;",
-        "SELECT DISTINCT countrylanguage.Language FROM country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE country.Continent = 'Europe';",
-        "SELECT DISTINCT countrylanguage.Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode = country.Code WHERE country.Continent = 'Asia' AND countrylanguage.Percentage > 50.0;",
-        "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.LifeExpectancy > 80.0;"
+    "SELECT city.ID FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Population > 100000000;",
+    "SELECT country.Code FROM country JOIN city ON country.Code = city.CountryCode WHERE city.Population > 10000000;",
+    "SELECT DISTINCT countrylanguage.Language FROM country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE country.Continent = 'Europe';",
+    "SELECT DISTINCT countrylanguage.Language FROM countrylanguage JOIN country ON countrylanguage.CountryCode = country.Code WHERE country.Continent = 'Asia' AND countrylanguage.Percentage > 50.0;",
+    "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code WHERE country.LifeExpectancy > 80.0;"
     ],
     "three_table":[
-      
-        "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE country.Continent = 'Asia' AND country.Population > 100000000 AND countrylanguage.Percentage > 60.0;;",
-        "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English' AND countrylanguage.Percentage > 50.0;", 
-        "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE  country.LifeExpectancy > 60.0 AND countrylanguage.Language = 'English' AND countrylanguage.Percentage > 10.0;"
+    "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE country.Continent = 'Asia' AND country.Population > 100000000 AND countrylanguage.Percentage > 60.0;;",
+    "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English' AND countrylanguage.Percentage > 50.0;", 
+    "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE  country.LifeExpectancy > 60.0 AND countrylanguage.Language = 'English' AND countrylanguage.Percentage > 10.0;"
     ],
     "ranking":[
-        "SELECT Name FROM city WHERE CountryCode = 'CHN' ORDER BY Population;",
-        "SELECT Name FROM country WHERE Continent = 'Asia' ORDER BY SurfaceArea;",
-        "SELECT country.Name FROM country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English' ORDER BY countrylanguage.Percentage;",
-        "SELECT Name FROM country WHERE Continent = 'Europe' AND GNP > 500000 ORDER BY Population;"
+    "SELECT Name FROM city WHERE CountryCode = 'CHN' ORDER BY Population;",
+    "SELECT Name FROM country WHERE Continent = 'Asia' ORDER BY SurfaceArea;",
+    "SELECT country.Name FROM country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English' ORDER BY countrylanguage.Percentage;",
+    "SELECT Name FROM country WHERE Continent = 'Europe' AND GNP > 500000 ORDER BY Population;"
     ],
     "count":[
-        "SELECT COUNT(ID) FROM city WHERE CountryCode = 'CHN';", 
-        "SELECT COUNT(Code) FROM country WHERE Continent = 'Asia' AND Population > 50000000;",
-        "SELECT COUNT(ID) FROM city WHERE CountryCode = 'DZA' AND Population BETWEEN 100000 AND 500000;",
-        "SELECT COUNT(DISTINCT Language) FROM countrylanguage;",
-        "SELECT COUNT(city.ID) FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Name = 'Algeria';",
-        "SELECT COUNT(Code) FROM country;"
+    "SELECT COUNT(ID) FROM city WHERE CountryCode = 'CHN';", 
+    "SELECT COUNT(Code) FROM country WHERE Continent = 'Asia' AND Population > 50000000;",
+    "SELECT COUNT(ID) FROM city WHERE CountryCode = 'DZA' AND Population BETWEEN 100000 AND 500000;",
+    "SELECT COUNT(DISTINCT Language) FROM countrylanguage;",
+    "SELECT COUNT(city.ID) FROM city JOIN country ON city.CountryCode = country.Code WHERE country.Name = 'Algeria';",
+    "SELECT COUNT(Code) FROM country;"
     ]
 }   
 
