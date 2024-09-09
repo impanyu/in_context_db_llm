@@ -162,13 +162,15 @@ def main():
 
     TIMES = 1
 
+    accuracy = 0
+
     # repeat the experiment TIMES times
     for t in range(TIMES):
 
         # generate populating query and query 
         db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
 
-        user_query = "INSERT INTO `city` VALUES (69,'Buenos Aires','AAA','Distrito Federal',2982146);"
+        user_query = "INSERT INTO `city` VALUES (69,'Buenos Aires','ITA','Distrito Federal',2982146);"
 
 
         drop_db_query = data["drop_database"][0]
@@ -262,6 +264,10 @@ def main():
             # get the response
             result = response.choices[0].message.content
 
+        if "Fail" in true_result:
+            if "Fail" in result:
+                accuracy += 1
+      
         print(true_result)
         print(result)
 
