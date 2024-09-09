@@ -178,8 +178,8 @@
 "use_database": [],
      
 "create_table": [
-    "db.create_table('city', {'ID': {'type': 'int', 'default': 0, 'auto_increment': True}, 'Name': {'type': 'char(35)', 'default': ''}, 'CountryCode': {'type': 'char(3)', 'default': ''}, 'District': {'type': 'char(20)', 'default': ''}, 'Population': {'type': 'int', 'default': 0}}, ('ID'), {'CountryCode': 'country.Code'})",
     "db.create_table('country', {'Code': {'type': 'char(3)', 'default': ''}, 'Name': {'type': 'char(52)', 'default': ''}, 'Continent': {'type': 'enum', 'default': 'Asia', 'values': ['Asia', 'Europe', 'North America', 'Africa', 'Oceania', 'Antarctica', 'South America']}, 'Region': {'type': 'char(26)', 'default': ''}, 'SurfaceArea': {'type': 'decimal(10,2)', 'default': 0.00}, 'IndepYear': {'type': 'smallint', 'default': None}, 'Population': {'type': 'int', 'default': 0}, 'LifeExpectancy': {'type': 'decimal(3,1)', 'default': None}, 'GNP': {'type': 'decimal(10,2)', 'default': None}, 'GNPOld': {'type': 'decimal(10,2)', 'default': None}, 'LocalName': {'type': 'char(45)', 'default': ''}, 'GovernmentForm': {'type': 'char(45)', 'default': ''}, 'HeadOfState': {'type': 'char(60)', 'default': None}, 'Capital': {'type': 'int', 'default': None}, 'Code2': {'type': 'char(2)', 'default': ''}}, ('Code'))",
+    "db.create_table('city', {'ID': {'type': 'int', 'default': 0, 'auto_increment': True}, 'Name': {'type': 'char(35)', 'default': ''}, 'CountryCode': {'type': 'char(3)', 'default': ''}, 'District': {'type': 'char(20)', 'default': ''}, 'Population': {'type': 'int', 'default': 0}}, ('ID'), {'CountryCode': 'country.Code'})",
     "db.create_table('countrylanguage', {'CountryCode': {'type': 'char(3)', 'default': ''}, 'Language': {'type': 'char(30)', 'default': ''}, 'IsOfficial': {'type': 'enum', 'default': 'F', 'values': ['T', 'F']}, 'Percentage': {'type': 'decimal(4,1)', 'default': 0.0}}, ('CountryCode', 'Language'), {'CountryCode': 'country.Code'})"
 ],
 
