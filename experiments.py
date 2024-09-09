@@ -212,7 +212,6 @@ def main():
     user_prompt += user_query
 
     if model == "gpt4":
-        client = OpenAI()
         # Load environment variables from the .env file
         load_dotenv()
 
