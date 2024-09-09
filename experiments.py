@@ -160,108 +160,112 @@ def main():
     encoding = args.encoding
     operation = args.operation
 
-    TIMES = 3
+    TIMES = 1
 
     # repeat the experiment TIMES times
-    # generate populating query and query 
-    db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
+    for t in range(TIMES):
 
-    #user_query = "INSERT INTO `city` VALUES (69,'Buenos Aires','AAA','Distrito Federal',2982146);"
+        # generate populating query and query 
+        db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
 
-
-    drop_db_query = data["drop_database"][0]
-    create_db_query = data["create_database"][0]
-    use_db_query = data["use_database"][0]
-    create_table_query = data["create_table"]
-
-    print(user_query)
-
-    db_populating_queries = db_populating_query.split("\n")[:-1]
-    print(len(db_populating_queries))
+        user_query = "INSERT INTO `city` VALUES (69,'Buenos Aires','AAA','Distrito Federal',2982146);"
 
 
-    # execute the db_populating_query and db_query
-    connection = connect_to_server()
-    if connection is not None:
-        print("drop db")
-        execute_query(connection, drop_db_query)
-        print("create db")
-        execute_query(connection, create_db_query)
-        print("use db")
-        execute_query(connection, use_db_query)
-        print("create tables")
-        for query in create_table_query:
-            execute_query(connection, query)
-        print("populating db")
-        for query in db_populating_queries:
-            execute_query(connection, query)
-        print("executing query")
-        true_result = execute_query(connection, user_query)
+        drop_db_query = data["drop_database"][0]
+        create_db_query = data["create_database"][0]
+        use_db_query = data["use_database"][0]
+        create_table_query = data["create_table"]
+
+        print(user_query)
+
+        db_populating_queries = db_populating_query.split("\n")[:-1]
+        print(len(db_populating_queries))
+
+
+        # execute the db_populating_query and db_query
+        connection = connect_to_server()
+        if connection is not None:
+            print("drop db")
+            execute_query(connection, drop_db_query)
+            print("create db")
+            execute_query(connection, create_db_query)
+            print("use db")
+            execute_query(connection, use_db_query)
+            print("create tables")
+            for query in create_table_query:
+                execute_query(connection, query)
+            print("populating db")
+            for query in db_populating_queries:
+                execute_query(connection, query)
+            print("executing query")
+            true_result = execute_query(connection, user_query)
+
+            
+            connection.close()
+            print("Connection closed")
 
         
-        connection.close()
-        print("Connection closed")
 
-    
+        drop_db_query = data["drop_database"]
+        create_db_query = data["create_database"]
+        use_db_query = data["use_database"]
+        create_table_query = data["create_table"]
 
-    drop_db_query = data["drop_database"]
-    create_db_query = data["create_database"]
-    use_db_query = data["use_database"]
-    create_table_query = data["create_table"]
+        system_prompt_1 = data["system_prompt_1"]
+        system_prompt_2 = data["system_prompt_2"]
+        system_prompt_3 = data["system_prompt_3"]
 
-    system_prompt_1 = data["system_prompt_1"]
-    system_prompt_2 = data["system_prompt_2"]
-    system_prompt_3 = data["system_prompt_3"]
+        user_prompt_1= data["user_prompt_1"]
+        zero_shot = data["zero_shot"]
+        zero_shot_COT = data["zero_shot_COT"]
+        few_shot_example = data["few_shot_example"]
+        few_shot = data["few_shot"]
+        few_shot_COT = data["few_shot_COT"]
 
-    user_prompt_1= data["user_prompt_1"]
-    zero_shot = data["zero_shot"]
-    zero_shot_COT = data["zero_shot_COT"]
-    few_shot_example = data["few_shot_example"]
-    few_shot = data["few_shot"]
-    few_shot_COT = data["few_shot_COT"]
+        prompt = concatenate_prompt(system_prompt_1)+concatenate_prompt(system_prompt_2)
+        if prompting == "zero_shot":
+            prompt += concatenate_prompt(zero_shot)
+        elif prompting == "zero_shot_COT":
+            prompt += concatenate_prompt(zero_shot_COT)
+        elif prompting == "few_shot":
+            prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot)
+        elif prompting == "few_shot_COT":
+            prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_COT)
 
-    prompt = concatenate_prompt(system_prompt_1)+concatenate_prompt(system_prompt_2)
-    if prompting == "zero_shot":
-        prompt += concatenate_prompt(zero_shot)
-    elif prompting == "zero_shot_COT":
-        prompt += concatenate_prompt(zero_shot_COT)
-    elif prompting == "few_shot":
-        prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot)
-    elif prompting == "few_shot_COT":
-        prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_COT)
+        prompt += concatenate_prompt(system_prompt_3)
+        prompt += db_populating_query
 
-    prompt += concatenate_prompt(system_prompt_3)
-    prompt += db_populating_query
+        user_prompt = concatenate_prompt(user_prompt_1)
+        user_prompt += user_query
 
-    user_prompt = concatenate_prompt(user_prompt_1)
-    user_prompt += user_query
+        print(user_prompt)
 
-    print(user_prompt)
+        if model == "gpt4":
+            # Load environment variables from the .env file
+            load_dotenv()
 
-    if model == "gpt4":
-        # Load environment variables from the .env file
-        load_dotenv()
+            # Fetch the API key from the environment variable
+            api_key = os.getenv("OPENAI_API_KEY")
 
-        # Fetch the API key from the environment variable
-        api_key = os.getenv("OPENAI_API_KEY")
+            # Initialize the OpenAI client with the API key
+            client = OpenAI(api_key=api_key)
 
-        # Initialize the OpenAI client with the API key
-        client = OpenAI(api_key=api_key)
+            response = client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": user_prompt},
 
-        response = client.chat.completions.create(
-            model="gpt-4o",
-            messages=[
-                {"role": "system", "content": prompt},
-                {"role": "user", "content": user_prompt},
+                ]
+            )
 
-            ]
-        )
+            # get the response
+            result = response.choices[0].message.content
 
-        # get the response
-        result = response.choices[0].message.content
+        print(true_result)
+        print(result)
 
-    print(true_result)
-    print(result)
+
   
 
     
