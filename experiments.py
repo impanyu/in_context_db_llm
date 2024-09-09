@@ -262,8 +262,8 @@ def main():
                 messages=[
                     {"role": "system", "content": prompt},
                     {"role": "user", "content": user_prompt},
-
-                ]
+                ],
+                temperature=0.7  # Set the temperature here (adjust as needed)
             )
 
             # get the response
