@@ -12,8 +12,9 @@ def execute_query(connection, query):
     cursor = connection.cursor()
     try:
         cursor.execute(query)
-        connection.commit()
         result = cursor.fetchall()  # Fetch all the rows from the result
+        connection.commit()
+
         return result
     except Error as e:
         print(f"Error: '{e}'")
