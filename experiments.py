@@ -277,7 +277,10 @@ def main():
                 accuracy += 1
         else:
             true_result = [r[0] for r in true_result]
+            # replace ' with " in the result"
+            result = result.replace("'", "\"")
             result = json.loads(result)
+            
             result_overlap = set(true_result).intersection(set(result))
             result_union = set(true_result).union(set(result))
             accuracy += len(result_overlap) / len(result_union)
