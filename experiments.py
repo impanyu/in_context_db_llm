@@ -18,6 +18,7 @@ def execute_query(connection, query):
         return result
     except Error as e:
         print(f"Error: '{e}'")
+        print(query)
         connection.rollback()
 
         return "Fail"
