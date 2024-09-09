@@ -47,15 +47,10 @@ def read_data(dataset,encoding,scale, balance, overlap, operation):
 
         db_populating_query = ""
 
-        if operation == "insert":
-            random_index = random.randint(0, len(data["insert"])-1)
-            db_query = data["insert"][random_index]
-        elif operation == "delete":
-            random_index = random.randint(0, len(data["delete"])-1)
-            db_query = data["delete"][random_index]
-        elif operation == "update":
-            random_index = random.randint(0, len(data["update"])-1)
-            db_query = data["update"][random_index]
+        if operation == "insert_data" or operation == "delete_data" or operation == "update_data":
+            random_index = random.randint(0, len(data[operation])-1)
+            db_query = data[operation][random_index]
+
         elif operation == "select":
 
 
@@ -137,7 +132,7 @@ def main():
     parser.add_argument('--dataset', type=str, default='world', help='Dataset to evaluate')
     parser.add_argument('--encoding', type=str, default='sql', help='Encoding method for data and query')
 
-    parser.add_argument('--operation', type=str, default='select', help='Dataset query operation')
+    parser.add_argument('--operation', type=str, default='select_data', help='Dataset query operation')
 
     parser.add_argument('--scale', type=int, default='300', help='Number of operations in the dataset')
     parser.add_argument('--balance', type=float, default=0.5, help='Ratio of insert in the operations in the dataset, a number between 0 and 1')
