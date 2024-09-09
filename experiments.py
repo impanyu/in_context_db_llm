@@ -281,8 +281,10 @@ def main():
             result = result.replace("'", "\"")
             result = json.loads(result)
             print(result)
-            if type(result) == list:
-                result = [r[0] for r in result]
+            if len(result) > 0:
+                if type(result[0]) == dict:
+                    result = [r["result"] for r in result]
+           
 
             result_overlap = set(true_result).intersection(set(result))
             result_union = set(true_result).union(set(result))
