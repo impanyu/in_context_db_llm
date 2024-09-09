@@ -163,7 +163,7 @@ def main():
     # execute the db_populating_query and db_query
     connection = connect_to_server()
     if connection is not None:
-        print("drop table")
+        print("drop db")
         execute_query(connection, drop_db_query)
         print("create db")
         execute_query(connection, create_db_query)
