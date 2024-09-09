@@ -105,11 +105,11 @@ def read_data(dataset,encoding,scale, balance, overlap, operation):
                 # get a random number between 0 and 1
                 random_index_in_populating_queries = random.randint(insert_scale-radius*2,insert_scale)
                 random_index = random.randint(0, len(data["delete_data"])-1)
-                tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(data["delete_update"][random_index])
+                tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(data["delete_data"][random_index])
             else: # insert an update query
                 random_index_in_populating_queries= random.randint(insert_scale-radius*2,insert_scale)
                 random_index = random.randint(0, len(data["delete_data"])-1)
-                tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(data["update_update"][random_index])
+                tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(data["update_data"][random_index])
 
         for i in range(insert_scale+1):
             for j in range(len(tmp_db_delete_update_populating_queries[i])):
