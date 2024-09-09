@@ -3484,7 +3484,7 @@
         "SELECT city.Name FROM city JOIN country ON city.CountryCode = country.Code JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE  country.LifeExpectancy > 60.0 AND countrylanguage.Language = 'English' AND countrylanguage.Percentage > 10.0;"
     ],
     "ranking":[
-        "SELECT Name FROM city WHERE CountryCode = 'CHN' ORDER BY Populatio;",
+        "SELECT Name FROM city WHERE CountryCode = 'CHN' ORDER BY Population;",
         "SELECT Name FROM country WHERE Continent = 'Asia' ORDER BY SurfaceArea;",
         "SELECT country.Name FROM country JOIN countrylanguage ON country.Code = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English' ORDER BY countrylanguage.Percentage;",
         "SELECT Name FROM country WHERE Continent = 'Europe' AND GNP > 500000 ORDER BY Population;"
