@@ -95,8 +95,8 @@ def read_data(dataset,encoding,scale, balance, overlap, operation):
 
         for i in range(insert_scale):
             # get a ramdom number between 0 and len(data["insert"])
-            random_index = random.randint(0, len(data["insert"])-1)
-            tmp_db_insert_populating_queries.append(data["insert"][random_index])
+            random_index = random.randint(0, len(data["insert_data"])-1)
+            tmp_db_insert_populating_queries.append(data["insert_data"][random_index])
 
         for i in range(delete_update_scale):
             # get a ramdom number between 0 and 1
@@ -104,11 +104,11 @@ def read_data(dataset,encoding,scale, balance, overlap, operation):
             if random_number <= 0.5: # insert a delete query
                 # get a ramdom number between 0 and 1
                 random_index_in_populating_queries = random.randint(insert_scale-radius*2,insert_scale)
-                random_index = random.randint(0, len(data["delete_update"])-1)
+                random_index = random.randint(0, len(data["delete_data"])-1)
                 tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(data["delete_update"][random_index])
             else: # insert an update query
                 ramdom_index_in_populating_queries= random.randint(insert_scale-radius*2,insert_scale)
-                random_index = random.randint(0, len(data["delete_update"])-1)
+                random_index = random.randint(0, len(data["delete_data"])-1)
                 tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(data["update_update"][random_index])
 
         for i in range(insert_scale+1):
