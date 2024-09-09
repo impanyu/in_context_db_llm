@@ -170,7 +170,7 @@ def main():
 
     print(user_query)
 
-    db_populating_queries = db_populating_query.split("\n")
+    db_populating_queries = db_populating_query.split("\n")[:-1]
     print(len(db_populating_queries))
 
 
