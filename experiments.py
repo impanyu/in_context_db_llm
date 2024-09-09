@@ -280,10 +280,15 @@ def main():
             # replace ' with " in the result"
             result = result.replace("'", "\"")
             result = json.loads(result)
-            
+
             result_overlap = set(true_result).intersection(set(result))
             result_union = set(true_result).union(set(result))
-            accuracy += len(result_overlap) / len(result_union)
+            if len(result_union) == 0:
+                accuracy += 1
+            else:
+                accuracy += len(result_overlap) / len(result_union)
+
+
             print(f"result_overlap: {result_overlap}")
             print(f"result_union: {result_union}")
             
