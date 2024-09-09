@@ -149,7 +149,7 @@ def main():
 
     parser.add_argument('--operation', type=str, default='select_data', help='Dataset query operation')
 
-    parser.add_argument('--scale', type=int, default='50', help='Number of operations in the dataset')
+    parser.add_argument('--scale', type=int, default='100', help='Number of operations in the dataset')
     parser.add_argument('--balance', type=float, default=0.5, help='Ratio of insert in the operations in the dataset, a number between 0 and 1')
     parser.add_argument('--overlap', type=float, default=0.5, help='Ratio of overlap between the operations in the dataset, a number between 0 and 0.5')
     args = parser.parse_args()
