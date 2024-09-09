@@ -3,6 +3,9 @@ import mysql.connector
 from mysql.connector import Error
 import json
 import random
+from dotenv import load_dotenv
+from openai import OpenAI
+import os
 
 
 def execute_query(connection, query):
@@ -33,33 +36,9 @@ def connect_to_server():
         print(f"Error: '{e}'")
         return None
 
-
-
-def main():
-    # Read cmd line arguments with argparse
-    parser = argparse.ArgumentParser(description='Run experiments')
-    parser.add_argument('--model', type=str, default='gpt4', help='Model to evaluate')
-    parser.add_argument('--prompting', type=str, default='zero_shot', help='Prompting strategy')
-    parser.add_argument('--dataset', type=str, default='world', help='Dataset to evaluate')
-    parser.add_argument('--encoding', type=str, default='sql', help='Encoding method for data and query')
-
-    parser.add_argument('--operation', type=str, default='select', help='Dataset query operation')
-
-    parser.add_argument('--scale', type=int, default='300', help='Number of operations in the dataset')
-    parser.add_argument('--balance', type=float, default=0.5, help='Ratio of insert in the operations in the dataset, a number between 0 and 1')
-    parser.add_argument('--overlap', type=float, default=0.5, help='Ratio of overlap between the operations in the dataset, a number between 0 and 0.5')
-    args = parser.parse_args()
-    args_dict = vars(args)
-
-
-    scale = args.scale
-    balance = args.balance
-    overlap = min(args.overlap,0.5)
-
-    
-
+def read_data(dataset,encoding,scale, balance, overlap, operation):
     # generate db populating query and db query
-    with open(f"world_sql.json", "r") as file:
+    with open(f"{dataset}_{encoding}.json", "r") as file:
         data = json.load(file)
         drop_db_query = data["drop_database"]
         create_db_query = data["create_database"]
@@ -67,16 +46,35 @@ def main():
         create_table_query = data["create_table"]
 
         db_populating_query = ""
-      
 
-        db_query_categories = list(data["select_data"].keys())
+        if operation == "insert":
+            random_index = random.randint(0, len(data["insert"])-1)
+            db_query = data["insert"][random_index]
+        elif operation == "delete":
+            random_index = random.randint(0, len(data["delete"])-1)
+            db_query = data["delete"][random_index]
+        elif operation == "update":
+            random_index = random.randint(0, len(data["update"])-1)
+            db_query = data["update"][random_index]
+        elif operation == "select":
 
-        category_index = random.randint(0, len(db_query_categories)-1)
-        category = db_query_categories[category_index]
-        db_queries = data["select_data"][category]
 
-        random_index = random.randint(0, len(db_queries)-1)
-        db_query = db_queries[random_index]
+            db_query_categories = list(data["select_data"].keys())
+
+            category_index = random.randint(0, len(db_query_categories)-1)
+            category = db_query_categories[category_index]
+            db_queries = data["select_data"][category]
+
+            random_index = random.randint(0, len(db_queries)-1)
+            db_query = db_queries[random_index]
+        else:
+            category = operation
+
+            db_queries = data["select_data"][category]
+
+            random_index = random.randint(0, len(db_queries)-1)
+            db_query = db_queries[random_index]
+
 
 
         must_insert = data["must_insert_data"]
@@ -123,7 +121,46 @@ def main():
                 db_populating_query += tmp_db_delete_update_populating_queries[i][j] + "\n"
             if i < insert_scale:
                 db_populating_query += tmp_db_insert_populating_queries[i] + "\n"
+    return db_populating_query, db_query, data
 
+def concatenate_prompt(prompts):
+    prompt = ""
+    for p in prompts:
+        prompt += p + "\n"
+    return prompt
+
+def main():
+    # Read cmd line arguments with argparse
+    parser = argparse.ArgumentParser(description='Run experiments')
+    parser.add_argument('--model', type=str, default='gpt4', help='Model to evaluate')
+    parser.add_argument('--prompting', type=str, default='zero_shot', help='Prompting strategy')
+    parser.add_argument('--dataset', type=str, default='world', help='Dataset to evaluate')
+    parser.add_argument('--encoding', type=str, default='sql', help='Encoding method for data and query')
+
+    parser.add_argument('--operation', type=str, default='select', help='Dataset query operation')
+
+    parser.add_argument('--scale', type=int, default='300', help='Number of operations in the dataset')
+    parser.add_argument('--balance', type=float, default=0.5, help='Ratio of insert in the operations in the dataset, a number between 0 and 1')
+    parser.add_argument('--overlap', type=float, default=0.5, help='Ratio of overlap between the operations in the dataset, a number between 0 and 0.5')
+    args = parser.parse_args()
+    #args_dict = vars(args)
+
+
+    scale = args.scale
+    balance = args.balance
+    overlap = min(args.overlap,0.5)
+    dataset = args.dataset
+    model = args.model
+    prompting = args.prompting
+    encoding = args.encoding
+    operation = args.operation
+
+    # generate populating query and query for db execution
+    db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
+    drop_db_query = data["drop_database"]
+    create_db_query = data["create_database"]
+    use_db_query = data["use_database"]
+    create_table_query = data["create_table"]
 
 
 
@@ -135,13 +172,76 @@ def main():
         execute_query(connection, use_db_query)
         execute_query(connection, create_table_query)
         execute_query(connection, db_populating_query)
-        result = execute_query(connection, db_query)
+        true_result = execute_query(connection, user_query)
 
         
         connection.close()
         print("Connection closed")
 
+    
+
     # generate populating query and query for selected model
+    db_populating_query,user_query,data = read_data(dataset,encoding,scale, balance, overlap, operation)
+
+
+    drop_db_query = data["drop_database"]
+    create_db_query = data["create_database"]
+    use_db_query = data["use_database"]
+    create_table_query = data["create_table"]
+
+    system_prompt_1 = data["system_prompt_1"]
+    system_prompt_2 = data["system_prompt_2"]
+    system_prompt_3 = data["system_prompt_3"]
+
+    user_prompt_1= data["user_prompt_1"]
+    zero_shot = data["zero_shot"]
+    zero_shot_COT = data["zero_shot_COT"]
+    few_shot_example = data["few_shot_example"]
+    few_shot = data["few_shot"]
+    few_shot_COT = data["few_shot_COT"]
+
+    prompt = concatenate_prompt(system_prompt_1)+concatenate_prompt(system_prompt_2)
+    if prompting == "zero_shot":
+        prompt += concatenate_prompt(zero_shot)
+    elif prompting == "zero_shot_COT":
+        prompt += concatenate_prompt(zero_shot_COT)
+    elif prompting == "few_shot":
+        prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot)
+    elif prompting == "few_shot_COT":
+        prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_COT)
+
+    prompt += concatenate_prompt(system_prompt_3)
+    prompt += db_populating_query
+
+    user_prompt = concatenate_prompt(user_prompt_1)
+    user_prompt += user_query
+
+
+    client = OpenAI()
+    # Load environment variables from the .env file
+    load_dotenv()
+
+    # Fetch the API key from the environment variable
+    api_key = os.getenv("OPENAI_API_KEY")
+
+    # Initialize the OpenAI client with the API key
+    client = OpenAI(api_key=api_key)
+
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": prompt},
+            {"role": "user", "content": user_prompt},
+
+        ]
+    )
+
+    # get the response
+    result = response.choices[0].message['content']
+
+    print(true_result)
+    print(result)
+  
 
     
 
