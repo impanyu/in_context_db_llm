@@ -1,5 +1,5 @@
 {
-"system_prompt_1":["Now pretend you are a relational database which can execute commands in natural language. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single query from the user. You need output the result of this single query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'succeed' or 'fail', with no extra words."],
+"system_prompt_1":["Now pretend you are a relational database which can execute commands in natural language. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single query from the user. You need output the result of this single query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
 "system_prompt_2":[],
 "system_prompt_3":["Now you need to execute the following commands to populate the database:"],
 "user_prompt_1":["Please execute the following command and you need output the result"],

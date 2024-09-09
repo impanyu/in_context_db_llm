@@ -1,5 +1,5 @@
 {
-"system_prompt_1":["Now pretend you are a relational database which can execute commands in python. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single query from the user. You need output the result of this single SQL query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'succeed' or 'fail', with no extra words."],
+"system_prompt_1":["Now pretend you are a relational database which can execute commands in python. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single query from the user. You need output the result of this single SQL query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
 "system_prompt_2":[
     "from databases import Database",
     "import an imaginary database module, which contains a simplified class Database. the interface of the class Database is listed as follows:",
