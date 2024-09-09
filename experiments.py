@@ -135,7 +135,7 @@ def main():
 
     parser.add_argument('--operation', type=str, default='select_data', help='Dataset query operation')
 
-    parser.add_argument('--scale', type=int, default='300', help='Number of operations in the dataset')
+    parser.add_argument('--scale', type=int, default='50', help='Number of operations in the dataset')
     parser.add_argument('--balance', type=float, default=0.5, help='Ratio of insert in the operations in the dataset, a number between 0 and 1')
     parser.add_argument('--overlap', type=float, default=0.5, help='Ratio of overlap between the operations in the dataset, a number between 0 and 0.5')
     args = parser.parse_args()
@@ -157,6 +157,8 @@ def main():
     create_db_query = data["create_database"][0]
     use_db_query = data["use_database"][0]
     create_table_query = data["create_table"][0]
+
+    print(user_query)
 
 
 
@@ -217,6 +219,8 @@ def main():
 
     user_prompt = concatenate_prompt(user_prompt_1)
     user_prompt += user_query
+
+    print(user_prompt)
 
     if model == "gpt4":
         # Load environment variables from the .env file
