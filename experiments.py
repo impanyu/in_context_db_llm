@@ -283,7 +283,7 @@ def main():
             print(result)
             if len(result) > 0:
                 if type(result[0]) == dict:
-                    result = [r["result"] for r in result]
+                    result = [r[0] for r in result]
            
 
             result_overlap = set(true_result).intersection(set(result))
