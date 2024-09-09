@@ -155,7 +155,7 @@ def main():
     db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
 
     drop_db_query = data["drop_database"][0]
-    create_db_query = data["create_database"][0]
+    create_db_query = data["create_database"]
     use_db_query = data["use_database"][0]
     create_table_query = data["create_table"][0]
 
@@ -173,8 +173,9 @@ def main():
         execute_query(connection, create_db_query)
         print("use db")
         execute_query(connection, use_db_query)
-        print("create table")
-        execute_query(connection, create_table_query)
+        print("create tables")
+        for query in create_table_query:
+            execute_query(connection, query)
         print("populating db")
         for query in db_populating_queries:
             execute_query(connection, query)
