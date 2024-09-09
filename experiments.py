@@ -18,6 +18,8 @@ def execute_query(connection, query):
         return result
     except Error as e:
         print(f"Error: '{e}'")
+        connection.rollback()
+
         return "Fail"
     finally:
         cursor.close()
