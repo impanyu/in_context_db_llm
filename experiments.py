@@ -161,6 +161,7 @@ def main():
 
     print(user_query)
 
+    db_populating_queries = db_populating_query.split("\n")
 
 
     # execute the db_populating_query and db_query
@@ -175,7 +176,8 @@ def main():
         print("create table")
         execute_query(connection, create_table_query)
         print("populating db")
-        execute_query(connection, db_populating_query)
+        for query in db_populating_queries:
+            execute_query(connection, query)
         print("executing query")
         true_result = execute_query(connection, user_query)
 
