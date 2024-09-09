@@ -18,6 +18,8 @@ def execute_query(connection, query):
     except Error as e:
         print(f"Error: '{e}'")
         return "Fail"
+    finally:
+        cursor.close()
 
 
 
@@ -151,10 +153,10 @@ def main():
 
     # generate populating query and query for db execution
     db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
-    drop_db_query = data["drop_database"]
-    create_db_query = data["create_database"]
-    use_db_query = data["use_database"]
-    create_table_query = data["create_table"]
+    drop_db_query = data["drop_database"][0]
+    create_db_query = data["create_database"][0]
+    use_db_query = data["use_database"][0]
+    create_table_query = data["create_table"][0]
 
 
 
@@ -230,7 +232,7 @@ def main():
         )
 
         # get the response
-        result = response.choices[0].message['content']
+        result = response.choices[0].message.content
 
     print(true_result)
     print(result)
