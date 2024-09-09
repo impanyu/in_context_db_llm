@@ -175,7 +175,7 @@ def main():
         # generate populating query and query 
         db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
 
-        #user_query = "INSERT INTO `city` VALUES (69,'Buenos Aires','AAA','Distrito Federal',2982146);"
+        user_query = "SELECT Distinct Language FROM `countrylanguage` WHERE `Percentage` BETWEEN 20.0 AND 40.0;"
 
 
         drop_db_query = data["drop_database"][0]
