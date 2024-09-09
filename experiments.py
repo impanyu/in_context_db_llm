@@ -169,7 +169,7 @@ def main():
         execute_query(connection, drop_db_query)
         print("create db")
         execute_query(connection, create_db_query)
-        print("use table")
+        print("use db")
         execute_query(connection, use_db_query)
         print("create table")
         execute_query(connection, create_table_query)
