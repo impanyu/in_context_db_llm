@@ -244,7 +244,7 @@ def main():
 
         #print(user_prompt)
 
-        if model == "gpt-4o-mini":
+        if model == "gpt4":
             # Load environment variables from the .env file
             load_dotenv()
 
@@ -255,7 +255,7 @@ def main():
             client = OpenAI(api_key=api_key)
 
             response = client.chat.completions.create(
-                model="gpt-4o",
+                model="gpt-4o-mini",
                 messages=[
                     {"role": "system", "content": prompt},
                     {"role": "user", "content": user_prompt},
