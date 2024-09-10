@@ -304,8 +304,8 @@ def main():
                     accuracy += len(result_overlap) / len(result_union)
 
 
-                print(f"result_overlap: {result_overlap}")
-                print(f"result_union: {result_union}")
+                #print(f"result_overlap: {result_overlap}")
+                #print(f"result_union: {result_union}")
             except json.JSONDecodeError as e:
                 pass
                 
