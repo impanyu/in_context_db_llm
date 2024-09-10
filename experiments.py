@@ -235,7 +235,7 @@ def main():
             user_prompt_example = concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_questions)
             assistant_prompt_example = concatenate_prompt(few_shot_answers)
         elif prompting == "few_shot_COT":
-            user_prompt_example += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_questions)
+            user_prompt_example = concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_questions)
             assistant_prompt_example = concatenate_prompt(few_shot_COT_thoughts) + concatenate_prompt(few_shot_answers)
 
         user_prompt = concatenate_prompt(user_prompt_1)
