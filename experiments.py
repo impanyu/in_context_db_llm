@@ -5,6 +5,7 @@ import json
 import random
 from dotenv import load_dotenv
 from openai import OpenAI
+from openai import APITimeoutError
 import os
 import time
 import requests.exceptions
@@ -280,7 +281,7 @@ def main():
                     temperature=0.5,  # Set the temperature here (adjust as needed)
                     timeout=5  # Set a timeout of 10 seconds
                 )
-            except requests.exceptions.Timeout:
+            except APITimeoutError:
                 t = t-1
                 time.sleep(2)
                 continue
