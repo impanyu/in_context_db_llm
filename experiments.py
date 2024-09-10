@@ -217,6 +217,8 @@ def generate_query_result_pair(datasets,encoding,scale, balance, overlap, operat
     # execute the db_populating_query and db_query
     connection = connect_to_server()
     if connection is not None:
+        db_use_db_query = db_data["use_database"][0]
+        execute_query(connection, db_use_db_query)
 
         print("clear tables")
         for query in db_data["clear_tables"]:
