@@ -88,27 +88,6 @@
 ],
 
 "few_shot_COT":[
-    "After executing SQL command 1, an empty Customers table will be created, with columns CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country, and CustomerID as primary key,",
-    "After executing SQL command 2, an empty Orders table will be created, with columns OrderID, CustomerID, OrderDate, and OrderID as primary key, and CustomerID as foreign key referencing Customers table,",
-    "After executing SQL command 3, an empty OrderDetails table will be created, with columns OrderDetailID, OrderID, ProductID, Quantity, and OrderDetailID as primary key, and OrderID and ProductID as foreign key referencing Orders and Products table respectively,",
-    "After executing SQL command 4, an empty Products table will be created, with columns ProductID, ProductName, Unit, Price, and ProductID as primary key,",
-
-    "After executing SQL command 5, the Customers table will contain custermer with CustomerID = 1,",
-    "After executing SQL command 6, the Customers table will contain custermer with CustomerID = 2,",
-    "After executing SQL command 7, the Customers table will contain custermer with CustomerID = 3,",
-    "After executing SQL command 8, the Customers table will contain custermer with CustomerID = 4,",
-    "After executing SQL command 9, the Orders table will contain order with OrderID = 10308,",
-    "After executing SQL command 10, the Orders table will contain order with OrderID = 10365,",
-    "After executing SQL command 11, the Customers table will not contain custermer with CustomerID = 4, and only contain custermer with CustomerID = 1, 2, 3,",
-    "After executing SQL command 12, the order with OrderID = 10308 will have OrderDate = '9/19/1996',",
-    "After executing SQL command 13, the OrderDetails table will contain order detail with OrderDetailID = 162,",
-    "After executing SQL command 14, the OrderDetails table will contain order detail with OrderDetailID = 163,",
-    "After executing SQL command 15, the OrderDetails table will contain order detail with OrderDetailID = 314,",
-    "After executing SQL command 16, the Products table will contain product with ProductID = 11,",
-    "After executing SQL command 17, the Products table will contain product with ProductID = 69,",
-    "After executing SQL command 18, the Products table will contain product with ProductID = 70,",
-    "After executing SQL command 19, the Products table will contain product with ProductID = 1,",
-    "After executing SQL command 20, the Products table will not contain product with ProductID = 1, and only contain product with ProductID = 11, 69, 70.",
 
 
 
