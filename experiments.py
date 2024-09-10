@@ -280,24 +280,32 @@ def main():
             # replace ' with " in the result"
             result = result.replace("'", "\"")
             print(result)
-            result = json.loads(result)
+            try:
+
+                result = json.loads(result)
+                if not type(result) == list:
+                    continue
+                
+                if len(result) > 0:
+                    if type(result[0]) == list:
+                        result = [r[0] for r in result]
+                    else:
+                        continue
             
-            if len(result) > 0:
-                if type(result[0]) == list:
-                    result = [r[0] for r in result]
-           
 
-            result_overlap = set(true_result).intersection(set(result))
-            result_union = set(true_result).union(set(result))
-            if len(result_union) == 0:
-                accuracy += 1
-            else:
-                accuracy += len(result_overlap) / len(result_union)
+                result_overlap = set(true_result).intersection(set(result))
+                result_union = set(true_result).union(set(result))
+                if len(result_union) == 0:
+                    accuracy += 1
+                else:
+                    accuracy += len(result_overlap) / len(result_union)
 
 
-            print(f"result_overlap: {result_overlap}")
-            print(f"result_union: {result_union}")
-            
+                print(f"result_overlap: {result_overlap}")
+                print(f"result_union: {result_union}")
+            except Error as e:
+                continue
+                
 
         print(true_result)
         print(result)
