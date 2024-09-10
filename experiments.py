@@ -282,7 +282,7 @@ def main():
                 )
             except requests.exceptions.Timeout:
                 t = t-1
-                time.sleep(5)
+                time.sleep(2)
                 continue
             print("end api call")
 
