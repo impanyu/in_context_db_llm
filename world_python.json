@@ -18,7 +18,7 @@
 "zero_shot":[],
 "zero_shot_COT":["To answer the single query from the user, you need to first execute the populating python commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result."],
 "few_shot_example":[
-    "Here is an example database and queries on it:",
+    "Before you are given the actual queries, I first give you an example database, the queries on it, together with the results for each query, hope you can learn the correct way to conduct query on a database:",
     "0. example_db = Database('example')",
 
     "1. example_db.create_table('Customers', {'CustomerID': {'type': 'int', 'default': 0, 'auto_increment': True}, 'CustomerName': {'type': 'varchar(255)', 'default': ''}, 'ContactName': {'type': 'varchar(255)', 'default': ''}, 'Address': {'type': 'varchar(255)', 'default': ''}, 'City': {'type': 'varchar(255)', 'default': ''}, 'PostalCode': {'type': 'varchar(255)', 'default': ''}, 'Country': {'type': 'varchar(255)', 'default': ''}}, ('CustomerID'))",

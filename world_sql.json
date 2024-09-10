@@ -6,7 +6,7 @@
 "zero_shot":[],
 "zero_shot_COT":["To answer the single query from the user, you need to first execute the populating SQL commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result."],
 "few_shot_example":[
-    "Here is an example database and queries on it:",
+    "Before you are given the actual queries, I first give you an example database, the queries on it, together with the results for each query, hope you can learn the correct way to conduct query on a database:",
     "0. create database example; use example;",
     "1. create table Customers (CustomerID int NOT NULL AUTO_INCREMENT, CustomerName varchar(255) NOT NULL, ContactName varchar(255) NOT NULL, Address varchar(255) NOT NULL, City varchar(255) NOT NULL, PostalCode varchar(255) NOT NULL, Country varchar(255) NOT NULL, primary key (CustomerID));",
     
