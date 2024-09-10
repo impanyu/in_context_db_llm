@@ -50,10 +50,7 @@ def read_data(dataset,encoding,scale, balance, overlap, operation):
     # generate db populating query and db query
     with open(f"{dataset}_{encoding}.json", "r") as file:
         data = json.load(file)
-        drop_db_query = data["drop_database"]
-        create_db_query = data["create_database"]
-        use_db_query = data["use_database"]
-        create_table_query = data["create_table"]
+
 
         db_populating_query = ""
 
