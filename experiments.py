@@ -284,12 +284,20 @@ def main():
 
                 result = json.loads(result)
                 if not type(result) == list:
+                    print(true_result)
+                    print(result)
+
+                    print(f"Accuracy: {accuracy}")
                     continue
                 
                 if len(result) > 0:
                     if type(result[0]) == list:
                         result = [r[0] for r in result]
                     else:
+                        print(true_result)
+                        print(result)
+
+                        print(f"Accuracy: {accuracy}")
                         continue
             
 
