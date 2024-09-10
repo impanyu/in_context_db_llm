@@ -59,31 +59,31 @@
 
     "If the user send query:",
     "insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
-    "then you should output 'succeed'",
+    "then you should output 'Succeed'",
 
     "If the user send query:",
     "insert into Orders values (10249, 4, '7/5/1996');",
-    "then you should output 'fail'.",
+    "then you should output 'Fail'.",
 
     "If the user send query:",
     "insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
-    "then you should output 'fail'.",
+    "then you should output 'Fail'.",
 
     "If the user send query:",
     "delete from Customers where CustomerID = 1;",
-    "then yout should output 'succeed'.",
+    "then yout should output 'Succeed'.",
 
     "If the user send query:",
     "delete from Orders where OrderID = 10308;",
-    "then you should 'fail'",
+    "then you should 'Fail'",
 
     "If the user send query:",
     "update OrderDetails set Quantity = 2 where OrderDetailID = 162;",
-    "then you should output 'succeed'.",
+    "then you should output 'Succeed'.",
 
     "If the user send query:",
     "update OrderDetails set ProductID = 1 where OrderDetailID = 162;",
-    "then you should output 'fail'."
+    "then you should output 'Fail'."
 
 ],
 
@@ -135,37 +135,37 @@
     "If the user send query:",
     "insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
     "there's no constraint violation,",
-    "then you should output 'succeed'",
+    "then you should output 'Succeed'",
 
     "If the user send query:",
     "insert into Orders values (10249, 4, '7/5/1996');",
     "since there's no customer with CustomerID = 4,",
-    "then you should output 'fail'.",
+    "then you should output 'Fail'.",
 
     "If the user send query:",
     "insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
     "since there's already a product with ProductID = 11,",
-    "then you should output 'fail'.",
+    "then you should output 'Fail'.",
 
     "If the user send query:",
     "delete from Customers where CustomerID = 1;",
     "since there's no Orders with CustomerID = 1,",
-    "then yout should output 'succeed'.",
+    "then yout should output 'Succeed'.",
 
     "If the user send query:",
     "delete from Orders where OrderID = 10308;",
     "since there's OrderDetails with OrderID = 10308,",
-    "then you should 'fail'",
+    "then you should 'Fail'",
 
     "If the user send query:",
     "update OrderDetails set Quantity = 2 where OrderDetailID = 162;",
     "since there's OrderDetails with OrderDetailID = 162,",
-    "then you should output 'succeed'.",
+    "then you should output 'Succeed'.",
 
     "If the user send query:",
     "update OrderDetails set ProductID = 1 where OrderDetailID = 162;",
     "since in step 20, the product with ProductID = 1 is deleted,",
-    "then you should output 'fail'."
+    "then you should output 'Fail'."
 
 ],
 
