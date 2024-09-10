@@ -46,7 +46,9 @@
     "18. example_db.insert('Products',{'ProductID': 70, 'ProductName': 'Outback Lager', 'Unit': '24 - 355 ml bottles', 'Price': 15})",
     "19. example_db.insert('Products',{'ProductID': 1, 'ProductName': 'Chais', 'Unit': '10 boxes x 20 bags', 'Price': 18})",
 
-    "20. example_db.delete('Products',{'ProductID': 1})"
+    "20. example_db.delete('Products',{'ProductID': 1})",
+    "Now if I send the following queries respectively (not accumulatively), you need to consider the queries seperately, all based on above example database and output the results for each query:"
+
 
 ],
 "few_shot_questions":[
