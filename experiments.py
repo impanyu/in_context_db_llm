@@ -244,7 +244,7 @@ def main():
 
         #print(user_prompt)
 
-        if model == "gpt4":
+        if model == "gpt-4o-mini":
             # Load environment variables from the .env file
             load_dotenv()
 
