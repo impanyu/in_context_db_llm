@@ -303,7 +303,7 @@ def main():
 
                 print(f"result_overlap: {result_overlap}")
                 print(f"result_union: {result_union}")
-            except Error as e:
+            except json.JSONDecodeError as e:
                 continue
                 
 
