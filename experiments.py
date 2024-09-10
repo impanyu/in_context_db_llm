@@ -279,7 +279,7 @@ def main():
             true_result = [r[0] for r in true_result]
             # replace ' with " in the result"
             result = result.replace("'", "\"")
-            print(result)
+           
             try:
 
                 result = json.loads(result)
