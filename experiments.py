@@ -322,7 +322,7 @@ def main():
                         continue
 
                 order_accuracy = 1
-                if "order" in user_query.lower():
+                if "order by" in user_query.lower():
                     
                     for k in range(1,min(len(true_result),len(result))+1):
                         result_overlap = set(true_result[:k]).intersection(set(result[:k]))
