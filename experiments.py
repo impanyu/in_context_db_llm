@@ -6,6 +6,7 @@ import random
 from dotenv import load_dotenv
 from openai import OpenAI
 import os
+import time
 
 
 def execute_query(connection, query):
@@ -325,7 +326,7 @@ def main():
         print(result)
 
         print(f"Accuracy: {accuracy}")
-        sleep(2)
+        time.sleep(2)
 
     accuracy = accuracy / TIMES
     print(f"Total Accuracy: {accuracy}")
