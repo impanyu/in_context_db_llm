@@ -312,22 +312,44 @@ def main():
                     continue
                 
                 if len(result) > 0:
-                    if type(result[0]) == list:
+                    if type(result[0]) == list or type(result[0]) == tuple:
                         result = [r[0] for r in result]
-                
-            
+                    elif not type(result[0]) == int and not type(result[0]) == float:
+                        print(true_result)
+                        print(result)
 
+                        print(f"Accuracy: {accuracy}")
+                        continue
+
+                order_accuracy = 1
+                if "order" in user_query.lower():
+                    
+                    for k in range(1,min(len(true_result),len(result))+1):
+                        result_overlap = set(true_result[:k]).intersection(set(result[:k]))
+                        result_union = set(true_result[:k]).union(set(result[:k]))
+                      
+                        order_accuracy += len(result_overlap) / len(result_union)
+                    
+
+                    order_accuracy = order_accuracy / (min(len(true_result),len(result))+1)
+                    
+                
+                
                 result_overlap = set(true_result).intersection(set(result))
                 result_union = set(true_result).union(set(result))
                 if len(result_union) == 0:
-                    accuracy += 1
+                    accuracy += 1 * order_accuracy  
                 else:
-                    accuracy += len(result_overlap) / len(result_union)
+                    accuracy += len(result_overlap) / len(result_union) * order_accuracy
+                
+
 
 
                 #print(f"result_overlap: {result_overlap}")
                 #print(f"result_union: {result_union}")
             except json.JSONDecodeError as e:
+                pass
+            except Exception as e:
                 pass
                 
 
