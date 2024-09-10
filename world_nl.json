@@ -7,8 +7,8 @@
 "zero_shot":[],
 "zero_shot_COT":["To answer the single query from the user, you need to first execute the populating commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result."],
 "few_shot_example":[
-  "Before you are given the actual queries, I first give you an example database, the queries on it, together with the results for each query, hope you can learn the correct way to conduct query on a database:",
-   "0. create databased named 'example', use database 'example'",
+  "Here is an example of how the database is populated and how the query is executed:",
+  "0. create databased named 'example', use database 'example'",
     "1. create a table named 'Customers' with columns: 'CustomerID', 'CustomerName', 'ContactName', 'Address', 'City', 'PostalCode', 'Country'. The type of 'CustomerID' is int, default value is 0, and it is auto increment, the type of 'CustomerName', 'ContactName', 'Address', 'City', 'PostalCode', 'Country' is string, default value is '', the primary key of the table is 'CustomerID'",
     "2. create a table named 'Orders' with columns: 'OrderID', 'CustomerID', 'OrderDate'. The type of 'OrderID' is int, default value is 0, and it is auto increment, the type of 'CustomerID' is int, default value is 0, the type of 'OrderDate' is date, the primary key of the table is 'OrderID', and 'CustomerID' is foreign key referencing 'CustomerID' in the table 'Customers'",
     "3. create a table named 'OrderDetails' with columns: 'OrderDetailID', 'OrderID', 'ProductID', 'Quantity'. The type of 'OrderDetailID' is int, default value is 0, and it is auto increment, the type of 'OrderID', 'ProductID', 'Quantity' is int, default value is 0, the primary key of the table is 'OrderDetailID', and 'OrderID' and 'ProductID' are foreign key referencing 'OrderID' and 'ProductID' in the table 'Orders' and 'Products' respectively",
