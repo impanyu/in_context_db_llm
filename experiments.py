@@ -24,7 +24,7 @@ def execute_query(connection, query):
         if "insert" in query or "delete" in query or "update" in query:
             return "Succeed"
         else:
-            return result
+            return json.dumps([r[0] for r in result])
     except Error as e:
         print(f"Error: '{e}'")
         print(query)
@@ -50,95 +50,199 @@ def connect_to_server():
         print(f"Error: '{e}'")
         return None
 
-def read_data(dataset,encoding,scale, balance, overlap, operation):
-    # generate db populating query and db query
-    with open(f"{dataset}_{encoding}.json", "r") as file:
-        data = json.load(file)
-
-
-        db_populating_query = ""
-
-        if operation == "insert_data" or operation == "delete_data" or operation == "update_data":
-            random_index = random.randint(0, len(data[operation])-1)
-            db_query = data[operation][random_index]
-
-        elif operation == "select_data":
-
-
-            db_query_categories = list(data["select_data"].keys())
-
-            category_index = random.randint(0, len(db_query_categories)-1)
-            category = db_query_categories[category_index]
-            db_queries = data["select_data"][category]
-
-            random_index = random.randint(0, len(db_queries)-1)
-            db_query = db_queries[random_index]
-        else:
-            category = operation
-
-            db_queries = data["select_data"][category]
-
-            random_index = random.randint(0, len(db_queries)-1)
-            db_query = db_queries[random_index]
-
-
-
-        must_insert = data["must_insert_data"]
-        
-        tmp_db_insert_populating_queries = []
-        tmp_db_delete_update_populating_queries = {}
-
-        for q in must_insert:
-            #db_populating_query += q + "\n"
-            tmp_db_insert_populating_queries.append(q)
-        print(len(tmp_db_insert_populating_queries))
-
-        
-        insert_scale = int(scale * balance)
-        remaining_insert_scale = max(0,insert_scale - len(must_insert))
-        delete_update_scale = int(scale * (1 - balance))
-
-  
-        radius = int(overlap * insert_scale)
-   
-
-        
-        # populate the tmp_db_delete_update_populating_queries with 0 to insert_scale keys with the value of []
-        for i in range(insert_scale+1):
-            tmp_db_delete_update_populating_queries[i] = []
-
-
-
-        for i in range(remaining_insert_scale):
-            # get a random number between 0 and len(data["insert"])
-            random_index = random.randint(0, len(data["insert_data"])-1)
-            tmp_db_insert_populating_queries.append(data["insert_data"][random_index])
-
-        for i in range(delete_update_scale):
-            # get a random number between 0 and 1
-            random_number = random.random()
-            if random_number <= 0.5: # insert a delete query
-                # get a random number between 0 and 1
-                random_index_in_populating_queries = random.randint(insert_scale-radius*2,insert_scale)
-                random_index = random.randint(0, len(data["delete_data"])-1)
-                tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(data["delete_data"][random_index])
-            else: # insert an update query
-                random_index_in_populating_queries= random.randint(insert_scale-radius*2,insert_scale)
-                random_index = random.randint(0, len(data["delete_data"])-1)
-                tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(data["update_data"][random_index])
-
-        for i in range(insert_scale+1):
-            for j in range(len(tmp_db_delete_update_populating_queries[i])):
-                db_populating_query += tmp_db_delete_update_populating_queries[i][j] + "\n"
-            if i < insert_scale:
-                db_populating_query += tmp_db_insert_populating_queries[i] + "\n"
-    return db_populating_query, db_query, data
-
 def concatenate_prompt(prompts):
     prompt = ""
     for p in prompts:
         prompt += p + "\n"
     return prompt
+
+def read_data(dataset,encoding):
+    data = {}
+    if os.exists(f"{dataset}_{encoding}.json"):
+        with open(f"{dataset}_{encoding}.json", "r") as file:
+            data = json.load(file)
+    return data
+
+def generate_system_prompt(datasets,encoding,prompting):
+    data = datasets[encoding]
+    db_data = datasets["sql"]
+
+    drop_db_query = data["drop_database"][0]
+    create_db_query = data["create_database"][0]
+    use_db_query = data["use_database"][0]
+    create_table_query = data["create_table"]
+
+    db_drop_db_query = db_data["drop_database"][0]
+    db_create_db_query = db_data["create_database"][0]
+    db_use_db_query = db_data["use_database"][0]
+    db_create_table_query = db_data["create_table"]
+
+    system_prompt_1 = data["system_prompt_1"]
+    system_prompt_2 = data["system_prompt_2"]
+
+    must_insert = data["must_insert_data"]  
+
+
+
+    cot = data["COT"]
+
+    prompt = concatenate_prompt(system_prompt_1)+concatenate_prompt(system_prompt_2)
+    prompt += concatenate_prompt(drop_db_query)+concatenate_prompt(create_db_query)+concatenate_prompt(use_db_query)+concatenate_prompt(create_table_query)
+
+    prompt += concatenate_prompt(must_insert)
+
+    if "COT" in prompting:
+        prompt += concatenate_prompt(cot)
+
+
+
+    connection = connect_to_server()
+    if connection is not None:
+        print("drop db")
+        execute_query(connection, db_drop_db_query)
+        print("create db")
+        execute_query(connection, db_create_db_query)
+        print("use db")
+        execute_query(connection, db_use_db_query)
+        print("create tables")
+        execute_query(connection, db_create_table_query)
+        print("must insert data")
+        for query in db_data["must_insert_data"]:
+            execute_query(connection, query)
+
+        
+        connection.close()
+        print("Connection closed")
+
+
+    return prompt
+
+
+
+def generate_query_result_pair(datasets,encoding,scale, balance, overlap, operation):
+    db_data = datasets["sql"]
+    data = datasets[encoding]
+
+    db_populating_query = ""
+    populating_query = ""
+
+    db_query = ""
+    query = ""
+
+    tmp_db_insert_populating_queries = []
+    tmp_db_delete_update_populating_queries = {}
+
+    tmp_insert_populating_queries = []
+    tmp_delete_update_populating_queries = {}
+
+    
+    insert_scale = int(scale * balance)
+    delete_update_scale = int(scale * (1 - balance))
+
+
+    radius = int(overlap * insert_scale)
+
+
+    
+    # generate the populating query
+    for i in range(insert_scale+1):
+        tmp_db_delete_update_populating_queries[i] = []
+        tmp_delete_update_populating_queries[i] = []
+
+
+    for i in range(insert_scale):
+        # get a random number between 0 and len(data["insert"])
+        random_index = random.randint(0, len(db_data["insert_data"])-1)
+        tmp_db_insert_populating_queries.append(db_data["insert_data"][random_index])
+        tmp_insert_populating_queries.append(data["insert_data"][random_index])
+
+    for i in range(delete_update_scale):
+        # get a random number between 0 and 1
+        random_number = random.random()
+        if random_number <= 0.5: # insert a delete query
+            # get a random number between 0 and 1
+            random_index_in_populating_queries = random.randint(insert_scale-radius*2,insert_scale)
+            random_index = random.randint(0, len(db_data["delete_data"])-1)
+            tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(db_data["delete_data"][random_index])
+            tmp_delete_update_populating_queries[random_index_in_populating_queries].append(data["delete_data"][random_index])
+        else: # insert an update query
+            random_index_in_populating_queries= random.randint(insert_scale-radius*2,insert_scale)
+            random_index = random.randint(0, len(db_data["delete_data"])-1)
+            tmp_db_delete_update_populating_queries[random_index_in_populating_queries].append(db_data["update_data"][random_index])
+            tmp_delete_update_populating_queries[random_index_in_populating_queries].append(data["update_data"][random_index])
+
+    for i in range(insert_scale+1):
+        for j in range(len(tmp_db_delete_update_populating_queries[i])):
+            db_populating_query += tmp_db_delete_update_populating_queries[i][j] + "\n"
+            populating_query += tmp_delete_update_populating_queries[i][j] + "\n"
+        if i < insert_scale:
+            db_populating_query += tmp_db_insert_populating_queries[i] + "\n"
+            populating_query += tmp_insert_populating_queries[i] + "\n"
+
+
+    # generate the query
+    if operation == "insert_data" or operation == "delete_data" or operation == "update_data":
+        random_index = random.randint(0, len(data[operation])-1)
+        db_query = db_data[operation][random_index]
+        query = data[operation][random_index]
+
+    elif operation == "select_data":
+
+        db_query_categories = list(data["select_data"].keys())
+
+        category_index = random.randint(0, len(db_query_categories)-1)
+        category = db_query_categories[category_index]
+
+        db_queries = db_data["select_data"][category]
+        queries = data["select_data"][category]
+
+        random_index = random.randint(0, len(db_queries)-1)
+
+        db_query = db_queries[random_index]
+        query = queries[random_index]
+    else:
+        category = operation
+
+        db_queries = db_data["select_data"][category]
+        queries = data["select_data"][category]
+
+        random_index = random.randint(0, len(db_queries)-1)
+        db_query = db_queries[random_index]
+        query = queries[random_index]
+
+    
+    db_populating_queries = db_populating_query.split("\n")[:-1]
+
+    # execute the db_populating_query and db_query
+    connection = connect_to_server()
+    if connection is not None:
+
+        print("clear tables")
+        for query in db_data["clear_tables"]:
+            execute_query(connection, query)
+        print("populating db")
+        for query in db_populating_queries:
+            execute_query(connection, query)
+        print("executing query")
+        true_result = execute_query(connection, db_query)
+
+        
+        connection.close()
+        print("Connection closed")
+
+    user_prompt_1 = datasets[encoding]["user_prompt_1"]
+    user_prompt_2 = datasets[encoding]["user_prompt_2"]
+
+    user_prompt = concatenate_prompt(user_prompt_1)
+    user_prompt += populating_query
+
+    user_prompt += concatenate_prompt(user_prompt_2)
+    user_prompt += query
+
+        
+    return user_prompt, true_result
+
+
 
 def main():
     # Read cmd line arguments with argparse
@@ -170,86 +274,34 @@ def main():
 
     accuracy = 0
 
+    datasets = {}
+
+    datasets["sql"] = read_data(dataset,"sql")
+    datasets[encoding] = read_data(dataset,encoding)
+
     # repeat the experiment TIMES times
     for t in range(TIMES):
+        accuracy = 0
 
-        # generate populating query and query 
-        db_populating_query,user_query,data = read_data(dataset,"sql",scale, balance, overlap, operation)
-
-        #user_query = "SELECT Distinct Language FROM `countrylanguage` WHERE `Percentage` BETWEEN 20.0 AND 40.0;"
-
-
-        drop_db_query = data["drop_database"][0]
-        create_db_query = data["create_database"][0]
-        use_db_query = data["use_database"][0]
-        create_table_query = data["create_table"]
-
-        print(user_query)
-
-        db_populating_queries = db_populating_query.split("\n")[:-1]
-
-
-        # execute the db_populating_query and db_query
-        connection = connect_to_server()
-        if connection is not None:
-            print("drop db")
-            execute_query(connection, drop_db_query)
-            print("create db")
-            execute_query(connection, create_db_query)
-            print("use db")
-            execute_query(connection, use_db_query)
-            print("create tables")
-            for query in create_table_query:
-                execute_query(connection, query)
-            print("populating db")
-            for query in db_populating_queries:
-                execute_query(connection, query)
-            print("executing query")
-            true_result = execute_query(connection, user_query)
-
-            
-            connection.close()
-            print("Connection closed")
 
         
 
-        drop_db_query = data["drop_database"]
-        create_db_query = data["create_database"]
-        use_db_query = data["use_database"]
-        create_table_query = data["create_table"]
 
-        system_prompt_1 = data["system_prompt_1"]
-        system_prompt_2 = data["system_prompt_2"]
 
-        user_prompt_1= data["user_prompt_1"]
-        user_prompt_2 = data["user_prompt_2"]
-        zero_shot = data["zero_shot"]
-        zero_shot_COT = data["zero_shot_COT"]
-        few_shot_example = data["few_shot_example"]
-        few_shot_questions = data["few_shot_questions"]
-        few_shot_answers= data["few_shot_answers"]
-        few_shot_COT_thoughts = data["few_shot_COT_thoughts"]
+        prompt = generate_system_prompt(datasets,encoding,prompting)
+        few_shot_number = 3
+        example_scale = 20
 
-        prompt = concatenate_prompt(system_prompt_1)+concatenate_prompt(system_prompt_2)
-        if prompting == "zero_shot":
-            prompt += concatenate_prompt(zero_shot)
-        elif prompting == "zero_shot_COT":
-            prompt += concatenate_prompt(zero_shot_COT)
-        elif prompting == "few_shot":
-            user_prompt_example = concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_questions)
-            assistant_prompt_example = concatenate_prompt(few_shot_answers)
-        elif prompting == "few_shot_COT":
-            user_prompt_example = concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_questions)
-            assistant_prompt_example = concatenate_prompt(few_shot_COT_thoughts) + concatenate_prompt(few_shot_answers)
+        query_result_pairs = []
 
-        user_prompt = concatenate_prompt(user_prompt_1)
-        user_prompt += db_populating_query
+        if "few_shot" in prompting:
+            for p in range(few_shot_number):
+                user_prompt, true_result = generate_query_result_pair(datasets,encoding, example_scale, balance, overlap, operation)
+                query_result_pairs.append((user_prompt, true_result))
+        
+        user_prompt, true_result = generate_query_result_pair(datasets,encoding, scale, balance, overlap, operation)
+                
 
-        user_prompt += concatenate_prompt(user_prompt_2)
-        user_prompt += user_query
-
-        #print(prompt)
-        #print(user_prompt)
 
         if model == "gpt4":
             # Load environment variables from the .env file
@@ -261,18 +313,13 @@ def main():
             # Initialize the OpenAI client with the API key
             client = OpenAI(api_key=api_key)
 
-            if "few_shot" in prompting:
-                messages = [
-                    {"role": "system", "content": prompt},
-                    {"role": "user", "content": user_prompt_example},
-                    {"role": "assistant", "content": assistant_prompt_example},
-                    {"role": "user", "content": user_prompt}
-                ]
-            else:
-                messages = [
-                    {"role": "system", "content": prompt},
-                    {"role": "user", "content": user_prompt}
-                ]
+            messages = [{"role": "system", "content": prompt}]
+            for pair in query_result_pairs:
+                messages.append({"role": "user", "content": pair[0]})
+                messages.append({"role": "assistant", "content": pair[1]})
+            
+            messages.append({"role": "user", "content": user_prompt})
+
             print("start api call")
             try:
                 response = client.chat.completions.create(
@@ -297,7 +344,7 @@ def main():
             if "Succeed" in result:
                 accuracy += 1
         else:
-            true_result = [r[0] for r in true_result]
+            true_result = json.loads(true_result)
             # replace ' with " in the result"
             result = result.replace("'", "\"")
            
@@ -322,7 +369,7 @@ def main():
                         continue
 
                 order_accuracy = 1
-                if "order by" in user_query.lower():
+                if "order by" in user_prompt.split("\n")[-1].lower():
                     
                     for k in range(1,min(len(true_result),len(result))+1):
                         result_overlap = set(true_result[:k]).intersection(set(result[:k]))

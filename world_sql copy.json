@@ -5,6 +5,166 @@
 "user_prompt_2":["Please execute the following SQL command and you need output the result"],
 "zero_shot":[],
 "COT":["To answer the single query from the user, you need to first execute the populating SQL commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result."],
+"few_shot_example":[
+    
+    "Here is an example of how the database is populated and how the query is executed:",
+    "0. create database example; use example;",
+    "1. create table Customers (CustomerID int NOT NULL AUTO_INCREMENT, CustomerName varchar(255) NOT NULL, ContactName varchar(255) NOT NULL, Address varchar(255) NOT NULL, City varchar(255) NOT NULL, PostalCode varchar(255) NOT NULL, Country varchar(255) NOT NULL, primary key (CustomerID));",
+    
+    "2. create table Orders (OrderID int NOT NULL AUTO_INCREMENT,CustomerID int NOT NULL,OrderDate date NOT NULL,primary key (OrderID),constraint fk_customer  foreign key (CustomerID) references customers(CustomerID));",
+    
+    
+    "3. create table OrderDetails (OrderDetailID int NOT NULL AUTO_INCREMENT,OrderID int NOT NULL,ProductID int NOT NULL,Quantity int NOT NULL,primary key (OrderDetailID),constraint fk_order foreign key (OrderID) references Orders(OrderID),constraint fk_product foreign key (ProductID) references Products(ProductID));",
+    
+    
+    "4. create table Products (ProductID int NOT NULL AUTO_INCREMENT,ProductName varchar(255) NOT NULL,Unit varchar(255) NOT NULL,Price decimal(10,2) NOT NULL,primary key (ProductID));",
+    
+    "5. insert into Customers values (1, 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany');",
+    "6. insert into Customers values (2, 'Ana Trujillo Emparedados y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico');",
+    "7. insert into Customers values (3, 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico');",
+    "8. insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
+    
+    
+    "9. insert into Orders values (10308, 2, '9/18/1996');",
+    "10. insert into Orders values (10365, 3, '11/27/1996');",
+    
+    "11. delete from Customers where CustomerID = 4;",
+    "12. update Orders set OrderDate = '9/19/1996' where OrderID = 10308;",
+    
+    "13.  insert into OrderDetails values (162, 10308, 69, 1);",
+    "14. insert into OrderDetails values (163, 10308, 70, 5);",
+    "15. insert into OrderDetails values (314, 10365, 11, 24);",
+    
+    
+    "16. insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
+    "17. insert into Products values  (69, 'Gudbrandsdalsost', '10 kg pkg.', 36);",
+    "18. insert into Products values  (70, 'Outback Lager', '24 - 355 ml bottles', 15);",
+    "19. insert into Products values  (1, 'Chais', '10 boxes x 20 bags', 18);",
+    
+    "20. delete from Products where ProductID = 1;",
+    "Now if I send the following queries respectively (not accumulatively), you need to consider the queries seperately, all based on above example database and output the results for each query:"
+],
+"few_shot_questions":[
+   
+    "A. select CustomerID from Customers Join Orders on Customers.CustomerID = Orders.CustomerID Join OrderDetails on Orders.OrderID = OrderDetails.OrderID Join Products on OrderDetails.ProductID = Products.ProductID where Products.ID = 11;",
+
+    "B. select Count(*) from Products where Price > 20;",
+
+    "C. select OrderDate from Orders where OrderID = 10308;",
+
+    "D. insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
+
+    "E. insert into Orders values (10249, 4, '7/5/1996');",
+
+    "F. insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
+
+    "G. delete from Customers where CustomerID = 1;",
+
+    "H. delete from Orders where OrderID = 10308;",
+
+    "I. update OrderDetails set Quantity = 2 where OrderDetailID = 162;",
+
+    "J. update OrderDetails set ProductID = 1 where OrderDetailID = 162;"
+
+],
+
+"few_shot_answers":[
+    "[3]",
+    "[2]",
+    "['9/19/1996']",
+    "Succeed",
+    "Fail",
+    "Fail",
+    "Succeed",
+    "Fail",
+    "Succeed",
+    "Fail"
+],
+
+"few_shot_COT_thoughts":[
+    "My thoughts on the queries are as follows:",
+    "After executing SQL command 1, an empty Customers table will be created, with columns CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country, and CustomerID as primary key,",
+    "After executing SQL command 2, an empty Orders table will be created, with columns OrderID, CustomerID, OrderDate, and OrderID as primary key, and CustomerID as foreign key referencing Customers table,",
+    "After executing SQL command 3, an empty OrderDetails table will be created, with columns OrderDetailID, OrderID, ProductID, Quantity, and OrderDetailID as primary key, and OrderID and ProductID as foreign key referencing Orders and Products table respectively,",
+    "After executing SQL command 4, an empty Products table will be created, with columns ProductID, ProductName, Unit, Price, and ProductID as primary key,",
+
+    "After executing SQL command 5, the Customers table will contain custermer (1, 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany')",
+    "After executing SQL command 6, the Customers table will contain custermers (1, 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany'), (2, 'Ana Trujillo Emparedados y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico')",
+    "After executing SQL command 7, the Customers table will contain custermers (1, 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany'), (2, 'Ana Trujillo Emparedados y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),(3, 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico')",
+    "After executing SQL command 8, the Customers table will contain custermers (1, 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany'), (2, 'Ana Trujillo Emparedados y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),(3, 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico'),(4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK')",
+    "After executing SQL command 9, the Orders table will contain order (10308, 2, '9/18/1996')",
+    "After executing SQL command 10, the Orders table will contain orders (10308, 2, '9/18/1996'),(10365, 3, '11/27/1996')",
+    "After executing SQL command 11, the Customers table, the customer with CustomerID = 4 is deleted, and the Customer table will contain customers with CustomerID = 1, 2, 3,",
+    "After executing SQL command 12, the order with OrderID = 10308 will have OrderDate = '9/19/1996', so the Orders table will contain orders (10308, 2, '9/19/1996'),(10365, 3, '11/27/1996')",
+    "After executing SQL command 13, the OrderDetails table will contain order detail (162, 10308, 69, 1),",
+    "After executing SQL command 14, the OrderDetails table will contain order detail (162, 10308, 69, 1),(163, 10308, 70, 5)",
+    "After executing SQL command 15, the OrderDetails table will contain order detail (162, 10308, 69, 1),(163, 10308, 70, 5),(314, 10365, 11, 24)",
+    "After executing SQL command 16, the Products table will contain product (11, 'Queso Cabrales', '1 kg pkg.', 21),",
+    "After executing SQL command 17, the Products table will contain product (11, 'Queso Cabrales', '1 kg pkg.', 21),(69, 'Gudbrandsdalsost', '10 kg pkg.', 36),",
+    "After executing SQL command 18, the Products table will contain product (11, 'Queso Cabrales', '1 kg pkg.', 21),(69, 'Gudbrandsdalsost', '10 kg pkg.', 36),(70, 'Outback Lager', '24 - 355 ml bottles', 15),",
+    "After executing SQL command 19, the Products table will contain product (11, 'Queso Cabrales', '1 kg pkg.', 21),(69, 'Gudbrandsdalsost', '10 kg pkg.', 36),(70, 'Outback Lager', '24 - 355 ml bottles', 15),(1, 'Chais', '10 boxes x 20 bags', 18),",
+    "After executing SQL command 20, the Products table will not contain product with ProductID = 1, and only contain product with ProductID = 11, 69, 70.",
+
+
+    "Then for query A:",
+    "select CustomerID from Customers Join Orders on Customers.CustomerID = Orders.CustomerID Join OrderDetails on Orders.OrderID = OrderDetails.OrderID Join Products on OrderDetails.ProductID = Products.ProductID where Products.ID = 11;",
+    "When joining table of OrderDetails with table of Products by OrderDetails.ProductID = Products.ProductID, the row (314, 10365, 11, 24) in OrderDetails and the row (11, 'Queso Cabrales', '1 kg pkg.', 21) in Products will be joined",
+    "Then when joining Orders with OrderDetails by  Orders.OrderID = OrderDetails.OrderID, the row (10365, 3, '11/27/1996') in Orders and the row (314, 10365, 11, 24) in OrderDetails will be joined",
+    "Then when joining Customers with Orders by  Customers.CustomerID = Orders.CustomerID, the row (3, 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico') in Customers and the row (10365, 3, '11/27/1996') in Orders will be joined",
+    "Then we know the CustomerID of the customer who ordered the product with ProductID = 11 is 3.",
+    "then the result is [3]",
+ 
+    "For query B:",
+    "select Count(*) from Products where Price > 20;",
+    "When selecting rows from Products where Price > 20, the rows (69, 'Gudbrandsdalsost', '10 kg pkg.', 36) and (11, 'Queso Cabrales', '1 kg pkg.', 21) will be selected",
+    "The count of selected rows is 2,",
+    "then the result is [2].",
+
+    "For query C:",
+    "select OrderDate from Orders where OrderID = 10308;",
+    "The row with OrderID = 10308 in Orders table is (10308, 2, '9/18/1996')",
+    "The we find in step 12, the OrderDate of the order with OrderID = 10308 is updated to '9/19/1996'",
+    "then the result is ['9/19/1996']",
+
+    "For query D:",
+    "insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
+    "there's no constraint violation,",
+    "then the result is 'Succeed'",
+
+    "For query E:",
+    "insert into Orders values (10249, 4, '7/5/1996');",
+    "since there's no customer with CustomerID = 4,",
+    "then the result is 'Fail'.",
+
+    "For query F:",
+    "insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
+    "since there's already a product with ProductID = 11,",
+    "then the result is 'Fail'.",
+
+    "For query G:",
+    "delete from Customers where CustomerID = 1;",
+    "since there's no Orders with CustomerID = 1,",
+    "then the result is 'Succeed'.",
+
+    "For query H:",
+    "delete from Orders where OrderID = 10308;",
+    "since there's OrderDetails with OrderID = 10308,",
+    "then the result is 'Fail'",
+
+    "For query I:",
+    "update OrderDetails set Quantity = 2 where OrderDetailID = 162;",
+    "since there's OrderDetails with OrderDetailID = 162,",
+    "then the result is 'Succeed'.",
+
+    "For query J:",
+    "update OrderDetails set ProductID = 1 where OrderDetailID = 162;",
+    "since in step 20, the product with ProductID = 1 is deleted,",
+    "then the result is 'Fail'.",
+    "So formally I output the results for each query respectively as follows:"
+
+
+],
+
 
 
 "drop_database": ["DROP DATABASE IF EXISTS world;"],
@@ -17,10 +177,7 @@
     "CREATE TABLE `countrylanguage` (`CountryCode` char(3) NOT NULL DEFAULT '',`Language` char(30) NOT NULL DEFAULT '',`IsOfficial` enum('T','F') NOT NULL DEFAULT 'F',`Percentage` decimal(4,1) NOT NULL DEFAULT '0.0',PRIMARY KEY (`CountryCode`,`Language`),KEY `CountryCode` (`CountryCode`),CONSTRAINT `countryLanguage_ibfk_1` FOREIGN KEY (`CountryCode`) REFERENCES `country` (`Code`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;"
 ],
 
-"clear_tables":[
-    "DELETE FROM `city`;",
-    "DELETE FROM `countrylanguage`;"
-],
+
 
 
 "must_insert_data":[
