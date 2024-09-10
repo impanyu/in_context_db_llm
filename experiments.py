@@ -183,7 +183,6 @@ def main():
         print(user_query)
 
         db_populating_queries = db_populating_query.split("\n")[:-1]
-        print(len(db_populating_queries))
 
 
         # execute the db_populating_query and db_query
@@ -242,6 +241,7 @@ def main():
         user_prompt += concatenate_prompt(user_prompt_2)
         user_prompt += user_query
 
+        print(prompt)
         print(user_prompt)
 
         if model == "gpt4":
