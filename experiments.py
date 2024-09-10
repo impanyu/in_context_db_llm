@@ -242,7 +242,7 @@ def main():
         user_prompt = concatenate_prompt(user_prompt_1)
         user_prompt += db_populating_query
 
-        user_prompt = concatenate_prompt(user_prompt_2)
+        user_prompt += concatenate_prompt(user_prompt_2)
         user_prompt += user_query
 
         print(user_prompt)
