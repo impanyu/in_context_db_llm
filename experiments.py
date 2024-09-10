@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import os
 import time
+import requests.exceptions
+
 
 
 def execute_query(connection, query):
@@ -271,11 +273,16 @@ def main():
                     {"role": "user", "content": user_prompt}
                 ]
             print("start api call")
-            response = client.chat.completions.create(
-                model="gpt-4o-mini",
-                messages= messages,
-                temperature=0.5  # Set the temperature here (adjust as needed)
-            )
+            try:
+                response = client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages= messages,
+                    temperature=0.5,  # Set the temperature here (adjust as needed)
+                    timeout=5  # Set a timeout of 10 seconds
+                )
+            except requests.exceptions.Timeout:
+                t = t-1
+                continue
             print("end api call")
 
             # get the response
