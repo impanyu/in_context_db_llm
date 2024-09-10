@@ -58,7 +58,7 @@ def concatenate_prompt(prompts):
 
 def read_data(dataset,encoding):
     data = {}
-    if os.exists(f"{dataset}_{encoding}.json"):
+    if os.path.exists(f"{dataset}_{encoding}.json"):
         with open(f"{dataset}_{encoding}.json", "r") as file:
             data = json.load(file)
     return data
