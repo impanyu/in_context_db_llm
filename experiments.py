@@ -162,7 +162,7 @@ def main():
     encoding = args.encoding
     operation = args.operation
 
-    TIMES = 30
+    TIMES = 1
 
     accuracy = 0
 
@@ -242,7 +242,7 @@ def main():
         user_prompt += concatenate_prompt(user_prompt_2)
         user_prompt += user_query
 
-        #print(user_prompt)
+        print(user_prompt)
 
         if model == "gpt4":
             # Load environment variables from the .env file
