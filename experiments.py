@@ -269,12 +269,13 @@ def main():
                     {"role": "system", "content": prompt},
                     {"role": "user", "content": user_prompt}
                 ]
-
+            print("start api call")
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages= messages,
                 temperature=0.5  # Set the temperature here (adjust as needed)
             )
+            print("end api call")
 
             # get the response
             result = response.choices[0].message.content
