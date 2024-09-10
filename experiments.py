@@ -105,7 +105,8 @@ def generate_system_prompt(datasets,encoding,prompting):
         print("use db")
         execute_query(connection, db_use_db_query)
         print("create tables")
-        execute_query(connection, db_create_table_query)
+        for query in db_create_table_query:
+            execute_query(connection, query)
         print("must insert data")
         for query in db_data["must_insert_data"]:
             execute_query(connection, query)
