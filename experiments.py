@@ -325,6 +325,7 @@ def main():
         print(result)
 
         print(f"Accuracy: {accuracy}")
+        sleep(2)
 
     accuracy = accuracy / TIMES
     print(f"Total Accuracy: {accuracy}")
