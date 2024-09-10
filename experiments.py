@@ -278,19 +278,17 @@ def main():
 
     datasets["sql"] = read_data(dataset,"sql")
     datasets[encoding] = read_data(dataset,encoding)
+    few_shot_number = 3
+    example_scale = 20
 
     # repeat the experiment TIMES times
     for t in range(TIMES):
         
 
 
-        
-
-
-
+    
         prompt = generate_system_prompt(datasets,encoding,prompting)
-        few_shot_number = 3
-        example_scale = 20
+        
 
         query_result_pairs = []
 
