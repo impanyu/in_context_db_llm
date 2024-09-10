@@ -220,9 +220,9 @@ def main():
 
         system_prompt_1 = data["system_prompt_1"]
         system_prompt_2 = data["system_prompt_2"]
-        system_prompt_3 = data["system_prompt_3"]
 
         user_prompt_1= data["user_prompt_1"]
+        user_prompt_2 = data["user_prompt_2"]
         zero_shot = data["zero_shot"]
         zero_shot_COT = data["zero_shot_COT"]
         few_shot_example = data["few_shot_example"]
@@ -239,10 +239,10 @@ def main():
         elif prompting == "few_shot_COT":
             prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_COT)
 
-        prompt += concatenate_prompt(system_prompt_3)
-        prompt += db_populating_query
-
         user_prompt = concatenate_prompt(user_prompt_1)
+        user_prompt += db_populating_query
+
+        user_prompt = concatenate_prompt(user_prompt_2)
         user_prompt += user_query
 
         print(user_prompt)
