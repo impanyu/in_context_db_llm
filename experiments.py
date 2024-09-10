@@ -279,8 +279,9 @@ def main():
             true_result = [r[0] for r in true_result]
             # replace ' with " in the result"
             result = result.replace("'", "\"")
-            result = json.loads(result)
             print(result)
+            result = json.loads(result)
+            
             if len(result) > 0:
                 if type(result[0]) == list:
                     result = [r[0] for r in result]
