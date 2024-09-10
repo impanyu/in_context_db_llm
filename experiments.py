@@ -282,6 +282,7 @@ def main():
                 )
             except requests.exceptions.Timeout:
                 t = t-1
+                time.sleep(5)
                 continue
             print("end api call")
 
@@ -333,7 +334,7 @@ def main():
         print(result)
 
         print(f"Accuracy: {accuracy}")
-        time.sleep(2)
+        
 
     accuracy = accuracy / TIMES
     print(f"Total Accuracy: {accuracy}")
