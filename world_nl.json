@@ -53,31 +53,31 @@
 
     "If the user send query:",
     "insert a row into 'Customers' with CustomerID = 4, CustomerName = 'Around the Horn', ContactName = 'Thomas Hardy', Address = '120 Hanover Sq.', City = 'London', PostalCode = 'WA1 1DP', Country = 'UK'",
-    "then you should output 'succeed'",
+    "then you should output 'Succeed'",
 
     "If the user send query:",
     "insert a row into 'Orders' with OrderID = 10249, CustomerID = 4, OrderDate = '7/5/1996'",
-    "then you should output 'fail'.",
+    "then you should output 'Fail'.",
 
     "If the user send query:",
     "insert a row into 'Products' with ProductID = 11, ProductName = 'Queso Cabrales', Unit = '1 kg pkg.', Price = 21",
-    "then you should output 'fail'.",
+    "then you should output 'Fail'.",
 
     "If the user send query:",
     "delete the row from 'Customers' with CustomerID = 1",
-    "then yout should output 'succeed'.",
+    "then yout should output 'Succeed'.",
 
     "If the user send query:",
     "delete the row from 'Orders' with OrderID = 10308",
-    "then you should 'fail'",
+    "then you should 'Fail'",
 
     "If the user send query:",
     "update the row in OrderDetails with OrderDetailID = 162 by setting Quantity = 2",
-    "then you should output 'succeed'.",
+    "then you should output 'Succeed'.",
 
     "If the user send query:",
     "update the row in OrderDetails with OrderDetailID = 162 by setting ProductID = 1",
-    "then you should output 'fail'."
+    "then you should output 'Fail'."
 
 ],
 
@@ -128,37 +128,37 @@
     "If the user send query:",
     "insert a row into 'Customers' with CustomerID = 4, CustomerName = 'Around the Horn', ContactName = 'Thomas Hardy', Address = '120 Hanover Sq.', City = 'London', PostalCode = 'WA1 1DP', Country = 'UK'",
     "there's no constraint violation,",
-    "then you should output 'succeed'",
+    "then you should output 'Succeed'",
 
     "If the user send query:",
     "insert a row into 'Orders' with OrderID = 10249, CustomerID = 4, OrderDate = '7/5/1996'",
     "since there's no customer with CustomerID = 4,",
-    "then you should output 'fail'.",
+    "then you should output 'Fail'.",
 
     "If the user send query:",
     "insert a row into 'Products' with ProductID = 11, ProductName = 'Queso Cabrales', Unit = '1 kg pkg.', Price = 21",
     "since there's already a product with ProductID = 11,",
-    "then you should output 'fail'.",
+    "then you should output 'Fail'.",
 
     "If the user send query:",
     "delete the row from 'Customers' with CustomerID = 1",
     "since there's no Orders with CustomerID = 1,",
-    "then yout should output 'succeed'.",
+    "then yout should output 'Succeed'.",
 
     "If the user send query:",
     "delete the row from 'Orders' with OrderID = 10308",
     "since there's OrderDetails with OrderID = 10308,",
-    "then you should 'fail'",
+    "then you should 'Fail'",
 
     "If the user send query:",
     "update the row in OrderDetails with OrderDetailID = 162 by setting Quantity = 2",
     "since there's OrderDetails with OrderDetailID = 162,",
-    "then you should output 'succeed'.",
+    "then you should output 'Succeed'.",
 
     "If the user send query:",
     "update the row in OrderDetails with OrderDetailID = 162 by setting ProductID = 1",
     "since in step 20, the product with ProductID = 1 is deleted,",
-    "then you should output 'fail'."
+    "then you should output 'Fail'."
 
 ],
 
