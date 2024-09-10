@@ -49,51 +49,47 @@
     "20. example_db.delete('Products',{'ProductID': 1})"
 
 ],
-"few_shot":[
+"few_shot_questions":[
    
-    "Now if the user send query:",
-    "example_db.select(['CustomerID'], ['Customers'], {'ProductID': 11}, [('Customers.CustomerID', 'Orders.CustomerID'), ('Orders.OrderID', 'OrderDetails.OrderID'), ('OrderDetails.ProductID', 'Products.ProductID')])",
-    "then you should output [3]",
+    "A. example_db.select(['CustomerID'], ['Customers'], {'ProductID': 11}, [('Customers.CustomerID', 'Orders.CustomerID'), ('Orders.OrderID', 'OrderDetails.OrderID'), ('OrderDetails.ProductID', 'Products.ProductID')])",
 
-    "If the user send query:",
-    "example_db.select(['COUNT(*)'], ['Products'], {'Price': [20,INF]})",
-    "then you should output [2].",
+    "B. example_db.select(['COUNT(*)'], ['Products'], {'Price': [20,INF]})",
 
-    "If the user send query:",
-    "example_db.select(['OrderDate'], ['Orders'], {'OrderID': 10308})",
-    "then you should output ['9/19/1996']",
+    "C. example_db.select(['OrderDate'], ['Orders'], {'OrderID': 10308})",
 
-    "If the user send query:",
-    "example_db.insert('Customers',{'CustomerID': 4, 'CustomerName': 'Around the Horn', 'ContactName': 'Thomas Hardy', 'Address': '120 Hanover Sq.', 'City': 'London', 'PostalCode': 'WA1 1DP', 'Country': 'UK'})",
-    "then you should output 'Succeed'",
+    "D. example_db.insert('Customers',{'CustomerID': 4, 'CustomerName': 'Around the Horn', 'ContactName': 'Thomas Hardy', 'Address': '120 Hanover Sq.', 'City': 'London', 'PostalCode': 'WA1 1DP', 'Country': 'UK'})",
 
-    "If the user send query:",
-    "example_db.insert('Orders',{'OrderID': 10249, 'CustomerID': 4, 'OrderDate': '7/5/1996'})",
-    "then you should output 'Fail'.",
+    "E. example_db.insert('Orders',{'OrderID': 10249, 'CustomerID': 4, 'OrderDate': '7/5/1996'})",
 
-    "If the user send query:",
-    "example_db.insert('Products',{'ProductID': 11, 'ProductName': 'Queso Cabrales', 'Unit': '1 kg pkg.', 'Price': 21})",
-    "then you should output 'Fail'.",
+    "F. example_db.insert('Products',{'ProductID': 11, 'ProductName': 'Queso Cabrales', 'Unit': '1 kg pkg.', 'Price': 21})",
 
-    "If the user send query:",
-    "example_db.delete('Customers',{'CustomerID': 1})",
-    "then yout should output 'Succeed'.",
+    "G. example_db.delete('Customers',{'CustomerID': 1})",
 
-    "If the user send query:",
-    "example_db.delete('Orders',{'OrderID': 10308})",
-    "then you should 'Fail'",
+    "H. example_db.delete('Orders',{'OrderID': 10308})",
 
-    "If the user send query:",
-    "example_db.update('OrderDetails',{'Quantity': 2}, {'OrderDetailID': 162})",
-    "then you should output 'Succeed'.",
+    "I. example_db.update('OrderDetails',{'Quantity': 2}, {'OrderDetailID': 162})",
 
-    "If the user send query:",
-    "example_db.update('OrderDetails',{'ProductID': 1}, {'OrderDetailID': 162})",
-    "then you should output 'Fail'."
+    "J. example_db.update('OrderDetails',{'ProductID': 1}, {'OrderDetailID': 162})",
 
 ],
 
-"few_shot_COT":[
+"few_shot_answers":[
+    "[3]",
+    "[2]",
+    "['9/19/1996']",
+    "Succeed",
+    "Fail",
+    "Fail",
+    "Succeed",
+    "Fail",
+    "Succeed",
+    "Fail"
+],
+
+
+"few_shot_COT_thoughts":[
+    "My thoughts on the queries are as follows:",
+
     "After executing command 1, an empty Customers table will be created, with columns CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country, and CustomerID as primary key,",
     "After executing command 2, an empty Orders table will be created, with columns OrderID, CustomerID, OrderDate, and OrderID as primary key, and CustomerID as foreign key referencing Customers table,",
     "After executing command 3, an empty OrderDetails table will be created, with columns OrderDetailID, OrderID, ProductID, Quantity, and OrderDetailID as primary key, and OrderID and ProductID as foreign key referencing Orders and Products table respectively,",
@@ -119,7 +115,7 @@
 
 
 
-    "Now if the user send query:",
+    "Then for query A:",
     "example_db.select(['CustomerID'], ['Customers'], {'ProductID': 11}, [('Customers.CustomerID', 'Orders.CustomerID'), ('Orders.OrderID', 'OrderDetails.OrderID'), ('OrderDetails.ProductID', 'Products.ProductID')])",
     "When joining table of OrderDetails with table of Products by OrderDetails.ProductID = Products.ProductID, the row (314, 10365, 11, 24) in OrderDetails and the row (11, 'Queso Cabrales', '1 kg pkg.', 21) in Products will be joined",
     "Then when joining Orders with OrderDetails by  Orders.OrderID = OrderDetails.OrderID, the row (10365, 3, '11/27/1996') in Orders and the row (314, 10365, 11, 24) in OrderDetails will be joined",
@@ -127,52 +123,55 @@
     "Then we know the CustomerID of the customer who ordered the product with ProductID = 11 is 3.",
     "then you should output [3]",
  
-    "If the user send query:",
+    "For query B:",
     "example_db.select(['COUNT(*)'], ['Products'], {'Price': [20,INF]})",
     "When selecting rows from Products where Price > 20, the rows (69, 'Gudbrandsdalsost', '10 kg pkg.', 36) and (11, 'Queso Cabrales', '1 kg pkg.', 21) will be selected",
     "The count of selected rows is 2,",
     "then you should output [2].",
 
-    "If the user send query:",
+    "For query C:",
     "example_db.select(['OrderDate'], ['Orders'], {'OrderID': 10308})",
     "The row with OrderID = 10308 in Orders table is (10308, 2, '9/18/1996')",
     "The we find in step 12, the OrderDate of the order with OrderID = 10308 is updated to '9/19/1996'",
     "then you should output ['9/19/1996']",
 
-    "If the user send query:",
+    "For query D:",
     "example_db.insert('Customers',{'CustomerID': 4, 'CustomerName': 'Around the Horn', 'ContactName': 'Thomas Hardy', 'Address': '120 Hanover Sq.', 'City': 'London', 'PostalCode': 'WA1 1DP', 'Country': 'UK'})",
     "there's no constraint violation,",
     "then you should output 'Succeed'",
 
-    "If the user send query:",
+    "For query E:",
     "example_db.insert('Orders',{'OrderID': 10249, 'CustomerID': 4, 'OrderDate': '7/5/1996'})",
     "since there's no customer with CustomerID = 4,",
     "then you should output 'Fail'.",
 
-    "If the user send query:",
+    "For query F:",
     "example_db.insert('Products',{'ProductID': 11, 'ProductName': 'Queso Cabrales', 'Unit': '1 kg pkg.', 'Price': 21})",
     "since there's already a product with ProductID = 11,",
     "then you should output 'Fail'.",
 
-    "If the user send query:",
+    "For query G:",
     "example_db.delete('Customers',{'CustomerID': 1})",
     "since there's no Orders with CustomerID = 1,",
     "then yout should output 'Succeed'.",
 
-    "If the user send query:",
+    "For query H:",
     "example_db.delete('Orders',{'OrderID': 10308})",
     "since there's OrderDetails with OrderID = 10308,",
     "then you should 'Fail'",
 
-    "If the user send query:",
+    "For query I:",
     "example_db.update('OrderDetails',{'Quantity': 2}, {'OrderDetailID': 162})",
     "since there's OrderDetails with OrderDetailID = 162,",
     "then you should output 'Succeed'.",
 
-    "If the user send query:",
+    "For query J:",
     "example_db.update('OrderDetails',{'ProductID': 1}, {'OrderDetailID': 162})",
     "since in step 20, the product with ProductID = 1 is deleted,",
-    "then you should output 'Fail'."
+    "then you should output 'Fail'.",
+
+    "So formally I output the results for each query respectively as follows:"
+
 ],
 "drop_database": [],
 "create_database": ["db = Database('world')"],
