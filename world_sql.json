@@ -41,53 +41,48 @@
     "18. insert into Products values  (70, 'Outback Lager', '24 - 355 ml bottles', 15);",
     "19. insert into Products values  (1, 'Chais', '10 boxes x 20 bags', 18);",
     
-    "20. delete from Products where ProductID = 1;"
+    "20. delete from Products where ProductID = 1;",
+    "Now if I send the following queries respectively (not accumulatively), you need to consider the queries seperately, all based on above example database and output the results for each query:"
 ],
-"few_shot":[
+"few_shot_questions":[
    
-    "Now if the user send query:",
-    "select CustomerID from Customers Join Orders on Customers.CustomerID = Orders.CustomerID Join OrderDetails on Orders.OrderID = OrderDetails.OrderID Join Products on OrderDetails.ProductID = Products.ProductID where Products.ID = 11;",
-    "then you should output [3]",
+    "A. select CustomerID from Customers Join Orders on Customers.CustomerID = Orders.CustomerID Join OrderDetails on Orders.OrderID = OrderDetails.OrderID Join Products on OrderDetails.ProductID = Products.ProductID where Products.ID = 11;",
 
-    "If the user send query:",
-    "select Count(*) from Products where Price > 20;",
-    "then you should output [2].",
+    "B. select Count(*) from Products where Price > 20;",
 
-    "If the user send query:",
-    "select OrderDate from Orders where OrderID = 10308;",
-    "then you should output ['9/19/1996']",
+    "C. select OrderDate from Orders where OrderID = 10308;",
 
-    "If the user send query:",
-    "insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
-    "then you should output 'Succeed'",
+    "D. insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
 
-    "If the user send query:",
-    "insert into Orders values (10249, 4, '7/5/1996');",
-    "then you should output 'Fail'.",
+    "E. insert into Orders values (10249, 4, '7/5/1996');",
 
-    "If the user send query:",
-    "insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
-    "then you should output 'Fail'.",
+    "F. insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
 
-    "If the user send query:",
-    "delete from Customers where CustomerID = 1;",
-    "then yout should output 'Succeed'.",
+    "G. delete from Customers where CustomerID = 1;",
 
-    "If the user send query:",
-    "delete from Orders where OrderID = 10308;",
-    "then you should 'Fail'",
+    "H. delete from Orders where OrderID = 10308;",
 
-    "If the user send query:",
-    "update OrderDetails set Quantity = 2 where OrderDetailID = 162;",
-    "then you should output 'Succeed'.",
+    "I. update OrderDetails set Quantity = 2 where OrderDetailID = 162;",
 
-    "If the user send query:",
-    "update OrderDetails set ProductID = 1 where OrderDetailID = 162;",
-    "then you should output 'Fail'."
+    "J. update OrderDetails set ProductID = 1 where OrderDetailID = 162;"
 
 ],
 
-"few_shot_COT":[
+"few_shot_answers":[
+    "[3]",
+    "[2]",
+    "['9/19/1996']",
+    "Succeed",
+    "Fail",
+    "Fail",
+    "Succeed",
+    "Fail",
+    "Succeed",
+    "Fail"
+],
+
+"few_shot_COT_thoughts":[
+    "My thoughts on the queries are as follows:",
     "After executing SQL command 1, an empty Customers table will be created, with columns CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country, and CustomerID as primary key,",
     "After executing SQL command 2, an empty Orders table will be created, with columns OrderID, CustomerID, OrderDate, and OrderID as primary key, and CustomerID as foreign key referencing Customers table,",
     "After executing SQL command 3, an empty OrderDetails table will be created, with columns OrderDetailID, OrderID, ProductID, Quantity, and OrderDetailID as primary key, and OrderID and ProductID as foreign key referencing Orders and Products table respectively,",
@@ -111,61 +106,62 @@
     "After executing SQL command 20, the Products table will not contain product with ProductID = 1, and only contain product with ProductID = 11, 69, 70.",
 
 
-
-    "Now if the user send query:",
+    "Then for query A:",
     "select CustomerID from Customers Join Orders on Customers.CustomerID = Orders.CustomerID Join OrderDetails on Orders.OrderID = OrderDetails.OrderID Join Products on OrderDetails.ProductID = Products.ProductID where Products.ID = 11;",
     "When joining table of OrderDetails with table of Products by OrderDetails.ProductID = Products.ProductID, the row (314, 10365, 11, 24) in OrderDetails and the row (11, 'Queso Cabrales', '1 kg pkg.', 21) in Products will be joined",
     "Then when joining Orders with OrderDetails by  Orders.OrderID = OrderDetails.OrderID, the row (10365, 3, '11/27/1996') in Orders and the row (314, 10365, 11, 24) in OrderDetails will be joined",
     "Then when joining Customers with Orders by  Customers.CustomerID = Orders.CustomerID, the row (3, 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico') in Customers and the row (10365, 3, '11/27/1996') in Orders will be joined",
     "Then we know the CustomerID of the customer who ordered the product with ProductID = 11 is 3.",
-    "then you should output [3]",
+    "then the result is [3]",
  
-    "If the user send query:",
+    "For query B:",
     "select Count(*) from Products where Price > 20;",
     "When selecting rows from Products where Price > 20, the rows (69, 'Gudbrandsdalsost', '10 kg pkg.', 36) and (11, 'Queso Cabrales', '1 kg pkg.', 21) will be selected",
     "The count of selected rows is 2,",
-    "then you should output [2].",
+    "then the result is [2].",
 
-    "If the user send query:",
+    "For query C:",
     "select OrderDate from Orders where OrderID = 10308;",
     "The row with OrderID = 10308 in Orders table is (10308, 2, '9/18/1996')",
     "The we find in step 12, the OrderDate of the order with OrderID = 10308 is updated to '9/19/1996'",
-    "then you should output ['9/19/1996']",
+    "then the result is ['9/19/1996']",
 
-    "If the user send query:",
+    "For query D:",
     "insert into Customers values (4, 'Around the Horn', 'Thomas Hardy', '120 Hanover Sq.', 'London', 'WA1 1DP', 'UK');",
     "there's no constraint violation,",
-    "then you should output 'Succeed'",
+    "then the result is 'Succeed'",
 
-    "If the user send query:",
+    "For query E:",
     "insert into Orders values (10249, 4, '7/5/1996');",
     "since there's no customer with CustomerID = 4,",
-    "then you should output 'Fail'.",
+    "then the result is 'Fail'.",
 
-    "If the user send query:",
+    "For query F:",
     "insert into Products values  (11, 'Queso Cabrales', '1 kg pkg.', 21);",
     "since there's already a product with ProductID = 11,",
-    "then you should output 'Fail'.",
+    "then the result is 'Fail'.",
 
-    "If the user send query:",
+    "For query G:",
     "delete from Customers where CustomerID = 1;",
     "since there's no Orders with CustomerID = 1,",
-    "then yout should output 'Succeed'.",
+    "then the result is 'Succeed'.",
 
-    "If the user send query:",
+    "For query H:",
     "delete from Orders where OrderID = 10308;",
     "since there's OrderDetails with OrderID = 10308,",
-    "then you should 'Fail'",
+    "then the result is 'Fail'",
 
-    "If the user send query:",
+    "For query I:",
     "update OrderDetails set Quantity = 2 where OrderDetailID = 162;",
     "since there's OrderDetails with OrderDetailID = 162,",
-    "then you should output 'Succeed'.",
+    "then the result is 'Succeed'.",
 
-    "If the user send query:",
+    "For query J:",
     "update OrderDetails set ProductID = 1 where OrderDetailID = 162;",
     "since in step 20, the product with ProductID = 1 is deleted,",
-    "then you should output 'Fail'."
+    "then the result is 'Fail'.",
+
+    "So formally I output the results for each query respectively as follows:"
 
 ],
 

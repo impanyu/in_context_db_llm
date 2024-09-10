@@ -222,8 +222,9 @@ def main():
         zero_shot = data["zero_shot"]
         zero_shot_COT = data["zero_shot_COT"]
         few_shot_example = data["few_shot_example"]
-        few_shot = data["few_shot"]
-        few_shot_COT = data["few_shot_COT"]
+        few_shot_questions = data["few_shot_questions"]
+        few_shot_answers= data["few_shot_answers"]
+        few_shot_COT_thoughts = data["few_shot_COT_thoughts"]
 
         prompt = concatenate_prompt(system_prompt_1)+concatenate_prompt(system_prompt_2)
         if prompting == "zero_shot":
@@ -231,9 +232,11 @@ def main():
         elif prompting == "zero_shot_COT":
             prompt += concatenate_prompt(zero_shot_COT)
         elif prompting == "few_shot":
-            prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot)
+            user_prompt_example = concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_questions)
+            assistant_prompt_example = concatenate_prompt(few_shot_answers)
         elif prompting == "few_shot_COT":
-            prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_COT)
+            prompt += concatenate_prompt(few_shot_example)+concatenate_prompt(few_shot_questions)
+            assistant_prompt_example = concatenate_prompt(few_shot_COT_thoughts) + concatenate_prompt(few_shot_answers)
 
         user_prompt = concatenate_prompt(user_prompt_1)
         user_prompt += db_populating_query
@@ -254,12 +257,22 @@ def main():
             # Initialize the OpenAI client with the API key
             client = OpenAI(api_key=api_key)
 
+            if "few_shot" in prompting:
+                messages = [
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": user_prompt_example},
+                    {"role": "assistant", "content": assistant_prompt_example},
+                    {"role": "user", "content": user_prompt}
+                ]
+            else:
+                messages = [
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": user_prompt}
+                ]
+
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
-                messages=[
-                    {"role": "system", "content": prompt},
-                    {"role": "user", "content": user_prompt},
-                ],
+                messages= messages,
                 temperature=0.5  # Set the temperature here (adjust as needed)
             )
 
