@@ -283,7 +283,7 @@ def main():
                 )
             except APITimeoutError:
                 t = t-1
-                time.sleep(2)
+                time.sleep(1)
                 continue
             print("end api call")
 
