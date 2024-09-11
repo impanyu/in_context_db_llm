@@ -1,0 +1,180 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Guests;",
+        "DROP TABLE IF EXISTS Rooms;",
+        "DROP TABLE IF EXISTS Reservations;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Guests (GuestID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Email VARCHAR(100) NOT NULL, PRIMARY KEY (GuestID));",
+        "CREATE TABLE Rooms (RoomID INT NOT NULL AUTO_INCREMENT, RoomNumber VARCHAR(10) NOT NULL, RoomType VARCHAR(50) NOT NULL, PricePerNight DECIMAL(10,2) NOT NULL, PRIMARY KEY (RoomID));",
+        "CREATE TABLE Reservations (ReservationID INT NOT NULL AUTO_INCREMENT, GuestID INT NOT NULL, RoomID INT NOT NULL, CheckInDate DATE NOT NULL, CheckOutDate DATE NOT NULL, PRIMARY KEY (ReservationID), FOREIGN KEY (GuestID) REFERENCES Guests(GuestID), FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID));"
+    ],
+    "insert": [
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('John', 'Doe', 'johndoe@example.com');",
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Jane', 'Smith', 'janesmith@example.com');",
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Michael', 'Brown', 'michaelbrown@example.com');",
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Emily', 'Davis', 'emilydavis@example.com');",
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('David', 'Wilson', 'davidwilson@example.com');",
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Sarah', 'Taylor', 'sarahtaylor@example.com');",
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Chris', 'Johnson', 'chrisjohnson@example.com');",
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Jessica', 'Lee', 'jessicalee@example.com');",
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Daniel', 'Walker', 'danielwalker@example.com');",
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Laura', 'Martinez', 'lauramartinez@example.com');".
+
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('101', 'Single', 75.00);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('102', 'Double', 100.00);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('103', 'Suite', 150.00);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('104', 'Single', 75.00);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('105', 'Double', 100.00);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('106', 'Suite', 150.00);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('107', 'Single', 75.00);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('108', 'Double', 100.00);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('109', 'Suite', 150.00);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('110', 'Single', 75.00);",
+
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (1, 101, '2024-08-01', '2024-08-05');",
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (2, 102, '2024-08-02', '2024-08-06');",
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (3, 103, '2024-08-03', '2024-08-07');",
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (4, 104, '2024-08-04', '2024-08-08');",
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (5, 105, '2024-08-05', '2024-08-09');",
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (6, 106, '2024-08-06', '2024-08-10');",
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (7, 107, '2024-08-07', '2024-08-11');",
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (8, 108, '2024-08-08', '2024-08-12');",
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (9, 109, '2024-08-09', '2024-08-13');",
+    "INSERT INTO Reservations (GuestID, RoomID, CheckInDate, CheckOutDate) VALUES (10, 110, '2024-08-10', '2024-08-14');"
+  ],
+  "delete": [
+        "DELETE FROM Guests WHERE GuestID = 1;",
+        "DELETE FROM Guests WHERE FirstName = 'John' AND LastName = 'Doe';",
+        "DELETE FROM Guests WHERE Email LIKE '%@example.com';",
+        "DELETE FROM Guests WHERE GuestID > 5;",
+        "DELETE FROM Guests WHERE FirstName = 'Jane' OR LastName = 'Smith';",
+        "DELETE FROM Guests WHERE GuestID <= 3 AND Email LIKE '%@gmail.com';",
+        "DELETE FROM Guests WHERE LastName = 'Brown';",
+        "DELETE FROM Guests WHERE FirstName = 'Alice' AND GuestID < 10;",
+        "DELETE FROM Guests WHERE Email LIKE 'johndoe%';",
+        "DELETE FROM Guests WHERE GuestID BETWEEN 2 AND 8;",
+        
+        "DELETE FROM Rooms WHERE RoomID = 101;",
+        "DELETE FROM Rooms WHERE RoomType = 'Deluxe';",
+        "DELETE FROM Rooms WHERE PricePerNight > 200.00;",
+        "DELETE FROM Rooms WHERE RoomNumber = 'A101';",
+        "DELETE FROM Rooms WHERE RoomType = 'Suite' AND PricePerNight > 300.00;",
+        "DELETE FROM Rooms WHERE RoomNumber LIKE 'B%';",
+        "DELETE FROM Rooms WHERE RoomID < 50 OR PricePerNight < 100.00;",
+        "DELETE FROM Rooms WHERE RoomType = 'Standard';",
+        "DELETE FROM Rooms WHERE RoomID >= 200 AND PricePerNight < 150.00;",
+        "DELETE FROM Rooms WHERE RoomNumber = 'C305';",
+        
+        "DELETE FROM Reservations WHERE ReservationID = 1001;",
+        "DELETE FROM Reservations WHERE GuestID = 2;",
+        "DELETE FROM Reservations WHERE CheckInDate = '2023-08-01';",
+        "DELETE FROM Reservations WHERE CheckOutDate = '2023-08-15';",
+        "DELETE FROM Reservations WHERE CheckInDate BETWEEN '2023-07-01' AND '2023-07-31';",
+        "DELETE FROM Reservations WHERE GuestID = 3 AND RoomID = 101;",
+        "DELETE FROM Reservations WHERE RoomID = 102;",
+        "DELETE FROM Reservations WHERE ReservationID > 500;",
+        "DELETE FROM Reservations WHERE CheckOutDate < '2023-06-01';",
+        "DELETE FROM Reservations WHERE GuestID = 4 OR RoomID = 103;"
+    ],
+    "update": [
+    "UPDATE Guests SET Email = 'newemail1@example.com' WHERE GuestID = 1;",
+    "UPDATE Guests SET FirstName = 'John', LastName = 'Doe' WHERE GuestID = 2;",
+    "UPDATE Guests SET Email = 'updatedemail2@example.com' WHERE GuestID = 3 AND LastName = 'Smith';",
+    "UPDATE Guests SET LastName = 'Johnson' WHERE GuestID = 4 OR Email = 'oldemail@example.com';",
+    "UPDATE Guests SET FirstName = 'Alice' WHERE GuestID = 5;",
+    "UPDATE Guests SET Email = 'contact@example.com', LastName = 'Brown' WHERE GuestID = 6;",
+    "UPDATE Guests SET FirstName = 'Bob' WHERE LastName = 'White';",
+    "UPDATE Guests SET Email = 'newcontact@example.com' WHERE Email = 'previouscontact@example.com';",
+    "UPDATE Guests SET LastName = 'Davis' WHERE FirstName = 'Michael';",
+    "UPDATE Guests SET Email = 'finalupdate@example.com' WHERE GuestID = 10;",
+
+    "UPDATE Rooms SET PricePerNight = 150.00 WHERE RoomID = 1;",
+    "UPDATE Rooms SET RoomType = 'Deluxe', PricePerNight = 200.00 WHERE RoomID = 2;",
+    "UPDATE Rooms SET RoomNumber = '202' WHERE RoomID = 3 AND RoomType = 'Suite';",
+    "UPDATE Rooms SET RoomType = 'Standard' WHERE PricePerNight = 100.00 OR RoomNumber = '303';",
+    "UPDATE Rooms SET PricePerNight = 175.50 WHERE RoomID = 5;",
+    "UPDATE Rooms SET RoomNumber = '101', RoomType = 'Economy' WHERE RoomID = 6;",
+    "UPDATE Rooms SET RoomType = 'Deluxe' WHERE RoomID = 7;",
+    "UPDATE Rooms SET PricePerNight = 250.00 WHERE RoomNumber = '404';",
+    "UPDATE Rooms SET RoomNumber = '505' WHERE RoomID = 9 AND RoomType = 'Standard';",
+    "UPDATE Rooms SET RoomType = 'Suite', PricePerNight = 300.00 WHERE RoomID = 10;",
+
+    "UPDATE Reservations SET CheckInDate = '2024-08-20' WHERE ReservationID = 1;",
+    "UPDATE Reservations SET CheckOutDate = '2024-08-30' WHERE ReservationID = 2;",
+    "UPDATE Reservations SET RoomID = 3 WHERE ReservationID = 3 AND GuestID = 1;",
+    "UPDATE Reservations SET CheckInDate = '2024-09-01', CheckOutDate = '2024-09-10' WHERE ReservationID = 4;",
+    "UPDATE Reservations SET GuestID = 2 WHERE ReservationID = 5;",
+    "UPDATE Reservations SET RoomID = 4, CheckInDate = '2024-08-25' WHERE ReservationID = 6;",
+    "UPDATE Reservations SET CheckOutDate = '2024-09-05' WHERE GuestID = 3 AND RoomID = 2;",
+    "UPDATE Reservations SET CheckInDate = '2024-08-15' WHERE ReservationID = 8;",
+    "UPDATE Reservations SET RoomID = 5 WHERE ReservationID = 9;",
+    "UPDATE Reservations SET GuestID = 4 WHERE ReservationID = 10 AND RoomID = 3;"
+  ],
+  "select": {
+    "no_filtering": [
+      "SELECT GuestID FROM Guests;",
+      "SELECT RoomID FROM Rooms;",
+      "SELECT ReservationID FROM Reservations;",
+      "SELECT RoomNumber FROM Rooms;"
+    ],
+    "single_filtering": [
+      "SELECT GuestID FROM Guests WHERE LastName = 'Smith';",
+      "SELECT RoomID FROM Rooms WHERE RoomType = 'Suite';",
+      "SELECT ReservationID FROM Reservations WHERE CheckInDate = '2024-01-01';",
+      "SELECT RoomNumber FROM Rooms WHERE PricePerNight = 100.00;"
+    ],
+    "double_filtering": [
+      "SELECT GuestID FROM Guests WHERE LastName = 'Smith' AND FirstName = 'John';",
+      "SELECT RoomID FROM Rooms WHERE RoomType = 'Suite' AND PricePerNight > 150.00;",
+      "SELECT ReservationID FROM Reservations WHERE CheckInDate = '2024-01-01' AND CheckOutDate = '2024-01-05';",
+      "SELECT RoomNumber FROM Rooms WHERE RoomType = 'Deluxe' OR PricePerNight > 200.00;"
+    ],
+    "triple_filtering": [
+      "SELECT GuestID FROM Guests WHERE LastName = 'Smith' AND FirstName = 'John' AND Email = 'john.smith@example.com';",
+      "SELECT RoomID FROM Rooms WHERE RoomType = 'Suite' AND PricePerNight > 150.00 AND RoomNumber = '101';",
+      "SELECT ReservationID FROM Reservations WHERE CheckInDate = '2024-01-01' AND CheckOutDate = '2024-01-05' AND RoomID = 1;",
+      "SELECT RoomNumber FROM Rooms WHERE RoomType = 'Deluxe' OR PricePerNight > 200.00 AND RoomNumber LIKE '1%';"
+    ],
+    "range_filtering": [
+      "SELECT GuestID FROM Guests WHERE GuestID BETWEEN 1 AND 10;",
+      "SELECT RoomID FROM Rooms WHERE PricePerNight BETWEEN 100.00 AND 200.00;",
+      "SELECT ReservationID FROM Reservations WHERE CheckInDate BETWEEN '2024-01-01' AND '2024-12-31';",
+      "SELECT RoomNumber FROM Rooms WHERE RoomID BETWEEN 1 AND 5;"
+    ],
+    "ranking": [
+      "SELECT GuestID FROM Guests ORDER BY LastName ASC;",
+      "SELECT RoomID FROM Rooms ORDER BY PricePerNight DESC;",
+      "SELECT ReservationID FROM Reservations ORDER BY CheckInDate DESC;",
+      "SELECT RoomNumber FROM Rooms ORDER BY RoomNumber ASC;"
+    ],
+    "count": [
+      "SELECT COUNT(GuestID) FROM Guests;",
+      "SELECT COUNT(RoomID) FROM Rooms;",
+      "SELECT COUNT(ReservationID) FROM Reservations;",
+      "SELECT COUNT(RoomNumber) FROM Rooms;"
+    ],
+    "single_table": [
+      "SELECT GuestID FROM Guests;",
+      "SELECT RoomID FROM Rooms;",
+      "SELECT ReservationID FROM Reservations;",
+      "SELECT RoomNumber FROM Rooms;"
+    ],
+    "double_table": [
+      "SELECT Reservations.ReservationID FROM Reservations JOIN Guests ON Reservations.GuestID = Guests.GuestID;",
+      "SELECT Reservations.ReservationID FROM Reservations JOIN Rooms ON Reservations.RoomID = Rooms.RoomID;",
+      "SELECT Guests.GuestID FROM Guests JOIN Reservations ON Guests.GuestID = Reservations.GuestID;",
+      "SELECT Rooms.RoomID FROM Rooms JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;"
+    ],
+    "three_table": [
+      "SELECT Reservations.ReservationID FROM Reservations JOIN Guests ON Reservations.GuestID = Guests.GuestID JOIN Rooms ON Reservations.RoomID = Rooms.RoomID;",
+      "SELECT Rooms.RoomID FROM Rooms JOIN Reservations ON Rooms.RoomID = Reservations.RoomID JOIN Guests ON Reservations.GuestID = Guests.GuestID;",
+      "SELECT Guests.GuestID FROM Guests JOIN Reservations ON Guests.GuestID = Reservations.GuestID JOIN Rooms ON Reservations.RoomID = Rooms.RoomID;",
+      "SELECT Reservations.ReservationID FROM Reservations JOIN Rooms ON Reservations.RoomID = Rooms.RoomID JOIN Guests ON Reservations.GuestID = Guests.GuestID;"
+    ]
+  }
+
+
+
+
+}

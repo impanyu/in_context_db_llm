@@ -1,0 +1,58 @@
+1. drop tables:
+generate sql commands to drop the tables:
+put them in a format like this:
+"drop_tables":[
+
+]
+
+2. insert:
+generate 10 insert sql operations per table,
+put them in a format like this:
+"insert":[
+    
+]
+3. delete: 
+generate 10 delete sql operations per table, in various filtering conditions and 1-2 conditions combined using AND or OR,  each line quoted by "",
+put them in a format like this:
+"delete":[
+    
+]
+4. update:
+generate 10 update sql operations per table, in various filtering conditions and 1-2 conditions combined using AND or OR, and various SET columns,  each line quoted by "", 
+put them in a format like this:
+"update":[
+
+]
+5. select:
+generate 4 sql select commands for each of the following categories: no_filtering condition,single_filtering with only one condition,double_filtering with single AND or OR,triple_filtering with AND or OR,range_filtering with BETWEEN,ranking with ORDER BY,count with COUNT, single table with no join, double_table with one join ,three_table with two joins, 
+for each select sql,  only select the primary key for eachtable. each line quoted by "", put them in the format like this:
+ "select": {
+        "no_filtering":[
+            
+        ],
+        "single_filtering":[
+            
+        ],
+        "double_filtering":[  
+           
+        ],
+        "triple_filtering":[
+       ],
+        "range_filtering":[
+           
+        ],
+        "ranking":[
+           
+        ],
+        "count":[
+          
+        ],
+        "single_table":[
+           
+        ],
+        "double_table":[
+              ],
+        "three_table":[
+                 ]
+ }   4 sql select commands for each category
+

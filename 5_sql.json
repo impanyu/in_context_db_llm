@@ -1,0 +1,179 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Employees;",
+        "DROP TABLE IF EXISTS Departments;",
+        "DROP TABLE IF EXISTS Salaries;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Employees (EmployeeID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, HireDate DATE NOT NULL, DepartmentID INT NOT NULL, PRIMARY KEY (EmployeeID));",
+        "CREATE TABLE Departments (DepartmentID INT NOT NULL AUTO_INCREMENT, DepartmentName VARCHAR(100) NOT NULL, PRIMARY KEY (DepartmentID));",
+        "CREATE TABLE Salaries (SalaryID INT NOT NULL AUTO_INCREMENT, EmployeeID INT NOT NULL, Amount DECIMAL(10,2) NOT NULL, EffectiveDate DATE NOT NULL, PRIMARY KEY (SalaryID), FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID));"
+    ],
+    "insert": [
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('John', 'Doe', '2020-01-15', 1);",
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('Jane', 'Smith', '2019-05-23', 2);",
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('Michael', 'Johnson', '2021-06-30', 3);",
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('Emily', 'Davis', '2018-08-12', 1);",
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('David', 'Wilson', '2017-09-05', 4);",
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('Sarah', 'Miller', '2016-11-20', 2);",
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('Chris', 'Brown', '2022-03-14', 3);",
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('Jessica', 'Williams', '2015-04-01', 4);",
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('Daniel', 'Jones', '2020-07-07', 1);",
+        "INSERT INTO Employees (FirstName, LastName, HireDate, DepartmentID) VALUES ('Laura', 'Garcia', '2019-12-15', 3);",
+
+        "INSERT INTO Departments (DepartmentName) VALUES ('Human Resources');",
+        "INSERT INTO Departments (DepartmentName) VALUES ('Finance');",
+        "INSERT INTO Departments (DepartmentName) VALUES ('IT');",
+        "INSERT INTO Departments (DepartmentName) VALUES ('Marketing');",
+        "INSERT INTO Departments (DepartmentName) VALUES ('Sales');",
+        "INSERT INTO Departments (DepartmentName) VALUES ('Customer Support');",
+        "INSERT INTO Departments (DepartmentName) VALUES ('Operations');",
+        "INSERT INTO Departments (DepartmentName) VALUES ('Legal');",
+        "INSERT INTO Departments (DepartmentName) VALUES ('Research and Development');",
+        "INSERT INTO Departments (DepartmentName) VALUES ('Administration');",
+
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (1, 55000.00, '2020-01-15');",
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (2, 60000.00, '2019-05-23');",
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (3, 75000.00, '2021-06-30');",
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (4, 65000.00, '2018-08-12');",
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (5, 70000.00, '2017-09-05');",
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (6, 72000.00, '2016-11-20');",
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (7, 68000.00, '2022-03-14');",
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (8, 50000.00, '2015-04-01');",
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (9, 53000.00, '2020-07-07');",
+        "INSERT INTO Salaries (EmployeeID, Amount, EffectiveDate) VALUES (10, 62000.00, '2019-12-15');"
+    ],
+    "delete": [
+    "DELETE FROM Employees WHERE EmployeeID = 1;",
+    "DELETE FROM Employees WHERE FirstName = 'John';",
+    "DELETE FROM Employees WHERE LastName = 'Doe' AND DepartmentID = 3;",
+    "DELETE FROM Employees WHERE HireDate < '2020-01-01';",
+    "DELETE FROM Employees WHERE DepartmentID = 2;",
+    "DELETE FROM Employees WHERE LastName = 'Smith' OR HireDate > '2021-06-15';",
+    "DELETE FROM Employees WHERE FirstName = 'Jane' AND LastName = 'Doe';",
+    "DELETE FROM Employees WHERE EmployeeID BETWEEN 5 AND 10;",
+    "DELETE FROM Employees WHERE DepartmentID = 4 AND HireDate > '2022-01-01';",
+    "DELETE FROM Employees WHERE FirstName = 'Alice' AND DepartmentID = 1;",
+
+    "DELETE FROM Departments WHERE DepartmentID = 1;",
+    "DELETE FROM Departments WHERE DepartmentName = 'HR';",
+    "DELETE FROM Departments WHERE DepartmentName = 'Engineering' AND DepartmentID = 3;",
+    "DELETE FROM Departments WHERE DepartmentID > 5;",
+    "DELETE FROM Departments WHERE DepartmentName LIKE 'Sales%';",
+    "DELETE FROM Departments WHERE DepartmentName = 'Finance' OR DepartmentID = 4;",
+    "DELETE FROM Departments WHERE DepartmentID = 2 AND DepartmentName = 'Marketing';",
+    "DELETE FROM Departments WHERE DepartmentID IN (3, 6, 9);",
+    "DELETE FROM Departments WHERE DepartmentName = 'Support' AND DepartmentID = 5;",
+    "DELETE FROM Departments WHERE DepartmentName = 'Research' AND DepartmentID = 8;",
+
+    "DELETE FROM Salaries WHERE SalaryID = 1;",
+    "DELETE FROM Salaries WHERE EmployeeID = 2;",
+    "DELETE FROM Salaries WHERE Amount > 50000;",
+    "DELETE FROM Salaries WHERE EffectiveDate < '2022-01-01';",
+    "DELETE FROM Salaries WHERE EmployeeID = 3 AND Amount < 40000;",
+    "DELETE FROM Salaries WHERE SalaryID BETWEEN 5 AND 15;",
+    "DELETE FROM Salaries WHERE Amount = 60000 OR EffectiveDate = '2023-06-01';",
+    "DELETE FROM Salaries WHERE EmployeeID IN (2, 4, 6);",
+    "DELETE FROM Salaries WHERE Amount < 35000 AND EffectiveDate > '2023-01-01';",
+    "DELETE FROM Salaries WHERE EmployeeID = 1 AND EffectiveDate = '2021-12-31';"
+],
+"update": [
+ 
+        "UPDATE Employees SET FirstName = 'John' WHERE EmployeeID = 1;",
+        "UPDATE Employees SET LastName = 'Doe' WHERE EmployeeID = 2;",
+        "UPDATE Employees SET HireDate = '2022-01-15' WHERE EmployeeID = 3;",
+        "UPDATE Employees SET DepartmentID = 2 WHERE EmployeeID = 4;",
+        "UPDATE Employees SET FirstName = 'Jane', LastName = 'Smith' WHERE EmployeeID = 5;",
+        "UPDATE Employees SET HireDate = '2021-06-01' WHERE DepartmentID = 1;",
+        "UPDATE Employees SET DepartmentID = 3 WHERE HireDate > '2020-01-01';",
+        "UPDATE Employees SET LastName = 'Brown' WHERE FirstName = 'Michael';",
+        "UPDATE Employees SET FirstName = 'Emily', HireDate = '2023-03-21' WHERE EmployeeID = 6 AND DepartmentID = 4;",
+        "UPDATE Employees SET LastName = 'Williams' WHERE EmployeeID = 7 OR HireDate < '2020-12-31';",
+
+        "UPDATE Departments SET DepartmentName = 'HR' WHERE DepartmentID = 1;",
+        "UPDATE Departments SET DepartmentName = 'Finance' WHERE DepartmentID = 2;",
+        "UPDATE Departments SET DepartmentName = 'IT' WHERE DepartmentID = 3;",
+        "UPDATE Departments SET DepartmentName = 'Marketing' WHERE DepartmentID = 4;",
+        "UPDATE Departments SET DepartmentName = 'Sales' WHERE DepartmentID = 5;",
+        "UPDATE Departments SET DepartmentName = 'Operations' WHERE DepartmentID = 6;",
+        "UPDATE Departments SET DepartmentName = 'Logistics' WHERE DepartmentID = 7;",
+        "UPDATE Departments SET DepartmentName = 'Legal' WHERE DepartmentID = 8;",
+        "UPDATE Departments SET DepartmentName = 'Customer Service' WHERE DepartmentID = 9;",
+        "UPDATE Departments SET DepartmentName = 'R&D' WHERE DepartmentID = 10;",
+
+        "UPDATE Salaries SET Amount = 50000.00 WHERE SalaryID = 1;",
+        "UPDATE Salaries SET Amount = 55000.00 WHERE SalaryID = 2;",
+        "UPDATE Salaries SET EffectiveDate = '2023-05-01' WHERE SalaryID = 3;",
+        "UPDATE Salaries SET Amount = 60000.00 WHERE EmployeeID = 1;",
+        "UPDATE Salaries SET EffectiveDate = '2022-12-01' WHERE EmployeeID = 2;",
+        "UPDATE Salaries SET Amount = 45000.00, EffectiveDate = '2021-01-15' WHERE SalaryID = 4;",
+        "UPDATE Salaries SET Amount = 70000.00 WHERE EmployeeID = 3 AND EffectiveDate < '2023-01-01';",
+        "UPDATE Salaries SET EffectiveDate = '2024-01-01' WHERE EmployeeID = 4;",
+        "UPDATE Salaries SET Amount = 80000.00 WHERE EmployeeID = 5 OR EffectiveDate = '2022-06-30';",
+        "UPDATE Salaries SET Amount = 90000.00, EffectiveDate = '2023-09-01' WHERE SalaryID = 5 AND EmployeeID = 6;"
+    ],
+
+    "select": {
+    "no_filtering": [
+      "SELECT EmployeeID FROM Employees;",
+      "SELECT DepartmentID FROM Departments;",
+      "SELECT SalaryID FROM Salaries;",
+      "SELECT EmployeeID FROM Salaries;"
+    ],
+    "single_filtering": [
+      "SELECT EmployeeID FROM Employees WHERE DepartmentID = 1;",
+      "SELECT DepartmentID FROM Departments WHERE DepartmentName = 'HR';",
+      "SELECT SalaryID FROM Salaries WHERE Amount > 50000;",
+      "SELECT EmployeeID FROM Employees WHERE HireDate = '2023-01-01';"
+    ],
+    "double_filtering": [
+      "SELECT EmployeeID FROM Employees WHERE DepartmentID = 1 AND HireDate > '2020-01-01';",
+      "SELECT DepartmentID FROM Departments WHERE DepartmentName = 'HR' OR DepartmentName = 'Finance';",
+      "SELECT SalaryID FROM Salaries WHERE Amount > 50000 AND EffectiveDate > '2022-01-01';",
+      "SELECT EmployeeID FROM Employees WHERE FirstName = 'John' AND LastName = 'Doe';"
+    ],
+    "triple_filtering": [
+      "SELECT EmployeeID FROM Employees WHERE DepartmentID = 1 AND HireDate > '2020-01-01' AND FirstName = 'John';",
+      "SELECT DepartmentID FROM Departments WHERE DepartmentName = 'HR' OR DepartmentName = 'Finance' AND DepartmentID = 2;",
+      "SELECT SalaryID FROM Salaries WHERE Amount > 50000 AND EffectiveDate > '2022-01-01' AND EmployeeID = 1;",
+      "SELECT EmployeeID FROM Employees WHERE FirstName = 'John' AND LastName = 'Doe' OR HireDate = '2023-01-01';"
+    ],
+    "range_filtering": [
+      "SELECT EmployeeID FROM Employees WHERE HireDate BETWEEN '2020-01-01' AND '2022-01-01';",
+      "SELECT SalaryID FROM Salaries WHERE Amount BETWEEN 40000 AND 60000;",
+      "SELECT DepartmentID FROM Departments WHERE DepartmentID BETWEEN 1 AND 3;",
+      "SELECT EmployeeID FROM Salaries WHERE EffectiveDate BETWEEN '2021-01-01' AND '2023-01-01';"
+    ],
+    "ranking": [
+      "SELECT EmployeeID FROM Employees ORDER BY HireDate DESC;",
+      "SELECT DepartmentID FROM Departments ORDER BY DepartmentName ASC;",
+      "SELECT SalaryID FROM Salaries ORDER BY Amount DESC;",
+      "SELECT EmployeeID FROM Salaries ORDER BY EffectiveDate ASC;"
+    ],
+    "count": [
+      "SELECT COUNT(EmployeeID) FROM Employees;",
+      "SELECT COUNT(DepartmentID) FROM Departments;",
+      "SELECT COUNT(SalaryID) FROM Salaries;",
+      "SELECT COUNT(EmployeeID) FROM Salaries;"
+    ],
+    "single_table": [
+      "SELECT EmployeeID FROM Employees WHERE FirstName = 'John';",
+      "SELECT DepartmentID FROM Departments WHERE DepartmentName = 'HR';",
+      "SELECT SalaryID FROM Salaries WHERE Amount > 50000;",
+      "SELECT EmployeeID FROM Employees WHERE HireDate > '2021-01-01';"
+    ],
+    "double_table": [
+      "SELECT Employees.EmployeeID FROM Employees JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;",
+      "SELECT Salaries.SalaryID FROM Salaries JOIN Employees ON Salaries.EmployeeID = Employees.EmployeeID;",
+      "SELECT Employees.EmployeeID FROM Employees JOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeID;",
+      "SELECT Departments.DepartmentID FROM Departments JOIN Employees ON Departments.DepartmentID = Employees.DepartmentID;"
+    ],
+    "three_table": [
+      "SELECT Employees.EmployeeID FROM Employees JOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeID JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;",
+      "SELECT Salaries.SalaryID FROM Salaries JOIN Employees ON Salaries.EmployeeID = Employees.EmployeeID JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;",
+      "SELECT Employees.EmployeeID FROM Employees JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID JOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeID;",
+      "SELECT Departments.DepartmentID FROM Departments JOIN Employees ON Departments.DepartmentID = Employees.DepartmentID JOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeID;"
+    ]
+  }
+
+}

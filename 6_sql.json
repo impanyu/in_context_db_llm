@@ -1,0 +1,215 @@
+{
+  "drop_tables":[
+      "DROP TABLE IF EXISTS Customers;",
+      "DROP TABLE IF EXISTS Orders;",
+      "DROP TABLE IF EXISTS OrderItems;",
+      "DROP TABLE IF EXISTS Products;"
+  ],
+  "create_tables":[
+      "CREATE TABLE Customers (CustomerID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Email VARCHAR(100) NOT NULL, PRIMARY KEY (CustomerID));",
+      "CREATE TABLE Orders (OrderID INT NOT NULL AUTO_INCREMENT, CustomerID INT NOT NULL, OrderDate DATE NOT NULL, PRIMARY KEY (OrderID), FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID));",
+      "CREATE TABLE OrderItems (OrderItemID INT NOT NULL AUTO_INCREMENT, OrderID INT NOT NULL, ProductID INT NOT NULL, Quantity INT NOT NULL, PRIMARY KEY (OrderItemID), FOREIGN KEY (OrderID) REFERENCES Orders(OrderID), FOREIGN KEY (ProductID) REFERENCES Products(ProductID));",
+      "CREATE TABLE Products (ProductID INT NOT NULL AUTO_INCREMENT, ProductName VARCHAR(100) NOT NULL, Price DECIMAL(10,2) NOT NULL, Stock INT NOT NULL, PRIMARY KEY (ProductID));"
+  ],
+  "insert": [
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('John', 'Doe', 'john.doe@example.com');",
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('Jane', 'Smith', 'jane.smith@example.com');",
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('Robert', 'Brown', 'robert.brown@example.com');",
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('Emily', 'Davis', 'emily.davis@example.com');",
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('Michael', 'Miller', 'michael.miller@example.com');",
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('Sarah', 'Wilson', 'sarah.wilson@example.com');",
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('David', 'Moore', 'david.moore@example.com');",
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('Laura', 'Taylor', 'laura.taylor@example.com');",
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('James', 'Anderson', 'james.anderson@example.com');",
+    "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('Sophia', 'Thomas', 'sophia.thomas@example.com');",
+    
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (1, '2024-01-15');",
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (2, '2024-02-01');",
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (3, '2024-02-10');",
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (4, '2024-03-05');",
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (5, '2024-03-20');",
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (6, '2024-04-12');",
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (7, '2024-04-25');",
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (8, '2024-05-06');",
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (9, '2024-05-22');",
+    "INSERT INTO Orders (CustomerID, OrderDate) VALUES (10, '2024-06-10');",
+
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('Laptop', 799.99, 50);",
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('Smartphone', 599.99, 100);",
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('Tablet', 299.99, 75);",
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('Monitor', 199.99, 60);",
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('Keyboard', 49.99, 150);",
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('Mouse', 29.99, 200);",
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('Printer', 99.99, 40);",
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('Webcam', 79.99, 80);",
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('External Hard Drive', 89.99, 70);",
+    "INSERT INTO Products (ProductName, Price, Stock) VALUES ('USB Flash Drive', 19.99, 300);",
+
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (1, 1, 1);",
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (2, 2, 2);",
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (3, 3, 1);",
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (4, 4, 2);",
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (5, 5, 3);",
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (6, 6, 1);",
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (7, 7, 2);",
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (8, 8, 1);",
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (9, 9, 4);",
+    "INSERT INTO OrderItems (OrderID, ProductID, Quantity) VALUES (10, 10, 5);"
+  ],
+  "delete": [
+    "DELETE FROM Customers WHERE CustomerID = 5;",
+    "DELETE FROM Customers WHERE LastName = 'Smith';",
+    "DELETE FROM Customers WHERE Email = 'john.doe@example.com';",
+    "DELETE FROM Customers WHERE FirstName = 'Jane' AND LastName = 'Doe';",
+    "DELETE FROM Customers WHERE Email LIKE '%example.com';",
+    "DELETE FROM Customers WHERE FirstName = 'Alice' OR LastName = 'Johnson';",
+    "DELETE FROM Customers WHERE CustomerID > 10;",
+    "DELETE FROM Customers WHERE CustomerID <= 3;",
+    "DELETE FROM Customers WHERE LastName = 'Brown' AND Email LIKE '%@gmail.com';",
+    "DELETE FROM Customers WHERE Email IS NULL;",
+    
+    "DELETE FROM Orders WHERE OrderID = 101;",
+    "DELETE FROM Orders WHERE OrderDate < '2023-01-01';",
+    "DELETE FROM Orders WHERE CustomerID = 2;",
+    "DELETE FROM Orders WHERE CustomerID IN (1, 3, 5);",
+    "DELETE FROM Orders WHERE OrderDate BETWEEN '2023-01-01' AND '2023-06-01';",
+    "DELETE FROM Orders WHERE OrderID > 150;",
+    "DELETE FROM Orders WHERE CustomerID = 4 AND OrderDate > '2023-07-01';",
+    "DELETE FROM Orders WHERE OrderID = 200 OR CustomerID = 5;",
+    "DELETE FROM Orders WHERE OrderDate IS NULL;",
+    "DELETE FROM Orders WHERE OrderID NOT IN (100, 101, 102);",
+    
+    "DELETE FROM OrderItems WHERE OrderItemID = 10;",
+    "DELETE FROM OrderItems WHERE ProductID = 25;",
+    "DELETE FROM OrderItems WHERE Quantity < 5;",
+    "DELETE FROM OrderItems WHERE OrderID = 110;",
+    "DELETE FROM OrderItems WHERE OrderID = 115 AND Quantity > 10;",
+    "DELETE FROM OrderItems WHERE OrderItemID > 50;",
+    "DELETE FROM OrderItems WHERE ProductID = 10 OR Quantity < 2;",
+    "DELETE FROM OrderItems WHERE ProductID = 20 AND Quantity = 1;",
+    "DELETE FROM OrderItems WHERE OrderID IN (100, 101);",
+    "DELETE FROM OrderItems WHERE OrderItemID <= 5;",
+    
+    "DELETE FROM Products WHERE ProductID = 30;",
+    "DELETE FROM Products WHERE Stock < 50;",
+    "DELETE FROM Products WHERE ProductName LIKE '%Widget%';",
+    "DELETE FROM Products WHERE Price > 100.00;",
+    "DELETE FROM Products WHERE ProductID = 10 OR Stock = 0;",
+    "DELETE FROM Products WHERE Stock > 200 AND Price < 20.00;",
+    "DELETE FROM Products WHERE ProductName = 'Gizmo' AND Stock <= 10;",
+    "DELETE FROM Products WHERE ProductID NOT IN (1, 2, 3);",
+    "DELETE FROM Products WHERE Price BETWEEN 50.00 AND 150.00;",
+    "DELETE FROM Products WHERE ProductName IS NULL;"
+  ],
+  "update": [
+    "UPDATE Customers SET Email = 'newemail1@example.com' WHERE CustomerID = 1;",
+    "UPDATE Customers SET FirstName = 'John' WHERE LastName = 'Doe';",
+    "UPDATE Customers SET LastName = 'Smith', Email = 'newemail2@example.com' WHERE CustomerID = 2;",
+    "UPDATE Customers SET FirstName = 'Jane' WHERE Email = 'jane.doe@example.com';",
+    "UPDATE Customers SET Email = 'updatedemail@example.com' WHERE CustomerID = 3 AND LastName = 'Johnson';",
+    "UPDATE Customers SET FirstName = 'Alice', LastName = 'Wonder' WHERE Email = 'alice@example.com';",
+    "UPDATE Customers SET LastName = 'Brown' WHERE CustomerID = 4 OR Email = 'brown@example.com';",
+    "UPDATE Customers SET FirstName = 'Chris' WHERE CustomerID = 5;",
+    "UPDATE Customers SET Email = 'chris@example.com' WHERE LastName = 'Evans';",
+    "UPDATE Customers SET FirstName = 'Bob', LastName = 'Builder' WHERE CustomerID = 6 AND Email = 'bob@example.com';",
+
+    "UPDATE Orders SET OrderDate = '2024-08-01' WHERE OrderID = 1;",
+    "UPDATE Orders SET CustomerID = 2 WHERE OrderID = 2;",
+    "UPDATE Orders SET OrderDate = '2024-08-02', CustomerID = 3 WHERE OrderID = 3;",
+    "UPDATE Orders SET OrderDate = '2024-08-03' WHERE OrderID = 4;",
+    "UPDATE Orders SET CustomerID = 5 WHERE OrderDate = '2024-08-04';",
+    "UPDATE Orders SET OrderDate = '2024-08-05' WHERE CustomerID = 6 AND OrderID = 5;",
+    "UPDATE Orders SET CustomerID = 7 WHERE OrderID = 6;",
+    "UPDATE Orders SET OrderDate = '2024-08-06' WHERE OrderID = 7;",
+    "UPDATE Orders SET CustomerID = 8 WHERE OrderDate = '2024-08-07';",
+    "UPDATE Orders SET OrderDate = '2024-08-08', CustomerID = 9 WHERE OrderID = 8;",
+
+    "UPDATE OrderItems SET Quantity = 2 WHERE OrderItemID = 1;",
+    "UPDATE OrderItems SET ProductID = 2 WHERE OrderItemID = 2;",
+    "UPDATE OrderItems SET Quantity = 3, ProductID = 3 WHERE OrderItemID = 3;",
+    "UPDATE OrderItems SET Quantity = 4 WHERE OrderItemID = 4;",
+    "UPDATE OrderItems SET ProductID = 5 WHERE Quantity = 5;",
+    "UPDATE OrderItems SET Quantity = 6 WHERE OrderItemID = 6 AND ProductID = 6;",
+    "UPDATE OrderItems SET ProductID = 7 WHERE OrderItemID = 7;",
+    "UPDATE OrderItems SET Quantity = 7 WHERE OrderItemID = 8;",
+    "UPDATE OrderItems SET ProductID = 8 WHERE Quantity = 8;",
+    "UPDATE OrderItems SET Quantity = 9, ProductID = 9 WHERE OrderItemID = 9;",
+
+    "UPDATE Products SET Price = 9.99 WHERE ProductID = 1;",
+    "UPDATE Products SET Stock = 50 WHERE ProductID = 2;",
+    "UPDATE Products SET Price = 19.99, Stock = 40 WHERE ProductID = 3;",
+    "UPDATE Products SET Price = 29.99 WHERE ProductID = 4;",
+    "UPDATE Products SET Stock = 30 WHERE Price = 39.99;",
+    "UPDATE Products SET Price = 49.99 WHERE ProductID = 6 AND Stock = 20;",
+    "UPDATE Products SET Stock = 10 WHERE ProductID = 7;",
+    "UPDATE Products SET Price = 59.99 WHERE ProductID = 8;",
+    "UPDATE Products SET Stock = 5 WHERE Price = 69.99;",
+    "UPDATE Products SET Price = 79.99, Stock = 0 WHERE ProductID = 9;"
+  ],
+  "select": {
+        "no_filtering": [
+            "SELECT CustomerID FROM Customers;",
+            "SELECT OrderID FROM Orders;",
+            "SELECT OrderItemID FROM OrderItems;",
+            "SELECT ProductID FROM Products;"
+        ],
+        "single_filtering": [
+            "SELECT CustomerID FROM Customers WHERE LastName = 'Smith';",
+            "SELECT OrderID FROM Orders WHERE OrderDate = '2023-08-01';",
+            "SELECT OrderItemID FROM OrderItems WHERE Quantity > 10;",
+            "SELECT ProductID FROM Products WHERE Stock < 50;"
+        ],
+        "double_filtering": [
+            "SELECT CustomerID FROM Customers WHERE LastName = 'Smith' AND Email LIKE '%gmail.com';",
+            "SELECT OrderID FROM Orders WHERE OrderDate = '2023-08-01' OR CustomerID = 5;",
+            "SELECT OrderItemID FROM OrderItems WHERE Quantity > 10 AND ProductID = 1;",
+            "SELECT ProductID FROM Products WHERE Stock < 50 AND Price > 20.00;"
+        ],
+        "triple_filtering": [
+            "SELECT CustomerID FROM Customers WHERE LastName = 'Smith' AND Email LIKE '%gmail.com' OR FirstName = 'John';",
+            "SELECT OrderID FROM Orders WHERE OrderDate = '2023-08-01' AND CustomerID = 5 OR OrderID = 10;",
+            "SELECT OrderItemID FROM OrderItems WHERE Quantity > 10 AND ProductID = 1 OR OrderID = 100;",
+            "SELECT ProductID FROM Products WHERE Stock < 50 AND Price > 20.00 OR ProductName LIKE 'Laptop%';"
+        ],
+        "range_filtering": [
+            "SELECT CustomerID FROM Customers WHERE CustomerID BETWEEN 1 AND 10;",
+            "SELECT OrderID FROM Orders WHERE OrderDate BETWEEN '2023-01-01' AND '2023-12-31';",
+            "SELECT OrderItemID FROM OrderItems WHERE Quantity BETWEEN 5 AND 15;",
+            "SELECT ProductID FROM Products WHERE Price BETWEEN 10.00 AND 50.00;"
+        ],
+        "ranking": [
+            "SELECT CustomerID FROM Customers ORDER BY LastName ASC;",
+            "SELECT OrderID FROM Orders ORDER BY OrderDate DESC;",
+            "SELECT OrderItemID FROM OrderItems ORDER BY Quantity ASC;",
+            "SELECT ProductID FROM Products ORDER BY Price DESC;"
+        ],
+        "count": [
+            "SELECT COUNT(CustomerID) FROM Customers;",
+            "SELECT COUNT(OrderID) FROM Orders;",
+            "SELECT COUNT(OrderItemID) FROM OrderItems;",
+            "SELECT COUNT(ProductID) FROM Products;"
+        ],
+        "single_table": [
+            "SELECT CustomerID FROM Customers;",
+            "SELECT OrderID FROM Orders;",
+            "SELECT OrderItemID FROM OrderItems;",
+            "SELECT ProductID FROM Products;"
+        ],
+        "double_table": [
+            "SELECT Orders.OrderID FROM Orders JOIN Customers ON Orders.CustomerID = Customers.CustomerID;",
+            "SELECT OrderItems.OrderItemID FROM OrderItems JOIN Orders ON OrderItems.OrderID = Orders.OrderID;",
+            "SELECT Products.ProductID FROM Products JOIN OrderItems ON Products.ProductID = OrderItems.ProductID;",
+            "SELECT Customers.CustomerID FROM Customers JOIN Orders ON Customers.CustomerID = Orders.CustomerID;"
+        ],
+        "three_table": [
+            "SELECT OrderItems.OrderItemID FROM OrderItems JOIN Orders ON OrderItems.OrderID = Orders.OrderID JOIN Customers ON Orders.CustomerID = Customers.CustomerID;",
+            "SELECT Products.ProductID FROM Products JOIN OrderItems ON Products.ProductID = OrderItems.ProductID JOIN Orders ON OrderItems.OrderID = Orders.OrderID;",
+            "SELECT Orders.OrderID FROM Orders JOIN Customers ON Orders.CustomerID = Customers.CustomerID JOIN OrderItems ON Orders.OrderID = OrderItems.OrderID;",
+            "SELECT Customers.CustomerID FROM Customers JOIN Orders ON Customers.CustomerID = Orders.CustomerID JOIN OrderItems ON Orders.OrderID = OrderItems.OrderID;"
+        ]
+    }
+
+
+
+
+}

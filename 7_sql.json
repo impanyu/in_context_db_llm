@@ -1,0 +1,215 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Students;",
+        "DROP TABLE IF EXISTS Classes;",
+        "DROP TABLE IF EXISTS Teachers;",
+        "DROP TABLE IF EXISTS Enrollments;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Students (StudentID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, DateOfBirth DATE NOT NULL, PRIMARY KEY (StudentID));",
+        "CREATE TABLE Classes (ClassID INT NOT NULL AUTO_INCREMENT, ClassName VARCHAR(100) NOT NULL, PRIMARY KEY (ClassID));",
+        "CREATE TABLE Teachers (TeacherID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Subject VARCHAR(100), PRIMARY KEY (TeacherID));",
+        "CREATE TABLE Enrollments (EnrollmentID INT NOT NULL AUTO_INCREMENT, StudentID INT NOT NULL, ClassID INT NOT NULL, PRIMARY KEY (EnrollmentID), FOREIGN KEY (StudentID) REFERENCES Students(StudentID), FOREIGN KEY (ClassID) REFERENCES Classes(ClassID));"
+    ],
+    "insert": [
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('John', 'Doe', '2005-04-23');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Jane', 'Smith', '2006-05-14');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Emily', 'Davis', '2004-03-11');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Michael', 'Johnson', '2005-07-20');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Sarah', 'Brown', '2006-08-30');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('David', 'Wilson', '2005-09-15');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Laura', 'Garcia', '2004-10-05');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('James', 'Martinez', '2006-11-21');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Sophia', 'Lee', '2005-12-12');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Chris', 'Taylor', '2004-02-18');",
+
+    "INSERT INTO Classes (ClassName) VALUES ('Math 101');",
+    "INSERT INTO Classes (ClassName) VALUES ('History 101');",
+    "INSERT INTO Classes (ClassName) VALUES ('Science 101');",
+    "INSERT INTO Classes (ClassName) VALUES ('English 101');",
+    "INSERT INTO Classes (ClassName) VALUES ('Art 101');",
+    "INSERT INTO Classes (ClassName) VALUES ('Physical Education');",
+    "INSERT INTO Classes (ClassName) VALUES ('Biology 101');",
+    "INSERT INTO Classes (ClassName) VALUES ('Chemistry 101');",
+    "INSERT INTO Classes (ClassName) VALUES ('Physics 101');",
+    "INSERT INTO Classes (ClassName) VALUES ('Geography 101');",
+
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Mr.', 'Smith', 'Math');",
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Ms.', 'Johnson', 'History');",
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Mrs.', 'Williams', 'Science');",
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Mr.', 'Jones', 'English');",
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Ms.', 'Brown', 'Art');",
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Mr.', 'Davis', 'Physical Education');",
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Mrs.', 'Miller', 'Biology');",
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Mr.', 'Wilson', 'Chemistry');",
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Ms.', 'Moore', 'Physics');",
+    "INSERT INTO Teachers (FirstName, LastName, Subject) VALUES ('Mr.', 'Taylor', 'Geography');",
+
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (1, 1);",
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (2, 2);",
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (3, 3);",
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (4, 4);",
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (5, 5);",
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (6, 6);",
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (7, 7);",
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (8, 8);",
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (9, 9);",
+    "INSERT INTO Enrollments (StudentID, ClassID) VALUES (10, 10);"
+  ],
+  "delete": [
+     
+        "DELETE FROM Students WHERE StudentID = 1;",
+        "DELETE FROM Students WHERE FirstName = 'John';",
+        "DELETE FROM Students WHERE LastName = 'Doe' AND DateOfBirth = '2000-01-01';",
+        "DELETE FROM Students WHERE DateOfBirth < '2000-01-01';",
+        "DELETE FROM Students WHERE FirstName = 'Jane' AND LastName = 'Smith';",
+        "DELETE FROM Students WHERE FirstName = 'Michael' OR LastName = 'Johnson';",
+        "DELETE FROM Students WHERE StudentID > 10;",
+        "DELETE FROM Students WHERE FirstName LIKE 'A%';",
+        "DELETE FROM Students WHERE LastName = 'Brown' AND DateOfBirth BETWEEN '1995-01-01' AND '2000-12-31';",
+        "DELETE FROM Students WHERE DateOfBirth = '2002-05-15';",
+
+        "DELETE FROM Classes WHERE ClassID = 1;",
+        "DELETE FROM Classes WHERE ClassName = 'Math 101';",
+        "DELETE FROM Classes WHERE ClassName LIKE 'Physics%';",
+        "DELETE FROM Classes WHERE ClassName = 'History' OR ClassName = 'Geography';",
+        "DELETE FROM Classes WHERE ClassID > 5;",
+        "DELETE FROM Classes WHERE ClassName = 'Biology' AND ClassID < 10;",
+        "DELETE FROM Classes WHERE ClassName LIKE 'English%';",
+        "DELETE FROM Classes WHERE ClassName = 'Chemistry' AND ClassID = 3;",
+        "DELETE FROM Classes WHERE ClassName = 'Art';",
+        "DELETE FROM Classes WHERE ClassID = 2 OR ClassID = 4;",
+
+        "DELETE FROM Teachers WHERE TeacherID = 1;",
+        "DELETE FROM Teachers WHERE FirstName = 'Alice';",
+        "DELETE FROM Teachers WHERE LastName = 'Miller' AND Subject = 'Mathematics';",
+        "DELETE FROM Teachers WHERE Subject LIKE 'Science%';",
+        "DELETE FROM Teachers WHERE TeacherID > 10;",
+        "DELETE FROM Teachers WHERE FirstName = 'Robert' OR LastName = 'Williams';",
+        "DELETE FROM Teachers WHERE LastName = 'Davis' AND Subject = 'History';",
+        "DELETE FROM Teachers WHERE FirstName LIKE 'B%';",
+        "DELETE FROM Teachers WHERE Subject = 'English';",
+        "DELETE FROM Teachers WHERE TeacherID = 2 OR TeacherID = 3;",
+
+        "DELETE FROM Enrollments WHERE EnrollmentID = 1;",
+        "DELETE FROM Enrollments WHERE StudentID = 5;",
+        "DELETE FROM Enrollments WHERE ClassID = 3;",
+        "DELETE FROM Enrollments WHERE StudentID = 2 AND ClassID = 4;",
+        "DELETE FROM Enrollments WHERE EnrollmentID > 10;",
+        "DELETE FROM Enrollments WHERE StudentID = 1 OR ClassID = 2;",
+        "DELETE FROM Enrollments WHERE EnrollmentID = 7;",
+        "DELETE FROM Enrollments WHERE StudentID IN (1, 3, 5);",
+        "DELETE FROM Enrollments WHERE ClassID = 6 AND EnrollmentID < 10;",
+        "DELETE FROM Enrollments WHERE StudentID = 4 AND ClassID = 2;"
+    ],
+    "update": [
+    "UPDATE Students SET FirstName = 'John' WHERE StudentID = 1;",
+    "UPDATE Students SET LastName = 'Doe' WHERE StudentID = 2 AND DateOfBirth = '2000-01-01';",
+    "UPDATE Students SET DateOfBirth = '2001-02-02' WHERE FirstName = 'Jane';",
+    "UPDATE Students SET FirstName = 'Emily', LastName = 'Clark' WHERE StudentID = 3;",
+    "UPDATE Students SET LastName = 'Smith' WHERE StudentID = 4 OR FirstName = 'John';",
+    "UPDATE Students SET DateOfBirth = '2002-03-03' WHERE LastName = 'Brown' AND FirstName = 'Alice';",
+    "UPDATE Students SET FirstName = 'Michael', DateOfBirth = '1999-04-04' WHERE StudentID = 5;",
+    "UPDATE Students SET FirstName = 'Laura' WHERE LastName = 'Johnson';",
+    "UPDATE Students SET LastName = 'White' WHERE DateOfBirth = '2003-05-05' OR FirstName = 'Chris';",
+    "UPDATE Students SET DateOfBirth = '2004-06-06' WHERE StudentID = 6;",
+
+    "UPDATE Classes SET ClassName = 'Math 101' WHERE ClassID = 1;",
+    "UPDATE Classes SET ClassName = 'English Literature' WHERE ClassID = 2 AND ClassName = 'English 101';",
+    "UPDATE Classes SET ClassName = 'Physics 102' WHERE ClassName = 'Physics 101';",
+    "UPDATE Classes SET ClassName = 'Chemistry 101', ClassID = 3 WHERE ClassID = 4;",
+    "UPDATE Classes SET ClassName = 'Biology 101' WHERE ClassName = 'Biology' OR ClassID = 5;",
+    "UPDATE Classes SET ClassName = 'History 201' WHERE ClassID = 6 AND ClassName = 'History 101';",
+    "UPDATE Classes SET ClassName = 'Art 101', ClassID = 7 WHERE ClassID = 8;",
+    "UPDATE Classes SET ClassName = 'Geography 101' WHERE ClassName = 'Geography';",
+    "UPDATE Classes SET ClassName = 'French 101' WHERE ClassID = 9 OR ClassName = 'French';",
+    "UPDATE Classes SET ClassName = 'Computer Science 101' WHERE ClassID = 10;",
+
+    "UPDATE Teachers SET FirstName = 'Robert' WHERE TeacherID = 1;",
+    "UPDATE Teachers SET LastName = 'Williams' WHERE TeacherID = 2 AND Subject = 'Math';",
+    "UPDATE Teachers SET Subject = 'English' WHERE FirstName = 'Sarah';",
+    "UPDATE Teachers SET FirstName = 'James', LastName = 'Brown' WHERE TeacherID = 3;",
+    "UPDATE Teachers SET LastName = 'Davis' WHERE TeacherID = 4 OR Subject = 'Science';",
+    "UPDATE Teachers SET Subject = 'History' WHERE LastName = 'Clark' AND FirstName = 'Emma';",
+    "UPDATE Teachers SET FirstName = 'David', Subject = 'Chemistry' WHERE TeacherID = 5;",
+    "UPDATE Teachers SET LastName = 'Anderson' WHERE FirstName = 'Olivia';",
+    "UPDATE Teachers SET Subject = 'Physics' WHERE LastName = 'Harris' OR FirstName = 'Liam';",
+    "UPDATE Teachers SET FirstName = 'Sophia', LastName = 'Robinson' WHERE TeacherID = 6;",
+
+    "UPDATE Enrollments SET StudentID = 2 WHERE EnrollmentID = 1;",
+    "UPDATE Enrollments SET ClassID = 4 WHERE EnrollmentID = 2 AND StudentID = 3;",
+    "UPDATE Enrollments SET StudentID = 5 WHERE ClassID = 1;",
+    "UPDATE Enrollments SET EnrollmentID = 6, StudentID = 7 WHERE EnrollmentID = 8;",
+    "UPDATE Enrollments SET ClassID = 3 WHERE ClassID = 2 OR StudentID = 4;",
+    "UPDATE Enrollments SET StudentID = 9 WHERE EnrollmentID = 10 AND ClassID = 5;",
+    "UPDATE Enrollments SET StudentID = 11, ClassID = 6 WHERE EnrollmentID = 12;",
+    "UPDATE Enrollments SET ClassID = 7 WHERE ClassID = 8;",
+    "UPDATE Enrollments SET StudentID = 13 WHERE EnrollmentID = 14 OR ClassID = 9;",
+    "UPDATE Enrollments SET EnrollmentDate = '2023-09-01' WHERE EnrollmentID = 15;"
+  ],
+  "select": {
+    "no_filtering": [
+      "SELECT StudentID FROM Students;",
+      "SELECT ClassID FROM Classes;",
+      "SELECT TeacherID FROM Teachers;",
+      "SELECT EnrollmentID FROM Enrollments;"
+    ],
+    "single_filtering": [
+      "SELECT StudentID FROM Students WHERE FirstName = 'John';",
+      "SELECT ClassID FROM Classes WHERE ClassName = 'Mathematics';",
+      "SELECT TeacherID FROM Teachers WHERE Subject = 'Science';",
+      "SELECT EnrollmentID FROM Enrollments WHERE StudentID = 1;"
+    ],
+    "double_filtering": [
+      "SELECT StudentID FROM Students WHERE FirstName = 'John' AND LastName = 'Doe';",
+      "SELECT ClassID FROM Classes WHERE ClassName = 'Mathematics' AND ClassID = 2;",
+      "SELECT TeacherID FROM Teachers WHERE FirstName = 'Alice' AND Subject = 'History';",
+      "SELECT EnrollmentID FROM Enrollments WHERE StudentID = 1 AND ClassID = 2;"
+    ],
+    "triple_filtering": [
+      "SELECT StudentID FROM Students WHERE FirstName = 'John' AND LastName = 'Doe' AND DateOfBirth = '2000-01-01';",
+      "SELECT ClassID FROM Classes WHERE ClassName = 'Mathematics' OR ClassName = 'Science' AND ClassID = 2;",
+      "SELECT TeacherID FROM Teachers WHERE FirstName = 'Alice' OR LastName = 'Smith' AND Subject = 'History';",
+      "SELECT EnrollmentID FROM Enrollments WHERE StudentID = 1 AND ClassID = 2 OR EnrollmentID = 5;"
+    ],
+    "range_filtering": [
+      "SELECT StudentID FROM Students WHERE DateOfBirth BETWEEN '2000-01-01' AND '2010-12-31';",
+      "SELECT ClassID FROM Classes WHERE ClassID BETWEEN 1 AND 10;",
+      "SELECT TeacherID FROM Teachers WHERE TeacherID BETWEEN 5 AND 15;",
+      "SELECT EnrollmentID FROM Enrollments WHERE EnrollmentID BETWEEN 10 AND 20;"
+    ],
+    "ranking": [
+      "SELECT StudentID FROM Students ORDER BY DateOfBirth;",
+      "SELECT ClassID FROM Classes ORDER BY ClassName;",
+      "SELECT TeacherID FROM Teachers ORDER BY LastName;",
+      "SELECT EnrollmentID FROM Enrollments ORDER BY EnrollmentID DESC;"
+    ],
+    "count": [
+      "SELECT COUNT(StudentID) FROM Students;",
+      "SELECT COUNT(ClassID) FROM Classes;",
+      "SELECT COUNT(TeacherID) FROM Teachers;",
+      "SELECT COUNT(EnrollmentID) FROM Enrollments;"
+    ],
+    "single_table": [
+      "SELECT StudentID FROM Students WHERE FirstName = 'John';",
+      "SELECT ClassID FROM Classes WHERE ClassName = 'Mathematics';",
+      "SELECT TeacherID FROM Teachers WHERE Subject = 'Science';",
+      "SELECT EnrollmentID FROM Enrollments WHERE StudentID = 1;"
+    ],
+    "double_table": [
+      "SELECT Students.StudentID FROM Students JOIN Enrollments ON Students.StudentID = Enrollments.StudentID;",
+      "SELECT Classes.ClassID FROM Classes JOIN Enrollments ON Classes.ClassID = Enrollments.ClassID;",
+      "SELECT Teachers.TeacherID FROM Teachers JOIN Classes ON Teachers.TeacherID = Classes.ClassID;",
+      "SELECT Enrollments.EnrollmentID FROM Enrollments JOIN Students ON Enrollments.StudentID = Students.StudentID;"
+    ],
+    "three_table": [
+      "SELECT Students.StudentID FROM Students JOIN Enrollments ON Students.StudentID = Enrollments.StudentID JOIN Classes ON Enrollments.ClassID = Classes.ClassID;",
+      "SELECT Classes.ClassID FROM Classes JOIN Enrollments ON Classes.ClassID = Enrollments.ClassID JOIN Students ON Enrollments.StudentID = Students.StudentID;",
+      "SELECT Teachers.TeacherID FROM Teachers JOIN Classes ON Teachers.TeacherID = Classes.ClassID JOIN Enrollments ON Classes.ClassID = Enrollments.ClassID;",
+      "SELECT Enrollments.EnrollmentID FROM Enrollments JOIN Students ON Enrollments.StudentID = Students.StudentID JOIN Classes ON Enrollments.ClassID = Classes.ClassID;"
+    ]
+  }
+
+
+
+}

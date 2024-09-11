@@ -1,0 +1,214 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Patients;",
+        "DROP TABLE IF EXISTS Doctors;",
+        "DROP TABLE IF EXISTS Appointments;",
+        "DROP TABLE IF EXISTS MedicalRecords;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Patients (PatientID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, DateOfBirth DATE NOT NULL, PRIMARY KEY (PatientID));",
+        "CREATE TABLE Doctors (DoctorID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Specialty VARCHAR(100) NOT NULL, PRIMARY KEY (DoctorID));",
+        "CREATE TABLE Appointments (AppointmentID INT NOT NULL AUTO_INCREMENT, PatientID INT NOT NULL, DoctorID INT NOT NULL, AppointmentDate DATETIME NOT NULL, PRIMARY KEY (AppointmentID), FOREIGN KEY (PatientID) REFERENCES Patients(PatientID), FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID));",
+        "CREATE TABLE MedicalRecords (RecordID INT NOT NULL AUTO_INCREMENT, PatientID INT NOT NULL, Diagnosis VARCHAR(255) NOT NULL, Treatment TEXT NOT NULL, RecordDate DATE NOT NULL, PRIMARY KEY (RecordID), FOREIGN KEY (PatientID) REFERENCES Patients(PatientID));"
+    ],
+    "insert": [
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('John', 'Doe', '1980-04-15');",
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Jane', 'Smith', '1992-08-30');",
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Michael', 'Johnson', '1975-12-10');",
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Emily', 'Davis', '1988-05-20');",
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Daniel', 'Brown', '1995-03-14');",
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Sarah', 'Wilson', '1983-07-22');",
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Matthew', 'Miller', '1990-11-01');",
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Laura', 'Taylor', '1987-02-17');",
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('James', 'Anderson', '1979-09-28');",
+        "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Jessica', 'Thomas', '1993-12-11');",
+
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('Alice', 'Williams', 'Cardiology');",
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('Robert', 'Jones', 'Neurology');",
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('Chris', 'Garcia', 'Pediatrics');",
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('Lisa', 'Martinez', 'Dermatology');",
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('James', 'Robinson', 'Oncology');",
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('Emma', 'Clark', 'Orthopedics');",
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('David', 'Rodriguez', 'Gastroenterology');",
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('Sophia', 'Lewis', 'Endocrinology');",
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('Liam', 'Walker', 'Psychiatry');",
+        "INSERT INTO Doctors (FirstName, LastName, Specialty) VALUES ('Olivia', 'Hall', 'Rheumatology');",
+
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (1, 2, '2024-08-23 09:00:00');",
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (2, 3, '2024-08-23 10:00:00');",
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (3, 1, '2024-08-23 11:00:00');",
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (4, 4, '2024-08-23 13:00:00');",
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (5, 5, '2024-08-23 14:00:00');",
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (6, 6, '2024-08-23 15:00:00');",
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (7, 7, '2024-08-24 09:00:00');",
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (8, 8, '2024-08-24 10:00:00');",
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (9, 9, '2024-08-24 11:00:00');",
+        "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (10, 10, '2024-08-24 13:00:00');",
+
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (1, 'Hypertension', 'Medication: Amlodipine 5mg', '2024-08-01');",
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (2, 'Migraine', 'Medication: Sumatriptan 50mg', '2024-08-02');",
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (3, 'Diabetes', 'Insulin therapy', '2024-08-03');",
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (4, 'Asthma', 'Inhaler: Albuterol', '2024-08-04');",
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (5, 'Arthritis', 'Physical therapy', '2024-08-05');",
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (6, 'Depression', 'Counseling and SSRIs', '2024-08-06');",
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (7, 'Allergies', 'Antihistamines', '2024-08-07');",
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (8, 'Back pain', 'Chiropractic care', '2024-08-08');",
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (9, 'Skin Rash', 'Topical Steroid', '2024-08-09');",
+        "INSERT INTO MedicalRecords (PatientID, Diagnosis, Treatment, RecordDate) VALUES (10, 'High Cholesterol', 'Statin therapy', '2024-08-10');"
+    ],
+    "delete": [
+    "DELETE FROM Patients WHERE FirstName = 'John';",
+    "DELETE FROM Patients WHERE LastName = 'Doe';",
+    "DELETE FROM Patients WHERE DateOfBirth = '1985-05-10';",
+    "DELETE FROM Patients WHERE FirstName = 'Jane' AND LastName = 'Smith';",
+    "DELETE FROM Patients WHERE DateOfBirth < '1990-01-01';",
+    "DELETE FROM Patients WHERE FirstName = 'Emily' AND DateOfBirth = '1995-07-20';",
+    "DELETE FROM Patients WHERE LastName = 'Brown' OR LastName = 'Davis';",
+    "DELETE FROM Patients WHERE PatientID = 5;",
+    "DELETE FROM Patients WHERE PatientID IN (1, 3, 7);",
+    "DELETE FROM Patients WHERE FirstName = 'Robert' AND LastName = 'Williams';",
+
+    "DELETE FROM Doctors WHERE FirstName = 'Sarah';",
+    "DELETE FROM Doctors WHERE LastName = 'Jones';",
+    "DELETE FROM Doctors WHERE Specialty = 'Cardiology';",
+    "DELETE FROM Doctors WHERE FirstName = 'David' AND LastName = 'Miller';",
+    "DELETE FROM Doctors WHERE Specialty = 'Neurology' AND LastName = 'Garcia';",
+    "DELETE FROM Doctors WHERE FirstName = 'Michael' AND Specialty = 'Orthopedics';",
+    "DELETE FROM Doctors WHERE DoctorID = 2;",
+    "DELETE FROM Doctors WHERE LastName = 'Wilson' OR Specialty = 'Dermatology';",
+    "DELETE FROM Doctors WHERE DoctorID > 10;",
+    "DELETE FROM Doctors WHERE FirstName = 'Anna' AND LastName = 'Moore';",
+
+    "DELETE FROM Appointments WHERE AppointmentDate < '2024-01-01';",
+    "DELETE FROM Appointments WHERE PatientID = 1;",
+    "DELETE FROM Appointments WHERE DoctorID = 3;",
+    "DELETE FROM Appointments WHERE AppointmentID = 4;",
+    "DELETE FROM Appointments WHERE AppointmentDate = '2024-08-01' AND PatientID = 2;",
+    "DELETE FROM Appointments WHERE DoctorID = 5 AND AppointmentDate > '2024-07-01';",
+    "DELETE FROM Appointments WHERE PatientID = 7 OR AppointmentDate = '2024-06-01';",
+    "DELETE FROM Appointments WHERE AppointmentID IN (2, 6, 9);",
+    "DELETE FROM Appointments WHERE DoctorID = 4 AND AppointmentDate < '2023-12-31';",
+    "DELETE FROM Appointments WHERE PatientID = 8 AND DoctorID = 10;",
+
+    "DELETE FROM MedicalRecords WHERE Diagnosis = 'Flu';",
+    "DELETE FROM MedicalRecords WHERE Treatment LIKE '%antibiotics%';",
+    "DELETE FROM MedicalRecords WHERE RecordDate < '2023-01-01';",
+    "DELETE FROM MedicalRecords WHERE PatientID = 3;",
+    "DELETE FROM MedicalRecords WHERE Diagnosis = 'Diabetes' AND RecordDate > '2022-06-01';",
+    "DELETE FROM MedicalRecords WHERE PatientID = 2 OR Diagnosis = 'Hypertension';",
+    "DELETE FROM MedicalRecords WHERE RecordID = 5;",
+    "DELETE FROM MedicalRecords WHERE RecordID IN (7, 8, 9);",
+    "DELETE FROM MedicalRecords WHERE Treatment LIKE '%surgery%' AND RecordDate > '2024-05-01';",
+    "DELETE FROM MedicalRecords WHERE Diagnosis = 'Asthma' AND RecordDate BETWEEN '2023-01-01' AND '2024-01-01';"
+  ],
+  "update": [
+        "UPDATE Patients SET FirstName = 'John' WHERE PatientID = 1;",
+        "UPDATE Patients SET LastName = 'Doe' WHERE PatientID = 2;",
+        "UPDATE Patients SET DateOfBirth = '1980-01-01' WHERE FirstName = 'Jane' AND LastName = 'Smith';",
+        "UPDATE Patients SET LastName = 'Johnson' WHERE FirstName = 'Alice' OR LastName = 'Brown';",
+        "UPDATE Patients SET FirstName = 'Michael' WHERE DateOfBirth = '1975-05-05';",
+        "UPDATE Patients SET DateOfBirth = '1990-10-10' WHERE PatientID = 3 AND LastName = 'Taylor';",
+        "UPDATE Patients SET FirstName = 'Emily' WHERE PatientID = 4;",
+        "UPDATE Patients SET LastName = 'Williams' WHERE FirstName = 'David' AND DateOfBirth = '1985-08-08';",
+        "UPDATE Patients SET FirstName = 'Robert' WHERE LastName = 'Jones';",
+        "UPDATE Patients SET DateOfBirth = '2000-12-12' WHERE PatientID = 5;",
+
+        "UPDATE Doctors SET FirstName = 'Sarah' WHERE DoctorID = 1;",
+        "UPDATE Doctors SET LastName = 'Miller' WHERE DoctorID = 2;",
+        "UPDATE Doctors SET Specialty = 'Cardiology' WHERE FirstName = 'James' AND LastName = 'Wilson';",
+        "UPDATE Doctors SET LastName = 'Clark' WHERE FirstName = 'Linda' OR Specialty = 'Neurology';",
+        "UPDATE Doctors SET Specialty = 'Pediatrics' WHERE DoctorID = 3 AND LastName = 'Martinez';",
+        "UPDATE Doctors SET FirstName = 'Christopher' WHERE Specialty = 'Dermatology';",
+        "UPDATE Doctors SET LastName = 'Garcia' WHERE DoctorID = 4;",
+        "UPDATE Doctors SET Specialty = 'Oncology' WHERE FirstName = 'Karen' AND LastName = 'Lopez';",
+        "UPDATE Doctors SET FirstName = 'Daniel' WHERE LastName = 'Hernandez';",
+        "UPDATE Doctors SET Specialty = 'Orthopedics' WHERE DoctorID = 5;",
+
+        "UPDATE Appointments SET AppointmentDate = '2024-01-01 09:00:00' WHERE AppointmentID = 1;",
+        "UPDATE Appointments SET PatientID = 2 WHERE AppointmentID = 2;",
+        "UPDATE Appointments SET DoctorID = 3 WHERE AppointmentDate = '2024-02-15 10:30:00' AND PatientID = 4;",
+        "UPDATE Appointments SET AppointmentDate = '2024-03-20 11:00:00' WHERE PatientID = 5 OR DoctorID = 1;",
+        "UPDATE Appointments SET AppointmentDate = '2024-04-25 14:00:00' WHERE AppointmentID = 3 AND DoctorID = 2;",
+        "UPDATE Appointments SET PatientID = 3 WHERE AppointmentID = 4;",
+        "UPDATE Appointments SET DoctorID = 4 WHERE AppointmentID = 5;",
+        "UPDATE Appointments SET AppointmentDate = '2024-05-30 15:00:00' WHERE PatientID = 6 AND DoctorID = 5;",
+        "UPDATE Appointments SET PatientID = 7 WHERE AppointmentDate = '2024-06-10 16:00:00';",
+        "UPDATE Appointments SET DoctorID = 6 WHERE AppointmentID = 6;",
+
+        "UPDATE MedicalRecords SET Diagnosis = 'Hypertension' WHERE RecordID = 1;",
+        "UPDATE MedicalRecords SET Treatment = 'Medication A' WHERE RecordID = 2;",
+        "UPDATE MedicalRecords SET RecordDate = '2023-12-01' WHERE PatientID = 3 AND Diagnosis = 'Diabetes';",
+        "UPDATE MedicalRecords SET Treatment = 'Physical Therapy' WHERE PatientID = 4 OR Diagnosis = 'Arthritis';",
+        "UPDATE MedicalRecords SET Diagnosis = 'Asthma' WHERE RecordID = 3 AND Treatment = 'Inhaler';",
+        "UPDATE MedicalRecords SET RecordDate = '2024-01-15' WHERE RecordID = 4;",
+        "UPDATE MedicalRecords SET Diagnosis = 'Migraine' WHERE PatientID = 5;",
+        "UPDATE MedicalRecords SET Treatment = 'Medication B' WHERE RecordID = 5 AND Diagnosis = 'Chronic Pain';",
+        "UPDATE MedicalRecords SET RecordDate = '2024-02-20' WHERE PatientID = 6;",
+        "UPDATE MedicalRecords SET Diagnosis = 'High Cholesterol' WHERE RecordID = 6;"
+    ],
+    "select": {
+        "no_filtering": [
+            "SELECT PatientID FROM Patients;",
+            "SELECT DoctorID FROM Doctors;",
+            "SELECT AppointmentID FROM Appointments;",
+            "SELECT RecordID FROM MedicalRecords;"
+        ],
+        "single_filtering": [
+            "SELECT PatientID FROM Patients WHERE FirstName = 'John';",
+            "SELECT DoctorID FROM Doctors WHERE Specialty = 'Cardiology';",
+            "SELECT AppointmentID FROM Appointments WHERE AppointmentDate = '2024-08-23';",
+            "SELECT RecordID FROM MedicalRecords WHERE Diagnosis = 'Flu';"
+        ],
+        "double_filtering": [
+            "SELECT PatientID FROM Patients WHERE FirstName = 'John' AND LastName = 'Doe';",
+            "SELECT DoctorID FROM Doctors WHERE Specialty = 'Cardiology' OR LastName = 'Smith';",
+            "SELECT AppointmentID FROM Appointments WHERE PatientID = 1 AND DoctorID = 2;",
+            "SELECT RecordID FROM MedicalRecords WHERE Diagnosis = 'Flu' AND RecordDate = '2024-08-23';"
+        ],
+        "triple_filtering": [
+            "SELECT PatientID FROM Patients WHERE FirstName = 'John' AND LastName = 'Doe' AND DateOfBirth = '1990-01-01';",
+            "SELECT DoctorID FROM Doctors WHERE Specialty = 'Cardiology' AND LastName = 'Smith' AND FirstName = 'Anna';",
+            "SELECT AppointmentID FROM Appointments WHERE PatientID = 1 AND DoctorID = 2 AND AppointmentDate = '2024-08-23';",
+            "SELECT RecordID FROM MedicalRecords WHERE Diagnosis = 'Flu' AND Treatment = 'Rest' AND RecordDate = '2024-08-23';"
+        ],
+        "range_filtering": [
+            "SELECT PatientID FROM Patients WHERE DateOfBirth BETWEEN '1980-01-01' AND '2000-12-31';",
+            "SELECT AppointmentID FROM Appointments WHERE AppointmentDate BETWEEN '2024-08-01' AND '2024-08-31';",
+            "SELECT RecordID FROM MedicalRecords WHERE RecordDate BETWEEN '2024-01-01' AND '2024-12-31';",
+            "SELECT DoctorID FROM Doctors WHERE DoctorID BETWEEN 1 AND 10;"
+        ],
+        "ranking": [
+            "SELECT PatientID FROM Patients ORDER BY LastName ASC;",
+            "SELECT DoctorID FROM Doctors ORDER BY Specialty DESC;",
+            "SELECT AppointmentID FROM Appointments ORDER BY AppointmentDate DESC;",
+            "SELECT RecordID FROM MedicalRecords ORDER BY RecordDate ASC;"
+        ],
+        "count": [
+            "SELECT COUNT(PatientID) FROM Patients;",
+            "SELECT COUNT(DoctorID) FROM Doctors;",
+            "SELECT COUNT(AppointmentID) FROM Appointments;",
+            "SELECT COUNT(RecordID) FROM MedicalRecords;"
+        ],
+        "single_table": [
+            "SELECT PatientID FROM Patients WHERE LastName = 'Doe';",
+            "SELECT DoctorID FROM Doctors WHERE Specialty = 'Neurology';",
+            "SELECT AppointmentID FROM Appointments WHERE AppointmentDate = '2024-08-23';",
+            "SELECT RecordID FROM MedicalRecords WHERE Diagnosis = 'Asthma';"
+        ],
+        "double_table": [
+            "SELECT Appointments.AppointmentID FROM Appointments JOIN Patients ON Appointments.PatientID = Patients.PatientID;",
+            "SELECT Appointments.AppointmentID FROM Appointments JOIN Doctors ON Appointments.DoctorID = Doctors.DoctorID;",
+            "SELECT MedicalRecords.RecordID FROM MedicalRecords JOIN Patients ON MedicalRecords.PatientID = Patients.PatientID;",
+            "SELECT Appointments.AppointmentID FROM Appointments JOIN Doctors ON Appointments.DoctorID = Doctors.DoctorID WHERE Doctors.Specialty = 'Cardiology';"
+        ],
+        "three_table": [
+            "SELECT Appointments.AppointmentID FROM Appointments JOIN Patients ON Appointments.PatientID = Patients.PatientID JOIN Doctors ON Appointments.DoctorID = Doctors.DoctorID;",
+            "SELECT MedicalRecords.RecordID FROM MedicalRecords JOIN Patients ON MedicalRecords.PatientID = Patients.PatientID JOIN Appointments ON MedicalRecords.PatientID = Appointments.PatientID;",
+            "SELECT Appointments.AppointmentID FROM Appointments JOIN Patients ON Appointments.PatientID = Patients.PatientID JOIN Doctors ON Appointments.DoctorID = Doctors.DoctorID WHERE Patients.LastName = 'Doe';",
+            "SELECT Appointments.AppointmentID FROM Appointments JOIN Patients ON Appointments.PatientID = Patients.PatientID JOIN Doctors ON Appointments.DoctorID = Doctors.DoctorID WHERE Doctors.Specialty = 'Neurology';"
+        ]
+    }
+
+
+
+}

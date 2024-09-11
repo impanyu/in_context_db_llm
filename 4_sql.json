@@ -1,0 +1,182 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Members;",
+        "DROP TABLE IF EXISTS Books;",
+        "DROP TABLE IF EXISTS BorrowingRecords;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Members (MemberID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, JoinDate DATE NOT NULL, PRIMARY KEY (MemberID));",
+        "CREATE TABLE Books (BookID INT NOT NULL AUTO_INCREMENT, Title VARCHAR(100) NOT NULL, Author VARCHAR(100) NOT NULL, ISBN VARCHAR(13) NOT NULL, PRIMARY KEY (BookID));",
+        "CREATE TABLE BorrowingRecords (RecordID INT NOT NULL AUTO_INCREMENT, MemberID INT NOT NULL, BookID INT NOT NULL, BorrowDate DATE NOT NULL, ReturnDate DATE, PRIMARY KEY (RecordID), FOREIGN KEY (MemberID) REFERENCES Members(MemberID), FOREIGN KEY (BookID) REFERENCES Books(BookID));"
+    ],
+ 
+    "insert": [
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('John', 'Doe', '2023-01-01');",
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Jane', 'Smith', '2023-01-05');",
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Alice', 'Johnson', '2023-01-10');",
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Bob', 'Brown', '2023-01-15');",
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Charlie', 'Davis', '2023-01-20');",
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Diana', 'Miller', '2023-01-25');",
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Eve', 'Wilson', '2023-02-01');",
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Frank', 'Garcia', '2023-02-05');",
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Grace', 'Martinez', '2023-02-10');",
+            "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Henry', 'Lopez', '2023-02-15');",
+    
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('1984', 'George Orwell', '9780451524935');",
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('To Kill a Mockingbird', 'Harper Lee', '9780061120084');",
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('The Great Gatsby', 'F. Scott Fitzgerald', '9780743273565');",
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('Moby Dick', 'Herman Melville', '9781503280786');",
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('War and Peace', 'Leo Tolstoy', '9781853260629');",
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('Pride and Prejudice', 'Jane Austen', '9781503290563');",
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('The Catcher in the Rye', 'J.D. Salinger', '9780316769488');",
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('Brave New World', 'Aldous Huxley', '9780060850524');",
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('The Lord of the Rings', 'J.R.R. Tolkien', '9780544003415');",
+            "INSERT INTO Books (Title, Author, ISBN) VALUES ('The Hobbit', 'J.R.R. Tolkien', '9780547928227');",
+    
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (1, 1, '2023-03-01', NULL);",
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (2, 2, '2023-03-05', '2023-03-15');",
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (3, 3, '2023-03-10', '2023-03-20');",
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (4, 4, '2023-03-15', '2023-03-25');",
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (5, 5, '2023-03-20', NULL);",
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (6, 6, '2023-03-25', '2023-04-01');",
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (7, 7, '2023-03-30', '2023-04-05');",
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (8, 8, '2023-04-01', '2023-04-10');",
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (9, 9, '2023-04-05', NULL);",
+            "INSERT INTO BorrowingRecords (MemberID, BookID, BorrowDate, ReturnDate) VALUES (10, 10, '2023-04-10', NULL);"
+        ],
+        "delete": [
+            "DELETE FROM Members WHERE MemberID = 1;",
+            "DELETE FROM Members WHERE FirstName = 'John';",
+            "DELETE FROM Members WHERE LastName = 'Doe' AND JoinDate = '2022-01-15';",
+            "DELETE FROM Members WHERE JoinDate < '2021-01-01';",
+            "DELETE FROM Members WHERE FirstName = 'Jane' OR LastName = 'Smith';",
+            "DELETE FROM Members WHERE MemberID > 5;",
+            "DELETE FROM Members WHERE LastName = 'Johnson';",
+            "DELETE FROM Members WHERE JoinDate BETWEEN '2020-01-01' AND '2021-12-31';",
+            "DELETE FROM Members WHERE FirstName LIKE 'A%';",
+            "DELETE FROM Members WHERE MemberID IN (2, 3, 4);",
+            
+            "DELETE FROM Books WHERE BookID = 1;",
+            "DELETE FROM Books WHERE Title = '1984';",
+            "DELETE FROM Books WHERE Author = 'George Orwell' AND ISBN = '9780451524935';",
+            "DELETE FROM Books WHERE ISBN = '9781234567890';",
+            "DELETE FROM Books WHERE Author = 'J.K. Rowling' OR Title = 'Harry Potter';",
+            "DELETE FROM Books WHERE BookID > 10;",
+            "DELETE FROM Books WHERE Author = 'Mark Twain';",
+            "DELETE FROM Books WHERE Title LIKE '%Guide%';",
+            "DELETE FROM Books WHERE ISBN IS NULL;",
+            "DELETE FROM Books WHERE BookID IN (5, 6, 7);",
+            
+            "DELETE FROM BorrowingRecords WHERE RecordID = 1;",
+            "DELETE FROM BorrowingRecords WHERE MemberID = 2;",
+            "DELETE FROM BorrowingRecords WHERE BookID = 3;",
+            "DELETE FROM BorrowingRecords WHERE BorrowDate = '2023-05-01';",
+            "DELETE FROM BorrowingRecords WHERE ReturnDate IS NULL;",
+            "DELETE FROM BorrowingRecords WHERE MemberID = 4 AND BookID = 2;",
+            "DELETE FROM BorrowingRecords WHERE BorrowDate < '2022-01-01';",
+            "DELETE FROM BorrowingRecords WHERE ReturnDate BETWEEN '2023-01-01' AND '2023-12-31';",
+            "DELETE FROM BorrowingRecords WHERE RecordID > 10;",
+            "DELETE FROM BorrowingRecords WHERE MemberID IN (5, 6, 7);"
+        ],
+        "update": [
+    "UPDATE Members SET FirstName = 'John', LastName = 'Doe' WHERE MemberID = 1;",
+    "UPDATE Members SET JoinDate = '2024-01-01' WHERE MemberID = 2;",
+    "UPDATE Members SET FirstName = 'Jane' WHERE MemberID = 3 AND JoinDate = '2023-06-15';",
+    "UPDATE Members SET LastName = 'Smith' WHERE MemberID = 4 OR JoinDate = '2023-05-20';",
+    "UPDATE Members SET FirstName = 'Alice', LastName = 'Brown' WHERE MemberID = 5;",
+    "UPDATE Members SET JoinDate = '2023-07-21' WHERE MemberID = 6 AND LastName = 'Johnson';",
+    "UPDATE Members SET FirstName = 'Robert' WHERE MemberID = 7;",
+    "UPDATE Members SET LastName = 'Miller' WHERE MemberID = 8 AND JoinDate = '2023-08-30';",
+    "UPDATE Members SET JoinDate = '2024-02-12' WHERE MemberID = 9 OR FirstName = 'Emily';",
+    "UPDATE Members SET FirstName = 'Emma', LastName = 'Wilson' WHERE MemberID = 10;",
+
+    "UPDATE Books SET Title = 'New Book Title' WHERE BookID = 1;",
+    "UPDATE Books SET Author = 'Updated Author' WHERE BookID = 2;",
+    "UPDATE Books SET ISBN = '9781234567890' WHERE BookID = 3 AND Title = 'Old Book Title';",
+    "UPDATE Books SET Title = 'Another Title' WHERE BookID = 4 OR Author = 'Some Author';",
+    "UPDATE Books SET Author = 'Different Author', ISBN = '9780987654321' WHERE BookID = 5;",
+    "UPDATE Books SET Title = 'Updated Title' WHERE BookID = 6 AND ISBN = '9781112223334';",
+    "UPDATE Books SET ISBN = '9784445556667' WHERE BookID = 7;",
+    "UPDATE Books SET Author = 'New Author' WHERE BookID = 8 AND Title = 'Specific Title';",
+    "UPDATE Books SET Title = 'A New Title' WHERE BookID = 9 OR ISBN = '9785556667778';",
+    "UPDATE Books SET Author = 'Final Author', ISBN = '9782223334445' WHERE BookID = 10;",
+
+    "UPDATE BorrowingRecords SET ReturnDate = '2024-03-15' WHERE RecordID = 1;",
+    "UPDATE BorrowingRecords SET BorrowDate = '2023-11-01' WHERE RecordID = 2;",
+    "UPDATE BorrowingRecords SET ReturnDate = '2023-12-25' WHERE RecordID = 3 AND MemberID = 1;",
+    "UPDATE BorrowingRecords SET BorrowDate = '2024-01-10' WHERE RecordID = 4 OR BookID = 2;",
+    "UPDATE BorrowingRecords SET MemberID = 3, BookID = 5 WHERE RecordID = 5;",
+    "UPDATE BorrowingRecords SET ReturnDate = '2024-02-20' WHERE RecordID = 6 AND MemberID = 4;",
+    "UPDATE BorrowingRecords SET BorrowDate = '2023-10-05' WHERE RecordID = 7;",
+    "UPDATE BorrowingRecords SET ReturnDate = '2023-09-15' WHERE RecordID = 8 AND BookID = 3;",
+    "UPDATE BorrowingRecords SET MemberID = 2, BorrowDate = '2024-04-01' WHERE RecordID = 9 OR ReturnDate = '2024-05-15';",
+    "UPDATE BorrowingRecords SET ReturnDate = '2024-06-10' WHERE RecordID = 10;"
+  ],
+  "select": {
+        "no_filtering": [
+            "SELECT MemberID FROM Members;",
+            "SELECT BookID FROM Books;",
+            "SELECT RecordID FROM BorrowingRecords;",
+            "SELECT BookID FROM Books;"
+        ],
+        "single_filtering": [
+            "SELECT MemberID FROM Members WHERE JoinDate = '2023-01-01';",
+            "SELECT BookID FROM Books WHERE Author = 'George Orwell';",
+            "SELECT RecordID FROM BorrowingRecords WHERE ReturnDate IS NULL;",
+            "SELECT MemberID FROM Members WHERE FirstName = 'John';"
+        ],
+        "double_filtering": [
+            "SELECT MemberID FROM Members WHERE FirstName = 'Jane' AND LastName = 'Doe';",
+            "SELECT BookID FROM Books WHERE Author = 'Jane Austen' OR ISBN = '9780141439518';",
+            "SELECT RecordID FROM BorrowingRecords WHERE MemberID = 1 AND ReturnDate IS NOT NULL;",
+            "SELECT MemberID FROM Members WHERE FirstName = 'Emily' AND JoinDate = '2022-05-01';"
+        ],
+        "triple_filtering": [
+            "SELECT MemberID FROM Members WHERE FirstName = 'John' AND LastName = 'Doe' AND JoinDate = '2023-01-01';",
+            "SELECT BookID FROM Books WHERE Title = '1984' AND Author = 'George Orwell' OR ISBN = '9780451524935';",
+            "SELECT RecordID FROM BorrowingRecords WHERE MemberID = 2 AND BookID = 3 AND ReturnDate IS NULL;",
+            "SELECT BookID FROM Books WHERE Author = 'Mark Twain' AND Title = 'Adventures of Huckleberry Finn' OR ISBN = '9780142437179';"
+        ],
+        "range_filtering": [
+            "SELECT MemberID FROM Members WHERE JoinDate BETWEEN '2020-01-01' AND '2023-12-31';",
+            "SELECT BookID FROM Books WHERE BookID BETWEEN 10 AND 20;",
+            "SELECT RecordID FROM BorrowingRecords WHERE BorrowDate BETWEEN '2022-01-01' AND '2023-01-01';",
+            "SELECT BookID FROM Books WHERE BookID BETWEEN 5 AND 15;"
+        ],
+        "ranking": [
+            "SELECT MemberID FROM Members ORDER BY JoinDate DESC;",
+            "SELECT BookID FROM Books ORDER BY Title ASC;",
+            "SELECT RecordID FROM BorrowingRecords ORDER BY BorrowDate DESC;",
+            "SELECT BookID FROM Books ORDER BY Author ASC;"
+        ],
+        "count": [
+            "SELECT COUNT(MemberID) FROM Members;",
+            "SELECT COUNT(BookID) FROM Books;",
+            "SELECT COUNT(RecordID) FROM BorrowingRecords;",
+            "SELECT COUNT(BookID) FROM Books;"
+        ],
+        "single_table": [
+            "SELECT MemberID FROM Members;",
+            "SELECT BookID FROM Books;",
+            "SELECT RecordID FROM BorrowingRecords;",
+            "SELECT BookID FROM Books;"
+        ],
+        "double_table": [
+            "SELECT Members.MemberID FROM Members JOIN BorrowingRecords ON Members.MemberID = BorrowingRecords.MemberID;",
+            "SELECT Books.BookID FROM Books JOIN BorrowingRecords ON Books.BookID = BorrowingRecords.BookID;",
+            "SELECT Members.MemberID FROM Members JOIN BorrowingRecords ON Members.MemberID = BorrowingRecords.MemberID WHERE Books.BookID = 1;",
+            "SELECT Books.BookID FROM Books JOIN BorrowingRecords ON Books.BookID = BorrowingRecords.BookID WHERE Members.MemberID = 2;"
+        ],
+        "three_table": [
+            "SELECT Members.MemberID FROM Members JOIN BorrowingRecords ON Members.MemberID = BorrowingRecords.MemberID JOIN Books ON BorrowingRecords.BookID = Books.BookID;",
+            "SELECT Books.BookID FROM Books JOIN BorrowingRecords ON Books.BookID = BorrowingRecords.BookID JOIN Members ON BorrowingRecords.MemberID = Members.MemberID;",
+            "SELECT BorrowingRecords.RecordID FROM BorrowingRecords JOIN Members ON BorrowingRecords.MemberID = Members.MemberID JOIN Books ON BorrowingRecords.BookID = Books.BookID;",
+            "SELECT Members.MemberID FROM Members JOIN BorrowingRecords ON Members.MemberID = BorrowingRecords.MemberID JOIN Books ON BorrowingRecords.BookID = Books.BookID WHERE Books.BookID = 1;"
+        ]
+    }
+
+
+   
+    
+    
+}

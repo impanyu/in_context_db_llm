@@ -14,96 +14,12 @@
 "databases":[
 
    
-    {
-        "drop_tables":[
-            "DROP TABLE IF EXISTS Members;",
-            "DROP TABLE IF EXISTS Books;",
-            "DROP TABLE IF EXISTS BorrowingRecords;"
-        ],
-        "create_tables":[
-            "CREATE TABLE Members (MemberID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, JoinDate DATE NOT NULL, PRIMARY KEY (MemberID));",
-            "CREATE TABLE Books (BookID INT NOT NULL AUTO_INCREMENT, Title VARCHAR(100) NOT NULL, Author VARCHAR(100) NOT NULL, ISBN VARCHAR(13) NOT NULL, PRIMARY KEY (BookID));",
-            "CREATE TABLE BorrowingRecords (RecordID INT NOT NULL AUTO_INCREMENT, MemberID INT NOT NULL, BookID INT NOT NULL, BorrowDate DATE NOT NULL, ReturnDate DATE, PRIMARY KEY (RecordID), FOREIGN KEY (MemberID) REFERENCES Members(MemberID), FOREIGN KEY (BookID) REFERENCES Books(BookID));"
-        ]
-    },
-    {
-        "drop_tables":[
-            "DROP TABLE IF EXISTS Employees;",
-            "DROP TABLE IF EXISTS Departments;",
-            "DROP TABLE IF EXISTS Salaries;"
-        ],
-        "create_tables":[
-            "CREATE TABLE Employees (EmployeeID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, HireDate DATE NOT NULL, DepartmentID INT NOT NULL, PRIMARY KEY (EmployeeID));",
-            "CREATE TABLE Departments (DepartmentID INT NOT NULL AUTO_INCREMENT, DepartmentName VARCHAR(100) NOT NULL, PRIMARY KEY (DepartmentID));",
-            "CREATE TABLE Salaries (SalaryID INT NOT NULL AUTO_INCREMENT, EmployeeID INT NOT NULL, Amount DECIMAL(10,2) NOT NULL, EffectiveDate DATE NOT NULL, PRIMARY KEY (SalaryID), FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID));"
-        ]
-    },
-    {
-        "drop_tables":[
-            "DROP TABLE IF EXISTS Customers;",
-            "DROP TABLE IF EXISTS Orders;",
-            "DROP TABLE IF EXISTS OrderItems;",
-            "DROP TABLE IF EXISTS Products;"
-        ],
-        "create_tables":[
-            "CREATE TABLE Customers (CustomerID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Email VARCHAR(100) NOT NULL, PRIMARY KEY (CustomerID));",
-            "CREATE TABLE Orders (OrderID INT NOT NULL AUTO_INCREMENT, CustomerID INT NOT NULL, OrderDate DATE NOT NULL, PRIMARY KEY (OrderID), FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID));",
-            "CREATE TABLE OrderItems (OrderItemID INT NOT NULL AUTO_INCREMENT, OrderID INT NOT NULL, ProductID INT NOT NULL, Quantity INT NOT NULL, PRIMARY KEY (OrderItemID), FOREIGN KEY (OrderID) REFERENCES Orders(OrderID), FOREIGN KEY (ProductID) REFERENCES Products(ProductID));",
-            "CREATE TABLE Products (ProductID INT NOT NULL AUTO_INCREMENT, ProductName VARCHAR(100) NOT NULL, Price DECIMAL(10,2) NOT NULL, Stock INT NOT NULL, PRIMARY KEY (ProductID));"
-        ]
-    },
-    {
-        "drop_tables":[
-            "DROP TABLE IF EXISTS Students;",
-            "DROP TABLE IF EXISTS Classes;",
-            "DROP TABLE IF EXISTS Teachers;",
-            "DROP TABLE IF EXISTS Enrollments;"
-        ],
-        "create_tables":[
-            "CREATE TABLE Students (StudentID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, DateOfBirth DATE NOT NULL, PRIMARY KEY (StudentID));",
-            "CREATE TABLE Classes (ClassID INT NOT NULL AUTO_INCREMENT, ClassName VARCHAR(100) NOT NULL, PRIMARY KEY (ClassID));",
-            "CREATE TABLE Teachers (TeacherID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Subject VARCHAR(100), PRIMARY KEY (TeacherID));",
-            "CREATE TABLE Enrollments (EnrollmentID INT NOT NULL AUTO_INCREMENT, StudentID INT NOT NULL, ClassID INT NOT NULL, PRIMARY KEY (EnrollmentID), FOREIGN KEY (StudentID) REFERENCES Students(StudentID), FOREIGN KEY (ClassID) REFERENCES Classes(ClassID));"
-        ]
-    },
-    {
-        "drop_tables":[
-            "DROP TABLE IF EXISTS Events;",
-            "DROP TABLE IF EXISTS Attendees;",
-            "DROP TABLE IF EXISTS EventRegistrations;"
-        ],
-        "create_tables":[
-            "CREATE TABLE Events (EventID INT NOT NULL AUTO_INCREMENT, EventName VARCHAR(100) NOT NULL, EventDate DATE NOT NULL, Location VARCHAR(100) NOT NULL, PRIMARY KEY (EventID));",
-            "CREATE TABLE Attendees (AttendeeID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Email VARCHAR(100) NOT NULL, PRIMARY KEY (AttendeeID));",
-            "CREATE TABLE EventRegistrations (RegistrationID INT NOT NULL AUTO_INCREMENT, EventID INT NOT NULL, AttendeeID INT NOT NULL, RegistrationDate DATE NOT NULL, PRIMARY KEY (RegistrationID), FOREIGN KEY (EventID) REFERENCES Events(EventID), FOREIGN KEY (AttendeeID) REFERENCES Attendees(AttendeeID));"
-        ]
-    },
-    {
-        "drop_tables":[
-            "DROP TABLE IF EXISTS Patients;",
-            "DROP TABLE IF EXISTS Doctors;",
-            "DROP TABLE IF EXISTS Appointments;",
-            "DROP TABLE IF EXISTS MedicalRecords;"
-        ],
-        "create_tables":[
-            "CREATE TABLE Patients (PatientID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, DateOfBirth DATE NOT NULL, PRIMARY KEY (PatientID));",
-            "CREATE TABLE Doctors (DoctorID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Specialty VARCHAR(100) NOT NULL, PRIMARY KEY (DoctorID));",
-            "CREATE TABLE Appointments (AppointmentID INT NOT NULL AUTO_INCREMENT, PatientID INT NOT NULL, DoctorID INT NOT NULL, AppointmentDate DATETIME NOT NULL, PRIMARY KEY (AppointmentID), FOREIGN KEY (PatientID) REFERENCES Patients(PatientID), FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID));",
-            "CREATE TABLE MedicalRecords (RecordID INT NOT NULL AUTO_INCREMENT, PatientID INT NOT NULL, Diagnosis VARCHAR(255) NOT NULL, Treatment TEXT NOT NULL, RecordDate DATE NOT NULL, PRIMARY KEY (RecordID), FOREIGN KEY (PatientID) REFERENCES Patients(PatientID));"
-        ]
-    },
-    {
-        "drop_tables":[
-            "DROP TABLE IF EXISTS Guests;",
-            "DROP TABLE IF EXISTS Rooms;",
-            "DROP TABLE IF EXISTS Reservations;"
-        ],
-        "create_tables":[
-            "CREATE TABLE Guests (GuestID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Email VARCHAR(100) NOT NULL, PRIMARY KEY (GuestID));",
-            "CREATE TABLE Rooms (RoomID INT NOT NULL AUTO_INCREMENT, RoomNumber VARCHAR(10) NOT NULL, RoomType VARCHAR(50) NOT NULL, PricePerNight DECIMAL(10,2) NOT NULL, PRIMARY KEY (RoomID));",
-            "CREATE TABLE Reservations (ReservationID INT NOT NULL AUTO_INCREMENT, GuestID INT NOT NULL, RoomID INT NOT NULL, CheckInDate DATE NOT NULL, CheckOutDate DATE NOT NULL, PRIMARY KEY (ReservationID), FOREIGN KEY (GuestID) REFERENCES Guests(GuestID), FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID));"
-        ]
-    },
+  
+  
+   
+
+
+ 
     {
         "drop_tables":[
             "DROP TABLE IF EXISTS Movies;",

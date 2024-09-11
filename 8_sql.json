@@ -1,0 +1,178 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Events;",
+        "DROP TABLE IF EXISTS Attendees;",
+        "DROP TABLE IF EXISTS EventRegistrations;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Events (EventID INT NOT NULL AUTO_INCREMENT, EventName VARCHAR(100) NOT NULL, EventDate DATE NOT NULL, Location VARCHAR(100) NOT NULL, PRIMARY KEY (EventID));",
+        "CREATE TABLE Attendees (AttendeeID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Email VARCHAR(100) NOT NULL, PRIMARY KEY (AttendeeID));",
+        "CREATE TABLE EventRegistrations (RegistrationID INT NOT NULL AUTO_INCREMENT, EventID INT NOT NULL, AttendeeID INT NOT NULL, RegistrationDate DATE NOT NULL, PRIMARY KEY (RegistrationID), FOREIGN KEY (EventID) REFERENCES Events(EventID), FOREIGN KEY (AttendeeID) REFERENCES Attendees(AttendeeID));"
+    ],
+    "insert": [
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Tech Conference 2024', '2024-09-15', 'San Francisco');",
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Music Festival', '2024-08-22', 'New York');",
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Art Expo', '2024-07-19', 'Los Angeles');",
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Startup Pitch Day', '2024-06-10', 'Boston');",
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Health and Wellness Fair', '2024-05-12', 'Chicago');",
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Book Fair', '2024-04-09', 'Seattle');",
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Culinary Expo', '2024-03-18', 'Houston');",
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Film Festival', '2024-02-14', 'Miami');",
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Charity Gala', '2024-01-20', 'Dallas');",
+        "INSERT INTO Events (EventName, EventDate, Location) VALUES ('Sports Meet', '2024-12-01', 'Denver');",
+        
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('John', 'Doe', 'johndoe@example.com');",
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('Jane', 'Smith', 'janesmith@example.com');",
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('Emily', 'Johnson', 'emilyj@example.com');",
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('Michael', 'Brown', 'michaelb@example.com');",
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('Sarah', 'Davis', 'sarahd@example.com');",
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('David', 'Miller', 'davidm@example.com');",
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('Laura', 'Wilson', 'lauraw@example.com');",
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('Robert', 'Moore', 'robertm@example.com');",
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('Jennifer', 'Taylor', 'jennifert@example.com');",
+        "INSERT INTO Attendees (FirstName, LastName, Email) VALUES ('James', 'Anderson', 'jamesa@example.com');",
+
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (1, 1, '2024-08-01');",
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (2, 2, '2024-08-01');",
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (3, 3, '2024-07-05');",
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (4, 4, '2024-06-01');",
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (5, 5, '2024-05-01');",
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (6, 6, '2024-04-01');",
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (7, 7, '2024-03-01');",
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (8, 8, '2024-02-01');",
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (9, 9, '2024-01-01');",
+        "INSERT INTO EventRegistrations (EventID, AttendeeID, RegistrationDate) VALUES (10, 10, '2023-12-01');"
+    ],
+    "delete": [
+    "DELETE FROM Events WHERE EventID = 1;",
+    "DELETE FROM Events WHERE EventName = 'Annual Conference';",
+    "DELETE FROM Events WHERE Location = 'New York';",
+    "DELETE FROM Events WHERE EventDate = '2024-01-01';",
+    "DELETE FROM Events WHERE EventName = 'Music Festival' AND Location = 'Los Angeles';",
+    "DELETE FROM Events WHERE EventDate < '2023-01-01';",
+    "DELETE FROM Events WHERE EventName LIKE '%Conference%';",
+    "DELETE FROM Events WHERE EventName = 'Tech Summit' OR EventDate = '2023-11-15';",
+    "DELETE FROM Events WHERE Location = 'San Francisco' AND EventDate > '2024-06-01';",
+    "DELETE FROM Events WHERE EventID BETWEEN 5 AND 10;",
+    
+    "DELETE FROM Attendees WHERE AttendeeID = 1;",
+    "DELETE FROM Attendees WHERE LastName = 'Smith';",
+    "DELETE FROM Attendees WHERE Email = 'john.doe@example.com';",
+    "DELETE FROM Attendees WHERE FirstName = 'Jane' AND LastName = 'Doe';",
+    "DELETE FROM Attendees WHERE FirstName LIKE 'A%';",
+    "DELETE FROM Attendees WHERE AttendeeID > 100;",
+    "DELETE FROM Attendees WHERE LastName = 'Brown' OR FirstName = 'Michael';",
+    "DELETE FROM Attendees WHERE Email LIKE '%@gmail.com';",
+    "DELETE FROM Attendees WHERE FirstName = 'Emily' AND Email = 'emily.rose@example.com';",
+    "DELETE FROM Attendees WHERE AttendeeID BETWEEN 10 AND 20;",
+    
+    "DELETE FROM EventRegistrations WHERE RegistrationID = 1;",
+    "DELETE FROM EventRegistrations WHERE EventID = 2;",
+    "DELETE FROM EventRegistrations WHERE AttendeeID = 3;",
+    "DELETE FROM EventRegistrations WHERE RegistrationDate = '2023-05-15';",
+    "DELETE FROM EventRegistrations WHERE EventID = 4 AND AttendeeID = 5;",
+    "DELETE FROM EventRegistrations WHERE RegistrationDate < '2024-01-01';",
+    "DELETE FROM EventRegistrations WHERE EventID = 6 OR RegistrationDate = '2023-12-01';",
+    "DELETE FROM EventRegistrations WHERE AttendeeID = 7 AND RegistrationDate > '2023-06-01';",
+    "DELETE FROM EventRegistrations WHERE EventID IN (1, 2, 3);",
+    "DELETE FROM EventRegistrations WHERE AttendeeID = 8 OR EventID = 9;"
+  ],
+  "update": [
+    "UPDATE Events SET EventName = 'Tech Conference' WHERE EventID = 1;",
+    "UPDATE Events SET Location = 'New York' WHERE EventDate = '2024-08-25';",
+    "UPDATE Events SET EventDate = '2024-12-01' WHERE EventName = 'Music Festival';",
+    "UPDATE Events SET EventName = 'Art Exhibition' WHERE Location = 'San Francisco' AND EventDate = '2024-10-15';",
+    "UPDATE Events SET Location = 'Los Angeles' WHERE EventID = 3;",
+    "UPDATE Events SET EventDate = '2025-02-10', Location = 'Chicago' WHERE EventID = 4;",
+    "UPDATE Events SET EventName = 'Health Summit' WHERE EventName = 'Health Conference';",
+    "UPDATE Events SET Location = 'Miami' WHERE EventID = 5 AND EventDate = '2024-11-20';",
+    "UPDATE Events SET EventDate = '2024-09-15' WHERE Location = 'Boston';",
+    "UPDATE Events SET EventName = 'Science Fair', EventDate = '2024-10-30' WHERE EventID = 6;",
+
+    "UPDATE Attendees SET FirstName = 'John' WHERE AttendeeID = 1;",
+    "UPDATE Attendees SET LastName = 'Smith' WHERE Email = 'jane.doe@example.com';",
+    "UPDATE Attendees SET Email = 'john.smith@example.com' WHERE AttendeeID = 2;",
+    "UPDATE Attendees SET FirstName = 'Jane', LastName = 'Doe' WHERE AttendeeID = 3;",
+    "UPDATE Attendees SET Email = 'alex.jones@example.com' WHERE FirstName = 'Alex' AND LastName = 'Jones';",
+    "UPDATE Attendees SET LastName = 'Brown' WHERE FirstName = 'Emily';",
+    "UPDATE Attendees SET Email = 'emily.brown@example.com' WHERE AttendeeID = 4;",
+    "UPDATE Attendees SET FirstName = 'Michael' WHERE AttendeeID = 5;",
+    "UPDATE Attendees SET LastName = 'Williams', Email = 'michael.williams@example.com' WHERE AttendeeID = 6;",
+    "UPDATE Attendees SET FirstName = 'Sarah' WHERE Email = 'sarah.davis@example.com';",
+
+    "UPDATE EventRegistrations SET RegistrationDate = '2024-08-15' WHERE RegistrationID = 1;",
+    "UPDATE EventRegistrations SET EventID = 2 WHERE AttendeeID = 1;",
+    "UPDATE EventRegistrations SET AttendeeID = 3 WHERE EventID = 2 AND RegistrationID = 3;",
+    "UPDATE EventRegistrations SET RegistrationDate = '2024-09-01' WHERE EventID = 3;",
+    "UPDATE EventRegistrations SET EventID = 4 WHERE RegistrationID = 4;",
+    "UPDATE EventRegistrations SET AttendeeID = 5 WHERE RegistrationID = 5;",
+    "UPDATE EventRegistrations SET EventID = 6 WHERE AttendeeID = 4;",
+    "UPDATE EventRegistrations SET RegistrationDate = '2024-10-20', EventID = 5 WHERE RegistrationID = 6;",
+    "UPDATE EventRegistrations SET RegistrationDate = '2024-11-05' WHERE EventID = 1 AND AttendeeID = 2;",
+    "UPDATE EventRegistrations SET EventID = 3, AttendeeID = 6 WHERE RegistrationID = 7;"
+  ],
+  "select": {
+        "no_filtering":[
+            "SELECT EventID FROM Events;",
+            "SELECT AttendeeID FROM Attendees;",
+            "SELECT RegistrationID FROM EventRegistrations;",
+            "SELECT EventID FROM EventRegistrations;"
+        ],
+        "single_filtering":[
+            "SELECT EventID FROM Events WHERE Location = 'New York';",
+            "SELECT AttendeeID FROM Attendees WHERE LastName = 'Smith';",
+            "SELECT RegistrationID FROM EventRegistrations WHERE EventID = 1;",
+            "SELECT EventID FROM Events WHERE EventName = 'Conference';"
+        ],
+        "double_filtering":[  
+            "SELECT EventID FROM Events WHERE EventName = 'Conference' AND Location = 'New York';",
+            "SELECT AttendeeID FROM Attendees WHERE FirstName = 'John' AND LastName = 'Doe';",
+            "SELECT RegistrationID FROM EventRegistrations WHERE EventID = 1 AND AttendeeID = 2;",
+            "SELECT EventID FROM Events WHERE EventName = 'Seminar' OR Location = 'Los Angeles';"
+        ],
+        "triple_filtering":[
+            "SELECT EventID FROM Events WHERE EventName = 'Conference' AND Location = 'New York' AND EventDate = '2024-09-10';",
+            "SELECT AttendeeID FROM Attendees WHERE FirstName = 'John' AND LastName = 'Doe' AND Email = 'john.doe@example.com';",
+            "SELECT RegistrationID FROM EventRegistrations WHERE EventID = 1 AND AttendeeID = 2 AND RegistrationDate = '2024-08-15';",
+            "SELECT EventID FROM Events WHERE EventName = 'Workshop' OR Location = 'Chicago' OR EventDate = '2024-10-01';"
+        ],
+        "range_filtering":[
+            "SELECT EventID FROM Events WHERE EventDate BETWEEN '2024-01-01' AND '2024-12-31';",
+            "SELECT AttendeeID FROM Attendees WHERE AttendeeID BETWEEN 1 AND 100;",
+            "SELECT RegistrationID FROM EventRegistrations WHERE RegistrationDate BETWEEN '2024-01-01' AND '2024-06-30';",
+            "SELECT EventID FROM EventRegistrations WHERE EventID BETWEEN 1 AND 10;"
+        ],
+        "ranking":[
+            "SELECT EventID FROM Events ORDER BY EventDate DESC;",
+            "SELECT AttendeeID FROM Attendees ORDER BY LastName ASC;",
+            "SELECT RegistrationID FROM EventRegistrations ORDER BY RegistrationDate DESC;",
+            "SELECT EventID FROM Events ORDER BY EventName ASC;"
+        ],
+        "count":[
+            "SELECT COUNT(EventID) FROM Events;",
+            "SELECT COUNT(AttendeeID) FROM Attendees;",
+            "SELECT COUNT(RegistrationID) FROM EventRegistrations;",
+            "SELECT COUNT(EventID) FROM EventRegistrations;"
+        ],
+        "single_table":[
+            "SELECT EventID FROM Events WHERE Location = 'Boston';",
+            "SELECT AttendeeID FROM Attendees WHERE LastName = 'Brown';",
+            "SELECT RegistrationID FROM EventRegistrations WHERE EventID = 2;",
+            "SELECT EventID FROM Events WHERE EventName = 'Symposium';"
+        ],
+        "double_table":[
+            "SELECT Events.EventID FROM Events JOIN EventRegistrations ON Events.EventID = EventRegistrations.EventID;",
+            "SELECT Attendees.AttendeeID FROM Attendees JOIN EventRegistrations ON Attendees.AttendeeID = EventRegistrations.AttendeeID;",
+            "SELECT EventRegistrations.RegistrationID FROM EventRegistrations JOIN Events ON EventRegistrations.EventID = Events.EventID;",
+            "SELECT EventRegistrations.RegistrationID FROM EventRegistrations JOIN Attendees ON EventRegistrations.AttendeeID = Attendees.AttendeeID;"
+        ],
+        "three_table":[
+            "SELECT Events.EventID FROM Events JOIN EventRegistrations ON Events.EventID = EventRegistrations.EventID JOIN Attendees ON EventRegistrations.AttendeeID = Attendees.AttendeeID;",
+            "SELECT Attendees.AttendeeID FROM Attendees JOIN EventRegistrations ON Attendees.AttendeeID = EventRegistrations.AttendeeID JOIN Events ON EventRegistrations.EventID = Events.EventID;",
+            "SELECT EventRegistrations.RegistrationID FROM EventRegistrations JOIN Events ON EventRegistrations.EventID = Events.EventID JOIN Attendees ON EventRegistrations.AttendeeID = Attendees.AttendeeID;",
+            "SELECT EventRegistrations.RegistrationID FROM EventRegistrations JOIN Attendees ON EventRegistrations.AttendeeID = Attendees.AttendeeID JOIN Events ON EventRegistrations.EventID = Events.EventID;"
+        ]
+    }
+
+
+}

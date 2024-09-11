@@ -8,5 +8,174 @@
         "CREATE TABLE Students (StudentID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, DateOfBirth DATE NOT NULL, Email VARCHAR(100) NOT NULL, PRIMARY KEY (StudentID));",
         "CREATE TABLE Courses (CourseID INT NOT NULL AUTO_INCREMENT, CourseName VARCHAR(100) NOT NULL, Description TEXT, Credits INT NOT NULL, PRIMARY KEY (CourseID));",
         "CREATE TABLE Enrollments (EnrollmentID INT NOT NULL AUTO_INCREMENT, StudentID INT NOT NULL, CourseID INT NOT NULL, EnrollmentDate DATE NOT NULL, Grade CHAR(1), PRIMARY KEY (EnrollmentID), FOREIGN KEY (StudentID) REFERENCES Students(StudentID), FOREIGN KEY (CourseID) REFERENCES Courses(CourseID));"
-    ]
+    ],
+"insert": [
+
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('John', 'Doe', '2000-01-15', 'johndoe@example.com');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('Jane', 'Smith', '1999-05-21', 'janesmith@example.com');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('Emily', 'Davis', '2001-03-10', 'emilydavis@example.com');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('Michael', 'Johnson', '2000-11-22', 'michaeljohnson@example.com');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('Sarah', 'Williams', '1998-07-30', 'sarahwilliams@example.com');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('David', 'Brown', '1999-09-13', 'davidbrown@example.com');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('Anna', 'Taylor', '2001-06-18', 'annataylor@example.com');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('James', 'Lee', '1998-12-02', 'jameslee@example.com');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('Laura', 'Miller', '2000-04-27', 'lauramiller@example.com');",
+    "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('Robert', 'Wilson', '1999-08-14', 'robertwilson@example.com');",
+
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('Computer Science', 'Introduction to computer science', 3);",
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('Mathematics', 'Advanced calculus and algebra', 4);",
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('Physics', 'Fundamentals of classical physics', 3);",
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('Chemistry', 'Introduction to organic chemistry', 4);",
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('History', 'World history overview', 3);",
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('Biology', 'Introduction to molecular biology', 4);",
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('English Literature', 'Study of classic English literature', 3);",
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('Philosophy', 'Introduction to philosophical concepts', 3);",
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('Economics', 'Principles of macro and microeconomics', 4);",
+    "INSERT INTO Courses (CourseName, Description, Credits) VALUES ('Art History', 'Overview of art movements', 3);",
+
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (1, 1, '2023-08-20', 'A');",
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (2, 2, '2023-08-20', 'B');",
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (3, 3, '2023-08-21', 'A');",
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (4, 4, '2023-08-21', 'B');",
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (5, 5, '2023-08-22', 'C');",
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (6, 6, '2023-08-22', 'B');",
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (7, 7, '2023-08-23', 'A');",
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (8, 8, '2023-08-23', 'C');",
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (9, 9, '2023-08-24', 'B');",
+    "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (10, 10, '2023-08-24', 'A');"
+  ],
+  "delete": [
+
+    "DELETE FROM Students WHERE StudentID = 5;",
+    "DELETE FROM Students WHERE FirstName = 'John';",
+    "DELETE FROM Students WHERE LastName = 'Doe' AND DateOfBirth = '1995-04-12';",
+    "DELETE FROM Students WHERE Email LIKE '%@gmail.com';",
+    "DELETE FROM Students WHERE DateOfBirth < '2000-01-01' AND LastName = 'Smith';",
+    "DELETE FROM Students WHERE FirstName = 'Emily' OR LastName = 'Johnson';",
+    "DELETE FROM Students WHERE DateOfBirth = '1998-08-21' AND Email LIKE '%@yahoo.com';",
+    "DELETE FROM Students WHERE Email = 'jane.doe@example.com';",
+    "DELETE FROM Students WHERE FirstName = 'Michael' AND Email LIKE '%@hotmail.com';",
+    "DELETE FROM Students WHERE LastName = 'Brown' OR FirstName = 'Sarah';",
+
+    "DELETE FROM Courses WHERE CourseID = 3;",
+    "DELETE FROM Courses WHERE CourseName = 'Mathematics';",
+    "DELETE FROM Courses WHERE Credits = 3;",
+    "DELETE FROM Courses WHERE CourseName = 'History' AND Credits = 4;",
+    "DELETE FROM Courses WHERE CourseName LIKE '%Science%';",
+    "DELETE FROM Courses WHERE Description IS NULL;",
+    "DELETE FROM Courses WHERE CourseName = 'Art' OR Credits = 2;",
+    "DELETE FROM Courses WHERE CourseName = 'Biology' AND Description LIKE '%introductory%';",
+    "DELETE FROM Courses WHERE CourseName = 'Chemistry' AND Credits = 4;",
+    "DELETE FROM Courses WHERE CourseName = 'Physics' OR CourseName = 'English';",
+
+    "DELETE FROM Enrollments WHERE EnrollmentID = 2;",
+    "DELETE FROM Enrollments WHERE StudentID = 5;",
+    "DELETE FROM Enrollments WHERE CourseID = 4;",
+    "DELETE FROM Enrollments WHERE Grade = 'A';",
+    "DELETE FROM Enrollments WHERE EnrollmentDate < '2023-01-01';",
+    "DELETE FROM Enrollments WHERE Grade = 'B' AND StudentID = 3;",
+    "DELETE FROM Enrollments WHERE CourseID = 2 OR Grade = 'C';",
+    "DELETE FROM Enrollments WHERE EnrollmentDate = '2024-05-10' AND CourseID = 1;",
+    "DELETE FROM Enrollments WHERE StudentID = 4 AND Grade = 'D';",
+    "DELETE FROM Enrollments WHERE Grade = 'F' OR EnrollmentDate > '2024-06-01';"
+  ],
+  "update": [
+    "UPDATE Students SET FirstName = 'John', LastName = 'Doe' WHERE StudentID = 1;",
+    "UPDATE Students SET Email = 'jane.doe@example.com' WHERE StudentID = 2 AND LastName = 'Doe';",
+    "UPDATE Students SET DateOfBirth = '1998-07-22' WHERE FirstName = 'John' OR Email = 'john@example.com';",
+    "UPDATE Students SET LastName = 'Smith', Email = 'smith.j@example.com' WHERE StudentID = 3;",
+    "UPDATE Students SET FirstName = 'Alice', DateOfBirth = '2000-03-15' WHERE Email = 'alice@example.com';",
+    "UPDATE Students SET Email = 'bob@example.com' WHERE FirstName = 'Bob' AND LastName = 'Johnson';",
+    "UPDATE Students SET DateOfBirth = '2001-12-01', LastName = 'Brown' WHERE StudentID = 4;",
+    "UPDATE Students SET LastName = 'Williams' WHERE FirstName = 'Alice' OR StudentID = 5;",
+    "UPDATE Students SET Email = 'charlie@example.com', LastName = 'Evans' WHERE FirstName = 'Charlie';",
+    "UPDATE Students SET FirstName = 'David', Email = 'david.b@example.com' WHERE LastName = 'Brown' AND StudentID = 6;",
+    
+    "UPDATE Courses SET CourseName = 'Introduction to Programming' WHERE CourseID = 1;",
+    "UPDATE Courses SET Credits = 4 WHERE CourseID = 2 AND Description = 'Advanced Mathematics';",
+    "UPDATE Courses SET Description = 'Introduction to Biology' WHERE CourseID = 3 OR CourseName = 'Biology 101';",
+    "UPDATE Courses SET CourseName = 'History of Art', Credits = 3 WHERE CourseID = 4;",
+    "UPDATE Courses SET Credits = 2 WHERE CourseName = 'Basic English';",
+    "UPDATE Courses SET Description = 'Advanced Physics' WHERE CourseID = 5 AND Credits = 5;",
+    "UPDATE Courses SET CourseName = 'Chemistry Lab', Description = 'Chemistry Laboratory Course' WHERE CourseID = 6;",
+    "UPDATE Courses SET Credits = 4 WHERE Description = 'Calculus I' OR CourseID = 7;",
+    "UPDATE Courses SET Description = 'Psychology 101', Credits = 3 WHERE CourseName = 'Introduction to Psychology';",
+    "UPDATE Courses SET CourseName = 'Statistics', Credits = 3 WHERE CourseID = 8;",
+    
+    "UPDATE Enrollments SET Grade = 'A' WHERE EnrollmentID = 1 AND StudentID = 1;",
+    "UPDATE Enrollments SET EnrollmentDate = '2024-01-15' WHERE StudentID = 2 AND CourseID = 2;",
+    "UPDATE Enrollments SET Grade = 'B' WHERE StudentID = 3 OR CourseID = 3;",
+    "UPDATE Enrollments SET Grade = 'C', EnrollmentDate = '2024-03-22' WHERE EnrollmentID = 4;",
+    "UPDATE Enrollments SET CourseID = 5 WHERE StudentID = 4 AND EnrollmentDate = '2024-02-10';",
+    "UPDATE Enrollments SET Grade = 'B' WHERE EnrollmentID = 5 OR CourseID = 6;",
+    "UPDATE Enrollments SET EnrollmentDate = '2024-04-01' WHERE StudentID = 5 AND CourseID = 7;",
+    "UPDATE Enrollments SET Grade = 'A', CourseID = 8 WHERE StudentID = 6;",
+    "UPDATE Enrollments SET EnrollmentDate = '2024-05-20', Grade = 'A' WHERE EnrollmentID = 7;",
+    "UPDATE Enrollments SET Grade = 'B' WHERE StudentID = 8 AND CourseID = 9;"
+  ],
+
+    "select": {
+          "no_filtering": [
+            "SELECT StudentID FROM Students;",
+            "SELECT CourseID FROM Courses;",
+            "SELECT EnrollmentID FROM Enrollments;",
+            "SELECT * FROM Students;"
+          ],
+          "single_filtering": [
+            "SELECT StudentID FROM Students WHERE FirstName = 'John';",
+            "SELECT CourseID FROM Courses WHERE Credits = 3;",
+            "SELECT EnrollmentID FROM Enrollments WHERE Grade = 'A';",
+            "SELECT StudentID FROM Students WHERE Email LIKE '%@example.com';"
+          ],
+          "double_filtering": [
+            "SELECT StudentID FROM Students WHERE FirstName = 'John' AND LastName = 'Doe';",
+            "SELECT CourseID FROM Courses WHERE CourseName = 'Math' AND Credits = 4;",
+            "SELECT EnrollmentID FROM Enrollments WHERE StudentID = 1 AND CourseID = 101;",
+            "SELECT StudentID FROM Students WHERE FirstName = 'John' OR LastName = 'Doe';"
+          ],
+          "triple_filtering": [
+            "SELECT StudentID FROM Students WHERE FirstName = 'John' AND LastName = 'Doe' AND Email LIKE '%@example.com';",
+            "SELECT CourseID FROM Courses WHERE CourseName = 'Math' AND Credits = 4 AND Description IS NOT NULL;",
+            "SELECT EnrollmentID FROM Enrollments WHERE StudentID = 1 AND CourseID = 101 AND Grade = 'A';",
+            "SELECT StudentID FROM Students WHERE FirstName = 'John' OR LastName = 'Doe' AND DateOfBirth = '2000-01-01';"
+          ],
+          "range_filtering": [
+            "SELECT StudentID FROM Students WHERE DateOfBirth BETWEEN '1990-01-01' AND '2000-12-31';",
+            "SELECT CourseID FROM Courses WHERE Credits BETWEEN 3 AND 5;",
+            "SELECT EnrollmentID FROM Enrollments WHERE EnrollmentDate BETWEEN '2020-01-01' AND '2021-01-01';",
+            "SELECT StudentID FROM Students WHERE StudentID BETWEEN 1 AND 10;"
+          ],
+          "ranking": [
+            "SELECT StudentID FROM Students ORDER BY LastName ASC;",
+            "SELECT CourseID FROM Courses ORDER BY Credits DESC;",
+            "SELECT EnrollmentID FROM Enrollments ORDER BY EnrollmentDate DESC;",
+            "SELECT StudentID FROM Students ORDER BY FirstName ASC, LastName DESC;"
+          ],
+          "count": [
+            "SELECT COUNT(StudentID) FROM Students;",
+            "SELECT COUNT(CourseID) FROM Courses;",
+            "SELECT COUNT(EnrollmentID) FROM Enrollments;",
+            "SELECT COUNT(StudentID) FROM Students WHERE DateOfBirth > '2000-01-01';"
+          ],
+          "single_table": [
+            "SELECT StudentID FROM Students;",
+            "SELECT CourseID FROM Courses;",
+            "SELECT EnrollmentID FROM Enrollments;",
+            "SELECT StudentID FROM Students WHERE FirstName = 'John';"
+          ],
+          "double_table": [
+            "SELECT Students.StudentID FROM Students JOIN Enrollments ON Students.StudentID = Enrollments.StudentID;",
+            "SELECT Courses.CourseID FROM Courses JOIN Enrollments ON Courses.CourseID = Enrollments.CourseID;",
+            "SELECT Enrollments.EnrollmentID FROM Enrollments JOIN Students ON Enrollments.StudentID = Students.StudentID;",
+            "SELECT Students.StudentID FROM Students JOIN Enrollments ON Students.StudentID = Enrollments.StudentID WHERE Grade = 'A';"
+          ],
+          "three_table": [
+            "SELECT Students.StudentID FROM Students JOIN Enrollments ON Students.StudentID = Enrollments.StudentID JOIN Courses ON Enrollments.CourseID = Courses.CourseID;",
+            "SELECT Courses.CourseID FROM Courses JOIN Enrollments ON Courses.CourseID = Enrollments.CourseID JOIN Students ON Enrollments.StudentID = Students.StudentID;",
+            "SELECT Enrollments.EnrollmentID FROM Enrollments JOIN Students ON Enrollments.StudentID = Students.StudentID JOIN Courses ON Enrollments.CourseID = Courses.CourseID;",
+            "SELECT Students.StudentID FROM Students JOIN Enrollments ON Students.StudentID = Enrollments.StudentID JOIN Courses ON Enrollments.CourseID = Courses.CourseID WHERE Grade = 'A';"
+          ]
+        }
+      
+      
 }
