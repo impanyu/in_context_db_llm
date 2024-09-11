@@ -1,0 +1,178 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Authors;",
+        "DROP TABLE IF EXISTS Books;",
+        "DROP TABLE IF EXISTS Publishers;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Authors (AuthorID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, BirthDate DATE, Nationality VARCHAR(50), PRIMARY KEY (AuthorID));",
+        "CREATE TABLE Books (BookID INT NOT NULL AUTO_INCREMENT, Title VARCHAR(100) NOT NULL, Genre VARCHAR(50), PublishedYear YEAR, AuthorID INT NOT NULL, PublisherID INT NOT NULL, PRIMARY KEY (BookID), FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID), FOREIGN KEY (PublisherID) REFERENCES Publishers(PublisherID));",
+        "CREATE TABLE Publishers (PublisherID INT NOT NULL AUTO_INCREMENT, PublisherName VARCHAR(100) NOT NULL, Address VARCHAR(255), Country VARCHAR(50), PRIMARY KEY (PublisherID));"
+    ],
+    "insert":[
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('George', 'Orwell', '1903-06-25', 'British')'",
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('Jane', 'Austen', '1775-12-16', 'British')'",
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('Mark', 'Twain', '1835-11-30', 'American')'",
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('J.K.', 'Rowling', '1965-07-31', 'British')'",
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('Ernest', 'Hemingway', '1899-07-21', 'American')'",
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('Leo', 'Tolstoy', '1828-09-09', 'Russian')'",
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('Gabriel', 'García Márquez', '1927-03-06', 'Colombian')'",
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('F. Scott', 'Fitzgerald', '1896-09-24', 'American')'",
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('Virginia', 'Woolf', '1882-01-25', 'British')'",
+        "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('James', 'Joyce', '1882-02-02', 'Irish')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Penguin Random House', '1745 Broadway, New York, NY 10019', 'United States')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('HarperCollins', '195 Broadway, New York, NY 10007', 'United States')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Simon & Schuster', '1230 Avenue of the Americas, New York, NY 10020', 'United States')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Hachette Livre', '43 Quai de Grenelle, 75015 Paris', 'France')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Macmillan Publishers', '120 Broadway, New York, NY 10271', 'United States')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Scholastic Corporation', '557 Broadway, New York, NY 10012', 'United States')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Oxford University Press', 'Great Clarendon Street, Oxford, OX2 6DP', 'United Kingdom')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Cambridge University Press', 'University Printing House, Cambridge, CB2 8BS', 'United Kingdom')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Pearson Education', '80 Strand, London, WC2R 0RL', 'United Kingdom')'",
+        "INSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Harvard University Press', '79 Garden Street, Cambridge, MA 02138', 'United States')'",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('1984', 'Dystopian', 1949, 1, 1);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('Animal Farm', 'Political Satire', 1945, 1, 2);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('Pride and Prejudice', 'Romance', 1813, 2, 3);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('Sense and Sensibility', 'Romance', 1811, 2, 4);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('Adventures of Huckleberry Finn', 'Adventure', 1884, 3, 5);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('The Adventures of Tom Sawyer', 'Adventure', 1876, 3, 6);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('Harry Potter and the Philosopher''s Stone', 'Fantasy', 1997, 4, 7);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('Harry Potter and the Chamber of Secrets', 'Fantasy', 1998, 4, 8);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('The Old Man and the Sea', 'Fiction', 1952, 5, 9);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('A Farewell to Arms', 'War', 1929, 5, 10);",
+        "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('War and Peace', 'Historical Fiction', 1869, 6, 11);"
+    ],
+    "delete":[
+        "DELETE FROM Authors WHERE AuthorID = 1;",
+        "DELETE FROM Authors WHERE FirstName = 'Jane' AND LastName = 'Austen';",
+        "DELETE FROM Authors WHERE Nationality = 'American';",
+        "DELETE FROM Authors WHERE BirthDate < '1900-01-01';",
+        "DELETE FROM Authors WHERE FirstName = 'George' OR LastName = 'Joyce';",
+        "DELETE FROM Authors WHERE Nationality = 'British' AND BirthDate < '1800-01-01';",
+        "DELETE FROM Authors WHERE AuthorID > 5;",
+        "DELETE FROM Authors WHERE LastName LIKE 'Fitz%';",
+        "DELETE FROM Authors WHERE FirstName = 'J.K.' AND Nationality = 'British';",
+        "DELETE FROM Authors WHERE BirthDate BETWEEN '1800-01-01' AND '1900-01-01';",
+        "DELETE FROM Books WHERE BookID = 10;",
+        "DELETE FROM Books WHERE Title = '1984';",
+        "DELETE FROM Books WHERE Genre = 'Romance' AND PublishedYear < 1900;",
+        "DELETE FROM Books WHERE PublishedYear = 1925 OR PublishedYear = 1934;",
+        "DELETE FROM Books WHERE AuthorID = 3;",
+        "DELETE FROM Books WHERE PublisherID = 2 AND Genre = 'Fantasy';",
+        "DELETE FROM Books WHERE Title LIKE 'Harry Potter%';",
+        "DELETE FROM Books WHERE PublishedYear IS NULL;",
+        "DELETE FROM Books WHERE Genre = 'Magic Realism' OR Genre = 'Modernist Novel';",
+        "DELETE FROM Books WHERE PublisherID = 1 AND AuthorID = 4;",
+        "DELETE FROM Publishers WHERE PublisherID = 5;",
+        "DELETE FROM Publishers WHERE Country = 'United States';",
+        "DELETE FROM Publishers WHERE PublisherName LIKE '%University%';",
+        "DELETE FROM Publishers WHERE Address LIKE '%New York%';",
+        "DELETE FROM Publishers WHERE Country = 'United Kingdom' AND Address LIKE '%Oxford%';",
+        "DELETE FROM Publishers WHERE PublisherName = 'Penguin Random House';",
+        "DELETE FROM Publishers WHERE Address IS NULL;",
+        "DELETE FROM Publishers WHERE PublisherID < 3;",
+        "DELETE FROM Publishers WHERE PublisherName LIKE 'Hachette%';",
+        "DELETE FROM Publishers WHERE Country = 'United States' OR Country = 'France';"
+    ],
+    "update":[
+        "UPDATE Authors SET Nationality = 'British' WHERE LastName = 'Orwell';",
+        "UPDATE Authors SET FirstName = 'Joanne' WHERE LastName = 'Rowling' AND BirthDate = '1965-07-31';",
+        "UPDATE Authors SET BirthDate = '1882-01-25' WHERE LastName = 'Woolf' AND Nationality = 'British';",
+        "UPDATE Authors SET LastName = 'Joyce' WHERE FirstName = 'James' AND Nationality = 'Irish';",
+        "UPDATE Authors SET Nationality = 'American' WHERE LastName = 'Twain' OR LastName = 'Hemingway';",
+        "UPDATE Authors SET FirstName = 'George' WHERE LastName = 'Orwell' AND Nationality = 'British';",
+        "UPDATE Authors SET BirthDate = '1899-07-21' WHERE LastName = 'Hemingway';",
+        "UPDATE Authors SET LastName = 'Garcia Marquez' WHERE LastName = 'García Márquez' AND Nationality = 'Colombian';",
+        "UPDATE Authors SET Nationality = 'Russian' WHERE LastName = 'Tolstoy';",
+        "UPDATE Authors SET FirstName = 'Leo', Nationality = 'Russian' WHERE LastName = 'Tolstoy';",
+        "UPDATE Books SET Genre = 'Science Fiction' WHERE Title = '1984';",
+        "UPDATE Books SET PublishedYear = 1945 WHERE Title = 'Animal Farm' AND Genre = 'Political Satire';",
+        "UPDATE Books SET Genre = 'Fantasy', PublishedYear = 1997 WHERE Title = 'Harry Potter and the Philosopher''s Stone';",
+        "UPDATE Books SET Title = 'The Adventures of Tom Sawyer' WHERE BookID = 6;",
+        "UPDATE Books SET Genre = 'Magic Realism' WHERE AuthorID = 7 OR Title = 'One Hundred Years of Solitude';",
+        "UPDATE Books SET PublishedYear = 1925 WHERE Title = 'The Great Gatsby' AND Genre = 'Tragedy';",
+        "UPDATE Books SET Genre = 'Modernist Novel' WHERE Title = 'Mrs. Dalloway' AND AuthorID = 9;",
+        "UPDATE Books SET PublisherID = 2 WHERE Title = 'Pride and Prejudice' AND Genre = 'Romance';",
+        "UPDATE Books SET Title = 'Ulysses', Genre = 'Modernist Novel' WHERE BookID = 19;",
+        "UPDATE Books SET PublisherID = 4 WHERE AuthorID = 1 AND Title = '1984';",
+        "UPDATE Publishers SET Address = '21 New Oxford Street, London, UK' WHERE PublisherName = 'Penguin Random House';",
+        "UPDATE Publishers SET Country = 'United Kingdom' WHERE PublisherName = 'Oxford University Press';",
+        "UPDATE Publishers SET PublisherName = 'Harper & Brothers' WHERE PublisherID = 2 OR PublisherID = 3;",
+        "UPDATE Publishers SET Country = 'United States', Address = '123 Broadway, New York, NY' WHERE PublisherID = 5;",
+        "UPDATE Publishers SET Address = '123 Fourth Street, New York, NY' WHERE PublisherName = 'HarperCollins' AND Country = 'United States';",
+        "UPDATE Publishers SET PublisherName = 'Scholastic Inc.' WHERE PublisherID = 6 AND Country = 'United States';",
+        "UPDATE Publishers SET Country = 'France', Address = '20 Avenue de l'Opéra, Paris' WHERE PublisherName = 'Hachette Livre';",
+        "UPDATE Publishers SET PublisherName = 'Pearson Plc' WHERE PublisherID = 9 AND Country = 'United Kingdom';",
+        "UPDATE Publishers SET Address = '32 Avenue of the Americas, New York, NY' WHERE PublisherName = 'Simon & Schuster';",
+        "UPDATE Publishers SET PublisherName = 'Harvard Press' WHERE PublisherID = 10 AND Country = 'United States';"
+    ],
+   "select": {
+        "no_filtering":[
+            "SELECT AuthorID FROM Authors;",
+            "SELECT BookID FROM Books;",
+            "SELECT PublisherID FROM Publishers;",
+            "SELECT DISTINCT AuthorID FROM Authors;"
+
+        ],
+        "single_filtering":[
+            "SELECT AuthorID FROM Authors WHERE Nationality = 'British';",
+            "SELECT BookID FROM Books WHERE Genre = 'Fantasy';",
+            "SELECT PublisherID FROM Publishers WHERE Country = 'United States';",
+            "SELECT AuthorID FROM Authors WHERE BirthDate > '1900-01-01';"
+
+        ],
+        "double_filtering":[  
+             "SELECT AuthorID FROM Authors WHERE Nationality = 'British' AND BirthDate > '1900-01-01';",
+            "SELECT BookID FROM Books WHERE Genre = 'Fantasy' AND PublishedYear > 2000;",
+            "SELECT PublisherID FROM Publishers WHERE Country = 'United States' AND Address LIKE '%New York%';",
+            "SELECT BookID FROM Books WHERE Genre = 'Dystopian' OR PublishedYear < 1950;"
+
+        ],
+        "triple_filtering":[
+            "SELECT AuthorID FROM Authors WHERE Nationality = 'British' AND BirthDate > '1900-01-01' AND LastName = 'Orwell';",
+            "SELECT BookID FROM Books WHERE Genre = 'Fantasy' AND PublishedYear > 2000 AND Title LIKE 'Harry Potter%';",
+            "SELECT PublisherID FROM Publishers WHERE Country = 'United States' AND Address LIKE '%New York%' AND PublisherName = 'Penguin Random House';",
+            "SELECT AuthorID FROM Authors WHERE Nationality = 'American' OR (BirthDate > '1900-01-01' AND LastName = 'Hemingway');"
+        ],
+        "range_filtering":[
+            "SELECT AuthorID FROM Authors WHERE BirthDate BETWEEN '1900-01-01' AND '1950-12-31';",
+            "SELECT BookID FROM Books WHERE PublishedYear BETWEEN 1990 AND 2000;",
+            "SELECT PublisherID FROM Publishers WHERE PublisherID BETWEEN 1 AND 10;",
+            "SELECT AuthorID FROM Authors WHERE AuthorID BETWEEN 5 AND 15;"
+
+        ],
+        "ranking":[
+            "SELECT AuthorID FROM Authors ORDER BY BirthDate ASC;",
+            "SELECT BookID FROM Books ORDER BY PublishedYear DESC;",
+            "SELECT PublisherID FROM Publishers ORDER BY PublisherName ASC;",
+            "SELECT AuthorID FROM Authors ORDER BY LastName DESC, FirstName ASC;"
+
+        ],
+        "count":[
+            "SELECT COUNT(AuthorID) FROM Authors;",
+            "SELECT COUNT(BookID) FROM Books;",
+            "SELECT COUNT(PublisherID) FROM Publishers;",
+            "SELECT COUNT(AuthorID) FROM Authors WHERE Nationality = 'American';"
+
+        ],
+        "single_table":[
+            "SELECT AuthorID FROM Authors WHERE Nationality = 'British';",
+            "SELECT BookID FROM Books WHERE Genre = 'Fantasy';",
+            "SELECT PublisherID FROM Publishers WHERE Country = 'United Kingdom';",
+            "SELECT AuthorID FROM Authors WHERE BirthDate < '1900-01-01';"
+
+        ],
+        "double_table":[
+            "SELECT Books.BookID FROM Books JOIN Authors ON Books.AuthorID = Authors.AuthorID WHERE Authors.Nationality = 'British';",
+            "SELECT Books.BookID FROM Books JOIN Publishers ON Books.PublisherID = Publishers.PublisherID WHERE Publishers.Country = 'United States';",
+            "SELECT Authors.AuthorID FROM Authors JOIN Books ON Authors.AuthorID = Books.AuthorID WHERE Books.Genre = 'Fantasy';",
+            "SELECT Publishers.PublisherID FROM Publishers JOIN Books ON Publishers.PublisherID = Books.PublisherID WHERE Books.PublishedYear > 2000;"
+        ],
+        "three_table":[
+            "SELECT Books.BookID FROM Books JOIN Authors ON Books.AuthorID = Authors.AuthorID JOIN Publishers ON Books.PublisherID = Publishers.PublisherID WHERE Authors.Nationality = 'British' AND Publishers.Country = 'United States';",
+            "SELECT Authors.AuthorID FROM Authors JOIN Books ON Authors.AuthorID = Books.AuthorID JOIN Publishers ON Books.PublisherID = Publishers.PublisherID WHERE Books.Genre = 'Fantasy' AND Publishers.Country = 'United Kingdom';",
+            "SELECT Publishers.PublisherID FROM Publishers JOIN Books ON Publishers.PublisherID = Books.PublisherID JOIN Authors ON Books.AuthorID = Authors.AuthorID WHERE Authors.BirthDate < '1900-01-01';",
+            "SELECT Books.BookID FROM Books JOIN Authors ON Books.AuthorID = Authors.AuthorID JOIN Publishers ON Books.PublisherID = Publishers.PublisherID WHERE Authors.LastName = 'Orwell' AND Publishers.PublisherName = 'Penguin Random House';"
+        ]
+ }   
+}

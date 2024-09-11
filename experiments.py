@@ -80,7 +80,7 @@ def generate_system_prompt(datasets,encoding,prompting):
     system_prompt_1 = data["system_prompt_1"]
     system_prompt_2 = data["system_prompt_2"]
 
-    must_insert = data["must_insert_data"]  
+
 
 
 
@@ -89,7 +89,7 @@ def generate_system_prompt(datasets,encoding,prompting):
     prompt = concatenate_prompt(system_prompt_1)+concatenate_prompt(system_prompt_2)
     prompt += concatenate_prompt(drop_db_query)+concatenate_prompt(create_db_query)+concatenate_prompt(use_db_query)+concatenate_prompt(create_table_query)
 
-    prompt += concatenate_prompt(must_insert)
+ 
 
     if "COT" in prompting:
         prompt += concatenate_prompt(cot)
@@ -107,9 +107,7 @@ def generate_system_prompt(datasets,encoding,prompting):
         print("create tables")
         for query in db_create_table_query:
             execute_query(connection, query)
-        print("must insert data")
-        for query in db_data["must_insert_data"]:
-            execute_query(connection, query)
+
 
         
         connection.close()

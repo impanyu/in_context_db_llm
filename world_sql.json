@@ -18,12 +18,13 @@
 ],
 
 "clear_tables":[
+    "DELETE FROM `country`;",
     "DELETE FROM `city`;",
     "DELETE FROM `countrylanguage`;"
 ],
 
 
-"must_insert_data":[
+"first_insert_data":[
 "INSERT INTO `country` VALUES ('ARG','Argentina','South America','South America',2780400.00,1816,37032000,75.1,340238.00,323310.00,'Argentina','Federal Republic','Fernando de la Rúa',69,'AR');",
 "INSERT INTO `country` VALUES ('AUS','Australia','Oceania','Australia and New Zealand',7741220.00,1901,18886000,79.8,351182.00,392911.00,'Australia','Constitutional Monarchy, Federation','Elisabeth II',135,'AU');",
 "INSERT INTO `country` VALUES ('CAN','Canada','North America','North America',9970610.00,1867,31147000,79.4,598862.00,625626.00,'Canada','Constitutional Monarchy, Federation','Elisabeth II',1822,'CA');",

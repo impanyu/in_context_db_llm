@@ -1,0 +1,12 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Students;",
+        "DROP TABLE IF EXISTS Courses;",
+        "DROP TABLE IF EXISTS Enrollments;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Students (StudentID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, DateOfBirth DATE NOT NULL, Email VARCHAR(100) NOT NULL, PRIMARY KEY (StudentID));",
+        "CREATE TABLE Courses (CourseID INT NOT NULL AUTO_INCREMENT, CourseName VARCHAR(100) NOT NULL, Description TEXT, Credits INT NOT NULL, PRIMARY KEY (CourseID));",
+        "CREATE TABLE Enrollments (EnrollmentID INT NOT NULL AUTO_INCREMENT, StudentID INT NOT NULL, CourseID INT NOT NULL, EnrollmentDate DATE NOT NULL, Grade CHAR(1), PRIMARY KEY (EnrollmentID), FOREIGN KEY (StudentID) REFERENCES Students(StudentID), FOREIGN KEY (CourseID) REFERENCES Courses(CourseID));"
+    ]
+}
