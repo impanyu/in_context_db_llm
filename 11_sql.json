@@ -1,0 +1,181 @@
+{
+  "drop_tables":[
+      "DROP TABLE IF EXISTS Movies;",
+      "DROP TABLE IF EXISTS Actors;",
+      "DROP TABLE IF EXISTS MovieActors;"
+  ],
+  "create_tables":[
+      "CREATE TABLE Movies (MovieID INT NOT NULL AUTO_INCREMENT, Title VARCHAR(100) NOT NULL, Genre VARCHAR(50), ReleaseYear YEAR, PRIMARY KEY (MovieID));",
+      "CREATE TABLE Actors (ActorID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, BirthDate DATE, PRIMARY KEY (ActorID));",
+      "CREATE TABLE MovieActors (MovieActorID INT NOT NULL AUTO_INCREMENT, MovieID INT NOT NULL, ActorID INT NOT NULL, Role VARCHAR(100), PRIMARY KEY (MovieActorID), FOREIGN KEY (MovieID) REFERENCES Movies(MovieID), FOREIGN KEY (ActorID) REFERENCES Actors(ActorID));"
+  ],
+ "insert": [
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('Inception', 'Sci-Fi', 2010);",
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('The Dark Knight', 'Action', 2008);",
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('Interstellar', 'Sci-Fi', 2014);",
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('Pulp Fiction', 'Crime', 1994);",
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('The Matrix', 'Sci-Fi', 1999);",
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('The Godfather', 'Crime', 1972);",
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('Forrest Gump', 'Drama', 1994);",
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('Gladiator', 'Action', 2000);",
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('Titanic', 'Romance', 1997);",
+        "INSERT INTO Movies (Title, Genre, ReleaseYear) VALUES ('Avatar', 'Sci-Fi', 2009);",
+
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Leonardo', 'DiCaprio', '1974-11-11');",
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Robert', 'De Niro', '1943-08-17');",
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Morgan', 'Freeman', '1937-06-01');",
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Brad', 'Pitt', '1963-12-18');",
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Tom', 'Hanks', '1956-07-09');",
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Christian', 'Bale', '1974-01-30');",
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Natalie', 'Portman', '1981-06-09');",
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Samuel', 'Jackson', '1948-12-21');",
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Scarlett', 'Johansson', '1984-11-22');",
+        "INSERT INTO Actors (FirstName, LastName, BirthDate) VALUES ('Matt', 'Damon', '1970-10-08');",
+
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (1, 1, 'Dom Cobb');",
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (2, 6, 'Bruce Wayne');",
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (3, 1, 'Cooper');",
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (4, 8, 'Jules Winnfield');",
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (5, 4, 'Neo');",
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (6, 2, 'Vito Corleone');",
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (7, 5, 'Forrest Gump');",
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (8, 9, 'Maximus');",
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (9, 1, 'Jack Dawson');",
+        "INSERT INTO MovieActors (MovieID, ActorID, Role) VALUES (10, 1, 'Jake Sully');"
+    ],
+    "delete": [
+        "DELETE FROM Movies WHERE MovieID = 1;",
+        "DELETE FROM Movies WHERE Title = 'Inception';",
+        "DELETE FROM Movies WHERE Genre = 'Action';",
+        "DELETE FROM Movies WHERE ReleaseYear = 2020;",
+        "DELETE FROM Movies WHERE Title LIKE '%Star%';",
+        "DELETE FROM Movies WHERE Genre = 'Comedy' AND ReleaseYear < 2010;",
+        "DELETE FROM Movies WHERE Title = 'Avatar' OR ReleaseYear = 2009;",
+        "DELETE FROM Movies WHERE MovieID IN (2, 3, 5);",
+        "DELETE FROM Movies WHERE Title IS NULL;",
+        "DELETE FROM Movies WHERE Genre = 'Drama' AND ReleaseYear BETWEEN 2000 AND 2010;",
+
+        "DELETE FROM Actors WHERE ActorID = 1;",
+        "DELETE FROM Actors WHERE FirstName = 'Robert';",
+        "DELETE FROM Actors WHERE LastName = 'Smith';",
+        "DELETE FROM Actors WHERE BirthDate = '1980-01-01';",
+        "DELETE FROM Actors WHERE FirstName LIKE 'A%';",
+        "DELETE FROM Actors WHERE LastName = 'Johnson' AND BirthDate > '1990-01-01';",
+        "DELETE FROM Actors WHERE FirstName = 'Chris' OR LastName = 'Evans';",
+        "DELETE FROM Actors WHERE ActorID IN (4, 6, 8);",
+        "DELETE FROM Actors WHERE BirthDate IS NULL;",
+        "DELETE FROM Actors WHERE BirthDate BETWEEN '1970-01-01' AND '1980-12-31';",
+
+        "DELETE FROM MovieActors WHERE MovieActorID = 1;",
+        "DELETE FROM MovieActors WHERE MovieID = 2;",
+        "DELETE FROM MovieActors WHERE ActorID = 3;",
+        "DELETE FROM MovieActors WHERE Role = 'Lead';",
+        "DELETE FROM MovieActors WHERE Role LIKE '%Supporting%';",
+        "DELETE FROM MovieActors WHERE MovieID = 1 AND ActorID = 2;",
+        "DELETE FROM MovieActors WHERE Role = 'Cameo' OR ActorID = 5;",
+        "DELETE FROM MovieActors WHERE MovieActorID IN (3, 5, 7);",
+        "DELETE FROM MovieActors WHERE Role IS NULL;",
+        "DELETE FROM MovieActors WHERE MovieID = 4 AND ActorID BETWEEN 1 AND 3;"     
+],
+
+"update": [
+    "UPDATE Movies SET Genre = 'Comedy' WHERE ReleaseYear = 2020;",
+    "UPDATE Movies SET Title = 'The Great Adventure' WHERE MovieID = 5;",
+    "UPDATE Movies SET Genre = 'Drama' WHERE Title = 'Mystery of the Old House';",
+    "UPDATE Movies SET ReleaseYear = 2019 WHERE Genre = 'Horror';",
+    "UPDATE Movies SET Genre = 'Action', ReleaseYear = 2021 WHERE MovieID = 3;",
+    "UPDATE Movies SET Title = 'Romantic Escape', Genre = 'Romance' WHERE ReleaseYear = 2018 AND Genre = 'Comedy';",
+    "UPDATE Movies SET Genre = 'Thriller' WHERE Title LIKE 'The%' AND ReleaseYear = 2017;",
+    "UPDATE Movies SET Title = 'New Dawn', ReleaseYear = 2022 WHERE MovieID = 7;",
+    "UPDATE Movies SET Genre = 'Sci-Fi' WHERE ReleaseYear > 2015 AND ReleaseYear < 2020;",
+    "UPDATE Movies SET Title = 'The Final Battle', Genre = 'Action' WHERE MovieID = 10 AND ReleaseYear = 2020;",
+
+    "UPDATE Actors SET LastName = 'Doe' WHERE FirstName = 'John';",
+    "UPDATE Actors SET BirthDate = '1985-07-15' WHERE ActorID = 2;",
+    "UPDATE Actors SET FirstName = 'Jane', LastName = 'Smith' WHERE ActorID = 3;",
+    "UPDATE Actors SET BirthDate = '1990-01-01' WHERE FirstName = 'Emily' AND LastName = 'Clark';",
+    "UPDATE Actors SET LastName = 'Johnson' WHERE FirstName = 'Michael';",
+    "UPDATE Actors SET FirstName = 'Robert', LastName = 'Brown' WHERE ActorID = 4;",
+    "UPDATE Actors SET BirthDate = '1978-05-23' WHERE LastName = 'Davis';",
+    "UPDATE Actors SET FirstName = 'Alice' WHERE ActorID = 6 AND BirthDate < '1980-01-01';",
+    "UPDATE Actors SET LastName = 'Taylor' WHERE FirstName = 'Jessica' AND BirthDate > '1995-01-01';",
+    "UPDATE Actors SET FirstName = 'David', LastName = 'Wilson' WHERE ActorID = 8;",
+
+    "UPDATE MovieActors SET Role = 'Lead Actor' WHERE MovieID = 1 AND ActorID = 3;",
+    "UPDATE MovieActors SET Role = 'Supporting Actor' WHERE MovieActorID = 5;",
+    "UPDATE MovieActors SET MovieID = 2, ActorID = 4 WHERE MovieActorID = 6;",
+    "UPDATE MovieActors SET Role = 'Cameo' WHERE ActorID = 7;",
+    "UPDATE MovieActors SET MovieID = 3 WHERE MovieActorID = 8 AND Role = 'Lead Actress';",
+    "UPDATE MovieActors SET Role = 'Antagonist' WHERE ActorID = 2 AND MovieID = 4;",
+    "UPDATE MovieActors SET Role = 'Protagonist' WHERE MovieActorID = 9;",
+    "UPDATE MovieActors SET ActorID = 6 WHERE MovieID = 1 AND Role = 'Supporting Actress';",
+    "UPDATE MovieActors SET Role = 'Cameo', ActorID = 10 WHERE MovieActorID = 10;",
+    "UPDATE MovieActors SET MovieID = 5 WHERE ActorID = 8 AND Role = 'Antagonist';"
+  ],
+  "select": {
+    "no_filtering": [
+      "SELECT MovieID FROM Movies;",
+      "SELECT ActorID FROM Actors;",
+      "SELECT MovieActorID FROM MovieActors;",
+      "SELECT Title FROM Movies;"
+    ],
+    "single_filtering": [
+      "SELECT MovieID FROM Movies WHERE Genre = 'Comedy';",
+      "SELECT ActorID FROM Actors WHERE LastName = 'Smith';",
+      "SELECT MovieActorID FROM MovieActors WHERE Role = 'Lead';",
+      "SELECT MovieID FROM Movies WHERE ReleaseYear = 2022;"
+    ],
+    "double_filtering": [
+      "SELECT MovieID FROM Movies WHERE Genre = 'Comedy' AND ReleaseYear = 2022;",
+      "SELECT ActorID FROM Actors WHERE LastName = 'Smith' OR FirstName = 'John';",
+      "SELECT MovieActorID FROM MovieActors WHERE Role = 'Lead' AND MovieID = 1;",
+      "SELECT MovieID FROM Movies WHERE Title = 'Inception' AND ReleaseYear = 2010;"
+    ],
+    "triple_filtering": [
+      "SELECT MovieID FROM Movies WHERE Genre = 'Action' AND ReleaseYear = 2020 AND Title = 'Tenet';",
+      "SELECT ActorID FROM Actors WHERE LastName = 'Doe' OR FirstName = 'Jane' AND BirthDate = '1990-01-01';",
+      "SELECT MovieActorID FROM MovieActors WHERE Role = 'Support' AND MovieID = 2 OR ActorID = 3;",
+      "SELECT MovieID FROM Movies WHERE Genre = 'Drama' AND ReleaseYear = 2021 AND Title = 'Nomadland';"
+    ],
+    "range_filtering": [
+      "SELECT MovieID FROM Movies WHERE ReleaseYear BETWEEN 2000 AND 2010;",
+      "SELECT ActorID FROM Actors WHERE BirthDate BETWEEN '1980-01-01' AND '1990-12-31';",
+      "SELECT MovieActorID FROM MovieActors WHERE MovieID BETWEEN 1 AND 10;",
+      "SELECT MovieID FROM Movies WHERE ReleaseYear BETWEEN 1995 AND 2005;"
+    ],
+    "ranking": [
+      "SELECT MovieID FROM Movies ORDER BY ReleaseYear DESC;",
+      "SELECT ActorID FROM Actors ORDER BY BirthDate ASC;",
+      "SELECT MovieActorID FROM MovieActors ORDER BY Role DESC;",
+      "SELECT MovieID FROM Movies ORDER BY Title ASC;"
+    ],
+    "count": [
+      "SELECT COUNT(MovieID) FROM Movies;",
+      "SELECT COUNT(ActorID) FROM Actors;",
+      "SELECT COUNT(MovieActorID) FROM MovieActors;",
+      "SELECT COUNT(ReleaseYear) FROM Movies;"
+    ],
+    "single_table": [
+      "SELECT MovieID FROM Movies;",
+      "SELECT ActorID FROM Actors;",
+      "SELECT MovieActorID FROM MovieActors;",
+      "SELECT Title FROM Movies;"
+    ],
+    "double_table": [
+      "SELECT MovieID FROM Movies INNER JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID;",
+      "SELECT ActorID FROM Actors INNER JOIN MovieActors ON Actors.ActorID = MovieActors.ActorID;",
+      "SELECT MovieID FROM Movies LEFT JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID;",
+      "SELECT ActorID FROM Actors RIGHT JOIN MovieActors ON Actors.ActorID = MovieActors.ActorID;"
+    ],
+    "three_table": [
+      "SELECT MovieID FROM Movies INNER JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID INNER JOIN Actors ON MovieActors.ActorID = Actors.ActorID;",
+      "SELECT MovieActorID FROM MovieActors INNER JOIN Movies ON MovieActors.MovieID = Movies.MovieID INNER JOIN Actors ON MovieActors.ActorID = Actors.ActorID;",
+      "SELECT ActorID FROM Actors INNER JOIN MovieActors ON Actors.ActorID = MovieActors.ActorID INNER JOIN Movies ON MovieActors.MovieID = Movies.MovieID;",
+      "SELECT MovieID FROM Movies LEFT JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID LEFT JOIN Actors ON MovieActors.ActorID = Actors.ActorID;"
+    ]
+  }
+
+
+
+
+}

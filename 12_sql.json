@@ -1,0 +1,178 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Libraries;",
+        "DROP TABLE IF EXISTS Books;",
+        "DROP TABLE IF EXISTS Librarians;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Libraries (LibraryID INT NOT NULL AUTO_INCREMENT, LibraryName VARCHAR(100) NOT NULL, Address VARCHAR(255) NOT NULL, PRIMARY KEY (LibraryID));",
+        "CREATE TABLE Books (BookID INT NOT NULL AUTO_INCREMENT, Title VARCHAR(100) NOT NULL, Author VARCHAR(100), ISBN VARCHAR(13), LibraryID INT NOT NULL, PRIMARY KEY (BookID), FOREIGN KEY (LibraryID) REFERENCES Libraries(LibraryID));",
+        "CREATE TABLE Librarians (LibrarianID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, HireDate DATE NOT NULL, LibraryID INT NOT NULL, PRIMARY KEY (LibrarianID), FOREIGN KEY (LibraryID) REFERENCES Libraries(LibraryID));"
+    ],
+    "insert": [
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Central Library', '123 Main St, Springfield, IL');",
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Westside Branch', '456 Elm St, Springfield, IL');",
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Eastside Branch', '789 Maple Ave, Springfield, IL');",
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Northside Branch', '321 Oak St, Springfield, IL');",
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Southside Branch', '654 Pine St, Springfield, IL');",
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Downtown Library', '987 Cedar St, Springfield, IL');",
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Uptown Library', '159 Walnut St, Springfield, IL');",
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Midtown Library', '753 Chestnut St, Springfield, IL');",
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Riverfront Library', '852 River Rd, Springfield, IL');",
+        "INSERT INTO Libraries (LibraryName, Address) VALUES ('Suburban Library', '951 Birch St, Springfield, IL');",
+
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('The Great Gatsby', 'F. Scott Fitzgerald', '9780743273565', 1);",
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('To Kill a Mockingbird', 'Harper Lee', '9780061120084', 2);",
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('1984', 'George Orwell', '9780451524935', 3);",
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('Pride and Prejudice', 'Jane Austen', '9780141439518', 4);",
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('The Catcher in the Rye', 'J.D. Salinger', '9780316769488', 5);",
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('Moby-Dick', 'Herman Melville', '9780142437247', 6);",
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('War and Peace', 'Leo Tolstoy', '9780307388875', 7);",
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('The Odyssey', 'Homer', '9780140268867', 8);",
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('Crime and Punishment', 'Fyodor Dostoevsky', '9780140449136', 9);",
+        "INSERT INTO Books (Title, Author, ISBN, LibraryID) VALUES ('The Brothers Karamazov', 'Fyodor Dostoevsky', '9780374528379', 10);",
+
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('John', 'Smith', '2015-06-01', 1);",
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('Jane', 'Doe', '2016-07-15', 2);",
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('Emily', 'Johnson', '2017-08-10', 3);",
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('Michael', 'Brown', '2018-09-25', 4);",
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('Sarah', 'Davis', '2019-10-30', 5);",
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('David', 'Miller', '2020-11-20', 6);",
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('Laura', 'Wilson', '2021-12-01', 7);",
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('Chris', 'Martinez', '2022-01-10', 8);",
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('Jessica', 'Garcia', '2023-02-14', 9);",
+        "INSERT INTO Librarians (FirstName, LastName, HireDate, LibraryID) VALUES ('Daniel', 'Rodriguez', '2024-03-18', 10);"
+  ],
+  "delete": [
+    "DELETE FROM Libraries WHERE LibraryID = 1;",
+    "DELETE FROM Libraries WHERE LibraryName = 'Central Library';",
+    "DELETE FROM Libraries WHERE Address = '123 Main St';",
+    "DELETE FROM Libraries WHERE LibraryName LIKE '%Public%';",
+    "DELETE FROM Libraries WHERE Address LIKE '%Avenue%';",
+    "DELETE FROM Libraries WHERE LibraryID > 5;",
+    "DELETE FROM Libraries WHERE LibraryID BETWEEN 3 AND 7;",
+    "DELETE FROM Libraries WHERE LibraryName = 'Downtown Library' AND Address = '456 Elm St';",
+    "DELETE FROM Libraries WHERE LibraryName = 'Eastside Library' OR Address = '789 Pine St';",
+    "DELETE FROM Libraries WHERE LibraryID IS NOT NULL AND Address LIKE '%Boulevard%';",
+
+    "DELETE FROM Books WHERE BookID = 1;",
+    "DELETE FROM Books WHERE Title = 'Moby Dick';",
+    "DELETE FROM Books WHERE Author = 'Jane Austen';",
+    "DELETE FROM Books WHERE ISBN = '978-1234567890';",
+    "DELETE FROM Books WHERE LibraryID = 2;",
+    "DELETE FROM Books WHERE Author IS NULL;",
+    "DELETE FROM Books WHERE Title LIKE '%Guide%';",
+    "DELETE FROM Books WHERE LibraryID = 3 AND Author = 'Mark Twain';",
+    "DELETE FROM Books WHERE Title = 'War and Peace' OR ISBN = '978-9876543210';",
+    "DELETE FROM Books WHERE BookID > 10 AND LibraryID = 4;",
+
+    "DELETE FROM Librarians WHERE LibrarianID = 1;",
+    "DELETE FROM Librarians WHERE FirstName = 'John';",
+    "DELETE FROM Librarians WHERE LastName = 'Doe';",
+    "DELETE FROM Librarians WHERE HireDate = '2023-01-01';",
+    "DELETE FROM Librarians WHERE LibraryID = 2;",
+    "DELETE FROM Librarians WHERE LastName LIKE '%Smith%';",
+    "DELETE FROM Librarians WHERE HireDate < '2020-01-01';",
+    "DELETE FROM Librarians WHERE FirstName = 'Emily' AND LastName = 'Jones';",
+    "DELETE FROM Librarians WHERE FirstName = 'Michael' OR HireDate > '2022-01-01';",
+    "DELETE FROM Librarians WHERE LibrarianID BETWEEN 5 AND 10 AND LibraryID = 3;"
+],
+"update": [
+    "UPDATE Libraries SET LibraryName = 'Central Library' WHERE LibraryID = 1;",
+    "UPDATE Libraries SET Address = '123 Main St' WHERE LibraryName = 'Eastside Library';",
+    "UPDATE Libraries SET Address = '456 Oak St' WHERE LibraryID = 2;",
+    "UPDATE Libraries SET LibraryName = 'Downtown Library', Address = '789 Pine St' WHERE LibraryID = 3;",
+    "UPDATE Libraries SET Address = '101 Maple St' WHERE LibraryName = 'Westside Library' AND LibraryID = 4;",
+    "UPDATE Libraries SET LibraryName = 'Uptown Library' WHERE Address = '202 Birch St';",
+    "UPDATE Libraries SET Address = '303 Cedar St' WHERE LibraryID = 5;",
+    "UPDATE Libraries SET LibraryName = 'Northside Library', Address = '404 Elm St' WHERE LibraryID = 6;",
+    "UPDATE Libraries SET Address = '505 Spruce St' WHERE LibraryName = 'Southside Library';",
+    "UPDATE Libraries SET LibraryName = 'Midtown Library' WHERE LibraryID = 7 AND Address = '606 Willow St';",
+
+    "UPDATE Books SET Title = 'The Great Gatsby' WHERE BookID = 1;",
+    "UPDATE Books SET Author = 'F. Scott Fitzgerald' WHERE Title = 'The Great Gatsby';",
+    "UPDATE Books SET ISBN = '9780141182636' WHERE Title = '1984' AND Author = 'George Orwell';",
+    "UPDATE Books SET Title = 'Moby Dick', Author = 'Herman Melville' WHERE BookID = 2;",
+    "UPDATE Books SET LibraryID = 3 WHERE BookID = 3;",
+    "UPDATE Books SET ISBN = '9780451524935' WHERE Title = 'To Kill a Mockingbird';",
+    "UPDATE Books SET Author = 'Harper Lee' WHERE BookID = 4;",
+    "UPDATE Books SET Title = 'Pride and Prejudice', Author = 'Jane Austen' WHERE BookID = 5;",
+    "UPDATE Books SET LibraryID = 4 WHERE Title = 'War and Peace';",
+    "UPDATE Books SET ISBN = '9781853260629' WHERE Author = 'Leo Tolstoy' AND Title = 'War and Peace';",
+
+    "UPDATE Librarians SET FirstName = 'John' WHERE LibrarianID = 1;",
+    "UPDATE Librarians SET LastName = 'Doe' WHERE FirstName = 'Jane';",
+    "UPDATE Librarians SET HireDate = '2024-01-01' WHERE LastName = 'Smith' AND FirstName = 'John';",
+    "UPDATE Librarians SET LibraryID = 2 WHERE LibrarianID = 2;",
+    "UPDATE Librarians SET FirstName = 'Alice', LastName = 'Johnson' WHERE LibrarianID = 3;",
+    "UPDATE Librarians SET HireDate = '2023-12-15' WHERE LibrarianID = 4;",
+    "UPDATE Librarians SET LibraryID = 3 WHERE FirstName = 'Robert';",
+    "UPDATE Librarians SET FirstName = 'Emily', LastName = 'Clark' WHERE LibrarianID = 5;",
+    "UPDATE Librarians SET HireDate = '2024-02-01' WHERE LastName = 'Brown' AND FirstName = 'Sarah';",
+    "UPDATE Librarians SET LibraryID = 4 WHERE LastName = 'Williams';"
+  ],
+  "select": {
+        "no_filtering": [
+            "SELECT LibraryID FROM Libraries;",
+            "SELECT BookID FROM Books;",
+            "SELECT LibrarianID FROM Librarians;",
+            "SELECT LibraryID FROM Books;"
+        ],
+        "single_filtering": [
+            "SELECT LibraryID FROM Libraries WHERE LibraryName = 'Central Library';",
+            "SELECT BookID FROM Books WHERE Title = '1984';",
+            "SELECT LibrarianID FROM Librarians WHERE LastName = 'Smith';",
+            "SELECT BookID FROM Books WHERE LibraryID = 1;"
+        ],
+        "double_filtering": [
+            "SELECT LibraryID FROM Libraries WHERE LibraryName = 'Central Library' AND Address = '123 Main St';",
+            "SELECT BookID FROM Books WHERE Title = '1984' OR Author = 'George Orwell';",
+            "SELECT LibrarianID FROM Librarians WHERE LastName = 'Smith' AND HireDate = '2023-01-01';",
+            "SELECT BookID FROM Books WHERE LibraryID = 1 AND ISBN = '9780451524935';"
+        ],
+        "triple_filtering": [
+            "SELECT LibraryID FROM Libraries WHERE LibraryName = 'Central Library' AND Address = '123 Main St' OR Address = '456 Elm St';",
+            "SELECT BookID FROM Books WHERE Title = '1984' AND Author = 'George Orwell' AND LibraryID = 1;",
+            "SELECT LibrarianID FROM Librarians WHERE LastName = 'Smith' OR FirstName = 'John' AND HireDate = '2023-01-01';",
+            "SELECT BookID FROM Books WHERE LibraryID = 1 AND ISBN = '9780451524935' OR Title = 'Animal Farm';"
+        ],
+        "range_filtering": [
+            "SELECT LibrarianID FROM Librarians WHERE HireDate BETWEEN '2022-01-01' AND '2023-12-31';",
+            "SELECT BookID FROM Books WHERE BookID BETWEEN 100 AND 200;",
+            "SELECT LibraryID FROM Libraries WHERE LibraryID BETWEEN 1 AND 5;",
+            "SELECT LibrarianID FROM Librarians WHERE LibrarianID BETWEEN 10 AND 20;"
+        ],
+        "ranking": [
+            "SELECT BookID FROM Books ORDER BY Title ASC;",
+            "SELECT LibrarianID FROM Librarians ORDER BY HireDate DESC;",
+            "SELECT LibraryID FROM Libraries ORDER BY LibraryName ASC;",
+            "SELECT BookID FROM Books ORDER BY BookID DESC;"
+        ],
+        "count": [
+            "SELECT COUNT(LibraryID) FROM Libraries;",
+            "SELECT COUNT(BookID) FROM Books;",
+            "SELECT COUNT(LibrarianID) FROM Librarians;",
+            "SELECT COUNT(BookID) FROM Books WHERE LibraryID = 1;"
+        ],
+        "single_table": [
+            "SELECT LibraryID FROM Libraries;",
+            "SELECT BookID FROM Books;",
+            "SELECT LibrarianID FROM Librarians;",
+            "SELECT LibraryID FROM Books;"
+        ],
+        "double_table": [
+            "SELECT Books.BookID FROM Books INNER JOIN Libraries ON Books.LibraryID = Libraries.LibraryID;",
+            "SELECT Librarians.LibrarianID FROM Librarians INNER JOIN Libraries ON Librarians.LibraryID = Libraries.LibraryID;",
+            "SELECT Books.BookID FROM Books LEFT JOIN Libraries ON Books.LibraryID = Libraries.LibraryID;",
+            "SELECT Librarians.LibrarianID FROM Librarians RIGHT JOIN Libraries ON Librarians.LibraryID = Libraries.LibraryID;"
+        ],
+        "three_table": [
+            "SELECT Books.BookID FROM Books INNER JOIN Libraries ON Books.LibraryID = Libraries.LibraryID INNER JOIN Librarians ON Libraries.LibraryID = Librarians.LibraryID;",
+            "SELECT Librarians.LibrarianID FROM Librarians INNER JOIN Libraries ON Librarians.LibraryID = Libraries.LibraryID INNER JOIN Books ON Libraries.LibraryID = Books.LibraryID;",
+            "SELECT Libraries.LibraryID FROM Libraries INNER JOIN Books ON Libraries.LibraryID = Books.LibraryID INNER JOIN Librarians ON Libraries.LibraryID = Librarians.LibraryID;",
+            "SELECT Books.BookID FROM Books LEFT JOIN Libraries ON Books.LibraryID = Libraries.LibraryID LEFT JOIN Librarians ON Libraries.LibraryID = Librarians.LibraryID;"
+        ]
+    }
+
+
+}

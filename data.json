@@ -15,35 +15,7 @@
 
    
   
-  
-   
 
-
- 
-    {
-        "drop_tables":[
-            "DROP TABLE IF EXISTS Movies;",
-            "DROP TABLE IF EXISTS Actors;",
-            "DROP TABLE IF EXISTS MovieActors;"
-        ],
-        "create_tables":[
-            "CREATE TABLE Movies (MovieID INT NOT NULL AUTO_INCREMENT, Title VARCHAR(100) NOT NULL, Genre VARCHAR(50), ReleaseYear YEAR, PRIMARY KEY (MovieID));",
-            "CREATE TABLE Actors (ActorID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, BirthDate DATE, PRIMARY KEY (ActorID));",
-            "CREATE TABLE MovieActors (MovieActorID INT NOT NULL AUTO_INCREMENT, MovieID INT NOT NULL, ActorID INT NOT NULL, Role VARCHAR(100), PRIMARY KEY (MovieActorID), FOREIGN KEY (MovieID) REFERENCES Movies(MovieID), FOREIGN KEY (ActorID) REFERENCES Actors(ActorID));"
-        ]
-    },
-    {
-        "drop_tables":[
-            "DROP TABLE IF EXISTS Libraries;",
-            "DROP TABLE IF EXISTS Books;",
-            "DROP TABLE IF EXISTS Librarians;"
-        ],
-        "create_tables":[
-            "CREATE TABLE Libraries (LibraryID INT NOT NULL AUTO_INCREMENT, LibraryName VARCHAR(100) NOT NULL, Address VARCHAR(255) NOT NULL, PRIMARY KEY (LibraryID));",
-            "CREATE TABLE Books (BookID INT NOT NULL AUTO_INCREMENT, Title VARCHAR(100) NOT NULL, Author VARCHAR(100), ISBN VARCHAR(13), LibraryID INT NOT NULL, PRIMARY KEY (BookID), FOREIGN KEY (LibraryID) REFERENCES Libraries(LibraryID));",
-            "CREATE TABLE Librarians (LibrarianID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, HireDate DATE NOT NULL, LibraryID INT NOT NULL, PRIMARY KEY (LibrarianID), FOREIGN KEY (LibraryID) REFERENCES Libraries(LibraryID));"
-        ]
-    },
     {
         "drop_tables":[
             "DROP TABLE IF EXISTS Airlines;",
