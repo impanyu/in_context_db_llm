@@ -8,5 +8,170 @@
         "CREATE TABLE Airlines (AirlineID INT NOT NULL AUTO_INCREMENT, AirlineName VARCHAR(100) NOT NULL, Country VARCHAR(50), PRIMARY KEY (AirlineID));",
         "CREATE TABLE Flights (FlightID INT NOT NULL AUTO_INCREMENT, FlightNumber VARCHAR(10) NOT NULL, DepartureCity VARCHAR(50), ArrivalCity VARCHAR(50), AirlineID INT NOT NULL, PRIMARY KEY (FlightID), FOREIGN KEY (AirlineID) REFERENCES Airlines(AirlineID));",
         "CREATE TABLE Passengers (PassengerID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, FlightID INT NOT NULL, PRIMARY KEY (PassengerID), FOREIGN KEY (FlightID) REFERENCES Flights(FlightID));"
+    ],
+    "insert": [
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('Airways International', 'USA');",
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('SkyHigh Airlines', 'UK');",
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('Oceanic Air', 'Australia');",
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('Eagle Wings', 'Canada');",
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('Pacific Air', 'New Zealand');",
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('EuroFlights', 'Germany');",
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('Asian Skies', 'Japan');",
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('Sunshine Air', 'Brazil');",
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('Desert Airlines', 'UAE');",
+        "INSERT INTO Airlines (AirlineName, Country) VALUES ('Northern Flights', 'Norway');",
+    
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL123', 'New York', 'London', 1);",
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL456', 'Sydney', 'Auckland', 3);",
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL789', 'Toronto', 'Vancouver', 4);",
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL101', 'Berlin', 'Tokyo', 6);",
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL202', 'Dubai', 'New York', 9);",
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL303', 'London', 'Dubai', 2);",
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL404', 'Oslo', 'Reykjavik', 10);",
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL505', 'São Paulo', 'Mexico City', 8);",
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL606', 'Sydney', 'Los Angeles', 5);",
+        "INSERT INTO Flights (FlightNumber, DepartureCity, ArrivalCity, AirlineID) VALUES ('FL707', 'Tokyo', 'Berlin', 7);",
+    
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('John', 'Doe', 1);",
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('Jane', 'Smith', 2);",
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('Michael', 'Johnson', 3);",
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('Emily', 'Davis', 4);",
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('Daniel', 'Brown', 5);",
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('Laura', 'Wilson', 6);",
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('Robert', 'Garcia', 7);",
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('Linda', 'Martinez', 8);",
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('James', 'Anderson', 9);",
+        "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('Patricia', 'Thomas', 10);"
+      ],
+      "delete": [
+
+        "DELETE FROM Airlines WHERE AirlineID = 1;",
+        "DELETE FROM Airlines WHERE AirlineName = 'Airline A';",
+        "DELETE FROM Airlines WHERE Country = 'USA';",
+        "DELETE FROM Airlines WHERE Country = 'Canada';",
+        "DELETE FROM Airlines WHERE AirlineName LIKE 'Airline%';",
+        "DELETE FROM Airlines WHERE AirlineID > 5;",
+        "DELETE FROM Airlines WHERE AirlineID < 3;",
+        "DELETE FROM Airlines WHERE Country = 'UK' OR Country = 'France';",
+        "DELETE FROM Airlines WHERE AirlineName = 'Airline B' AND Country = 'Germany';",
+        "DELETE FROM Airlines WHERE Country IS NULL;",
+
+
+        "DELETE FROM Flights WHERE FlightID = 1;",
+        "DELETE FROM Flights WHERE FlightNumber = 'AA100';",
+        "DELETE FROM Flights WHERE DepartureCity = 'New York';",
+        "DELETE FROM Flights WHERE ArrivalCity = 'Los Angeles';",
+        "DELETE FROM Flights WHERE AirlineID = 2;",
+        "DELETE FROM Flights WHERE FlightNumber LIKE 'BA%';",
+        "DELETE FROM Flights WHERE DepartureCity = 'Chicago' AND ArrivalCity = 'Miami';",
+        "DELETE FROM Flights WHERE AirlineID = 3 OR AirlineID = 4;",
+        "DELETE FROM Flights WHERE FlightID > 10;",
+        "DELETE FROM Flights WHERE ArrivalCity IS NULL;",
+
+        "DELETE FROM Passengers WHERE FirstName = 'John';",
+        "DELETE FROM Passengers WHERE LastName = 'Doe';",
+        "DELETE FROM Passengers WHERE FlightID = 5;",
+        "DELETE FROM Passengers WHERE FirstName LIKE 'A%';",
+        "DELETE FROM Passengers WHERE PassengerID < 10;",
+        "DELETE FROM Passengers WHERE FlightID = 2 AND LastName = 'Smith';",
+        "DELETE FROM Passengers WHERE FlightID = 3 OR FlightID = 4;",
+        "DELETE FROM Passengers WHERE LastName = 'Brown' AND FirstName = 'Emily';",
+        "DELETE FROM Passengers WHERE FlightID IS NULL;"
+    ],
+    "update": [
+        "UPDATE Airlines SET AirlineName = 'New Airline Name' WHERE AirlineID = 1;",
+        "UPDATE Airlines SET Country = 'USA' WHERE AirlineName = 'Airline A';",
+        "UPDATE Airlines SET AirlineName = 'Updated Airline Name' WHERE Country = 'France';",
+        "UPDATE Airlines SET Country = 'Canada' WHERE AirlineID = 3;",
+        "UPDATE Airlines SET AirlineName = 'Another Airline' WHERE AirlineName = 'Old Airline Name';",
+        "UPDATE Airlines SET Country = 'Germany' WHERE AirlineID = 5;",
+        "UPDATE Airlines SET AirlineName = 'New Name' WHERE AirlineName = 'Airline B' AND Country = 'UK';",
+        "UPDATE Airlines SET Country = 'Spain' WHERE AirlineID = 2;",
+        "UPDATE Airlines SET AirlineName = 'Airline XYZ' WHERE Country = 'Japan';",
+        "UPDATE Airlines SET Country = 'Australia' WHERE AirlineID = 7 AND AirlineName = 'Airline C';",
+
+        "UPDATE Flights SET FlightNumber = 'AB123' WHERE FlightID = 1;",
+        "UPDATE Flights SET DepartureCity = 'New York' WHERE FlightID = 2;",
+        "UPDATE Flights SET ArrivalCity = 'Tokyo' WHERE FlightNumber = 'XY789';",
+        "UPDATE Flights SET AirlineID = 3 WHERE FlightID = 4;",
+        "UPDATE Flights SET DepartureCity = 'Paris', ArrivalCity = 'Berlin' WHERE AirlineID = 1;",
+        "UPDATE Flights SET FlightNumber = 'CD456' WHERE DepartureCity = 'Los Angeles' AND ArrivalCity = 'Chicago';",
+        "UPDATE Flights SET AirlineID = 5 WHERE FlightNumber = 'EF789' AND DepartureCity = 'San Francisco';",
+        "UPDATE Flights SET FlightNumber = 'GH012' WHERE FlightID = 6;",
+        "UPDATE Flights SET DepartureCity = 'Miami' WHERE ArrivalCity = 'Dallas';",
+        "UPDATE Flights SET ArrivalCity = 'Toronto' WHERE FlightNumber = 'IJ345';",
+
+        "UPDATE Passengers SET FirstName = 'John' WHERE PassengerID = 1;",
+        "UPDATE Passengers SET LastName = 'Doe' WHERE FirstName = 'Jane';",
+        "UPDATE Passengers SET FlightID = 2 WHERE PassengerID = 3;",
+        "UPDATE Passengers SET FirstName = 'Alice', LastName = 'Smith' WHERE FlightID = 4;",
+        "UPDATE Passengers SET LastName = 'Johnson' WHERE PassengerID = 5 AND FlightID = 1;",
+        "UPDATE Passengers SET FirstName = 'Robert' WHERE LastName = 'Brown' AND FlightID = 6;",
+        "UPDATE Passengers SET FlightID = 7 WHERE FirstName = 'Emily';",
+        "UPDATE Passengers SET LastName = 'Davis' WHERE PassengerID = 8;",
+        "UPDATE Passengers SET FirstName = 'Michael' WHERE LastName = 'Clark' AND FlightID = 9;",
+        "UPDATE Passengers SET FlightID = 10 WHERE FirstName = 'Sarah';"
+   ],
+   "select": {
+    "no_filtering": [
+      "SELECT AirlineID FROM Airlines;",
+      "SELECT FlightID FROM Flights;",
+      "SELECT PassengerID FROM Passengers;",
+      "SELECT FlightNumber FROM Flights;"
+    ],
+    "single_filtering": [
+      "SELECT AirlineID FROM Airlines WHERE Country = 'USA';",
+      "SELECT FlightID FROM Flights WHERE DepartureCity = 'New York';",
+      "SELECT PassengerID FROM Passengers WHERE LastName = 'Smith';",
+      "SELECT AirlineID FROM Airlines WHERE AirlineName = 'Delta';"
+    ],
+    "double_filtering": [
+      "SELECT AirlineID FROM Airlines WHERE Country = 'USA' AND AirlineName = 'Delta';",
+      "SELECT FlightID FROM Flights WHERE DepartureCity = 'New York' AND ArrivalCity = 'Los Angeles';",
+      "SELECT PassengerID FROM Passengers WHERE LastName = 'Smith' AND FirstName = 'John';",
+      "SELECT FlightID FROM Flights WHERE AirlineID = 1 OR ArrivalCity = 'Chicago';"
+    ],
+    "triple_filtering": [
+      "SELECT AirlineID FROM Airlines WHERE Country = 'USA' AND AirlineName = 'Delta' AND AirlineID > 10;",
+      "SELECT FlightID FROM Flights WHERE DepartureCity = 'New York' AND ArrivalCity = 'Los Angeles' AND FlightNumber LIKE 'DL%';",
+      "SELECT PassengerID FROM Passengers WHERE LastName = 'Smith' AND FirstName = 'John' AND FlightID = 2;",
+      "SELECT FlightID FROM Flights WHERE AirlineID = 1 OR ArrivalCity = 'Chicago' OR FlightNumber = 'AA100';"
+    ],
+    "range_filtering": [
+      "SELECT AirlineID FROM Airlines WHERE AirlineID BETWEEN 10 AND 20;",
+      "SELECT FlightID FROM Flights WHERE FlightID BETWEEN 100 AND 200;",
+      "SELECT PassengerID FROM Passengers WHERE PassengerID BETWEEN 50 AND 100;",
+      "SELECT AirlineID FROM Airlines WHERE AirlineID BETWEEN 5 AND 15;"
+    ],
+    "ranking": [
+      "SELECT AirlineID FROM Airlines ORDER BY AirlineName ASC;",
+      "SELECT FlightID FROM Flights ORDER BY FlightNumber DESC;",
+      "SELECT PassengerID FROM Passengers ORDER BY LastName ASC;",
+      "SELECT FlightID FROM Flights ORDER BY DepartureCity DESC;"
+    ],
+    "count": [
+      "SELECT COUNT(AirlineID) FROM Airlines;",
+      "SELECT COUNT(FlightID) FROM Flights;",
+      "SELECT COUNT(PassengerID) FROM Passengers;",
+      "SELECT COUNT(AirlineID) FROM Airlines WHERE Country = 'USA';"
+    ],
+    "single_table": [
+      "SELECT AirlineID FROM Airlines;",
+      "SELECT FlightID FROM Flights;",
+      "SELECT PassengerID FROM Passengers;",
+      "SELECT FlightID FROM Flights WHERE ArrivalCity = 'Los Angeles';"
+    ],
+    "double_table": [
+      "SELECT F.FlightID FROM Flights F JOIN Airlines A ON F.AirlineID = A.AirlineID;",
+      "SELECT P.PassengerID FROM Passengers P JOIN Flights F ON P.FlightID = F.FlightID;",
+      "SELECT F.FlightID FROM Flights F JOIN Airlines A ON F.AirlineID = A.AirlineID WHERE A.Country = 'USA';",
+      "SELECT P.PassengerID FROM Passengers P JOIN Flights F ON P.FlightID = F.FlightID WHERE F.DepartureCity = 'New York';"
+    ],
+    "three_table": [
+      "SELECT P.PassengerID FROM Passengers P JOIN Flights F ON P.FlightID = F.FlightID JOIN Airlines A ON F.AirlineID = A.AirlineID;",
+      "SELECT F.FlightID FROM Flights F JOIN Airlines A ON F.AirlineID = A.AirlineID JOIN Passengers P ON F.FlightID = P.FlightID;",
+      "SELECT P.PassengerID FROM Passengers P JOIN Flights F ON P.FlightID = F.FlightID JOIN Airlines A ON F.AirlineID = A.AirlineID WHERE A.Country = 'USA';",
+      "SELECT F.FlightID FROM Flights F JOIN Airlines A ON F.AirlineID = A.AirlineID JOIN Passengers P ON F.FlightID = P.FlightID WHERE P.LastName = 'Smith';"
     ]
+  }
 }
