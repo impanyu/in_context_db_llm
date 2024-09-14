@@ -1,0 +1,251 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Universities;",
+        "DROP TABLE IF EXISTS Faculties;",
+        "DROP TABLE IF EXISTS Departments;",
+        "DROP TABLE IF EXISTS Courses;",
+        "DROP TABLE IF EXISTS Students;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Universities (UniversityID INT NOT NULL AUTO_INCREMENT, UniversityName VARCHAR(100) NOT NULL, Location VARCHAR(255), PRIMARY KEY (UniversityID));",
+        "CREATE TABLE Faculties (FacultyID INT NOT NULL AUTO_INCREMENT, FacultyName VARCHAR(100) NOT NULL, UniversityID INT NOT NULL, PRIMARY KEY (FacultyID), FOREIGN KEY (UniversityID) REFERENCES Universities(UniversityID));",
+        "CREATE TABLE Departments (DepartmentID INT NOT NULL AUTO_INCREMENT, DepartmentName VARCHAR(100) NOT NULL, FacultyID INT NOT NULL, PRIMARY KEY (DepartmentID), FOREIGN KEY (FacultyID) REFERENCES Faculties(FacultyID));",
+        "CREATE TABLE Courses (CourseID INT NOT NULL AUTO_INCREMENT, CourseName VARCHAR(100) NOT NULL, DepartmentID INT NOT NULL, Credits INT NOT NULL, PRIMARY KEY (CourseID), FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID));",
+        "CREATE TABLE Students (StudentID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, DateOfBirth DATE NOT NULL, PRIMARY KEY (StudentID));"
+    ],
+
+    "insert": [
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('Harvard University', 'Cambridge, MA, USA');",
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('Stanford University', 'Stanford, CA, USA');",
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('University of Oxford', 'Oxford, England');",
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('Massachusetts Institute of Technology', 'Cambridge, MA, USA');",
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('University of Cambridge', 'Cambridge, England');",
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('California Institute of Technology', 'Pasadena, CA, USA');",
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('Princeton University', 'Princeton, NJ, USA');",
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('Yale University', 'New Haven, CT, USA');",
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('Columbia University', 'New York, NY, USA');",
+          "INSERT INTO Universities (UniversityName, Location) VALUES ('University of Chicago', 'Chicago, IL, USA');",
+          
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Arts and Sciences', 1);",
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Engineering', 2);",
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Law', 3);",
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Business', 4);",
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Medicine', 5);",
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Science', 6);",
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Computer Science', 7);",
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Humanities', 8);",
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Social Sciences', 9);",
+          "INSERT INTO Faculties (FacultyName, UniversityID) VALUES ('Faculty of Architecture', 10);",
+          
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Physics', 1);",
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Electrical Engineering', 2);",
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Political Science', 3);",
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Finance', 4);",
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Biology', 5);",
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Mathematics', 6);",
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Computer Science', 7);",
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Philosophy', 8);",
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Psychology', 9);",
+          "INSERT INTO Departments (DepartmentName, FacultyID) VALUES ('Department of Urban Planning', 10);",
+          
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Quantum Mechanics', 1, 4);",
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Circuit Analysis', 2, 3);",
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Comparative Politics', 3, 3);",
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Corporate Finance', 4, 4);",
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Molecular Biology', 5, 4);",
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Linear Algebra', 6, 3);",
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Algorithms', 7, 4);",
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Ethics in Philosophy', 8, 3);",
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Cognitive Psychology', 9, 3);",
+          "INSERT INTO Courses (CourseName, DepartmentID, Credits) VALUES ('Urban Design', 10, 4);",
+          
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('John', 'Doe', '1995-07-20');",
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Jane', 'Smith', '1994-03-15');",
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Michael', 'Johnson', '1996-09-12');",
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Emily', 'Davis', '1997-01-25');",
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Christopher', 'Brown', '1995-11-30');",
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Jessica', 'Williams', '1996-02-18');",
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Daniel', 'Jones', '1994-05-08');",
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Laura', 'Garcia', '1997-08-14');",
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Matthew', 'Martinez', '1995-12-05');",
+          "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Sophia', 'Rodriguez', '1996-06-22');"
+        ],
+        
+            "delete": [
+                "DELETE FROM Universities WHERE UniversityID = 5;",
+                "DELETE FROM Universities WHERE UniversityName = 'Harvard University';",
+                "DELETE FROM Universities WHERE Location = 'California';",
+                "DELETE FROM Universities WHERE UniversityID > 10;",
+                "DELETE FROM Universities WHERE UniversityName LIKE 'Stanford%';",
+                "DELETE FROM Universities WHERE Location = 'New York' AND UniversityName LIKE 'Columbia%';",
+                "DELETE FROM Universities WHERE UniversityID BETWEEN 15 AND 20;",
+                "DELETE FROM Universities WHERE UniversityName = 'MIT' OR Location = 'Massachusetts';",
+                "DELETE FROM Universities WHERE Location = 'Texas' AND UniversityName = 'University of Texas';",
+                "DELETE FROM Universities WHERE UniversityName = 'Oxford' AND Location = 'United Kingdom';",
+
+                "DELETE FROM Faculties WHERE FacultyID = 3;",
+                "DELETE FROM Faculties WHERE FacultyName = 'Engineering';",
+                "DELETE FROM Faculties WHERE UniversityID = 2;",
+                "DELETE FROM Faculties WHERE FacultyID > 5;",
+                "DELETE FROM Faculties WHERE FacultyName LIKE 'Science%';",
+                "DELETE FROM Faculties WHERE UniversityID = 1 AND FacultyName = 'Law';",
+                "DELETE FROM Faculties WHERE FacultyID BETWEEN 7 AND 9;",
+                "DELETE FROM Faculties WHERE FacultyName = 'Business' OR UniversityID = 4;",
+                "DELETE FROM Faculties WHERE UniversityID = 3 AND FacultyName = 'Medicine';",
+                "DELETE FROM Faculties WHERE FacultyName = 'Arts' AND UniversityID = 6;",
+        
+
+                "DELETE FROM Departments WHERE DepartmentID = 2;",
+                "DELETE FROM Departments WHERE DepartmentName = 'Computer Science';",
+                "DELETE FROM Departments WHERE FacultyID = 4;",
+                "DELETE FROM Departments WHERE DepartmentID > 10;",
+                "DELETE FROM Departments WHERE DepartmentName LIKE 'History%';",
+                "DELETE FROM Departments WHERE FacultyID = 5 AND DepartmentName = 'Physics';",
+                "DELETE FROM Departments WHERE DepartmentID BETWEEN 3 AND 8;",
+                "DELETE FROM Departments WHERE DepartmentName = 'Mathematics' OR FacultyID = 2;",
+                "DELETE FROM Departments WHERE FacultyID = 6 AND DepartmentName = 'Biology';",
+                "DELETE FROM Departments WHERE DepartmentName = 'Chemistry' AND FacultyID = 7;",
+ 
+                "DELETE FROM Courses WHERE CourseID = 12;",
+                "DELETE FROM Courses WHERE CourseName = 'Calculus';",
+                "DELETE FROM Courses WHERE DepartmentID = 9;",
+                "DELETE FROM Courses WHERE CourseID > 20;",
+                "DELETE FROM Courses WHERE CourseName LIKE 'Introduction%';",
+                "DELETE FROM Courses WHERE DepartmentID = 3 AND Credits = 3;",
+                "DELETE FROM Courses WHERE CourseID BETWEEN 15 AND 25;",
+                "DELETE FROM Courses WHERE CourseName = 'Statistics' OR DepartmentID = 10;",
+                "DELETE FROM Courses WHERE DepartmentID = 7 AND Credits = 4;",
+                "DELETE FROM Courses WHERE CourseName = 'Physics' AND DepartmentID = 11;",
+        
+                "DELETE FROM Students WHERE StudentID = 30;",
+                "DELETE FROM Students WHERE FirstName = 'John';",
+                "DELETE FROM Students WHERE LastName = 'Doe';",
+                "DELETE FROM Students WHERE DateOfBirth < '2000-01-01';",
+                "DELETE FROM Students WHERE FirstName LIKE 'A%';",
+                "DELETE FROM Students WHERE LastName = 'Smith' AND FirstName = 'Jane';",
+                "DELETE FROM Students WHERE StudentID BETWEEN 50 AND 60;",
+                "DELETE FROM Students WHERE LastName = 'Brown' OR FirstName = 'Emily';",
+                "DELETE FROM Students WHERE FirstName = 'Michael' AND LastName = 'Johnson';",
+                "DELETE FROM Students WHERE DateOfBirth = '1998-05-15' AND LastName = 'Williams';"
+            ],
+                "update": [
+                    "UPDATE Universities SET Location = 'New York, USA' WHERE UniversityID = 1;",
+                    "UPDATE Universities SET UniversityName = 'Oxford University' WHERE UniversityID = 2;",
+                    "UPDATE Universities SET Location = 'London, UK' WHERE UniversityName = 'University College London';",
+                    "UPDATE Universities SET UniversityName = 'Harvard University', Location = 'Cambridge, MA, USA' WHERE UniversityID = 3;",
+                    "UPDATE Universities SET Location = 'Berlin, Germany' WHERE UniversityName = 'Humboldt University';",
+                    "UPDATE Universities SET UniversityName = 'Stanford University' WHERE Location = 'Stanford, CA, USA';",
+                    "UPDATE Universities SET UniversityName = 'MIT', Location = 'Cambridge, MA, USA' WHERE UniversityID = 4;",
+                    "UPDATE Universities SET Location = 'Paris, France' WHERE UniversityName = 'Sorbonne University';",
+                    "UPDATE Universities SET UniversityName = 'University of Tokyo' WHERE Location = 'Tokyo, Japan';",
+                    "UPDATE Universities SET Location = 'Beijing, China' WHERE UniversityName = 'Tsinghua University';",
+                    
+                    "UPDATE Faculties SET FacultyName = 'Faculty of Science' WHERE FacultyID = 1;",
+                    "UPDATE Faculties SET FacultyName = 'Faculty of Arts' WHERE FacultyID = 2;",
+                    "UPDATE Faculties SET UniversityID = 3 WHERE FacultyName = 'Faculty of Engineering';",
+                    "UPDATE Faculties SET FacultyName = 'Faculty of Medicine', UniversityID = 4 WHERE FacultyID = 3;",
+                    "UPDATE Faculties SET FacultyName = 'Faculty of Business' WHERE UniversityID = 5 AND FacultyID = 4;",
+                    "UPDATE Faculties SET UniversityID = 6 WHERE FacultyName = 'Faculty of Law';",
+                    "UPDATE Faculties SET FacultyName = 'Faculty of Humanities' WHERE FacultyID = 5;",
+                    "UPDATE Faculties SET FacultyName = 'Faculty of Social Sciences', UniversityID = 7 WHERE FacultyID = 6;",
+                    "UPDATE Faculties SET UniversityID = 8 WHERE FacultyName = 'Faculty of Education';",
+                    "UPDATE Faculties SET FacultyName = 'Faculty of Architecture' WHERE FacultyID = 7;",
+                    
+                    "UPDATE Departments SET DepartmentName = 'Department of Physics' WHERE DepartmentID = 1;",
+                    "UPDATE Departments SET DepartmentName = 'Department of History' WHERE DepartmentID = 2;",
+                    "UPDATE Departments SET FacultyID = 3 WHERE DepartmentName = 'Department of Computer Science';",
+                    "UPDATE Departments SET DepartmentName = 'Department of Economics', FacultyID = 4 WHERE DepartmentID = 3;",
+                    "UPDATE Departments SET DepartmentName = 'Department of Mathematics' WHERE FacultyID = 5 AND DepartmentID = 4;",
+                    "UPDATE Departments SET FacultyID = 6 WHERE DepartmentName = 'Department of Chemistry';",
+                    "UPDATE Departments SET DepartmentName = 'Department of Literature' WHERE DepartmentID = 5;",
+                    "UPDATE Departments SET DepartmentName = 'Department of Political Science', FacultyID = 7 WHERE DepartmentID = 6;",
+                    "UPDATE Departments SET FacultyID = 8 WHERE DepartmentName = 'Department of Philosophy';",
+                    "UPDATE Departments SET DepartmentName = 'Department of Architecture' WHERE DepartmentID = 7;",
+                    
+                    "UPDATE Courses SET CourseName = 'Introduction to Physics' WHERE CourseID = 1;",
+                    "UPDATE Courses SET CourseName = 'World History' WHERE CourseID = 2;",
+                    "UPDATE Courses SET DepartmentID = 3 WHERE CourseName = 'Advanced Algorithms';",
+                    "UPDATE Courses SET CourseName = 'Microeconomics', DepartmentID = 4 WHERE CourseID = 3;",
+                    "UPDATE Courses SET CourseName = 'Linear Algebra' WHERE DepartmentID = 5 AND CourseID = 4;",
+                    "UPDATE Courses SET DepartmentID = 6 WHERE CourseName = 'Organic Chemistry';",
+                    "UPDATE Courses SET CourseName = 'Modern Literature' WHERE CourseID = 5;",
+                    "UPDATE Courses SET CourseName = 'Comparative Politics', DepartmentID = 7 WHERE CourseID = 6;",
+                    "UPDATE Courses SET DepartmentID = 8 WHERE CourseName = 'Ethics in Philosophy';",
+                    "UPDATE Courses SET CourseName = 'Design Principles' WHERE CourseID = 7;",
+                    
+                    "UPDATE Students SET LastName = 'Smith' WHERE StudentID = 1;",
+                    "UPDATE Students SET FirstName = 'John' WHERE StudentID = 2;",
+                    "UPDATE Students SET DateOfBirth = '1995-05-14' WHERE FirstName = 'Jane';",
+                    "UPDATE Students SET FirstName = 'Alice', LastName = 'Johnson' WHERE StudentID = 3;",
+                    "UPDATE Students SET LastName = 'Williams' WHERE FirstName = 'Robert' AND StudentID = 4;",
+                    "UPDATE Students SET FirstName = 'Emily' WHERE LastName = 'Brown';",
+                    "UPDATE Students SET DateOfBirth = '1998-03-22' WHERE StudentID = 5;",
+                    "UPDATE Students SET LastName = 'Miller', FirstName = 'Sarah' WHERE StudentID = 6;",
+                    "UPDATE Students SET FirstName = 'Michael' WHERE LastName = 'Davis';",
+                    "UPDATE Students SET LastName = 'Wilson' WHERE StudentID = 7;"
+                ],
+
+                 "select": {
+                        "no_filtering": [
+                            "SELECT UniversityID FROM Universities;",
+                            "SELECT FacultyID FROM Faculties;",
+                            "SELECT DepartmentID FROM Departments;",
+                            "SELECT StudentID FROM Students;"
+                        ],
+                        "single_filtering": [
+                            "SELECT UniversityID FROM Universities WHERE Location = 'New York';",
+                            "SELECT FacultyID FROM Faculties WHERE FacultyName = 'Engineering';",
+                            "SELECT DepartmentID FROM Departments WHERE FacultyID = 1;",
+                            "SELECT StudentID FROM Students WHERE LastName = 'Smith';"
+                        ],
+                        "double_filtering": [
+                            "SELECT UniversityID FROM Universities WHERE Location = 'New York' AND UniversityName = 'NYU';",
+                            "SELECT FacultyID FROM Faculties WHERE FacultyName = 'Engineering' AND UniversityID = 1;",
+                            "SELECT DepartmentID FROM Departments WHERE FacultyID = 1 AND DepartmentName = 'Computer Science';",
+                            "SELECT StudentID FROM Students WHERE LastName = 'Smith' AND FirstName = 'John';"
+                        ],
+                        "triple_filtering": [
+                            "SELECT UniversityID FROM Universities WHERE Location = 'New York' AND UniversityName = 'NYU' OR UniversityName = 'Columbia';",
+                            "SELECT FacultyID FROM Faculties WHERE FacultyName = 'Engineering' AND UniversityID = 1 OR FacultyName = 'Science';",
+                            "SELECT DepartmentID FROM Departments WHERE FacultyID = 1 AND DepartmentName = 'Computer Science' OR DepartmentName = 'Electrical Engineering';",
+                            "SELECT StudentID FROM Students WHERE LastName = 'Smith' AND FirstName = 'John' OR DateOfBirth = '1990-01-01';"
+                        ],
+                        "range_filtering": [
+                            "SELECT UniversityID FROM Universities WHERE UniversityID BETWEEN 1 AND 10;",
+                            "SELECT FacultyID FROM Faculties WHERE FacultyID BETWEEN 1 AND 5;",
+                            "SELECT DepartmentID FROM Departments WHERE DepartmentID BETWEEN 1 AND 3;",
+                            "SELECT StudentID FROM Students WHERE StudentID BETWEEN 10 AND 20;"
+                        ],
+                        "ranking": [
+                            "SELECT UniversityID FROM Universities ORDER BY UniversityName ASC;",
+                            "SELECT FacultyID FROM Faculties ORDER BY FacultyName DESC;",
+                            "SELECT DepartmentID FROM Departments ORDER BY DepartmentName ASC;",
+                            "SELECT StudentID FROM Students ORDER BY LastName DESC;"
+                        ],
+                        "count": [
+                            "SELECT COUNT(UniversityID) FROM Universities;",
+                            "SELECT COUNT(FacultyID) FROM Faculties;",
+                            "SELECT COUNT(DepartmentID) FROM Departments;",
+                            "SELECT COUNT(StudentID) FROM Students;"
+                        ],
+                        "single_table": [
+                            "SELECT UniversityID FROM Universities;",
+                            "SELECT FacultyID FROM Faculties;",
+                            "SELECT DepartmentID FROM Departments;",
+                            "SELECT StudentID FROM Students;"
+                        ],
+                        "double_table": [
+                            "SELECT UniversityID FROM Universities INNER JOIN Faculties ON Universities.UniversityID = Faculties.UniversityID;",
+                            "SELECT FacultyID FROM Faculties INNER JOIN Departments ON Faculties.FacultyID = Departments.FacultyID;",
+                            "SELECT DepartmentID FROM Departments INNER JOIN Courses ON Departments.DepartmentID = Courses.DepartmentID;",
+                            "SELECT CourseID FROM Courses INNER JOIN Departments ON Courses.DepartmentID = Departments.DepartmentID;"
+                        ],
+                        "three_table": [
+                            "SELECT UniversityID FROM Universities INNER JOIN Faculties ON Universities.UniversityID = Faculties.UniversityID INNER JOIN Departments ON Faculties.FacultyID = Departments.FacultyID;",
+                            "SELECT FacultyID FROM Faculties INNER JOIN Departments ON Faculties.FacultyID = Departments.FacultyID INNER JOIN Courses ON Departments.DepartmentID = Courses.DepartmentID;",
+                            "SELECT DepartmentID FROM Departments INNER JOIN Faculties ON Departments.FacultyID = Faculties.FacultyID INNER JOIN Universities ON Faculties.UniversityID = Universities.UniversityID;",
+                            "SELECT StudentID FROM Students INNER JOIN Enrollments ON Students.StudentID = Enrollments.StudentID INNER JOIN Courses ON Enrollments.CourseID = Courses.CourseID;"
+                        ]
+                    }
+                
+}

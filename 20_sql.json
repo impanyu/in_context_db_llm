@@ -1,0 +1,253 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Restaurants;",
+        "DROP TABLE IF EXISTS Menus;",
+        "DROP TABLE IF EXISTS Dishes;",
+        "DROP TABLE IF EXISTS Orders;",
+        "DROP TABLE IF EXISTS Customers;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Restaurants (RestaurantID INT NOT NULL AUTO_INCREMENT, RestaurantName VARCHAR(100) NOT NULL, Location VARCHAR(255), PRIMARY KEY (RestaurantID));",
+        "CREATE TABLE Menus (MenuID INT NOT NULL AUTO_INCREMENT, MenuName VARCHAR(100) NOT NULL, RestaurantID INT NOT NULL, PRIMARY KEY (MenuID), FOREIGN KEY (RestaurantID) REFERENCES Restaurants(RestaurantID));",
+        "CREATE TABLE Dishes (DishID INT NOT NULL AUTO_INCREMENT, DishName VARCHAR(100) NOT NULL, Price DECIMAL(10,2), MenuID INT NOT NULL, PRIMARY KEY (DishID), FOREIGN KEY (MenuID) REFERENCES Menus(MenuID));",
+        "CREATE TABLE Orders (OrderID INT NOT NULL AUTO_INCREMENT, CustomerID INT NOT NULL, RestaurantID INT NOT NULL, OrderDate DATETIME NOT NULL, PRIMARY KEY (OrderID), FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID), FOREIGN KEY (RestaurantID) REFERENCES Restaurants(RestaurantID));",
+        "CREATE TABLE Customers (CustomerID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, PRIMARY KEY (CustomerID));"
+    ],
+        "insert": [
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Pasta Palace', '123 Pasta Lane, Italian District');",
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Sushi World', '456 Sushi St, Japan Town');",
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Burger Barn', '789 Burger Blvd, American District');",
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Taco Tower', '101 Taco Ave, Mexican District');",
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Curry Corner', '202 Curry Ct, Indian District');",
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Pizza Place', '303 Pizza Pl, Italian District');",
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Seafood Shack', '404 Ocean Dr, Seafood District');",
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Steakhouse Supreme', '505 Steak St, American District');",
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Vegan Valley', '606 Veggie Blvd, Health District');",
+            "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Dessert Den', '707 Sweet St, Dessert District');",
+    
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Italian Classics', 1);",
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Japanese Delights', 2);",
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('American Favorites', 3);",
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Mexican Fiesta', 4);",
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Indian Spices', 5);",
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Pizza Extravaganza', 6);",
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Seafood Specialties', 7);",
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Steakhouse Select', 8);",
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Vegan Delight', 9);",
+            "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Sweet Treats', 10);",
+    
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Spaghetti Carbonara', 12.50, 1);",
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Sushi Roll', 15.00, 2);",
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Cheeseburger', 10.00, 3);",
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Tacos Al Pastor', 8.50, 4);",
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Chicken Curry', 13.00, 5);",
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Margherita Pizza', 11.00, 6);",
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Grilled Salmon', 18.00, 7);",
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Ribeye Steak', 25.00, 8);",
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Vegan Burger', 14.00, 9);",
+            "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Chocolate Cake', 7.00, 10);",
+    
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (1, 1, '2024-09-13 12:30:00');",
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (2, 2, '2024-09-14 13:00:00');",
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (3, 3, '2024-09-15 14:00:00');",
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (4, 4, '2024-09-16 18:30:00');",
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (5, 5, '2024-09-17 19:00:00');",
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (6, 6, '2024-09-18 20:00:00');",
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (7, 7, '2024-09-19 21:00:00');",
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (8, 8, '2024-09-20 22:00:00');",
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (9, 9, '2024-09-21 23:00:00');",
+            "INSERT INTO Orders (CustomerID, RestaurantID, OrderDate) VALUES (10, 10, '2024-09-22 11:00:00');",
+    
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('John', 'Doe');",
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('Jane', 'Smith');",
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('Emily', 'Johnson');",
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('Michael', 'Brown');",
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('Sarah', 'Davis');",
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('David', 'Miller');",
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('Jessica', 'Garcia');",
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('Thomas', 'Martinez');",
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('Sophia', 'Lopez');",
+            "INSERT INTO Customers (FirstName, LastName) VALUES ('Daniel', 'Gonzalez');"
+        ],
+        "delete": [
+                "DELETE FROM Restaurants WHERE RestaurantID = 1;",
+                "DELETE FROM Restaurants WHERE RestaurantName = 'Bistro Cafe';",
+                "DELETE FROM Restaurants WHERE Location = 'New York';",
+                "DELETE FROM Restaurants WHERE RestaurantID > 5;",
+                "DELETE FROM Restaurants WHERE Location = 'Chicago' AND RestaurantName LIKE 'Pizza%';",
+                "DELETE FROM Restaurants WHERE RestaurantID BETWEEN 3 AND 7;",
+                "DELETE FROM Restaurants WHERE Location IS NULL;",
+                "DELETE FROM Restaurants WHERE RestaurantName LIKE '%Grill';",
+                "DELETE FROM Restaurants WHERE Location = 'Los Angeles' OR Location = 'San Francisco';",
+                "DELETE FROM Restaurants WHERE RestaurantName = 'Sushi Place' AND Location = 'Seattle';",
+        
+                "DELETE FROM Menus WHERE MenuID = 1;",
+                "DELETE FROM Menus WHERE MenuName = 'Breakfast';",
+                "DELETE FROM Menus WHERE RestaurantID = 2;",
+                "DELETE FROM Menus WHERE MenuID > 5;",
+                "DELETE FROM Menus WHERE MenuName LIKE '%Dinner';",
+                "DELETE FROM Menus WHERE RestaurantID = 3 AND MenuName = 'Lunch';",
+                "DELETE FROM Menus WHERE MenuName IS NULL;",
+                "DELETE FROM Menus WHERE MenuID BETWEEN 10 AND 15;",
+                "DELETE FROM Menus WHERE MenuName = 'Brunch' OR MenuName = 'Supper';",
+                "DELETE FROM Menus WHERE MenuName LIKE 'Vegan%' AND RestaurantID = 4;",
+        
+                "DELETE FROM Dishes WHERE DishID = 1;",
+                "DELETE FROM Dishes WHERE DishName = 'Pancakes';",
+                "DELETE FROM Dishes WHERE Price > 20.00;",
+                "DELETE FROM Dishes WHERE MenuID = 3;",
+                "DELETE FROM Dishes WHERE DishName LIKE '%Burger';",
+                "DELETE FROM Dishes WHERE Price BETWEEN 10.00 AND 15.00;",
+                "DELETE FROM Dishes WHERE MenuID = 5 AND DishName = 'Salad';",
+                "DELETE FROM Dishes WHERE DishID > 8;",
+                "DELETE FROM Dishes WHERE Price IS NULL;",
+                "DELETE FROM Dishes WHERE DishName = 'Steak' OR DishName = 'Fish';",
+        
+                "DELETE FROM Orders WHERE OrderID = 1;",
+                "DELETE FROM Orders WHERE CustomerID = 3;",
+                "DELETE FROM Orders WHERE RestaurantID = 2;",
+                "DELETE FROM Orders WHERE OrderDate < '2024-01-01';",
+                "DELETE FROM Orders WHERE OrderID > 10;",
+                "DELETE FROM Orders WHERE OrderDate BETWEEN '2023-01-01' AND '2023-12-31';",
+                "DELETE FROM Orders WHERE CustomerID = 5 AND RestaurantID = 4;",
+                "DELETE FROM Orders WHERE OrderDate IS NULL;",
+                "DELETE FROM Orders WHERE OrderID IN (10, 12, 14);",
+                "DELETE FROM Orders WHERE CustomerID = 2 OR RestaurantID = 3;",
+        
+                "DELETE FROM Customers WHERE CustomerID = 1;",
+                "DELETE FROM Customers WHERE FirstName = 'John';",
+                "DELETE FROM Customers WHERE LastName = 'Doe';",
+                "DELETE FROM Customers WHERE CustomerID > 5;",
+                "DELETE FROM Customers WHERE FirstName LIKE '%Jane';",
+                "DELETE FROM Customers WHERE LastName = 'Smith' AND FirstName = 'Anna';",
+                "DELETE FROM Customers WHERE LastName IS NULL;",
+                "DELETE FROM Customers WHERE CustomerID BETWEEN 3 AND 7;",
+                "DELETE FROM Customers WHERE FirstName = 'Michael' OR LastName = 'Brown';",
+                "DELETE FROM Customers WHERE FirstName LIKE 'A%' AND LastName = 'Johnson';"
+            ],
+        "update": [
+    "UPDATE Restaurants SET RestaurantName = 'New York Grill' WHERE RestaurantID = 1;",
+    "UPDATE Restaurants SET Location = 'Downtown' WHERE RestaurantID = 2;",
+    "UPDATE Restaurants SET RestaurantName = 'Green Garden', Location = 'Uptown' WHERE RestaurantID = 3;",
+    "UPDATE Restaurants SET Location = 'Midtown' WHERE RestaurantID = 4;",
+    "UPDATE Restaurants SET RestaurantName = 'The Seafood Place' WHERE RestaurantID = 5;",
+    "UPDATE Restaurants SET Location = 'Riverside' WHERE RestaurantID = 6 AND RestaurantName = 'Sunset Diner';",
+    "UPDATE Restaurants SET RestaurantName = 'Mountain View' WHERE RestaurantID = 7 OR Location = 'Countryside';",
+    "UPDATE Restaurants SET Location = 'City Center' WHERE RestaurantID = 8;",
+    "UPDATE Restaurants SET RestaurantName = 'Coastal Cafe' WHERE RestaurantID = 9 AND Location = 'Beachside';",
+    "UPDATE Restaurants SET RestaurantName = 'Urban Eats' WHERE RestaurantID = 10;",
+
+    "UPDATE Menus SET MenuName = 'Lunch Specials' WHERE MenuID = 1;",
+    "UPDATE Menus SET MenuName = 'Dinner Specials' WHERE MenuID = 2;",
+    "UPDATE Menus SET MenuName = 'Breakfast Menu' WHERE MenuID = 3 AND RestaurantID = 1;",
+    "UPDATE Menus SET MenuName = 'Seasonal Menu' WHERE MenuID = 4 OR RestaurantID = 2;",
+    "UPDATE Menus SET MenuName = 'Chef’s Tasting Menu' WHERE MenuID = 5;",
+    "UPDATE Menus SET MenuName = 'Weekend Brunch' WHERE MenuID = 6;",
+    "UPDATE Menus SET MenuName = 'Vegan Options' WHERE MenuID = 7 AND RestaurantID = 3;",
+    "UPDATE Menus SET MenuName = 'Kids Menu' WHERE MenuID = 8;",
+    "UPDATE Menus SET MenuName = 'Gluten-Free Menu' WHERE MenuID = 9;",
+    "UPDATE Menus SET MenuName = 'Dessert Menu' WHERE MenuID = 10 AND RestaurantID = 4;",
+
+    "UPDATE Dishes SET DishName = 'Grilled Salmon', Price = 25.99 WHERE DishID = 1;",
+    "UPDATE Dishes SET DishName = 'Chicken Alfredo', Price = 18.50 WHERE DishID = 2;",
+    "UPDATE Dishes SET Price = 14.75 WHERE DishID = 3 AND MenuID = 1;",
+    "UPDATE Dishes SET DishName = 'Vegan Burger', Price = 12.99 WHERE DishID = 4 OR MenuID = 2;",
+    "UPDATE Dishes SET DishName = 'Spaghetti Carbonara', Price = 16.50 WHERE DishID = 5;",
+    "UPDATE Dishes SET Price = 8.99 WHERE DishID = 6 AND DishName = 'Caesar Salad';",
+    "UPDATE Dishes SET DishName = 'Ribeye Steak', Price = 29.99 WHERE DishID = 7;",
+    "UPDATE Dishes SET DishName = 'Lobster Bisque' WHERE DishID = 8;",
+    "UPDATE Dishes SET Price = 4.99 WHERE DishID = 9 AND MenuID = 3;",
+    "UPDATE Dishes SET DishName = 'Chocolate Cake', Price = 7.50 WHERE DishID = 10;",
+
+    "UPDATE Orders SET OrderDate = '2024-09-10 14:30:00' WHERE OrderID = 1;",
+    "UPDATE Orders SET OrderDate = '2024-09-11 18:00:00', RestaurantID = 3 WHERE OrderID = 2;",
+    "UPDATE Orders SET OrderDate = '2024-09-12 12:00:00' WHERE OrderID = 3 AND CustomerID = 1;",
+    "UPDATE Orders SET RestaurantID = 4 WHERE OrderID = 4 OR CustomerID = 2;",
+    "UPDATE Orders SET OrderDate = '2024-09-13 19:00:00' WHERE OrderID = 5;",
+    "UPDATE Orders SET RestaurantID = 5 WHERE OrderID = 6;",
+    "UPDATE Orders SET OrderDate = '2024-09-14 20:00:00' WHERE OrderID = 7 AND CustomerID = 3;",
+    "UPDATE Orders SET RestaurantID = 6 WHERE OrderID = 8;",
+    "UPDATE Orders SET OrderDate = '2024-09-15 21:00:00' WHERE OrderID = 9;",
+    "UPDATE Orders SET RestaurantID = 7 WHERE OrderID = 10 AND CustomerID = 4;",
+
+    "UPDATE Customers SET FirstName = 'John', LastName = 'Doe' WHERE CustomerID = 1;",
+    "UPDATE Customers SET FirstName = 'Jane', LastName = 'Smith' WHERE CustomerID = 2;",
+    "UPDATE Customers SET LastName = 'Brown' WHERE CustomerID = 3 AND FirstName = 'Michael';",
+    "UPDATE Customers SET FirstName = 'Emily', LastName = 'Davis' WHERE CustomerID = 4;",
+    "UPDATE Customers SET FirstName = 'David', LastName = 'Wilson' WHERE CustomerID = 5;",
+    "UPDATE Customers SET LastName = 'Taylor' WHERE CustomerID = 6;",
+    "UPDATE Customers SET FirstName = 'Christopher', LastName = 'Martinez' WHERE CustomerID = 7;",
+    "UPDATE Customers SET FirstName = 'Jessica', LastName = 'Lee' WHERE CustomerID = 8;",
+    "UPDATE Customers SET LastName = 'White' WHERE CustomerID = 9 AND FirstName = 'Andrew';",
+    "UPDATE Customers SET FirstName = 'Brian', LastName = 'Harris' WHERE CustomerID = 10;"
+  ],
+    "select": {
+        "no_filtering":[
+            "SELECT RestaurantID FROM Restaurants;",
+            "SELECT MenuID FROM Menus;",
+            "SELECT DishID FROM Dishes;",
+            "SELECT OrderID FROM Orders;"
+        ],
+        "single_filtering":[
+            "SELECT RestaurantID FROM Restaurants WHERE Location = 'New York';",
+            "SELECT MenuID FROM Menus WHERE MenuName = 'Lunch Menu';",
+            "SELECT DishID FROM Dishes WHERE Price = 10.00;",
+            "SELECT OrderID FROM Orders WHERE CustomerID = 1;"
+        ],
+        "double_filtering":[  
+            "SELECT RestaurantID FROM Restaurants WHERE Location = 'New York' AND RestaurantName = 'Central Perk';",
+            "SELECT MenuID FROM Menus WHERE MenuName = 'Lunch Menu' AND RestaurantID = 1;",
+            "SELECT DishID FROM Dishes WHERE Price = 10.00 AND MenuID = 2;",
+            "SELECT OrderID FROM Orders WHERE CustomerID = 1 AND RestaurantID = 1;"
+        ],
+        "triple_filtering":[
+            "SELECT RestaurantID FROM Restaurants WHERE Location = 'New York' AND RestaurantName = 'Central Perk' AND RestaurantID = 1;",
+            "SELECT MenuID FROM Menus WHERE MenuName = 'Lunch Menu' AND RestaurantID = 1 AND MenuID = 2;",
+            "SELECT DishID FROM Dishes WHERE Price = 10.00 AND MenuID = 2 AND DishID = 3;",
+            "SELECT OrderID FROM Orders WHERE CustomerID = 1 AND RestaurantID = 1 AND OrderDate = '2024-09-01';"
+        ],
+        "range_filtering":[
+            "SELECT RestaurantID FROM Restaurants WHERE RestaurantID BETWEEN 1 AND 10;",
+            "SELECT MenuID FROM Menus WHERE MenuID BETWEEN 1 AND 5;",
+            "SELECT DishID FROM Dishes WHERE Price BETWEEN 5.00 AND 15.00;",
+            "SELECT OrderID FROM Orders WHERE OrderID BETWEEN 100 AND 200;"
+        ],
+        "ranking":[
+            "SELECT RestaurantID FROM Restaurants ORDER BY RestaurantID ASC;",
+            "SELECT MenuID FROM Menus ORDER BY MenuID DESC;",
+            "SELECT DishID FROM Dishes ORDER BY Price ASC;",
+            "SELECT OrderID FROM Orders ORDER BY OrderDate DESC;"
+        ],
+        "count":[
+            "SELECT COUNT(RestaurantID) FROM Restaurants;",
+            "SELECT COUNT(MenuID) FROM Menus;",
+            "SELECT COUNT(DishID) FROM Dishes;",
+            "SELECT COUNT(OrderID) FROM Orders;"
+        ],
+        "single_table":[
+            "SELECT RestaurantID FROM Restaurants;",
+            "SELECT MenuID FROM Menus;",
+            "SELECT DishID FROM Dishes;",
+            "SELECT OrderID FROM Orders;"
+        ],
+        "double_table":[
+            "SELECT Restaurants.RestaurantID FROM Restaurants JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID;",
+            "SELECT Menus.MenuID FROM Menus JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
+            "SELECT Orders.OrderID FROM Orders JOIN Restaurants ON Orders.RestaurantID = Restaurants.RestaurantID;",
+            "SELECT Orders.OrderID FROM Orders JOIN Customers ON Orders.CustomerID = Customers.CustomerID;"
+        ],
+        "three_table":[
+            "SELECT Orders.OrderID FROM Orders JOIN Restaurants ON Orders.RestaurantID = Restaurants.RestaurantID JOIN Customers ON Orders.CustomerID = Customers.CustomerID;",
+            "SELECT Dishes.DishID FROM Dishes JOIN Menus ON Dishes.MenuID = Menus.MenuID JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID;",
+            "SELECT Menus.MenuID FROM Menus JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
+            "SELECT Orders.OrderID FROM Orders JOIN Restaurants ON Orders.RestaurantID = Restaurants.RestaurantID JOIN Customers ON Orders.CustomerID = Customers.CustomerID;"
+        ]
+    
+}
+
+        
+        
+        
+
+    
+}

@@ -1,0 +1,181 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Teams;",
+        "DROP TABLE IF EXISTS Players;",
+        "DROP TABLE IF EXISTS Matches;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Teams (TeamID INT NOT NULL AUTO_INCREMENT, TeamName VARCHAR(100) NOT NULL, CoachName VARCHAR(50), PRIMARY KEY (TeamID));",
+        "CREATE TABLE Players (PlayerID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Position VARCHAR(50), TeamID INT NOT NULL, PRIMARY KEY (PlayerID), FOREIGN KEY (TeamID) REFERENCES Teams(TeamID));",
+        "CREATE TABLE Matches (MatchID INT NOT NULL AUTO_INCREMENT, MatchDate DATE NOT NULL, HomeTeamID INT NOT NULL, AwayTeamID INT NOT NULL, PRIMARY KEY (MatchID), FOREIGN KEY (HomeTeamID) REFERENCES Teams(TeamID), FOREIGN KEY (AwayTeamID) REFERENCES Teams(TeamID));"
+    ],
+    "insert": [
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('Lakers', 'Frank Vogel');",
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('Warriors', 'Steve Kerr');",
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('Nets', 'Steve Nash');",
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('Bulls', 'Billy Donovan');",
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('Celtics', 'Ime Udoka');",
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('Heat', 'Erik Spoelstra');",
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('Knicks', 'Tom Thibodeau');",
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('76ers', 'Doc Rivers');",
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('Clippers', 'Tyronn Lue');",
+    "INSERT INTO Teams (TeamName, CoachName) VALUES ('Suns', 'Monty Williams');",
+
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('LeBron', 'James', 'Forward', 1);",
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('Stephen', 'Curry', 'Guard', 2);",
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('Kevin', 'Durant', 'Forward', 3);",
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('Zach', 'LaVine', 'Guard', 4);",
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('Jayson', 'Tatum', 'Forward', 5);",
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('Jimmy', 'Butler', 'Forward', 6);",
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('Julius', 'Randle', 'Forward', 7);",
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('Joel', 'Embiid', 'Center', 8);",
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('Kawhi', 'Leonard', 'Forward', 9);",
+    "INSERT INTO Players (FirstName, LastName, Position, TeamID) VALUES ('Chris', 'Paul', 'Guard', 10);",
+
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-01-15', 1, 2);",
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-01-20', 3, 4);",
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-01-25', 5, 6);",
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-01-30', 7, 8);",
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-02-05', 9, 10);",
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-02-10', 2, 1);",
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-02-15', 4, 3);",
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-02-20', 6, 5);",
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-02-25', 8, 7);",
+    "INSERT INTO Matches (MatchDate, HomeTeamID, AwayTeamID) VALUES ('2023-03-01', 10, 9);"
+  ],
+  "delete": [
+        "DELETE FROM Teams WHERE TeamID = 5;",
+        "DELETE FROM Teams WHERE CoachName = 'John Doe';",
+        "DELETE FROM Teams WHERE TeamName = 'Eagles';",
+        "DELETE FROM Teams WHERE TeamName = 'Panthers' OR CoachName = 'Jane Smith';",
+        "DELETE FROM Teams WHERE TeamID > 10;",
+        "DELETE FROM Teams WHERE CoachName LIKE 'A%';",
+        "DELETE FROM Teams WHERE TeamName = 'Falcons' AND CoachName = 'Sam Johnson';",
+        "DELETE FROM Teams WHERE TeamID <= 3;",
+        "DELETE FROM Teams WHERE TeamID BETWEEN 7 AND 9;",
+        "DELETE FROM Teams WHERE TeamName LIKE '%Wolves%';",
+
+        "DELETE FROM Players WHERE PlayerID = 12;",
+        "DELETE FROM Players WHERE LastName = 'Smith';",
+        "DELETE FROM Players WHERE Position = 'Forward';",
+        "DELETE FROM Players WHERE FirstName = 'John' OR LastName = 'Doe';",
+        "DELETE FROM Players WHERE TeamID = 2;",
+        "DELETE FROM Players WHERE Position LIKE 'G%';",
+        "DELETE FROM Players WHERE TeamID = 3 AND Position = 'Defender';",
+        "DELETE FROM Players WHERE PlayerID > 15;",
+        "DELETE FROM Players WHERE LastName = 'Brown' AND Position = 'Midfielder';",
+        "DELETE FROM Players WHERE PlayerID BETWEEN 4 AND 8;",
+
+        "DELETE FROM Matches WHERE MatchID = 22;",
+        "DELETE FROM Matches WHERE MatchDate = '2024-05-15';",
+        "DELETE FROM Matches WHERE HomeTeamID = 3;",
+        "DELETE FROM Matches WHERE AwayTeamID = 4 OR HomeTeamID = 5;",
+        "DELETE FROM Matches WHERE MatchID > 30;",
+        "DELETE FROM Matches WHERE MatchDate < '2023-01-01';",
+        "DELETE FROM Matches WHERE HomeTeamID = 1 AND AwayTeamID = 2;",
+        "DELETE FROM Matches WHERE MatchID BETWEEN 10 AND 20;",
+        "DELETE FROM Matches WHERE MatchDate = '2024-06-10' OR HomeTeamID = 6;",
+        "DELETE FROM Matches WHERE AwayTeamID = 7 AND MatchDate > '2024-01-01';"
+    ],
+    "update": [
+        "UPDATE Teams SET TeamName = 'Eagles', CoachName = 'John Smith' WHERE TeamID = 1;",
+        "UPDATE Teams SET CoachName = 'Mike Johnson' WHERE TeamID = 2;",
+        "UPDATE Teams SET TeamName = 'Sharks' WHERE TeamID = 3 AND CoachName = 'Sarah Lee';",
+        "UPDATE Teams SET TeamName = 'Tigers' WHERE CoachName = 'David Miller';",
+        "UPDATE Teams SET CoachName = 'Chris Evans' WHERE TeamID = 5;",
+        "UPDATE Teams SET TeamName = 'Panthers', CoachName = 'Karen Johnson' WHERE TeamID = 6;",
+        "UPDATE Teams SET TeamName = 'Wolves' WHERE TeamID = 7 OR CoachName = 'Anna Davis';",
+        "UPDATE Teams SET CoachName = 'Patricia Clark' WHERE TeamID = 8 AND TeamName = 'Bears';",
+        "UPDATE Teams SET TeamName = 'Hawks', CoachName = 'Lisa Williams' WHERE TeamID = 9;",
+        "UPDATE Teams SET CoachName = 'James Wilson' WHERE TeamID = 10 AND TeamName = 'Lions';",
+
+        "UPDATE Players SET FirstName = 'Tom', LastName = 'Brady', Position = 'Quarterback' WHERE PlayerID = 1;",
+        "UPDATE Players SET Position = 'Running Back' WHERE PlayerID = 2;",
+        "UPDATE Players SET FirstName = 'Aaron', LastName = 'Rodgers' WHERE PlayerID = 3 AND TeamID = 1;",
+        "UPDATE Players SET LastName = 'Mahomes', Position = 'Quarterback' WHERE PlayerID = 4;",
+        "UPDATE Players SET TeamID = 2 WHERE PlayerID = 5;",
+        "UPDATE Players SET FirstName = 'Russell', LastName = 'Wilson', Position = 'Quarterback' WHERE PlayerID = 6;",
+        "UPDATE Players SET Position = 'Wide Receiver' WHERE PlayerID = 7 OR TeamID = 3;",
+        "UPDATE Players SET LastName = 'Brown' WHERE PlayerID = 8 AND Position = 'Tight End';",
+        "UPDATE Players SET FirstName = 'Drew', LastName = 'Brees' WHERE PlayerID = 9;",
+        "UPDATE Players SET Position = 'Linebacker' WHERE PlayerID = 10 AND TeamID = 4;",
+
+        "UPDATE Matches SET MatchDate = '2024-09-15' WHERE MatchID = 1;",
+        "UPDATE Matches SET HomeTeamID = 3 WHERE MatchID = 2;",
+        "UPDATE Matches SET AwayTeamID = 2 WHERE MatchID = 3 AND HomeTeamID = 1;",
+        "UPDATE Matches SET MatchDate = '2024-10-10' WHERE HomeTeamID = 4;",
+        "UPDATE Matches SET HomeTeamID = 5, AwayTeamID = 6 WHERE MatchID = 5;",
+        "UPDATE Matches SET MatchDate = '2024-11-20' WHERE MatchID = 6 OR HomeTeamID = 2;",
+        "UPDATE Matches SET HomeTeamID = 7 WHERE MatchID = 7 AND AwayTeamID = 8;",
+        "UPDATE Matches SET AwayTeamID = 4 WHERE MatchID = 8 AND MatchDate = '2024-12-05';",
+        "UPDATE Matches SET MatchDate = '2024-12-25' WHERE MatchID = 9;",
+        "UPDATE Matches SET HomeTeamID = 9, AwayTeamID = 10 WHERE MatchID = 10 AND MatchDate = '2025-01-01';"
+    ],
+
+    "select": {
+        "no_filtering": [
+            "SELECT TeamID FROM Teams;",
+            "SELECT PlayerID FROM Players;",
+            "SELECT MatchID FROM Matches;",
+            "SELECT TeamName FROM Teams;"
+        ],
+        "single_filtering": [
+            "SELECT TeamID FROM Teams WHERE TeamName = 'Team A';",
+            "SELECT PlayerID FROM Players WHERE Position = 'Forward';",
+            "SELECT MatchID FROM Matches WHERE HomeTeamID = 1;",
+            "SELECT TeamID FROM Teams WHERE CoachName = 'John Doe';"
+        ],
+        "double_filtering": [
+            "SELECT TeamID FROM Teams WHERE TeamName = 'Team A' AND CoachName = 'John Doe';",
+            "SELECT PlayerID FROM Players WHERE Position = 'Forward' AND TeamID = 2;",
+            "SELECT MatchID FROM Matches WHERE HomeTeamID = 1 OR AwayTeamID = 2;",
+            "SELECT TeamID FROM Teams WHERE TeamName = 'Team B' OR CoachName = 'Jane Smith';"
+        ],
+        "triple_filtering": [
+            "SELECT TeamID FROM Teams WHERE TeamName = 'Team A' AND CoachName = 'John Doe' OR CoachName = 'Jane Smith';",
+            "SELECT PlayerID FROM Players WHERE Position = 'Forward' AND TeamID = 2 OR FirstName = 'John';",
+            "SELECT MatchID FROM Matches WHERE HomeTeamID = 1 AND AwayTeamID = 2 OR MatchDate = '2024-09-15';",
+            "SELECT TeamID FROM Teams WHERE TeamName = 'Team C' AND CoachName = 'John Doe' OR TeamName = 'Team D';"
+        ],
+        "range_filtering": [
+            "SELECT MatchID FROM Matches WHERE MatchDate BETWEEN '2024-01-01' AND '2024-12-31';",
+            "SELECT PlayerID FROM Players WHERE PlayerID BETWEEN 1 AND 50;",
+            "SELECT TeamID FROM Teams WHERE TeamID BETWEEN 1 AND 5;",
+            "SELECT MatchID FROM Matches WHERE HomeTeamID BETWEEN 1 AND 3;"
+        ],
+        "ranking": [
+            "SELECT TeamID FROM Teams ORDER BY TeamName ASC;",
+            "SELECT PlayerID FROM Players ORDER BY LastName DESC;",
+            "SELECT MatchID FROM Matches ORDER BY MatchDate ASC;",
+            "SELECT TeamID FROM Teams ORDER BY TeamID DESC;"
+        ],
+        "count": [
+            "SELECT COUNT(TeamID) FROM Teams;",
+            "SELECT COUNT(PlayerID) FROM Players WHERE Position = 'Forward';",
+            "SELECT COUNT(MatchID) FROM Matches WHERE HomeTeamID = 1;",
+            "SELECT COUNT(TeamID) FROM Teams WHERE CoachName = 'John Doe';"
+        ],
+        "single_table": [
+            "SELECT TeamID FROM Teams WHERE TeamName = 'Team A';",
+            "SELECT PlayerID FROM Players WHERE Position = 'Goalkeeper';",
+            "SELECT MatchID FROM Matches WHERE HomeTeamID = 2;",
+            "SELECT TeamID FROM Teams WHERE TeamID = 3;"
+        ],
+        "double_table": [
+            "SELECT T.TeamID FROM Teams T JOIN Players P ON T.TeamID = P.TeamID;",
+            "SELECT M.MatchID FROM Matches M JOIN Teams T ON M.HomeTeamID = T.TeamID;",
+            "SELECT P.PlayerID FROM Players P JOIN Teams T ON P.TeamID = T.TeamID WHERE T.CoachName = 'John Doe';",
+            "SELECT M.MatchID FROM Matches M JOIN Teams T ON M.AwayTeamID = T.TeamID WHERE T.TeamName = 'Team B';"
+        ],
+        "three_table": [
+            "SELECT M.MatchID FROM Matches M JOIN Teams T1 ON M.HomeTeamID = T1.TeamID JOIN Teams T2 ON M.AwayTeamID = T2.TeamID;",
+            "SELECT P.PlayerID FROM Players P JOIN Teams T ON P.TeamID = T.TeamID JOIN Matches M ON M.HomeTeamID = T.TeamID;",
+            "SELECT M.MatchID FROM Matches M JOIN Teams T ON M.HomeTeamID = T.TeamID JOIN Players P ON P.TeamID = T.TeamID;",
+            "SELECT T.TeamID FROM Teams T JOIN Matches M ON T.TeamID = M.HomeTeamID JOIN Players P ON P.TeamID = T.TeamID;"
+        ]
+    }
+    
+    
+
+
+}

@@ -1,0 +1,179 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Hotels;",
+        "DROP TABLE IF EXISTS Rooms;",
+        "DROP TABLE IF EXISTS Reservations;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Hotels (HotelID INT NOT NULL AUTO_INCREMENT, HotelName VARCHAR(100) NOT NULL, Address VARCHAR(255) NOT NULL, PRIMARY KEY (HotelID));",
+        "CREATE TABLE Rooms (RoomID INT NOT NULL AUTO_INCREMENT, RoomNumber VARCHAR(10) NOT NULL, RoomType VARCHAR(50) NOT NULL, PricePerNight DECIMAL(10,2) NOT NULL, HotelID INT NOT NULL, PRIMARY KEY (RoomID), FOREIGN KEY (HotelID) REFERENCES Hotels(HotelID));",
+        "CREATE TABLE Reservations (ReservationID INT NOT NULL AUTO_INCREMENT, GuestName VARCHAR(100) NOT NULL, RoomID INT NOT NULL, CheckInDate DATE NOT NULL, CheckOutDate DATE NOT NULL, PRIMARY KEY (ReservationID), FOREIGN KEY (RoomID) REFERENCES Rooms(RoomID));"
+    ],
+    "insert": [
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('Grand Palace Hotel', '123 Main St, Springfield');",
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('Sunset Inn', '456 Ocean Blvd, Miami');",
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('Mountain Retreat', '789 Hilltop Rd, Denver');",
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('City Center Hotel', '101 Downtown Ave, New York');",
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('Beachside Resort', '202 Seaside Dr, Los Angeles');",
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('Lakeside Lodge', '303 Lakeview Ln, Chicago');",
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('Riverside Inn', '404 River Rd, New Orleans');",
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('Desert Oasis', '505 Sand Dunes Rd, Phoenix');",
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('Forest Cabin', '606 Pine Tree Ln, Seattle');",
+    "INSERT INTO Hotels (HotelName, Address) VALUES ('Countryside B&B', '707 Country Ln, Nashville');",
+    
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('101', 'Single', 100.00, 1);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('102', 'Double', 150.00, 1);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('201', 'Suite', 250.00, 2);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('202', 'Single', 100.00, 2);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('301', 'Double', 150.00, 3);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('302', 'Suite', 300.00, 3);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('401', 'Single', 100.00, 4);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('402', 'Double', 200.00, 4);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('501', 'Suite', 350.00, 5);",
+    "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight, HotelID) VALUES ('502', 'Single', 120.00, 5);",
+    
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('John Doe', 1, '2024-09-20', '2024-09-25');",
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('Jane Smith', 2, '2024-09-18', '2024-09-22');",
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('Mark Johnson', 3, '2024-09-15', '2024-09-20');",
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('Emily Davis', 4, '2024-09-22', '2024-09-28');",
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('Michael Brown', 5, '2024-09-10', '2024-09-15');",
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('Sarah Wilson', 6, '2024-09-25', '2024-09-30');",
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('David Lee', 7, '2024-09-05', '2024-09-10');",
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('Chris Evans', 8, '2024-09-08', '2024-09-13');",
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('Laura White', 9, '2024-09-17', '2024-09-22');",
+    "INSERT INTO Reservations (GuestName, RoomID, CheckInDate, CheckOutDate) VALUES ('Kevin Harris', 10, '2024-09-20', '2024-09-25');"
+  ],
+  "delete": [
+    "DELETE FROM Hotels WHERE HotelID = 1;",
+    "DELETE FROM Hotels WHERE HotelName = 'Grand Hotel';",
+    "DELETE FROM Hotels WHERE Address = '123 Main St';",
+    "DELETE FROM Hotels WHERE HotelName = 'Sea View' AND Address = '456 Ocean Ave';",
+    "DELETE FROM Hotels WHERE HotelID = 2;",
+    "DELETE FROM Hotels WHERE HotelName = 'Mountain Lodge';",
+    "DELETE FROM Hotels WHERE Address LIKE '%Street%';",
+    "DELETE FROM Hotels WHERE HotelName = 'City Inn' OR Address = '789 City Center';",
+    "DELETE FROM Hotels WHERE HotelID = 3;",
+    "DELETE FROM Hotels WHERE HotelName LIKE '%Resort%';",
+
+    "DELETE FROM Rooms WHERE RoomID = 1;",
+    "DELETE FROM Rooms WHERE RoomNumber = '101';",
+    "DELETE FROM Rooms WHERE RoomType = 'Suite';",
+    "DELETE FROM Rooms WHERE PricePerNight > 200;",
+    "DELETE FROM Rooms WHERE RoomID = 2 AND HotelID = 1;",
+    "DELETE FROM Rooms WHERE RoomNumber = '202' OR PricePerNight < 100;",
+    "DELETE FROM Rooms WHERE RoomType = 'Standard' AND HotelID = 3;",
+    "DELETE FROM Rooms WHERE RoomID = 3;",
+    "DELETE FROM Rooms WHERE HotelID = 2;",
+    "DELETE FROM Rooms WHERE PricePerNight BETWEEN 150 AND 250;",
+
+    "DELETE FROM Reservations WHERE ReservationID = 1;",
+    "DELETE FROM Reservations WHERE GuestName = 'John Doe';",
+    "DELETE FROM Reservations WHERE CheckInDate = '2023-09-01';",
+    "DELETE FROM Reservations WHERE CheckOutDate = '2023-09-10';",
+    "DELETE FROM Reservations WHERE ReservationID = 2 AND RoomID = 1;",
+    "DELETE FROM Reservations WHERE GuestName = 'Jane Smith' OR RoomID = 2;",
+    "DELETE FROM Reservations WHERE CheckInDate < '2023-08-01';",
+    "DELETE FROM Reservations WHERE RoomID = 3 AND CheckOutDate > '2023-09-30';",
+    "DELETE FROM Reservations WHERE ReservationID = 3;",
+    "DELETE FROM Reservations WHERE GuestName LIKE '%Doe%';"
+  ],
+  "update": [
+        "UPDATE Hotels SET HotelName = 'Oceanview Resort' WHERE HotelID = 1;",
+        "UPDATE Hotels SET Address = '123 Seaside Blvd, Miami, FL' WHERE HotelID = 2;",
+        "UPDATE Hotels SET HotelName = 'Mountain Retreat', Address = '789 Alpine Way, Denver, CO' WHERE HotelID = 3;",
+        "UPDATE Hotels SET Address = '456 Beachfront Ave, Malibu, CA' WHERE HotelID = 4;",
+        "UPDATE Hotels SET HotelName = 'Urban Oasis' WHERE HotelID = 5 AND Address LIKE '%New York%';",
+        "UPDATE Hotels SET HotelName = 'Desert Paradise' WHERE Address LIKE '%Nevada%';",
+        "UPDATE Hotels SET Address = '101 Sunset Blvd, Los Angeles, CA' WHERE HotelID = 6;",
+        "UPDATE Hotels SET HotelName = 'Grand Palace', Address = '321 Royal St, New Orleans, LA' WHERE HotelID = 7;",
+        "UPDATE Hotels SET Address = '456 Riverfront Dr, Austin, TX' WHERE HotelID = 8 AND HotelName = 'Riverside Hotel';",
+        "UPDATE Hotels SET HotelName = 'Coastal Comfort' WHERE Address = '789 Shoreline Dr, Charleston, SC';",
+
+        "UPDATE Rooms SET RoomType = 'Suite' WHERE RoomID = 101;",
+        "UPDATE Rooms SET PricePerNight = 150.00 WHERE RoomID = 102;",
+        "UPDATE Rooms SET RoomNumber = '202', PricePerNight = 200.00 WHERE RoomID = 103;",
+        "UPDATE Rooms SET RoomType = 'Deluxe', RoomNumber = '303' WHERE RoomID = 104 AND PricePerNight < 150.00;",
+        "UPDATE Rooms SET PricePerNight = 175.00 WHERE RoomID = 105;",
+        "UPDATE Rooms SET RoomType = 'Standard', PricePerNight = 100.00 WHERE RoomID = 106;",
+        "UPDATE Rooms SET RoomNumber = '404', RoomType = 'Deluxe' WHERE RoomID = 107;",
+        "UPDATE Rooms SET PricePerNight = 220.00 WHERE RoomID = 108 AND RoomType = 'Suite';",
+        "UPDATE Rooms SET RoomNumber = '505' WHERE RoomID = 109 AND PricePerNight > 200.00;",
+        "UPDATE Rooms SET RoomType = 'Economy' WHERE RoomID = 110 AND PricePerNight < 100.00;",
+
+        "UPDATE Reservations SET GuestName = 'John Doe' WHERE ReservationID = 1001;",
+        "UPDATE Reservations SET CheckInDate = '2024-05-01' WHERE ReservationID = 1002;",
+        "UPDATE Reservations SET CheckOutDate = '2024-05-10', GuestName = 'Jane Smith' WHERE ReservationID = 1003;",
+        "UPDATE Reservations SET CheckInDate = '2024-06-01', CheckOutDate = '2024-06-05' WHERE ReservationID = 1004;",
+        "UPDATE Reservations SET GuestName = 'Alice Johnson' WHERE ReservationID = 1005 AND RoomID = 101;",
+        "UPDATE Reservations SET RoomID = 102 WHERE ReservationID = 1006 AND GuestName = 'Bob Brown';",
+        "UPDATE Reservations SET CheckInDate = '2024-07-01' WHERE ReservationID = 1007;",
+        "UPDATE Reservations SET GuestName = 'Charlie Davis', RoomID = 103 WHERE ReservationID = 1008;",
+        "UPDATE Reservations SET CheckOutDate = '2024-08-10' WHERE ReservationID = 1009 AND GuestName = 'Diana Evans';",
+        "UPDATE Reservations SET GuestName = 'Edward Green' WHERE ReservationID = 1010 AND RoomID = 104;"
+    ],
+    "select": {
+        "no_filtering": [
+            "SELECT HotelID FROM Hotels;",
+            "SELECT RoomID FROM Rooms;",
+            "SELECT ReservationID FROM Reservations;",
+            "SELECT HotelID FROM Hotels;"
+        ],
+        "single_filtering": [
+            "SELECT HotelID FROM Hotels WHERE HotelName = 'Sunset Inn';",
+            "SELECT RoomID FROM Rooms WHERE RoomType = 'Suite';",
+            "SELECT ReservationID FROM Reservations WHERE GuestName = 'John Doe';",
+            "SELECT HotelID FROM Hotels WHERE Address = '123 Main St';"
+        ],
+        "double_filtering": [
+            "SELECT HotelID FROM Hotels WHERE HotelName = 'Sunset Inn' AND Address = '123 Main St';",
+            "SELECT RoomID FROM Rooms WHERE RoomType = 'Suite' AND PricePerNight < 200.00;",
+            "SELECT ReservationID FROM Reservations WHERE GuestName = 'John Doe' AND CheckInDate = '2023-09-01';",
+            "SELECT RoomID FROM Rooms WHERE RoomType = 'Suite' OR PricePerNight > 150.00;"
+        ],
+        "triple_filtering": [
+            "SELECT HotelID FROM Hotels WHERE HotelName = 'Sunset Inn' AND Address = '123 Main St' AND HotelID > 1;",
+            "SELECT RoomID FROM Rooms WHERE RoomType = 'Suite' AND PricePerNight < 200.00 AND HotelID = 2;",
+            "SELECT ReservationID FROM Reservations WHERE GuestName = 'John Doe' AND CheckInDate = '2023-09-01' AND RoomID = 3;",
+            "SELECT ReservationID FROM Reservations WHERE GuestName = 'John Doe' OR CheckInDate = '2023-09-01' AND CheckOutDate = '2023-09-10';"
+        ],
+        "range_filtering": [
+            "SELECT HotelID FROM Hotels WHERE HotelID BETWEEN 1 AND 10;",
+            "SELECT RoomID FROM Rooms WHERE PricePerNight BETWEEN 100.00 AND 200.00;",
+            "SELECT ReservationID FROM Reservations WHERE CheckInDate BETWEEN '2023-09-01' AND '2023-09-30';",
+            "SELECT RoomID FROM Rooms WHERE RoomID BETWEEN 5 AND 15;"
+        ],
+        "ranking": [
+            "SELECT HotelID FROM Hotels ORDER BY HotelID DESC;",
+            "SELECT RoomID FROM Rooms ORDER BY PricePerNight ASC;",
+            "SELECT ReservationID FROM Reservations ORDER BY CheckInDate DESC;",
+            "SELECT HotelID FROM Hotels ORDER BY HotelName ASC;"
+        ],
+        "count": [
+            "SELECT COUNT(*) FROM Hotels;",
+            "SELECT COUNT(RoomID) FROM Rooms WHERE RoomType = 'Suite';",
+            "SELECT COUNT(ReservationID) FROM Reservations WHERE GuestName = 'John Doe';",
+            "SELECT COUNT(HotelID) FROM Hotels WHERE Address = '123 Main St';"
+        ],
+        "single_table": [
+            "SELECT HotelID FROM Hotels WHERE HotelID > 2;",
+            "SELECT RoomID FROM Rooms WHERE RoomType = 'Suite';",
+            "SELECT ReservationID FROM Reservations WHERE GuestName = 'Jane Smith';",
+            "SELECT HotelID FROM Hotels WHERE HotelName LIKE 'Hotel%';"
+        ],
+        "double_table": [
+            "SELECT HotelID FROM Hotels INNER JOIN Rooms ON Hotels.HotelID = Rooms.HotelID;",
+            "SELECT RoomID FROM Rooms INNER JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;",
+            "SELECT ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID;",
+            "SELECT HotelID FROM Hotels INNER JOIN Rooms ON Hotels.HotelID = Rooms.HotelID WHERE Rooms.PricePerNight > 100.00;"
+        ],
+        "three_table": [
+            "SELECT HotelID FROM Hotels INNER JOIN Rooms ON Hotels.HotelID = Rooms.HotelID INNER JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;",
+            "SELECT ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID;",
+            "SELECT RoomID FROM Rooms INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID INNER JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;",
+            "SELECT ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID WHERE Hotels.HotelID = 1;"
+        ]
+    }
+
+
+
+}

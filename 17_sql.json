@@ -1,0 +1,168 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Manufacturers;",
+        "DROP TABLE IF EXISTS Products;",
+        "DROP TABLE IF EXISTS Suppliers;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Manufacturers (ManufacturerID INT NOT NULL AUTO_INCREMENT, ManufacturerName VARCHAR(100) NOT NULL, Country VARCHAR(50), PRIMARY KEY (ManufacturerID));",
+        "CREATE TABLE Products (ProductID INT NOT NULL AUTO_INCREMENT, ProductName VARCHAR(100) NOT NULL, Price DECIMAL(10,2) NOT NULL, ManufacturerID INT NOT NULL, PRIMARY KEY (ProductID), FOREIGN KEY (ManufacturerID) REFERENCES Manufacturers(ManufacturerID));",
+        "CREATE TABLE Suppliers (SupplierID INT NOT NULL AUTO_INCREMENT, SupplierName VARCHAR(100) NOT NULL, Address VARCHAR(255) NOT NULL, PRIMARY KEY (SupplierID));"
+    ],  "insert": [
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Sony', 'Japan');",
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Samsung', 'South Korea');",
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Apple', 'United States');",
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('LG', 'South Korea');",
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Dell', 'United States');",
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('HP', 'United States');",
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Lenovo', 'China');",
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Asus', 'Taiwan');",
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Acer', 'Taiwan');",
+        "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Panasonic', 'Japan');",
+        
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('iPhone 13', 799.99, 3);",
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('Galaxy S21', 699.99, 2);",
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('XPS 13', 999.99, 5);",
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('MacBook Pro', 1299.99, 3);",
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('ThinkPad X1', 1099.99, 7);",
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('ROG Strix', 1499.99, 8);",
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('Aspire 5', 549.99, 9);",
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('Vostro 15', 599.99, 5);",
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('Spectre x360', 1199.99, 6);",
+        "INSERT INTO Products (ProductName, Price, ManufacturerID) VALUES ('LG Gram', 1299.99, 4);",
+        
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('Tech Distributors Inc.', '123 Main St, New York, NY');",
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('Global Tech Supplies', '456 Elm St, Los Angeles, CA');",
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('ElectroWorld', '789 Oak St, Chicago, IL');",
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('Digital Depot', '321 Maple St, Houston, TX');",
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('Gadget Warehouse', '654 Pine St, Philadelphia, PA');",
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('Tech Solutions Ltd.', '987 Cedar St, San Francisco, CA');",
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('Electronics Hub', '246 Birch St, Boston, MA');",
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('SupplyZone', '135 Walnut St, Miami, FL');",
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('TechSupply Co.', '468 Maple Ave, Atlanta, GA');",
+        "INSERT INTO Suppliers (SupplierName, Address) VALUES ('Digital World', '579 Chestnut St, Seattle, WA');"
+      ],
+      "delete": [
+        "DELETE FROM Manufacturers WHERE ManufacturerID = 1;",
+        "DELETE FROM Manufacturers WHERE Country = 'USA';",
+        "DELETE FROM Manufacturers WHERE ManufacturerName = 'Acme Corp';",
+        "DELETE FROM Manufacturers WHERE ManufacturerID > 5;",
+        "DELETE FROM Manufacturers WHERE ManufacturerName LIKE 'A%';",
+        "DELETE FROM Manufacturers WHERE Country = 'Germany' AND ManufacturerID < 10;",
+        "DELETE FROM Manufacturers WHERE ManufacturerName = 'Global Industries' OR Country = 'Japan';",
+        "DELETE FROM Manufacturers WHERE ManufacturerID BETWEEN 2 AND 4;",
+        "DELETE FROM Manufacturers WHERE ManufacturerName = 'XYZ Manufacturing';",
+        "DELETE FROM Manufacturers WHERE Country IS NULL;",
+
+        "DELETE FROM Products WHERE ProductID = 1;",
+        "DELETE FROM Products WHERE Price > 50.00;",
+        "DELETE FROM Products WHERE ProductName = 'Widget A';",
+        "DELETE FROM Products WHERE ManufacturerID = 2;",
+        "DELETE FROM Products WHERE Price < 20.00 AND ManufacturerID = 3;",
+        "DELETE FROM Products WHERE ProductName LIKE '%Pro';",
+        "DELETE FROM Products WHERE Price BETWEEN 30.00 AND 40.00;",
+        "DELETE FROM Products WHERE ManufacturerID = 1 OR Price > 100.00;",
+        "DELETE FROM Products WHERE ProductName = 'Gizmo Deluxe';",
+        "DELETE FROM Products WHERE ManufacturerID IN (4, 5, 6);",
+
+        "DELETE FROM Suppliers WHERE SupplierID = 1;",
+        "DELETE FROM Suppliers WHERE SupplierName = 'Global Supplies';",
+        "DELETE FROM Suppliers WHERE Address = '123 Main St';",
+        "DELETE FROM Suppliers WHERE SupplierID > 10;",
+        "DELETE FROM Suppliers WHERE SupplierName LIKE 'B%';",
+        "DELETE FROM Suppliers WHERE Address IS NULL;",
+        "DELETE FROM Suppliers WHERE SupplierID BETWEEN 5 AND 8;",
+        "DELETE FROM Suppliers WHERE SupplierName = 'Acme Supplies' AND Address = '456 Elm St';",
+        "DELETE FROM Suppliers WHERE SupplierName = 'Universal Products' OR SupplierID = 2;",
+        "DELETE FROM Suppliers WHERE SupplierID NOT IN (3, 6, 9);"
+    ],
+    "update": [
+    "UPDATE Manufacturers SET ManufacturerName = 'Global Tech' WHERE ManufacturerID = 1;",
+    "UPDATE Manufacturers SET Country = 'Germany' WHERE ManufacturerID = 2;",
+    "UPDATE Manufacturers SET ManufacturerName = 'TechCorp', Country = 'USA' WHERE ManufacturerID = 3;",
+    "UPDATE Manufacturers SET ManufacturerName = 'Innovative Solutions' WHERE ManufacturerName = 'Old Name';",
+    "UPDATE Manufacturers SET Country = 'Japan' WHERE ManufacturerID = 4 AND ManufacturerName = 'ElectroWorks';",
+    "UPDATE Manufacturers SET ManufacturerName = 'GreenTech', Country = 'Canada' WHERE ManufacturerID = 5;",
+    "UPDATE Manufacturers SET ManufacturerName = 'Mega Manufacturing' WHERE Country = 'UK';",
+    "UPDATE Manufacturers SET Country = 'France' WHERE ManufacturerID = 6;",
+    "UPDATE Manufacturers SET ManufacturerName = 'Alpha Manufacturing' WHERE ManufacturerName = 'Beta Manufacturing';",
+    "UPDATE Manufacturers SET Country = 'Italy' WHERE ManufacturerID = 7 AND Country = 'Spain';",
+ 
+    "UPDATE Products SET Price = 19.99 WHERE ProductID = 1;",
+    "UPDATE Products SET ProductName = 'Super Gadget' WHERE ProductID = 2;",
+    "UPDATE Products SET Price = 49.99 WHERE ProductID = 3 AND ManufacturerID = 2;",
+    "UPDATE Products SET ProductName = 'Ultra Widget', Price = 29.99 WHERE ProductID = 4;",
+    "UPDATE Products SET ManufacturerID = 1 WHERE ProductID = 5 AND Price > 20.00;",
+    "UPDATE Products SET Price = 15.49 WHERE ProductID = 6 OR ManufacturerID = 3;",
+    "UPDATE Products SET ProductName = 'Eco-Friendly Gadget' WHERE ProductName = 'Gadget Pro';",
+    "UPDATE Products SET Price = 9.99 WHERE ManufacturerID = 4;",
+    "UPDATE Products SET ProductName = 'Advanced Widget' WHERE ProductID = 7 AND Price < 30.00;",
+    "UPDATE Products SET ManufacturerID = 5 WHERE ProductID = 8;",
+
+    "UPDATE Suppliers SET SupplierName = 'Global Supplies' WHERE SupplierID = 1;",
+    "UPDATE Suppliers SET Address = '123 Main St, New York, NY' WHERE SupplierID = 2;",
+    "UPDATE Suppliers SET SupplierName = 'Best Supplies', Address = '456 Elm St, Los Angeles, CA' WHERE SupplierID = 3;",
+    "UPDATE Suppliers SET SupplierName = 'Supply Chain Experts' WHERE Address = '789 Oak St, Chicago, IL';",
+    "UPDATE Suppliers SET Address = '101 Maple St, Houston, TX' WHERE SupplierID = 4 AND SupplierName = 'Quick Supplies';",
+    "UPDATE Suppliers SET SupplierName = 'Top Tier Supplies', Address = '202 Birch St, Miami, FL' WHERE SupplierID = 5;",
+    "UPDATE Suppliers SET Address = '303 Cedar St, San Francisco, CA' WHERE SupplierID = 6 OR SupplierName = 'Fast Supplies';",
+    "UPDATE Suppliers SET SupplierName = 'Reliable Supplies' WHERE SupplierName = 'Trusty Supplies';",
+    "UPDATE Suppliers SET Address = '404 Pine St, Seattle, WA' WHERE SupplierID = 7;",
+    "UPDATE Suppliers SET SupplierName = 'Quality Supplies' WHERE Address = '505 Spruce St, Denver, CO';"
+  ],
+  "select": {
+        "no_filtering": [
+            "SELECT ManufacturerID FROM Manufacturers;",
+            "SELECT ProductID FROM Products;",
+            "SELECT SupplierID FROM Suppliers;"
+        ],
+        "single_filtering": [
+            "SELECT ManufacturerID FROM Manufacturers WHERE Country = 'USA';",
+            "SELECT ProductID FROM Products WHERE Price > 50.00;",
+            "SELECT SupplierID FROM Suppliers WHERE SupplierName LIKE 'A%';"
+        ],
+        "double_filtering": [
+            "SELECT ManufacturerID FROM Manufacturers WHERE Country = 'USA' AND ManufacturerName LIKE 'S%';",
+            "SELECT ProductID FROM Products WHERE Price > 50.00 AND ManufacturerID = 1;",
+            "SELECT SupplierID FROM Suppliers WHERE Address LIKE 'New York%' OR SupplierName LIKE 'A%';"
+        ],
+        "triple_filtering": [
+            "SELECT ManufacturerID FROM Manufacturers WHERE Country = 'USA' AND ManufacturerName LIKE 'S%' AND ManufacturerID > 10;",
+            "SELECT ProductID FROM Products WHERE Price > 50.00 AND ManufacturerID = 1 AND ProductName LIKE 'P%';",
+            "SELECT SupplierID FROM Suppliers WHERE Address LIKE 'New York%' OR SupplierName LIKE 'A%' AND SupplierID > 5;"
+        ],
+        "range_filtering": [
+            "SELECT ManufacturerID FROM Manufacturers WHERE ManufacturerID BETWEEN 10 AND 20;",
+            "SELECT ProductID FROM Products WHERE Price BETWEEN 20.00 AND 100.00;",
+            "SELECT SupplierID FROM Suppliers WHERE SupplierID BETWEEN 5 AND 15;"
+        ],
+        "ranking": [
+            "SELECT ManufacturerID FROM Manufacturers ORDER BY ManufacturerName ASC;",
+            "SELECT ProductID FROM Products ORDER BY Price DESC;",
+            "SELECT SupplierID FROM Suppliers ORDER BY SupplierName ASC;"
+        ],
+        "count": [
+            "SELECT COUNT(ManufacturerID) FROM Manufacturers;",
+            "SELECT COUNT(ProductID) FROM Products;",
+            "SELECT COUNT(SupplierID) FROM Suppliers;"
+        ],
+        "single_table": [
+            "SELECT ManufacturerID FROM Manufacturers;",
+            "SELECT ProductID FROM Products;",
+            "SELECT SupplierID FROM Suppliers;"
+        ],
+        "double_table": [
+            "SELECT Products.ProductID FROM Products JOIN Manufacturers ON Products.ManufacturerID = Manufacturers.ManufacturerID;",
+            "SELECT Suppliers.SupplierID FROM Suppliers JOIN Products ON Suppliers.SupplierID = Products.ManufacturerID;",
+            "SELECT Manufacturers.ManufacturerID FROM Manufacturers JOIN Products ON Manufacturers.ManufacturerID = Products.ManufacturerID;"
+        ],
+        "three_table": [
+            "SELECT Products.ProductID FROM Products JOIN Manufacturers ON Products.ManufacturerID = Manufacturers.ManufacturerID JOIN Suppliers ON Products.ManufacturerID = Suppliers.SupplierID;",
+            "SELECT Suppliers.SupplierID FROM Suppliers JOIN Products ON Suppliers.SupplierID = Products.ManufacturerID JOIN Manufacturers ON Products.ManufacturerID = Manufacturers.ManufacturerID;",
+            "SELECT Manufacturers.ManufacturerID FROM Manufacturers JOIN Products ON Manufacturers.ManufacturerID = Products.ManufacturerID JOIN Suppliers ON Products.ManufacturerID = Suppliers.SupplierID;"
+        ]
+    }
+
+
+
+}

@@ -1,0 +1,179 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Restaurants;",
+        "DROP TABLE IF EXISTS Menus;",
+        "DROP TABLE IF EXISTS Dishes;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Restaurants (RestaurantID INT NOT NULL AUTO_INCREMENT, RestaurantName VARCHAR(100) NOT NULL, Address VARCHAR(255), PRIMARY KEY (RestaurantID));",
+        "CREATE TABLE Menus (MenuID INT NOT NULL AUTO_INCREMENT, MenuName VARCHAR(100) NOT NULL, RestaurantID INT NOT NULL, PRIMARY KEY (MenuID), FOREIGN KEY (RestaurantID) REFERENCES Restaurants(RestaurantID));",
+        "CREATE TABLE Dishes (DishID INT NOT NULL AUTO_INCREMENT, DishName VARCHAR(100) NOT NULL, Price DECIMAL(10,2) NOT NULL, MenuID INT NOT NULL, PRIMARY KEY (DishID), FOREIGN KEY (MenuID) REFERENCES Menus(MenuID));"
+    ],
+    "insert": [
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('Pasta Palace', '123 Main St');",
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('Sushi World', '456 Elm St');",
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('Burger Bonanza', '789 Oak St');",
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('Taco Town', '101 Pine St');",
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('Pizza Planet', '202 Maple St');",
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('BBQ Barn', '303 Cedar St');",
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('Curry Corner', '404 Birch St');",
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('Steakhouse Supreme', '505 Walnut St');",
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('Seafood Shack', '606 Chestnut St');",
+        "INSERT INTO Restaurants (RestaurantName, Address) VALUES ('Deli Delight', '707 Spruce St');",
+        
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Lunch Menu', 1);",
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Dinner Menu', 1);",
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Sushi Specials', 2);",
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Burger Menu', 3);",
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Taco Fiesta', 4);",
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Pizza Pies', 5);",
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('BBQ Favorites', 6);",
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Curry Creations', 7);",
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Steak Selections', 8);",
+        "INSERT INTO Menus (MenuName, RestaurantID) VALUES ('Seafood Specials', 9);",
+    
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Spaghetti Carbonara', 12.99, 1);",
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Fettuccine Alfredo', 13.99, 1);",
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Salmon Sushi', 8.99, 3);",
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Tuna Roll', 9.99, 3);",
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Cheeseburger', 7.99, 4);",
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Double Bacon Burger', 9.49, 4);",
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Chicken Taco', 3.49, 5);",
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Beef Taco', 3.99, 5);",
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('Pepperoni Pizza', 10.99, 6);",
+        "INSERT INTO Dishes (DishName, Price, MenuID) VALUES ('BBQ Chicken Pizza', 11.99, 6);"
+      ],
+      "delete": [
+        "DELETE FROM Restaurants WHERE RestaurantID = 1;",
+        "DELETE FROM Restaurants WHERE RestaurantName = 'Gourmet Kitchen';",
+        "DELETE FROM Restaurants WHERE Address = '123 Main St';",
+        "DELETE FROM Restaurants WHERE RestaurantID > 5;",
+        "DELETE FROM Restaurants WHERE RestaurantName LIKE '%Deli%';",
+        "DELETE FROM Restaurants WHERE RestaurantID = 3 OR Address = '456 Elm St';",
+        "DELETE FROM Restaurants WHERE RestaurantID = 7 AND RestaurantName = 'Ocean View';",
+        "DELETE FROM Restaurants WHERE RestaurantID IN (2, 4, 6);",
+        "DELETE FROM Restaurants WHERE RestaurantName = 'Bistro Cafe' OR Address = '789 Maple Ave';",
+        "DELETE FROM Restaurants WHERE RestaurantID BETWEEN 1 AND 5;",
+    
+        "DELETE FROM Menus WHERE MenuID = 1;",
+        "DELETE FROM Menus WHERE MenuName = 'Lunch Specials';",
+        "DELETE FROM Menus WHERE RestaurantID = 3;",
+        "DELETE FROM Menus WHERE MenuID > 5;",
+        "DELETE FROM Menus WHERE MenuName LIKE '%Dinner%';",
+        "DELETE FROM Menus WHERE MenuID = 3 OR RestaurantID = 2;",
+        "DELETE FROM Menus WHERE MenuID = 7 AND MenuName = 'Breakfast Menu';",
+        "DELETE FROM Menus WHERE RestaurantID IN (1, 3, 5);",
+        "DELETE FROM Menus WHERE MenuName = 'Kids Menu' OR RestaurantID = 4;",
+        "DELETE FROM Menus WHERE MenuID BETWEEN 1 AND 5;",
+    
+        "DELETE FROM Dishes WHERE DishID = 1;",
+        "DELETE FROM Dishes WHERE DishName = 'Pasta Primavera';",
+        "DELETE FROM Dishes WHERE Price > 15.00;",
+        "DELETE FROM Dishes WHERE MenuID = 3;",
+        "DELETE FROM Dishes WHERE DishName LIKE '%Salad%';",
+        "DELETE FROM Dishes WHERE DishID = 4 OR MenuID = 2;",
+        "DELETE FROM Dishes WHERE DishID = 5 AND Price < 10.00;",
+        "DELETE FROM Dishes WHERE MenuID IN (2, 4, 6);",
+        "DELETE FROM Dishes WHERE DishName = 'Steak' OR Price > 20.00;",
+        "DELETE FROM Dishes WHERE DishID BETWEEN 1 AND 5;"
+      ],
+      "update": [
+        "UPDATE Restaurants SET RestaurantName = 'New Flavors' WHERE RestaurantID = 1;",
+        "UPDATE Restaurants SET Address = '123 New Address' WHERE RestaurantID = 2;",
+        "UPDATE Restaurants SET RestaurantName = 'Gourmet Hub' WHERE Address = '456 Old Street';",
+        "UPDATE Restaurants SET Address = '789 New Lane' WHERE RestaurantName = 'Tasty Bites';",
+        "UPDATE Restaurants SET RestaurantName = 'The Food Place', Address = '1010 Gourmet Blvd' WHERE RestaurantID = 3;",
+        "UPDATE Restaurants SET Address = '2222 Flavor Ave' WHERE RestaurantID = 4 AND RestaurantName = 'Yummy Corner';",
+        "UPDATE Restaurants SET RestaurantName = 'Savory Delights' WHERE Address LIKE '%Main St%';",
+        "UPDATE Restaurants SET Address = '3030 Culinary Road' WHERE RestaurantID = 5 OR RestaurantName = 'Culinary Arts';",
+        "UPDATE Restaurants SET RestaurantName = 'Bistro Delight', Address = '4040 Cuisine Lane' WHERE RestaurantID = 6;",
+        "UPDATE Restaurants SET RestaurantName = 'Epic Eats' WHERE Address = '5050 Foodie Drive';",
+
+        "UPDATE Menus SET MenuName = 'Brunch Specials' WHERE MenuID = 1;",
+        "UPDATE Menus SET MenuName = 'Dinner Delights' WHERE MenuID = 2 AND RestaurantID = 1;",
+        "UPDATE Menus SET MenuName = 'Healthy Choices' WHERE RestaurantID = 2;",
+        "UPDATE Menus SET MenuName = 'Vegan Feast' WHERE MenuID = 3 OR RestaurantID = 3;",
+        "UPDATE Menus SET MenuName = 'Classic Dishes' WHERE MenuID = 4;",
+        "UPDATE Menus SET MenuName = 'Seafood Specials' WHERE MenuID = 5 AND MenuName = 'Daily Catch';",
+        "UPDATE Menus SET MenuName = 'Dessert Menu' WHERE MenuID = 6 AND RestaurantID = 4;",
+        "UPDATE Menus SET MenuName = 'Lunch Combos' WHERE RestaurantID = 5;",
+        "UPDATE Menus SET MenuName = 'Specialty Drinks' WHERE MenuID = 7;",
+        "UPDATE Menus SET MenuName = 'Chef’s Choice' WHERE RestaurantID = 6;",
+
+        "UPDATE Dishes SET DishName = 'Grilled Salmon', Price = 18.99 WHERE DishID = 1;",
+        "UPDATE Dishes SET Price = 12.99 WHERE DishID = 2 AND MenuID = 1;",
+        "UPDATE Dishes SET DishName = 'Vegetable Stir Fry' WHERE DishID = 3 AND Price > 10.00;",
+        "UPDATE Dishes SET DishName = 'Beef Wellington', Price = 25.99 WHERE MenuID = 2;",
+        "UPDATE Dishes SET Price = 9.99 WHERE DishID = 4 OR DishName = 'Pasta Primavera';",
+        "UPDATE Dishes SET DishName = 'Chicken Alfredo' WHERE DishID = 5;",
+        "UPDATE Dishes SET DishName = 'Margarita Pizza', Price = 14.99 WHERE MenuID = 3 AND DishID = 6;",
+        "UPDATE Dishes SET Price = 8.99 WHERE DishID = 7 AND DishName = 'Caesar Salad';",
+        "UPDATE Dishes SET DishName = 'Chocolate Lava Cake' WHERE DishID = 8;",
+        "UPDATE Dishes SET Price = 19.99 WHERE MenuID = 4 AND DishName = 'Lobster Bisque';"
+    ],
+    "select": {
+        "no_filtering": [
+            "SELECT RestaurantID FROM Restaurants;",
+            "SELECT MenuID FROM Menus;",
+            "SELECT DishID FROM Dishes;",
+            "SELECT MenuID FROM Menus;"
+        ],
+        "single_filtering": [
+            "SELECT RestaurantID FROM Restaurants WHERE RestaurantName = 'Italian Bistro';",
+            "SELECT MenuID FROM Menus WHERE MenuName = 'Lunch Menu';",
+            "SELECT DishID FROM Dishes WHERE Price > 20.00;",
+            "SELECT RestaurantID FROM Restaurants WHERE Address LIKE '%Main Street%';"
+        ],
+        "double_filtering": [
+            "SELECT RestaurantID FROM Restaurants WHERE RestaurantName = 'Italian Bistro' AND Address LIKE '%Main Street%';",
+            "SELECT MenuID FROM Menus WHERE MenuName = 'Lunch Menu' AND RestaurantID = 1;",
+            "SELECT DishID FROM Dishes WHERE Price > 20.00 AND MenuID = 2;",
+            "SELECT DishID FROM Dishes WHERE Price > 10.00 OR MenuID = 3;"
+        ],
+        "triple_filtering": [
+            "SELECT RestaurantID FROM Restaurants WHERE RestaurantName = 'Italian Bistro' AND Address LIKE '%Main Street%' AND RestaurantID = 1;",
+            "SELECT MenuID FROM Menus WHERE MenuName = 'Lunch Menu' AND RestaurantID = 1 AND MenuID = 2;",
+            "SELECT DishID FROM Dishes WHERE Price > 20.00 AND MenuID = 2 AND DishName LIKE '%Pasta%';",
+            "SELECT DishID FROM Dishes WHERE Price > 10.00 AND MenuID = 3 OR DishName LIKE '%Salad%';"
+        ],
+        "range_filtering": [
+            "SELECT RestaurantID FROM Restaurants WHERE RestaurantID BETWEEN 1 AND 5;",
+            "SELECT MenuID FROM Menus WHERE MenuID BETWEEN 2 AND 10;",
+            "SELECT DishID FROM Dishes WHERE Price BETWEEN 10.00 AND 20.00;",
+            "SELECT DishID FROM Dishes WHERE MenuID BETWEEN 1 AND 3;"
+        ],
+        "ranking": [
+            "SELECT RestaurantID FROM Restaurants ORDER BY RestaurantID DESC;",
+            "SELECT MenuID FROM Menus ORDER BY MenuID ASC;",
+            "SELECT DishID FROM Dishes ORDER BY Price DESC;",
+            "SELECT DishID FROM Dishes ORDER BY MenuID ASC;"
+        ],
+        "count": [
+            "SELECT COUNT(RestaurantID) FROM Restaurants;",
+            "SELECT COUNT(MenuID) FROM Menus;",
+            "SELECT COUNT(DishID) FROM Dishes;",
+            "SELECT COUNT(MenuID) FROM Menus WHERE RestaurantID = 1;"
+        ],
+        "single_table": [
+            "SELECT RestaurantID FROM Restaurants;",
+            "SELECT MenuID FROM Menus;",
+            "SELECT DishID FROM Dishes;",
+            "SELECT MenuID FROM Menus WHERE RestaurantID = 1;"
+        ],
+        "double_table": [
+            "SELECT RestaurantID FROM Restaurants INNER JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID;",
+            "SELECT MenuID FROM Menus INNER JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
+            "SELECT DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID;",
+            "SELECT RestaurantID FROM Restaurants INNER JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID WHERE MenuName = 'Lunch Menu';"
+        ],
+        "three_table": [
+            "SELECT RestaurantID FROM Restaurants INNER JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID INNER JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
+            "SELECT MenuID FROM Menus INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID INNER JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
+            "SELECT DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID;",
+            "SELECT DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID WHERE Restaurants.RestaurantName = 'Italian Bistro';"
+        ]
+    }
+
+
+    
+}

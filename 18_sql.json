@@ -1,0 +1,220 @@
+{
+    "drop_tables":[
+        "DROP TABLE IF EXISTS Hospitals;",
+        "DROP TABLE IF EXISTS Doctors;",
+        "DROP TABLE IF EXISTS Patients;",
+        "DROP TABLE IF EXISTS Appointments;"
+    ],
+    "create_tables":[
+        "CREATE TABLE Hospitals (HospitalID INT NOT NULL AUTO_INCREMENT, HospitalName VARCHAR(100) NOT NULL, Location VARCHAR(255), PRIMARY KEY (HospitalID));",
+        "CREATE TABLE Doctors (DoctorID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Specialty VARCHAR(100), HospitalID INT NOT NULL, PRIMARY KEY (DoctorID), FOREIGN KEY (HospitalID) REFERENCES Hospitals(HospitalID));",
+        "CREATE TABLE Patients (PatientID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, DateOfBirth DATE NOT NULL, PRIMARY KEY (PatientID));",
+        "CREATE TABLE Appointments (AppointmentID INT NOT NULL AUTO_INCREMENT, PatientID INT NOT NULL, DoctorID INT NOT NULL, AppointmentDate DATETIME NOT NULL, PRIMARY KEY (AppointmentID), FOREIGN KEY (PatientID) REFERENCES Patients(PatientID), FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID));"
+    ],
+    "insert": [
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('General Hospital', '123 Main St, Springfield');",
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('City Medical Center', '456 Elm St, Metropolis');",
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('St. Mary's Hospital', '789 Oak St, Smallville');",
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('County General', '101 Pine St, Hill Valley');",
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('Valley Hospital', '202 Maple St, Riverdale');",
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('Sunrise Hospital', '303 Birch St, Gotham');",
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('Central Hospital', '404 Cedar St, Star City');",
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('Bayview Hospital', '505 Walnut St, Emerald City');",
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('Lakeside Hospital', '606 Chestnut St, Central City');",
+    "INSERT INTO Hospitals (HospitalName, Location) VALUES ('Mercy Hospital', '707 Willow St, Raccoon City');",
+
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('John', 'Doe', 'Cardiology', 1);",
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('Jane', 'Smith', 'Neurology', 2);",
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('James', 'Brown', 'Orthopedics', 3);",
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('Emily', 'Davis', 'Pediatrics', 4);",
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('Michael', 'Johnson', 'Dermatology', 5);",
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('Sarah', 'Wilson', 'Gynecology', 6);",
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('David', 'Taylor', 'Psychiatry', 7);",
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('Laura', 'Moore', 'Ophthalmology', 8);",
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('Robert', 'Anderson', 'Radiology', 9);",
+    "INSERT INTO Doctors (FirstName, LastName, Specialty, HospitalID) VALUES ('Sophia', 'Thomas', 'Oncology', 10);",
+
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Alice', 'Green', '1980-01-01');",
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Bob', 'White', '1975-02-14');",
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Charlie', 'Black', '1990-03-30');",
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Daisy', 'Blue', '1985-04-25');",
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Eve', 'Red', '1995-05-05');",
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Frank', 'Orange', '1988-06-15');",
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Grace', 'Yellow', '1978-07-07');",
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Henry', 'Pink', '1982-08-08');",
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Ivy', 'Purple', '1993-09-09');",
+    "INSERT INTO Patients (FirstName, LastName, DateOfBirth) VALUES ('Jack', 'Gray', '1979-10-10');",
+
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (1, 1, '2023-09-01 10:00:00');",
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (2, 2, '2023-09-02 11:00:00');",
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (3, 3, '2023-09-03 09:30:00');",
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (4, 4, '2023-09-04 14:00:00');",
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (5, 5, '2023-09-05 15:30:00');",
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (6, 6, '2023-09-06 13:00:00');",
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (7, 7, '2023-09-07 08:30:00');",
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (8, 8, '2023-09-08 12:00:00');",
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (9, 9, '2023-09-09 10:30:00');",
+    "INSERT INTO Appointments (PatientID, DoctorID, AppointmentDate) VALUES (10, 10, '2023-09-10 11:15:00');"
+  ],
+    "delete": [
+      "DELETE FROM Hospitals WHERE HospitalID = 5;",
+      "DELETE FROM Hospitals WHERE Location LIKE '%New York%';",
+      "DELETE FROM Hospitals WHERE HospitalName = 'Central Hospital';",
+      "DELETE FROM Hospitals WHERE Location = 'Chicago' AND HospitalName = 'Lakeview Hospital';",
+      "DELETE FROM Hospitals WHERE Location = 'Los Angeles' OR HospitalName = 'St. Mary Hospital';",
+      "DELETE FROM Hospitals WHERE HospitalID > 10;",
+      "DELETE FROM Hospitals WHERE HospitalName LIKE 'M%';",
+      "DELETE FROM Hospitals WHERE Location = 'Miami';",
+      "DELETE FROM Hospitals WHERE Location = 'Boston' AND HospitalID < 5;",
+      "DELETE FROM Hospitals WHERE HospitalID = 12 OR Location = 'San Francisco';",
+  
+      "DELETE FROM Doctors WHERE DoctorID = 3;",
+      "DELETE FROM Doctors WHERE Specialty = 'Cardiology';",
+      "DELETE FROM Doctors WHERE LastName = 'Smith' AND HospitalID = 2;",
+      "DELETE FROM Doctors WHERE FirstName = 'John' OR Specialty = 'Neurology';",
+      "DELETE FROM Doctors WHERE HospitalID = 1 AND Specialty = 'Pediatrics';",
+      "DELETE FROM Doctors WHERE DoctorID > 20;",
+      "DELETE FROM Doctors WHERE LastName LIKE 'J%';",
+      "DELETE FROM Doctors WHERE HospitalID = 4;",
+      "DELETE FROM Doctors WHERE Specialty = 'Oncology' AND HospitalID = 3;",
+      "DELETE FROM Doctors WHERE FirstName = 'Emily' OR LastName = 'Brown';",
+  
+      "DELETE FROM Patients WHERE PatientID = 6;",
+      "DELETE FROM Patients WHERE LastName = 'Doe';",
+      "DELETE FROM Patients WHERE DateOfBirth = '1990-01-01';",
+      "DELETE FROM Patients WHERE FirstName = 'Michael' AND LastName = 'Johnson';",
+      "DELETE FROM Patients WHERE DateOfBirth < '1980-01-01';",
+      "DELETE FROM Patients WHERE PatientID > 15;",
+      "DELETE FROM Patients WHERE LastName LIKE 'A%';",
+      "DELETE FROM Patients WHERE FirstName = 'Anna';",
+      "DELETE FROM Patients WHERE DateOfBirth > '2000-01-01' AND LastName = 'Williams';",
+      "DELETE FROM Patients WHERE PatientID = 9 OR LastName = 'Lee';",
+  
+      "DELETE FROM Appointments WHERE AppointmentID = 7;",
+      "DELETE FROM Appointments WHERE AppointmentDate = '2024-09-01 10:00:00';",
+      "DELETE FROM Appointments WHERE PatientID = 3 AND DoctorID = 5;",
+      "DELETE FROM Appointments WHERE AppointmentDate < '2023-01-01 00:00:00';",
+      "DELETE FROM Appointments WHERE PatientID = 8 OR DoctorID = 2;",
+      "DELETE FROM Appointments WHERE AppointmentID > 20;",
+      "DELETE FROM Appointments WHERE AppointmentDate BETWEEN '2023-06-01' AND '2023-06-30';",
+      "DELETE FROM Appointments WHERE DoctorID = 4;",
+      "DELETE FROM Appointments WHERE PatientID = 10 AND AppointmentDate = '2024-09-10 14:00:00';",
+      "DELETE FROM Appointments WHERE AppointmentID = 11 OR AppointmentDate = '2024-09-05 09:00:00';"
+    ],
+
+        "update": [
+            "UPDATE Hospitals SET Location = 'Downtown' WHERE HospitalID = 3;",
+            "UPDATE Hospitals SET HospitalName = 'Saint Mary Hospital' WHERE HospitalID = 1;",
+            "UPDATE Hospitals SET Location = 'Uptown' WHERE Location = 'Suburb';",
+            "UPDATE Hospitals SET Location = 'Midtown' WHERE HospitalName = 'City Hospital';",
+            "UPDATE Hospitals SET Location = 'Eastside' WHERE HospitalID = 2;",
+            "UPDATE Hospitals SET HospitalName = 'General Hospital', Location = 'Westside' WHERE HospitalID = 4;",
+            "UPDATE Hospitals SET HospitalName = 'Community Hospital' WHERE Location = 'Suburb';",
+            "UPDATE Hospitals SET Location = 'Northside' WHERE HospitalID = 5;",
+            "UPDATE Hospitals SET HospitalName = 'National Hospital', Location = 'Central' WHERE HospitalID = 6;",
+            "UPDATE Hospitals SET HospitalName = 'City Medical Center' WHERE Location = 'Downtown';",
+            
+            "UPDATE Doctors SET Specialty = 'Cardiology' WHERE DoctorID = 2;",
+            "UPDATE Doctors SET FirstName = 'John', LastName = 'Doe' WHERE DoctorID = 1;",
+            "UPDATE Doctors SET Specialty = 'Neurology' WHERE HospitalID = 3;",
+            "UPDATE Doctors SET LastName = 'Smith', Specialty = 'Pediatrics' WHERE DoctorID = 5;",
+            "UPDATE Doctors SET HospitalID = 4 WHERE Specialty = 'Orthopedics';",
+            "UPDATE Doctors SET FirstName = 'Alice', LastName = 'Jones' WHERE DoctorID = 6;",
+            "UPDATE Doctors SET Specialty = 'Oncology' WHERE FirstName = 'Jane' AND LastName = 'Doe';",
+            "UPDATE Doctors SET Specialty = 'Dermatology', HospitalID = 2 WHERE DoctorID = 7;",
+            "UPDATE Doctors SET FirstName = 'Chris', LastName = 'Brown' WHERE DoctorID = 3;",
+            "UPDATE Doctors SET HospitalID = 5 WHERE Specialty = 'Gastroenterology';",
+            
+            "UPDATE Patients SET LastName = 'Johnson' WHERE PatientID = 3;",
+            "UPDATE Patients SET FirstName = 'Emily', LastName = 'White' WHERE PatientID = 1;",
+            "UPDATE Patients SET DateOfBirth = '1985-06-15' WHERE PatientID = 4;",
+            "UPDATE Patients SET LastName = 'Brown', FirstName = 'Michael' WHERE PatientID = 5;",
+            "UPDATE Patients SET DateOfBirth = '1990-08-20' WHERE FirstName = 'Sara';",
+            "UPDATE Patients SET FirstName = 'Jessica', LastName = 'Lee' WHERE PatientID = 6;",
+            "UPDATE Patients SET DateOfBirth = '2000-12-12', LastName = 'Davis' WHERE PatientID = 7;",
+            "UPDATE Patients SET LastName = 'Martin' WHERE FirstName = 'John';",
+            "UPDATE Patients SET FirstName = 'Anna', LastName = 'Scott' WHERE PatientID = 8;",
+            "UPDATE Patients SET DateOfBirth = '1995-04-22' WHERE LastName = 'Taylor';",
+            
+            "UPDATE Appointments SET AppointmentDate = '2023-12-01 09:00:00' WHERE AppointmentID = 1;",
+            "UPDATE Appointments SET DoctorID = 4 WHERE AppointmentID = 2;",
+            "UPDATE Appointments SET AppointmentDate = '2023-12-10 14:30:00', DoctorID = 3 WHERE PatientID = 5;",
+            "UPDATE Appointments SET PatientID = 6 WHERE AppointmentID = 3;",
+            "UPDATE Appointments SET DoctorID = 7 WHERE AppointmentDate = '2023-12-15 10:00:00';",
+            "UPDATE Appointments SET AppointmentDate = '2023-12-20 11:00:00', PatientID = 7 WHERE AppointmentID = 4;",
+            "UPDATE Appointments SET AppointmentDate = '2023-12-25 15:00:00' WHERE DoctorID = 6;",
+            "UPDATE Appointments SET PatientID = 8 WHERE DoctorID = 2;",
+            "UPDATE Appointments SET AppointmentDate = '2023-12-30 08:00:00' WHERE AppointmentID = 5;",
+            "UPDATE Appointments SET DoctorID = 5 WHERE PatientID = 3 AND AppointmentDate = '2023-12-05 13:00:00';"
+        ],
+            "select": {
+                "no_filtering": [
+                    "SELECT HospitalID FROM Hospitals;",
+                    "SELECT DoctorID FROM Doctors;",
+                    "SELECT PatientID FROM Patients;",
+                    "SELECT AppointmentID FROM Appointments;"
+                ],
+                "single_filtering": [
+                    "SELECT HospitalID FROM Hospitals WHERE Location = 'New York';",
+                    "SELECT DoctorID FROM Doctors WHERE Specialty = 'Cardiology';",
+                    "SELECT PatientID FROM Patients WHERE LastName = 'Smith';",
+                    "SELECT AppointmentID FROM Appointments WHERE DoctorID = 1;"
+                ],
+                "double_filtering": [
+                    "SELECT HospitalID FROM Hospitals WHERE Location = 'New York' AND HospitalName = 'City Hospital';",
+                    "SELECT DoctorID FROM Doctors WHERE Specialty = 'Cardiology' AND HospitalID = 2;",
+                    "SELECT PatientID FROM Patients WHERE LastName = 'Smith' AND FirstName = 'John';",
+                    "SELECT AppointmentID FROM Appointments WHERE DoctorID = 1 AND PatientID = 5;"
+                ],
+                "triple_filtering": [
+                    "SELECT HospitalID FROM Hospitals WHERE Location = 'New York' AND HospitalName = 'City Hospital' OR Location = 'Boston';",
+                    "SELECT DoctorID FROM Doctors WHERE Specialty = 'Cardiology' AND HospitalID = 2 OR Specialty = 'Neurology';",
+                    "SELECT PatientID FROM Patients WHERE LastName = 'Smith' AND FirstName = 'John' OR DateOfBirth = '1990-01-01';",
+                    "SELECT AppointmentID FROM Appointments WHERE DoctorID = 1 AND PatientID = 5 OR AppointmentDate = '2023-09-01';"
+                ],
+                "range_filtering": [
+                    "SELECT HospitalID FROM Hospitals WHERE HospitalID BETWEEN 1 AND 10;",
+                    "SELECT DoctorID FROM Doctors WHERE DoctorID BETWEEN 5 AND 15;",
+                    "SELECT PatientID FROM Patients WHERE PatientID BETWEEN 10 AND 20;",
+                    "SELECT AppointmentID FROM Appointments WHERE AppointmentDate BETWEEN '2023-01-01' AND '2023-12-31';"
+                ],
+                "ranking": [
+                    "SELECT HospitalID FROM Hospitals ORDER BY HospitalID DESC;",
+                    "SELECT DoctorID FROM Doctors ORDER BY DoctorID ASC;",
+                    "SELECT PatientID FROM Patients ORDER BY LastName ASC;",
+                    "SELECT AppointmentID FROM Appointments ORDER BY AppointmentDate DESC;"
+                ],
+                "count": [
+                    "SELECT COUNT(HospitalID) FROM Hospitals;",
+                    "SELECT COUNT(DoctorID) FROM Doctors;",
+                    "SELECT COUNT(PatientID) FROM Patients;",
+                    "SELECT COUNT(AppointmentID) FROM Appointments;"
+                ],
+                "single_table": [
+                    "SELECT HospitalID FROM Hospitals;",
+                    "SELECT DoctorID FROM Doctors;",
+                    "SELECT PatientID FROM Patients;",
+                    "SELECT AppointmentID FROM Appointments;"
+                ],
+                "double_table": [
+                    "SELECT h.HospitalID, d.DoctorID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID;",
+                    "SELECT d.DoctorID, a.AppointmentID FROM Doctors d JOIN Appointments a ON d.DoctorID = a.DoctorID;",
+                    "SELECT p.PatientID, a.AppointmentID FROM Patients p JOIN Appointments a ON p.PatientID = a.PatientID;",
+                    "SELECT h.HospitalID, d.DoctorID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID WHERE d.Specialty = 'Cardiology';"
+                ],
+                "three_table": [
+                    "SELECT h.HospitalID, d.DoctorID, a.AppointmentID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID JOIN Appointments a ON d.DoctorID = a.DoctorID;",
+                    "SELECT d.DoctorID, a.AppointmentID, p.PatientID FROM Doctors d JOIN Appointments a ON d.DoctorID = a.DoctorID JOIN Patients p ON a.PatientID = p.PatientID;",
+                    "SELECT p.PatientID, a.AppointmentID, d.DoctorID FROM Patients p JOIN Appointments a ON p.PatientID = a.PatientID JOIN Doctors d ON a.DoctorID = d.DoctorID;",
+                    "SELECT h.HospitalID, d.DoctorID, a.AppointmentID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID JOIN Appointments a ON d.DoctorID = a.DoctorID WHERE d.Specialty = 'Cardiology';"
+                ]
+            }
+        
+        
+
+    
+    
+  
+  
+
+}
