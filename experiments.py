@@ -283,6 +283,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             result_overlap = set(true_result).intersection(set(result))
             result_union = set(true_result).union(set(result))
             if len(result_union) == 0:
+                print("union is 0")
                 return 1 * order_accuracy  
             else:
                 return len(result_overlap) / len(result_union) * order_accuracy
