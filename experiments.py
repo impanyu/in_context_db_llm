@@ -212,6 +212,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
 
     sql_populating_queries = sql_populating_query.split("\n")[:-1]
     print(sql_populating_queries)
+    print(query)
 
     # execute the db_populating_query and db_query
     connection = connect_to_server()
