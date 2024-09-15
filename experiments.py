@@ -83,7 +83,7 @@ def random_combination(n, k):
     return sorted(random.sample(range(n), k))
 
 
-def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balance, overlap, operation):
+def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balance, overlap, operation=None):
     db_index = random.randint(1, 20)
     print(f"db_index: {db_index}")
     
