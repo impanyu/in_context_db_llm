@@ -1,0 +1,13 @@
+{
+    "system_prompt":["Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
+    "COT":["To answer the single query from the user, you need to first execute the populating SQL commands step by step, and figure out the current data in the database. Then you need to analyze the single query step by step and execute it on the current database to get the result."],
+
+    
+    "user_prompt_1":["Now you need to execute the following SQL commands to populate the database:"],
+    "user_prompt_2":["Please execute the following SQL command and you need output the result"],
+  
+    
+    "drop_database": ["DROP DATABASE IF EXISTS test;"],
+    "create_database": ["CREATE DATABASE IF NOT EXISTS test;"],
+    "use_database": ["USE test;"]
+}    

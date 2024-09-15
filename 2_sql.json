@@ -1,5 +1,8 @@
 {
-    "drop_tables":[
+  "drop_database": ["DROP DATABASE IF EXISTS test;"],
+  "create_database": ["CREATE DATABASE IF NOT EXISTS test;"],
+  "use_database": ["USE test;"],  
+  "drop_tables":[
         "DROP TABLE IF EXISTS Students;",
         "DROP TABLE IF EXISTS Courses;",
         "DROP TABLE IF EXISTS Enrollments;"
