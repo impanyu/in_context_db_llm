@@ -22,7 +22,7 @@
     "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Chris', 'Johnson', 'chrisjohnson@example.com');",
     "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Jessica', 'Lee', 'jessicalee@example.com');",
     "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Daniel', 'Walker', 'danielwalker@example.com');",
-    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Laura', 'Martinez', 'lauramartinez@example.com');".
+    "INSERT INTO Guests (FirstName, LastName, Email) VALUES ('Laura', 'Martinez', 'lauramartinez@example.com');",
 
     "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('101', 'Single', 75.00);",
     "INSERT INTO Rooms (RoomNumber, RoomType, PricePerNight) VALUES ('102', 'Double', 100.00);",
