@@ -392,6 +392,7 @@ def main():
             messages = [{"role": "system", "content": system_prompt}]
             for pair in query_result_pairs:
                 messages.append({"role": "user", "content": pair[0]})
+                print(pair[1])
                 messages.append({"role": "assistant", "content": pair[1][0]})
             
             messages.append({"role": "user", "content": user_prompt})
