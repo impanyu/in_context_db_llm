@@ -24,7 +24,7 @@ def execute_query(connection, query):
         if "insert" in query or "delete" in query or "update" in query:
             return ["Succeed"]
         else:
-            return json.dumps([r[0] for r in result])
+            return [r[0] for r in result]
     except Error as e:
         print(query)
         print(f"Error: '{e}'")
