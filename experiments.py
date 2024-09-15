@@ -323,7 +323,7 @@ def main():
     common_prompts["sql"] = sql
     #common_prompts["nl"] = nl
 
-    all_prompts = {}
+    all_prompts = {"sql":{}, "nl":{}}
     for i in range(1,21):
         print(i)
       
