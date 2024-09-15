@@ -11,8 +11,8 @@
   "create_tables":[
       "CREATE TABLE Customers (CustomerID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, Email VARCHAR(100) NOT NULL, PRIMARY KEY (CustomerID));",
       "CREATE TABLE Orders (OrderID INT NOT NULL AUTO_INCREMENT, CustomerID INT NOT NULL, OrderDate DATE NOT NULL, PRIMARY KEY (OrderID), FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID));",
-      "CREATE TABLE OrderItems (OrderItemID INT NOT NULL AUTO_INCREMENT, OrderID INT NOT NULL, ProductID INT NOT NULL, Quantity INT NOT NULL, PRIMARY KEY (OrderItemID), FOREIGN KEY (OrderID) REFERENCES Orders(OrderID), FOREIGN KEY (ProductID) REFERENCES Products(ProductID));",
-      "CREATE TABLE Products (ProductID INT NOT NULL AUTO_INCREMENT, ProductName VARCHAR(100) NOT NULL, Price DECIMAL(10,2) NOT NULL, Stock INT NOT NULL, PRIMARY KEY (ProductID));"
+      "CREATE TABLE Products (ProductID INT NOT NULL AUTO_INCREMENT, ProductName VARCHAR(100) NOT NULL, Price DECIMAL(10,2) NOT NULL, Stock INT NOT NULL, PRIMARY KEY (ProductID));",
+      "CREATE TABLE OrderItems (OrderItemID INT NOT NULL AUTO_INCREMENT, OrderID INT NOT NULL, ProductID INT NOT NULL, Quantity INT NOT NULL, PRIMARY KEY (OrderItemID), FOREIGN KEY (OrderID) REFERENCES Orders(OrderID), FOREIGN KEY (ProductID) REFERENCES Products(ProductID));"
   ],
   "insert": [
     "INSERT INTO Customers (FirstName, LastName, Email) VALUES ('John', 'Doe', 'john.doe@example.com');",
