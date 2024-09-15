@@ -78,6 +78,8 @@ def generate_system_prompt(common_prompts,encoding,prompting):
 
     return system_prompt
 
+def random_combination(n, k):
+    return sorted(random.sample(range(n), k))
 
 
 def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balance, overlap, operation):
@@ -112,11 +114,13 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
         tmp_sql_delete_update_populating_queries[i] = []
         tmp_delete_update_populating_queries[i] = []
 
-
+    
+    # choose insert_scale number of index from the insert queries
+    random_index_list = random_combination(len(sql_data["insert"]), insert_scale)
 
     for i in range(insert_scale):
         # get a random number between 0 and len(data["insert"])
-        random_index = random.randint(0, len(sql_data["insert"])-1)
+        random_index = random_index_list[i]
 
         tmp_sql_insert_populating_queries.append(sql_data["insert"][random_index])
         tmp_insert_populating_queries.append(data["insert"][random_index])
