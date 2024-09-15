@@ -325,6 +325,7 @@ def main():
 
     all_prompts = {}
     for i in range(1,21):
+        print(i)
       
         data = read_data(i,"sql")
         all_prompts["sql"][i] = data
