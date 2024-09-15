@@ -296,6 +296,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             #print(f"result_overlap: {result_overlap}")
             #print(f"result_union: {result_union}")
         except json.JSONDecodeError as e:
+            print("json decode error")
             return 0
         except Exception as e:
             return 0
