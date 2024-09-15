@@ -138,7 +138,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
             tmp_delete_update_populating_queries[random_index_in_populating_queries].append(data["delete"][random_index])
         else: # insert an update query
             random_index_in_populating_queries= random.randint(insert_scale-radius*2,insert_scale)
-            random_index = random.randint(0, len(sql_data["delete"])-1)
+            random_index = random.randint(0, len(sql_data["update"])-1)
             tmp_sql_delete_update_populating_queries[random_index_in_populating_queries].append(sql_data["update"][random_index])
             tmp_delete_update_populating_queries[random_index_in_populating_queries].append(data["update"][random_index])
 
