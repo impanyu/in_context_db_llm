@@ -151,8 +151,8 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     sql_populating_query_create_database += concatenate_prompt(sql_data["use_database"])
 
     sql_populating_query_for_create_tables = ""
-    for i in range(len(sql_data["create_tables"])):
-        sql_populating_query_for_create_tables += concatenate_prompt(sql_data["create_tables"][i]) 
+    
+    sql_populating_query_for_create_tables += concatenate_prompt(sql_data["create_tables"]) 
 
     sql_populating_query =  sql_populating_query_create_database + sql_populating_query_for_create_tables + sql_populating_query
 
@@ -161,8 +161,8 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     populating_query_create_database += concatenate_prompt(data["use_database"])
 
     populating_query_for_create_tables = ""
-    for i in range(len(data["create_tables"])):
-        populating_query_for_create_tables += concatenate_prompt(data["create_tables"][i])
+    
+    populating_query_for_create_tables += concatenate_prompt(data["create_tables"])
 
     populating_query = populating_query_create_database + populating_query_for_create_tables + populating_query
 
@@ -205,6 +205,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     populating_query = populating_query + concatenate_prompt(common_prompts[encoding]["user_prompt_2"]) + query
 
     sql_populating_queries = sql_populating_query.split("\n")[:-1]
+    print(sql_populating_queries)
 
     # execute the db_populating_query and db_query
     connection = connect_to_server()
