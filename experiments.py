@@ -263,13 +263,13 @@ def calculate_accuracy(true_result, result,user_prompt):
             if len(result) > 0:
                 if type(result[0]) == list or type(result[0]) == tuple:
                     result = [r[0] for r in result]
-                elif not type(result[0]) == int and not type(result[0]) == float:
+                #elif not type(result[0]) == int and not type(result[0]) == float:
                     #print(true_result)
                     #print(result)
 
                     #print(f"Accuracy: {accuracy}")
-                    print("result not a list of number")
-                    return 0
+                    #print("result not a list of number")
+                    #return 0
 
             order_accuracy = 1
             if "order by" in user_prompt.split("\n")[-1].lower():
