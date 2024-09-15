@@ -147,7 +147,7 @@
     "UPDATE Enrollments SET StudentID = 9 WHERE EnrollmentID = 10 AND ClassID = 5;",
     "UPDATE Enrollments SET StudentID = 11, ClassID = 6 WHERE EnrollmentID = 12;",
     "UPDATE Enrollments SET ClassID = 7 WHERE ClassID = 8;",
-    "UPDATE Enrollments SET StudentID = 13 WHERE EnrollmentID = 14 OR ClassID = 9;",
+    "UPDATE Enrollments SET StudentID = 13 WHERE EnrollmentID = 14 OR ClassID = 9;"
   ],
   "select": {
     "no_filtering": [
