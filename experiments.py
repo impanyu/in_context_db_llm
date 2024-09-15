@@ -233,9 +233,13 @@ def calculate_accuracy(true_result, result,user_prompt):
     if "Fail" in true_result:
         if "Fail" in result:
             return 1
+        else:
+            return 0
     elif "Succeed" in true_result:
         if "Succeed" in result:
             return 1
+        else:
+            return 0
     else:
         #true_result = json.loads(true_result)
         # replace ' with " in the result"
