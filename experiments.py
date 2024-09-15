@@ -151,7 +151,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     sql_populating_query_create_database += concatenate_prompt(sql_data["use_database"])
 
     sql_populating_query_for_create_tables = ""
-    for i in range(len(sql_data["sql"]["create_tables"])):
+    for i in range(len(sql_data["create_tables"])):
         sql_populating_query_for_create_tables += concatenate_prompt(sql_data["create_database"][i]) 
 
     sql_populating_queries =  sql_populating_query_create_database + sql_populating_query_for_create_tables + sql_populating_queries
