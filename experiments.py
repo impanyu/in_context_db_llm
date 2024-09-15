@@ -230,6 +230,8 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
 
 
 def calculate_accuracy(true_result, result,user_prompt):
+    # result is a string
+    # true_result is an array
     if "Fail" in true_result:
         if "Fail" in result:
             return 1
