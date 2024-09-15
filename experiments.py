@@ -412,7 +412,9 @@ def main():
             # get the response
             result = response.choices[0].message.content
 
-        accuracy += calculate_accuracy(true_result, result,user_prompt)
+        accuracy_delta = calculate_accuracy(true_result, result,user_prompt)
+        print(f"Accuracy delta: {accuracy_delta}")
+        accuracy += accuracy_delta
 
        
                 
