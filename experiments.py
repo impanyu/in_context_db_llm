@@ -85,6 +85,7 @@ def random_combination(n, k):
 
 def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balance, overlap, operation):
     db_index = random.randint(1, 20)
+    print(f"db_index: {db_index}")
     
     sql_data = all_prompts["sql"][db_index]
     data = all_prompts[encoding][db_index]
