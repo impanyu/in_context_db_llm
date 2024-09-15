@@ -26,8 +26,9 @@ def execute_query(connection, query):
         else:
             return json.dumps([r[0] for r in result])
     except Error as e:
-        print(f"Error: '{e}'")
         print(query)
+        print(f"Error: '{e}'")
+        
         connection.rollback()
 
         return ["Fail"]
