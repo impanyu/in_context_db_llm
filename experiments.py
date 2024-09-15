@@ -253,6 +253,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             if not type(result) == list:
                 #print(true_result)
                 #print(result)
+                print("result not a list")
 
                 return 0
             
@@ -264,6 +265,7 @@ def calculate_accuracy(true_result, result,user_prompt):
                     #print(result)
 
                     #print(f"Accuracy: {accuracy}")
+                    print("result not a list of number")
                     return 0
 
             order_accuracy = 1
