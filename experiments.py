@@ -299,6 +299,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             print("json decode error")
             return 0
         except Exception as e:
+            print(e)
             return 0
 
 
