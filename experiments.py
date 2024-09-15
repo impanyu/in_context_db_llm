@@ -292,6 +292,7 @@ def calculate_accuracy(true_result, result,user_prompt):
                 print("union is 0")
                 return 1 * order_accuracy  
             else:
+                print("union is not 0")
                 return len(result_overlap) / len(result_union) * order_accuracy
             
 
