@@ -13,8 +13,8 @@
         "CREATE TABLE Restaurants (RestaurantID INT NOT NULL AUTO_INCREMENT, RestaurantName VARCHAR(100) NOT NULL, Location VARCHAR(255), PRIMARY KEY (RestaurantID));",
         "CREATE TABLE Menus (MenuID INT NOT NULL AUTO_INCREMENT, MenuName VARCHAR(100) NOT NULL, RestaurantID INT NOT NULL, PRIMARY KEY (MenuID), FOREIGN KEY (RestaurantID) REFERENCES Restaurants(RestaurantID));",
         "CREATE TABLE Dishes (DishID INT NOT NULL AUTO_INCREMENT, DishName VARCHAR(100) NOT NULL, Price DECIMAL(10,2), MenuID INT NOT NULL, PRIMARY KEY (DishID), FOREIGN KEY (MenuID) REFERENCES Menus(MenuID));",
-        "CREATE TABLE Orders (OrderID INT NOT NULL AUTO_INCREMENT, CustomerID INT NOT NULL, RestaurantID INT NOT NULL, OrderDate DATETIME NOT NULL, PRIMARY KEY (OrderID), FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID), FOREIGN KEY (RestaurantID) REFERENCES Restaurants(RestaurantID));",
-        "CREATE TABLE Customers (CustomerID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, PRIMARY KEY (CustomerID));"
+        "CREATE TABLE Customers (CustomerID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, PRIMARY KEY (CustomerID));",
+        "CREATE TABLE Orders (OrderID INT NOT NULL AUTO_INCREMENT, CustomerID INT NOT NULL, RestaurantID INT NOT NULL, OrderDate DATETIME NOT NULL, PRIMARY KEY (OrderID), FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID), FOREIGN KEY (RestaurantID) REFERENCES Restaurants(RestaurantID));"
     ],
         "insert": [
             "INSERT INTO Restaurants (RestaurantName, Location) VALUES ('Pasta Palace', '123 Pasta Lane, Italian District');",
