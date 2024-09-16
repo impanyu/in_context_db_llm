@@ -172,7 +172,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     populating_query_create_database = concatenate_prompt(data["drop_database"])
     populating_query_create_database += concatenate_prompt(data["create_database"])
     populating_query_create_database += concatenate_prompt(data["use_database"])
-    
+
     populating_query_create_database += concatenate_prompt(data["drop_tables"])
 
     populating_query_for_create_tables = ""
@@ -210,8 +210,8 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     else:
         category = operation
 
-        db_queries = sql_data["select_data"][category]
-        queries = data["select_data"][category]
+        db_queries = sql_data["select"][category]
+        queries = data["select"][category]
 
         random_index = random.randint(0, len(db_queries)-1)
         sql_query = db_queries[random_index]
