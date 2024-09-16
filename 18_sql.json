@@ -200,16 +200,16 @@
                     "SELECT AppointmentID FROM Appointments;"
                 ],
                 "double_table": [
-                    "SELECT h.HospitalID, d.DoctorID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID;",
-                    "SELECT d.DoctorID, a.AppointmentID FROM Doctors d JOIN Appointments a ON d.DoctorID = a.DoctorID;",
-                    "SELECT p.PatientID, a.AppointmentID FROM Patients p JOIN Appointments a ON p.PatientID = a.PatientID;",
-                    "SELECT h.HospitalID, d.DoctorID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID WHERE d.Specialty = 'Cardiology';"
+                    "SELECT h.HospitalID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID;",
+                    "SELECT d.DoctorID  FROM Doctors d JOIN Appointments a ON d.DoctorID = a.DoctorID;",
+                    "SELECT p.PatientID FROM Patients p JOIN Appointments a ON p.PatientID = a.PatientID;",
+                    "SELECT h.HospitalID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID WHERE d.Specialty = 'Cardiology';"
                 ],
                 "three_table": [
-                    "SELECT h.HospitalID, d.DoctorID, a.AppointmentID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID JOIN Appointments a ON d.DoctorID = a.DoctorID;",
-                    "SELECT d.DoctorID, a.AppointmentID, p.PatientID FROM Doctors d JOIN Appointments a ON d.DoctorID = a.DoctorID JOIN Patients p ON a.PatientID = p.PatientID;",
-                    "SELECT p.PatientID, a.AppointmentID, d.DoctorID FROM Patients p JOIN Appointments a ON p.PatientID = a.PatientID JOIN Doctors d ON a.DoctorID = d.DoctorID;",
-                    "SELECT h.HospitalID, d.DoctorID, a.AppointmentID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID JOIN Appointments a ON d.DoctorID = a.DoctorID WHERE d.Specialty = 'Cardiology';"
+                    "SELECT h.HospitalID FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID JOIN Appointments a ON d.DoctorID = a.DoctorID;",
+                    "SELECT d.DoctorID FROM Doctors d JOIN Appointments a ON d.DoctorID = a.DoctorID JOIN Patients p ON a.PatientID = p.PatientID;",
+                    "SELECT p.PatientID FROM Patients p JOIN Appointments a ON p.PatientID = a.PatientID JOIN Doctors d ON a.DoctorID = d.DoctorID;",
+                    "SELECT h.HospitalID  FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID JOIN Appointments a ON d.DoctorID = a.DoctorID WHERE d.Specialty = 'Cardiology';"
                 ]
             }
         

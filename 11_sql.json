@@ -165,16 +165,16 @@
       "SELECT Title FROM Movies;"
     ],
     "double_table": [
-      "SELECT MovieID FROM Movies INNER JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID;",
-      "SELECT ActorID FROM Actors INNER JOIN MovieActors ON Actors.ActorID = MovieActors.ActorID;",
-      "SELECT MovieID FROM Movies LEFT JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID;",
-      "SELECT ActorID FROM Actors RIGHT JOIN MovieActors ON Actors.ActorID = MovieActors.ActorID;"
+      "SELECT Movies.MovieID FROM Movies INNER JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID;",
+      "SELECT Actors.ActorID FROM Actors INNER JOIN MovieActors ON Actors.ActorID = MovieActors.ActorID;",
+      "SELECT Movies.MovieID FROM Movies LEFT JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID;",
+      "SELECT Actors.ActorID FROM Actors RIGHT JOIN MovieActors ON Actors.ActorID = MovieActors.ActorID;"
     ],
     "three_table": [
-      "SELECT MovieID FROM Movies INNER JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID INNER JOIN Actors ON MovieActors.ActorID = Actors.ActorID;",
-      "SELECT MovieActorID FROM MovieActors INNER JOIN Movies ON MovieActors.MovieID = Movies.MovieID INNER JOIN Actors ON MovieActors.ActorID = Actors.ActorID;",
-      "SELECT ActorID FROM Actors INNER JOIN MovieActors ON Actors.ActorID = MovieActors.ActorID INNER JOIN Movies ON MovieActors.MovieID = Movies.MovieID;",
-      "SELECT MovieID FROM Movies LEFT JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID LEFT JOIN Actors ON MovieActors.ActorID = Actors.ActorID;"
+      "SELECT Movies.MovieID FROM Movies INNER JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID INNER JOIN Actors ON MovieActors.ActorID = Actors.ActorID;",
+      "SELECT MovieActors.MovieActorID FROM MovieActors INNER JOIN Movies ON MovieActors.MovieID = Movies.MovieID INNER JOIN Actors ON MovieActors.ActorID = Actors.ActorID;",
+      "SELECT Actors.ActorID FROM Actors INNER JOIN MovieActors ON Actors.ActorID = MovieActors.ActorID INNER JOIN Movies ON MovieActors.MovieID = Movies.MovieID;",
+      "SELECT Movies.MovieID FROM Movies LEFT JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID LEFT JOIN Actors ON MovieActors.ActorID = Actors.ActorID;"
     ]
   }
 

@@ -164,16 +164,16 @@
             "SELECT MenuID FROM Menus WHERE RestaurantID = 1;"
         ],
         "double_table": [
-            "SELECT RestaurantID FROM Restaurants INNER JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID;",
-            "SELECT MenuID FROM Menus INNER JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
-            "SELECT DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID;",
-            "SELECT RestaurantID FROM Restaurants INNER JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID WHERE MenuName = 'Lunch Menu';"
+            "SELECT Restaurants.RestaurantID FROM Restaurants INNER JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID;",
+            "SELECT Menus.MenuID FROM Menus INNER JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
+            "SELECT Dishes.DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID;",
+            "SELECT Restaurants.RestaurantID FROM Restaurants INNER JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID WHERE MenuName = 'Lunch Menu';"
         ],
         "three_table": [
-            "SELECT RestaurantID FROM Restaurants INNER JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID INNER JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
-            "SELECT MenuID FROM Menus INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID INNER JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
-            "SELECT DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID;",
-            "SELECT DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID WHERE Restaurants.RestaurantName = 'Italian Bistro';"
+            "SELECT Restaurants.RestaurantID FROM Restaurants INNER JOIN Menus ON Restaurants.RestaurantID = Menus.RestaurantID INNER JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
+            "SELECT Menus.MenuID FROM Menus INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID INNER JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
+            "SELECT Dishes.DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID;",
+            "SELECT Dishes.DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID WHERE Restaurants.RestaurantName = 'Italian Bistro';"
         ]
     }
 

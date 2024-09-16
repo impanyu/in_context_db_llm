@@ -164,16 +164,16 @@
             "SELECT HotelID FROM Hotels WHERE HotelName LIKE 'Hotel%';"
         ],
         "double_table": [
-            "SELECT HotelID FROM Hotels INNER JOIN Rooms ON Hotels.HotelID = Rooms.HotelID;",
-            "SELECT RoomID FROM Rooms INNER JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;",
-            "SELECT ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID;",
-            "SELECT HotelID FROM Hotels INNER JOIN Rooms ON Hotels.HotelID = Rooms.HotelID WHERE Rooms.PricePerNight > 100.00;"
+            "SELECT Hotels.HotelID FROM Hotels INNER JOIN Rooms ON Hotels.HotelID = Rooms.HotelID;",
+            "SELECT Rooms.RoomID FROM Rooms INNER JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;",
+            "SELECT Reservations.ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID;",
+            "SELECT Hotels.HotelID FROM Hotels INNER JOIN Rooms ON Hotels.HotelID = Rooms.HotelID WHERE Rooms.PricePerNight > 100.00;"
         ],
         "three_table": [
-            "SELECT HotelID FROM Hotels INNER JOIN Rooms ON Hotels.HotelID = Rooms.HotelID INNER JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;",
-            "SELECT ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID;",
-            "SELECT RoomID FROM Rooms INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID INNER JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;",
-            "SELECT ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID WHERE Hotels.HotelID = 1;"
+            "SELECT Hotels.HotelID FROM Hotels INNER JOIN Rooms ON Hotels.HotelID = Rooms.HotelID INNER JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;",
+            "SELECT Reservations.ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID;",
+            "SELECT Rooms.RoomID FROM Rooms INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID INNER JOIN Reservations ON Rooms.RoomID = Reservations.RoomID;",
+            "SELECT Reservations.ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID WHERE Hotels.HotelID = 1;"
         ]
     }
 

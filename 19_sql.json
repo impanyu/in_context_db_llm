@@ -238,16 +238,16 @@
                             "SELECT StudentID FROM Students;"
                         ],
                         "double_table": [
-                            "SELECT UniversityID FROM Universities INNER JOIN Faculties ON Universities.UniversityID = Faculties.UniversityID;",
-                            "SELECT FacultyID FROM Faculties INNER JOIN Departments ON Faculties.FacultyID = Departments.FacultyID;",
-                            "SELECT DepartmentID FROM Departments INNER JOIN Courses ON Departments.DepartmentID = Courses.DepartmentID;",
-                            "SELECT CourseID FROM Courses INNER JOIN Departments ON Courses.DepartmentID = Departments.DepartmentID;"
+                            "SELECT Universities.UniversityID FROM Universities INNER JOIN Faculties ON Universities.UniversityID = Faculties.UniversityID;",
+                            "SELECT Faculties.FacultyID FROM Faculties INNER JOIN Departments ON Faculties.FacultyID = Departments.FacultyID;",
+                            "SELECT Departments.DepartmentID FROM Departments INNER JOIN Courses ON Departments.DepartmentID = Courses.DepartmentID;",
+                            "SELECT Courses.CourseID FROM Courses INNER JOIN Departments ON Courses.DepartmentID = Departments.DepartmentID;"
                         ],
                         "three_table": [
-                            "SELECT UniversityID FROM Universities INNER JOIN Faculties ON Universities.UniversityID = Faculties.UniversityID INNER JOIN Departments ON Faculties.FacultyID = Departments.FacultyID;",
-                            "SELECT FacultyID FROM Faculties INNER JOIN Departments ON Faculties.FacultyID = Departments.FacultyID INNER JOIN Courses ON Departments.DepartmentID = Courses.DepartmentID;",
-                            "SELECT DepartmentID FROM Departments INNER JOIN Faculties ON Departments.FacultyID = Faculties.FacultyID INNER JOIN Universities ON Faculties.UniversityID = Universities.UniversityID;",
-                            "SELECT StudentID FROM Students INNER JOIN Enrollments ON Students.StudentID = Enrollments.StudentID INNER JOIN Courses ON Enrollments.CourseID = Courses.CourseID;"
+                            "SELECT Universities.UniversityID FROM Universities INNER JOIN Faculties ON Universities.UniversityID = Faculties.UniversityID INNER JOIN Departments ON Faculties.FacultyID = Departments.FacultyID;",
+                            "SELECT Faculties.FacultyID FROM Faculties INNER JOIN Departments ON Faculties.FacultyID = Departments.FacultyID INNER JOIN Courses ON Departments.DepartmentID = Courses.DepartmentID;",
+                            "SELECT Departments.DepartmentID FROM Departments INNER JOIN Faculties ON Departments.FacultyID = Faculties.FacultyID INNER JOIN Universities ON Faculties.UniversityID = Universities.UniversityID;",
+                            "SELECT Students.StudentID FROM Students INNER JOIN Enrollments ON Students.StudentID = Enrollments.StudentID INNER JOIN Courses ON Enrollments.CourseID = Courses.CourseID;"
                         ]
                     }
                 
