@@ -85,6 +85,7 @@ def random_combination(n, k):
     for i in range(k):
         random_index = random.randint(0, n-1)
         result_list.append(random_index)
+    print(sorted(result_list))
 
     return sorted(result_list)
 
