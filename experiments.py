@@ -355,6 +355,8 @@ def main():
     true_fail_rate = 0
     fail_rate = 0
 
+    true_empty_rate = 0
+
     sql = read_data("common","sql")
     #nl = read_data("common",encoding)
 
@@ -425,29 +427,35 @@ def main():
             # get the response
             result = response.choices[0].message.content
 
-        accuracy_delta = calculate_accuracy(true_result, result,user_prompt)
-        print(f"Accuracy delta: {accuracy_delta}")
-        accuracy += accuracy_delta
+    accuracy_delta = calculate_accuracy(true_result, result,user_prompt)
+    print(f"Accuracy delta: {accuracy_delta}")
+    accuracy += accuracy_delta
 
-       
-                
+    
+            
 
-        print(true_result)
-        print(result)
-        if "Fail" in true_result:
-            true_fail_rate += 1
-        if "Fail" in result:
-            fail_rate += 1
+    print(true_result)
+    print(result)
+    if "Fail" in true_result:
+        true_fail_rate += 1
+    if "Fail" in result:
+        fail_rate += 1
 
-        print(f"Accuracy: {accuracy}")
+    if len(true_result) == 0:
+        true_empty_rate += 1
+
+    print(f"Accuracy: {accuracy}")
         
 
     accuracy = accuracy / TIMES
     true_fail_rate = true_fail_rate / TIMES
     fail_rate = fail_rate / TIMES
+
+    true_empty_rate = true_empty_rate / TIMES
     print(f"Total Accuracy: {accuracy}")
     print(f"True Fail Rate: {true_fail_rate}")
     print(f"Fail Rate: {fail_rate}")
+    print(f"True Empty Rate: {true_empty_rate}")
 
       
         
