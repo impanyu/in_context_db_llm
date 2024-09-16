@@ -80,14 +80,14 @@ def generate_system_prompt(common_prompts,encoding,prompting):
     return system_prompt
 
 def random_combination(n, k):
-    #return sorted(random.sample(range(n), k))
-    result_list = []
-    for i in range(k):
-        random_index = random.randint(0, n-1)
-        result_list.append(random_index)
-    print(sorted(result_list))
+    combination = random.sample(range(n), min(k,n))
 
-    return sorted(result_list)
+    for i in range(k-n):
+        random_index = random.randint(0, n-1)
+        combination.append(random_index)
+    print(sorted(combination))
+
+    return sorted(combination)
 
 
 def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balance, overlap, operation=None):
