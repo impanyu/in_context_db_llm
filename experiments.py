@@ -71,9 +71,9 @@ def generate_system_prompt(common_prompts,encoding,prompting):
     if "COT" in prompting:
         system_prompt += concatenate_prompt(common_prompts[encoding]["COT"])
 
-    system_prompt += concatenate_prompt(common_prompts[encoding]["drop_database"])
-    system_prompt += concatenate_prompt(common_prompts[encoding]["create_database"])
-    system_prompt += concatenate_prompt(common_prompts[encoding]["use_database"])
+    #system_prompt += concatenate_prompt(common_prompts[encoding]["drop_database"])
+    #system_prompt += concatenate_prompt(common_prompts[encoding]["create_database"])
+    #system_prompt += concatenate_prompt(common_prompts[encoding]["use_database"])
 
 
 
