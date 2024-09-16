@@ -122,7 +122,7 @@
             "SELECT StudentID FROM Students;",
             "SELECT CourseID FROM Courses;",
             "SELECT EnrollmentID FROM Enrollments;",
-            "SELECT * FROM Students;"
+            "SELECT StudentID FROM Students;"
           ],
           "single_filtering": [
             "SELECT StudentID FROM Students WHERE FirstName = 'John';",
