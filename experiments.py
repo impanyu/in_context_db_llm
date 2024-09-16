@@ -350,6 +350,7 @@ def main():
     FEW_SHOT_NUMBER = 3
 
     accuracy = 0
+    true_fail_rate = 0
     fail_rate = 0
 
     sql = read_data("common","sql")
@@ -432,6 +433,8 @@ def main():
         print(true_result)
         print(result)
         if "Fail" in true_result:
+            true_fail_rate += 1
+        if "Fail" in result:
             fail_rate += 1
 
         print(f"Accuracy: {accuracy}")
@@ -440,6 +443,7 @@ def main():
     accuracy = accuracy / TIMES
     fail_rate = fail_rate / TIMES
     print(f"Total Accuracy: {accuracy}")
+    print(f"True Fail Rate: {true_fail_rate}")
     print(f"Fail Rate: {fail_rate}")
 
       
