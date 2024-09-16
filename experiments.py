@@ -441,6 +441,7 @@ def main():
         
 
     accuracy = accuracy / TIMES
+    true_fail_rate = true_fail_rate / TIMES
     fail_rate = fail_rate / TIMES
     print(f"Total Accuracy: {accuracy}")
     print(f"True Fail Rate: {true_fail_rate}")
