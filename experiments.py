@@ -158,11 +158,11 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
             populating_query += tmp_insert_populating_queries[i] + "\n"
     
 
-    if example_index == None:
-        sql_populating_query_create_database = concatenate_prompt(sql_data["drop_database"]) 
-        sql_populating_query_create_database += concatenate_prompt(sql_data["create_database"]) 
-        sql_populating_query_create_database += concatenate_prompt(sql_data["use_database"])
-    else:
+    
+    sql_populating_query_create_database = concatenate_prompt(sql_data["drop_database"]) 
+    sql_populating_query_create_database += concatenate_prompt(sql_data["create_database"]) 
+    sql_populating_query_create_database += concatenate_prompt(sql_data["use_database"])
+    if example_index != None:
         sql_populating_query_create_database = sql_populating_query_create_database.replace("test",f"test_{example_index}")
 
     sql_populating_query_for_create_tables = ""
@@ -174,6 +174,9 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     populating_query_create_database = concatenate_prompt(data["drop_database"])
     populating_query_create_database += concatenate_prompt(data["create_database"])
     populating_query_create_database += concatenate_prompt(data["use_database"])
+
+    if example_index != None:
+        populating_query_create_database = populating_query_create_database.replace("test",f"test_{example_index}")
 
     populating_query_create_database += concatenate_prompt(data["drop_tables"])
 

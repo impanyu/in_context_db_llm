@@ -7,86 +7,177 @@
         "Remove the 'Posts' table if it exists.",
         "Remove the 'Comments' table if it exists."
     ],
-"create_tables":[
-    "Create a table named 'Users' with columns: 'UserID' (an integer that auto-increments and cannot be null), 'Username' (a non-null string with a maximum length of 255 characters), 'Email' (a non-null string with a maximum length of 255 characters), 'PasswordHash' (a non-null string with a maximum length of 255 characters), and 'CreatedAt' (a datetime field with the default value set to the current timestamp). The primary key of this table is 'UserID'.",
-    
-    "Create a table named 'Posts' with columns: 'PostID' (an integer that auto-increments and cannot be null), 'UserID' (a non-null integer), 'Title' (a non-null string with a maximum length of 255 characters), 'Content' (a non-null text field), and 'CreatedAt' (a datetime field with the default value set to the current timestamp). The primary key of this table is 'PostID'. The 'UserID' column references the 'UserID' in the 'Users' table.",
-    
-    "Create a table named 'Comments' with columns: 'CommentID' (an integer that auto-increments and cannot be null), 'PostID' (a non-null integer), 'UserID' (a non-null integer), 'CommentText' (a non-null text field), and 'CreatedAt' (a datetime field with the default value set to the current timestamp). The primary key of this table is 'CommentID'. The 'PostID' column references the 'PostID' in the 'Posts' table, and the 'UserID' column references the 'UserID' in the 'Users' table."
-],
+    "create_tables":[
+        "Create a table named 'Users' with columns: 'UserID' (an integer that auto-increments and cannot be null), 'Username' (a non-null string with a maximum length of 255 characters), 'Email' (a non-null string with a maximum length of 255 characters), 'PasswordHash' (a non-null string with a maximum length of 255 characters), and 'CreatedAt' (a datetime field with the default value set to the current timestamp). The primary key of this table is 'UserID'.",
+        "Create a table named 'Posts' with columns: 'PostID' (an integer that auto-increments and cannot be null), 'UserID' (a non-null integer), 'Title' (a non-null string with a maximum length of 255 characters), 'Content' (a non-null text field), and 'CreatedAt' (a datetime field with the default value set to the current timestamp). The primary key of this table is 'PostID'. The 'UserID' column references the 'UserID' in the 'Users' table.",
+        "Create a table named 'Comments' with columns: 'CommentID' (an integer that auto-increments and cannot be null), 'PostID' (a non-null integer), 'UserID' (a non-null integer), 'CommentText' (a non-null text field), and 'CreatedAt' (a datetime field with the default value set to the current timestamp). The primary key of this table is 'CommentID'. The 'PostID' column references the 'PostID' in the 'Posts' table, and the 'UserID' column references the 'UserID' in the 'Users' table."
+    ],
+    "insert":[
+        "insert a user with the Username = 'john_doe', Email = 'john@example.com', and PasswordHash = 'hashed_password_1'.",
+        "insert a user with the Username = 'jane_doe', Email = 'jane@example.com', and PasswordHash = 'hashed_password_2'.",
+        "insert a user with the Username = 'alice_smith', Email = 'alice@example.com' and PasswordHash = 'hashed_password_3'.",
+        "insert a user with the Username = 'bob_jones', Email = 'bob@example.com', and PasswordHash = 'hashed_password_4'.",
+        "insert a user with the Username = 'charlie_brown', Email = 'charlie@example.com', and PasswordHash = 'hashed_password_5'.",
+        "insert a user with the Username = 'dave_clark', Email = 'dave@example.com', and PasswordHash = 'hashed_password_6'.",
+        "insert a user with the Username = 'eve_white', Email = 'eve@example.com', and PasswordHash = 'hashed_password_7'.",
+        "insert a user with the Username = 'frank_black', Email = 'frank@example.com', and PasswordHash = 'hashed_password_8'.",
+        "insert a user with the Username = 'grace_green', Email = 'grace@example.com', amd PasswordHash = 'hashed_password_9'.",
+        "insert a user with the Username = 'hank_blue', Email = 'hank@example.com', and PasswordHash = 'hashed_password_10'.",
+        "insert a post with the UserID = 1, Title = 'First Post', and Content = 'This is the content of the first post.'.",
+        "insert a post with the UserID = 2, Title = 'Second Post', and Content = 'This is the content of the second post.'.",
+        "insert a post with the UserID = 3, Title = 'Third Post', and Content = 'This is the content of the third post.'.",
+        "insert a post with the UserID = 4, Title = 'Fourth Post', and Content = 'This is the content of the fourth post.'.",
+        "insert a post with the UserID = 5, Title = 'Fifth Post', and Content = 'This is the content of the fifth post.'.",
+        "insert a post with the UserID = 6, Title = 'Sixth Post', and Content = 'This is the content of the sixth post.'.",
+        "insert a post with the UserID = 7, Title = 'Seventh Post', and Content = 'This is the content of the seventh post.'.",
+        "insert a post with the UserID = 8, Title = 'Eighth Post', and Content = 'This is the content of the eighth post.'.",
+        "insert a post with the UserID = 9, Title = 'Ninth Post', and Content = 'This is the content of the ninth post.'.",
+        "insert a post with the UserID = 10, Title = 'Tenth Post', and Content = 'This is the content of the tenth post.'.",
+        "insert a comment with the PostID = 1, UserID = 2, and CommentText = 'This is a comment on the first post.'.",
+        "insert a comment with the PostID = 2, UserID = 3, and CommentText = 'This is a comment on the second post.'.",
+        "insert a comment with the PostID = 3, UserID = 4, and CommentText = 'This is a comment on the third post.'.",
+        "insert a comment with the PostID = 4, UserID = 5, and CommentText = 'This is a comment on the fourth post.'.",
+        "insert a comment with the PostID = 5, UserID = 6, and CommentText = 'This is a comment on the fifth post.'.",
+        "insert a comment with the PostID = 6, UserID = 7, and CommentText = 'This is a comment on the sixth post.'.",
+        "insert a comment with the PostID = 7, UserID = 8, and CommentText = 'This is a comment on the seventh post.'.",
+        "insert a comment with the PostID = 8, UserID = 9, and CommentText = 'This is a comment on the eighth post.'.",
+        "insert a comment with the PostID = 9, UserID = 10, and CommentText = 'This is a comment on the ninth post.'.",
+        "insert a comment with the PostID = 10, UserID = 1, and CommentText = 'This is a comment on the tenth post.'."
+    ],
+    "delete":[
+        "delete the user with the UserID = 1.",
+        "delete the user with the Username = 'johndoe'.",
+        "delete the user with the Email = 'example@example.com'.",
+        "delete the user with the CreatedAt date before '2023-01-01'.",
+        "delete the user with the Username = 'janedoe' and the Email = 'janedoe@example.com'.",
+        "delete the user with the CreatedAt date after '2024-01-01' and the UserID greater than 10.",
+        "delete the users with the Username = 'alice' or the Username = 'bob'.",
+        "delete the users with the Email that contains 'example.com'.",
+        "delete the users with the UserID between 5 and 10.",
+        "delete the users with the Username = 'admin' and the CreatedAt date after '2023-06-01'.",
+        "delete the post with the PostID = 100.",
+        "delete the posts with the UserID = 1.",
+        "delete the posts with the Title = 'Hello World'.",
+        "delete the posts with the CreatedAt date before '2023-01-01'.",
+        "delete the posts with the Title that contains 'announcement'.",
+        "delete the posts with the UserID = 2 and the CreatedAt date before '2023-06-01'.",
+        "delete the posts with the PostID between 50 and 100.",
+        "delete the posts with the UserID = 3 or the Title = 'Test Post'.",
+        "delete the posts with the CreatedAt date between '2023-01-01' and '2023-12-31'.",
+        "delete the posts with the UserID = 5 and the Title = 'Update'.",
+        "delete the comment with the CommentID = 500.",
+        "delete the comment with the PostID = 100.",
+        "delete the comment with the UserID = 1.",
+        "delete the comment with the CommentText that contains 'spam'.",
+        "delete the comment with the CreatedAt date before '2023-01-01' and the UserID = 2.",
+        "delete the comment with the PostID = 200 and the UserID = 3.",
+        "delete the comment with the CommentID between 100 and 200.",
+        "delete the comment with the UserID = 4 or the PostID = 300.",
+        "delete the comment with the CreatedAt date after '2023-06-01' and the UserID = 5.",
+        "delete the comment with the CommentText = 'Test comment' and the CreatedAt date before '2023-07-01'."
+    ],
+    "update":[
+        "update the user with the UserID = 5 to have the Username = 'new_username'.",
+        "update the user with the UserID = 3 and the CreatedAt date after '2023-01-01' to have the Email = 'new_username'.",
+        "update the user with the Username = 'john_doe' to have the PasswordHash = 'new_hash'.",
+        "update the user with the UserID = 2 or the Email = 'old_email@example.com' to have the Username = 'updated_name'.",
+        "update the user with the UserID = 1 to have the CreatedAt date = '2023-08-01'.",
+        "update the user with the UserID = 6 to have the Email = 'another_email@example.com' and the PasswordHash = 'another_hash'.",
+        "update the user with the Email = 'another_user@example.com' and the CreatedAt date before '2023-01-01' to have the Username = 'another_user'.",
 
-        "insert": [
-            "Insert a user with the username 'john_doe', email 'john@example.com', and password 'hashed_password_1' into the Users table.",
-            "Insert a user with the username 'jane_doe', email 'jane@example.com', and password 'hashed_password_2' into the Users table.",
-            "Insert a user with the username 'alice_smith', email 'alice@example.com', and password 'hashed_password_3' into the Users table.",
-            "Insert a user with the username 'bob_jones', email 'bob@example.com', and password 'hashed_password_4' into the Users table.",
-            "Insert a user with the username 'charlie_brown', email 'charlie@example.com', and password 'hashed_password_5' into the Users table.",
-            "Insert a user with the username 'dave_clark', email 'dave@example.com', and password 'hashed_password_6' into the Users table.",
-            "Insert a user with the username 'eve_white', email 'eve@example.com', and password 'hashed_password_7' into the Users table.",
-            "Insert a user with the username 'frank_black', email 'frank@example.com', and password 'hashed_password_8' into the Users table.",
-            "Insert a user with the username 'grace_green', email 'grace@example.com', and password 'hashed_password_9' into the Users table.",
-            "Insert a user with the username 'hank_blue', email 'hank@example.com', and password 'hashed_password_10' into the Users table.",
-            "Insert a post for the user with UserID 1 titled 'First Post' with the content 'This is the content of the first post.' into the Posts table.",
-            "Insert a post for the user with UserID 2 titled 'Second Post' with the content 'This is the content of the second post.' into the Posts table.",
-            "Insert a post for the user with UserID 3 titled 'Third Post' with the content 'This is the content of the third post.' into the Posts table.",
-            "Insert a post for the user with UserID 4 titled 'Fourth Post' with the content 'This is the content of the fourth post.' into the Posts table.",
-            "Insert a post for the user with UserID 5 titled 'Fifth Post' with the content 'This is the content of the fifth post.' into the Posts table.",
-            "Insert a post for the user with UserID 6 titled 'Sixth Post' with the content 'This is the content of the sixth post.' into the Posts table.",
-            "Insert a post for the user with UserID 7 titled 'Seventh Post' with the content 'This is the content of the seventh post.' into the Posts table.",
-            "Insert a post for the user with UserID 8 titled 'Eighth Post' with the content 'This is the content of the eighth post.' into the Posts table.",
-            "Insert a post for the user with UserID 9 titled 'Ninth Post' with the content 'This is the content of the ninth post.' into the Posts table.",
-            "Insert a post for the user with UserID 10 titled 'Tenth Post' with the content 'This is the content of the tenth post.' into the Posts table.",
-            "Insert a comment on the post with PostID 1 by the user with UserID 2 with the text 'This is a comment on the first post.' into the Comments table.",
-            "Insert a comment on the post with PostID 2 by the user with UserID 3 with the text 'This is a comment on the second post.' into the Comments table.",
-            "Insert a comment on the post with PostID 3 by the user with UserID 4 with the text 'This is a comment on the third post.' into the Comments table.",
-            "Insert a comment on the post with PostID 4 by the user with UserID 5 with the text 'This is a comment on the fourth post.' into the Comments table.",
-            "Insert a comment on the post with PostID 5 by the user with UserID 6 with the text 'This is a comment on the fifth post.' into the Comments table.",
-            "Insert a comment on the post with PostID 6 by the user with UserID 7 with the text 'This is a comment on the sixth post.' into the Comments table.",
-            "Insert a comment on the post with PostID 7 by the user with UserID 8 with the text 'This is a comment on the seventh post.' into the Comments table.",
-            "Insert a comment on the post with PostID 8 by the user with UserID 9 with the text 'This is a comment on the eighth post.' into the Comments table.",
-            "Insert a comment on the post with PostID 9 by the user with UserID 10 with the text 'This is a comment on the ninth post.' into the Comments table.",
-            "Insert a comment on the post with PostID 10 by the user with UserID 1 with the text 'This is a comment on the tenth post.' into the Comments table."
-        ],
-        "delete":[
-            "delete the user with UserID 1 from the Users table.",
-            "delete the user with the username 'johndoe' from the Users table.",
-            "delete the user with the email 'example@@example.com' from the Users table.",
-            "delete all users created before '2023-01-01' from the Users table.",
-            "delete the user with the username 'janedoe' and the email 'janedoe@example.com' from the Users table.",
-            "delete all users created after '2024-01-01' and with a UserID greater than 10 from the Users table.",
-            "delete all users with the username 'alice' or 'bob' from the Users table.",
 
-            "DELETE FROM Users WHERE UserID = 1;",
-            "DELETE FROM Users WHERE Username = 'johndoe';",
-            "DELETE FROM Users WHERE Email = 'example@example.com';",
-            "DELETE FROM Users WHERE CreatedAt < '2023-01-01';",
-            "DELETE FROM Users WHERE Username = 'janedoe' AND Email = 'janedoe@example.com';",
-            "DELETE FROM Users WHERE CreatedAt > '2024-01-01' AND UserID > 10;",
-            "DELETE FROM Users WHERE Username = 'alice' OR Username = 'bob';",
-            "DELETE FROM Users WHERE Email LIKE '%example.com';",
-            "DELETE FROM Users WHERE UserID BETWEEN 5 AND 10;",
-            "DELETE FROM Users WHERE Username = 'admin' AND CreatedAt > '2023-06-01';",
-            "DELETE FROM Posts WHERE PostID = 100;",
-            "DELETE FROM Posts WHERE UserID = 1;",
-            "DELETE FROM Posts WHERE Title = 'Hello World';",
-            "DELETE FROM Posts WHERE CreatedAt < '2023-01-01';",
-            "DELETE FROM Posts WHERE Title LIKE '%announcement%';",
-            "DELETE FROM Posts WHERE UserID = 2 AND CreatedAt < '2023-06-01';",
-            "DELETE FROM Posts WHERE PostID > 50 AND PostID < 100;",
-            "DELETE FROM Posts WHERE UserID = 3 OR Title = 'Test Post';",
-            "DELETE FROM Posts WHERE CreatedAt BETWEEN '2023-01-01' AND '2023-12-31';",
-            "DELETE FROM Posts WHERE UserID = 5 AND Title = 'Update';",
-            "DELETE FROM Comments WHERE CommentID = 500;",
-            "DELETE FROM Comments WHERE PostID = 100;",
-            "DELETE FROM Comments WHERE UserID = 1;",
-            "DELETE FROM Comments WHERE CommentText LIKE '%spam%';",
-            "DELETE FROM Comments WHERE CreatedAt < '2023-01-01' AND UserID = 2;",
-            "DELETE FROM Comments WHERE PostID = 200 AND UserID = 3;",
-            "DELETE FROM Comments WHERE CommentID > 100 AND CommentID < 200;",
-            "DELETE FROM Comments WHERE UserID = 4 OR PostID = 300;",
-            "DELETE FROM Comments WHERE CreatedAt > '2023-06-01' AND UserID = 5;",
-            "DELETE FROM Comments WHERE CommentText = 'Test comment' AND CreatedAt < '2023-07-01';"
-        ],
+        "UPDATE Users SET Username = 'another_user' WHERE Email = 'another_user@example.com' AND CreatedAt < '2023-01-01';",
+        "UPDATE Users SET PasswordHash = 'strong_hash' WHERE Username = 'jane_doe' AND CreatedAt BETWEEN '2023-01-01' AND '2023-12-31';",
+        "UPDATE Users SET Email = 'user_email_update@example.com' WHERE UserID = 7 AND CreatedAt IS NOT NULL;",
+        "UPDATE Users SET Username = 'name_updated', Email = 'email_updated@example.com' WHERE UserID = 4 OR PasswordHash = 'old_hash';",
+        "UPDATE Posts SET Title = 'New Title' WHERE PostID = 10;",
+        "UPDATE Posts SET Content = 'Updated content for the post.' WHERE PostID = 8 AND UserID = 2;",
+        "UPDATE Posts SET CreatedAt = '2023-08-01' WHERE Title = 'Old Title';",
+        "UPDATE Posts SET Title = 'Another Title Update' WHERE UserID = 5 OR CreatedAt > '2023-07-01';",
+        "UPDATE Posts SET Title = 'Updated Title', Content = 'New content' WHERE PostID = 6;",
+        "UPDATE Posts SET Content = 'Modified content' WHERE PostID = 4 AND UserID = 3;",
+        "UPDATE Posts SET Title = 'Modified Title' WHERE UserID = 2 AND CreatedAt < '2023-01-01';",
+        "UPDATE Posts SET CreatedAt = '2023-07-15' WHERE PostID = 7 OR Title = 'Old Post Title';",
+        "UPDATE Posts SET Title = 'New Post Title' WHERE PostID = 1;",
+        "UPDATE Posts SET Content = 'Final content update' WHERE PostID = 9 AND UserID = 4;",
+        "UPDATE Comments SET CommentText = 'Updated comment text.' WHERE CommentID = 3;",
+        "UPDATE Comments SET CreatedAt = '2023-08-01' WHERE CommentID = 5 AND UserID = 2;",
+        "UPDATE Comments SET CommentText = 'Another comment update' WHERE PostID = 7;",
+        "UPDATE Comments SET CommentText = 'Final comment update', CreatedAt = '2023-07-01' WHERE CommentID = 2 AND PostID = 4;",
+        "UPDATE Comments SET CommentText = 'Modified text' WHERE CommentID = 9 OR UserID = 6;",
+        "UPDATE Comments SET CreatedAt = '2023-07-15' WHERE CommentID = 8;",
+        "UPDATE Comments SET CommentText = 'Text changed again' WHERE CommentID = 1 AND PostID = 10;",
+        "UPDATE Comments SET CreatedAt = '2023-06-30' WHERE UserID = 3 OR PostID = 5;",
+        "UPDATE Comments SET CommentText = 'Last comment update' WHERE CommentID = 7;",
+        "UPDATE Comments SET CreatedAt = '2023-07-20', CommentText = 'Final change' WHERE CommentID = 6 AND UserID = 4;"
 
+
+
+    ],
     
+        "select": {
+            "no_filtering": [
+                "SELECT UserID FROM Users;",
+                "SELECT PostID FROM Posts;",
+                "SELECT CommentID FROM Comments;",
+                "SELECT Username FROM Users;"
+            ],
+            "single_filtering": [
+                "SELECT UserID FROM Users WHERE Username = 'john_doe';",
+                "SELECT PostID FROM Posts WHERE UserID = 1;",
+                "SELECT CommentID FROM Comments WHERE PostID = 5;",
+                "SELECT UserID FROM Users WHERE CreatedAt > '2024-01-01';"
+            ],
+            "double_filtering": [
+                "SELECT UserID FROM Users WHERE Username = 'john_doe' AND Email = 'john@example.com';",
+                "SELECT PostID FROM Posts WHERE UserID = 1 AND CreatedAt < '2024-01-01';",
+                "SELECT CommentID FROM Comments WHERE PostID = 5 OR UserID = 2;",
+                "SELECT PostID FROM Posts WHERE Title LIKE '%SQL%' AND CreatedAt > '2023-01-01';"
+            ],
+            "triple_filtering": [
+                "SELECT UserID FROM Users WHERE Username = 'john_doe' AND Email = 'john@example.com' AND CreatedAt > '2023-01-01';",
+                "SELECT PostID FROM Posts WHERE UserID = 1 AND Title LIKE '%Python%' AND CreatedAt > '2023-01-01';",
+                "SELECT CommentID FROM Comments WHERE PostID = 5 AND UserID = 2 AND CreatedAt > '2023-01-01';",
+                "SELECT CommentID FROM Comments WHERE CommentText LIKE '%helpful%' OR UserID = 3 AND CreatedAt < '2024-01-01';"
+            ],
+            "range_filtering": [
+                "SELECT UserID FROM Users WHERE CreatedAt BETWEEN '2023-01-01' AND '2024-01-01';",
+                "SELECT PostID FROM Posts WHERE CreatedAt BETWEEN '2023-06-01' AND '2024-06-01';",
+                "SELECT CommentID FROM Comments WHERE CreatedAt BETWEEN '2023-01-01' AND '2024-01-01';",
+                "SELECT PostID FROM Posts WHERE PostID BETWEEN 1 AND 100;"
+            ],
+            "ranking": [
+                "SELECT UserID FROM Users ORDER BY CreatedAt DESC;",
+                "SELECT PostID FROM Posts ORDER BY CreatedAt ASC;",
+                "SELECT CommentID FROM Comments ORDER BY CreatedAt DESC;",
+                "SELECT UserID FROM Users ORDER BY UserID DESC;"
+            ],
+            "count": [
+                "SELECT COUNT(UserID) FROM Users;",
+                "SELECT COUNT(PostID) FROM Posts;",
+                "SELECT COUNT(CommentID) FROM Comments;",
+                "SELECT COUNT(UserID) FROM Users WHERE CreatedAt > '2024-01-01';"
+            ],
+            "single_table": [
+                "SELECT UserID FROM Users;",
+                "SELECT PostID FROM Posts WHERE UserID = 1;",
+                "SELECT CommentID FROM Comments WHERE PostID = 5;",
+                "SELECT Username FROM Users WHERE Email LIKE '%example.com%';"
+            ],
+            "double_table": [
+                "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID WHERE Users.Username = 'john_doe';",
+                "SELECT Comments.CommentID FROM Comments JOIN Posts ON Comments.PostID = Posts.PostID WHERE Posts.UserID = 1;",
+                "SELECT Comments.CommentID FROM Comments JOIN Users ON Comments.UserID = Users.UserID WHERE Users.Email = 'john@example.com';",
+                "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID ORDER BY Users.CreatedAt DESC;"
+            ],
+            "three_table": [
+                "SELECT Comments.CommentID FROM Comments JOIN Posts ON Comments.PostID = Posts.PostID JOIN Users ON Posts.UserID = Users.UserID WHERE Users.Username = 'john_doe';",
+                "SELECT Comments.CommentID FROM Comments JOIN Posts ON Comments.PostID = Posts.PostID JOIN Users ON Comments.UserID = Users.UserID WHERE Posts.Title LIKE '%Python%';",
+                "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID JOIN Comments ON Posts.PostID = Comments.PostID WHERE Users.Email LIKE '%example.com%';",
+                "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID JOIN Comments ON Posts.PostID = Comments.PostID WHERE Comments.CommentText LIKE '%helpful%';"
+            ]
+        }
+    
+    
+
 }
