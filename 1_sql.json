@@ -107,11 +107,7 @@
         "UPDATE Comments SET CreatedAt = '2023-06-30' WHERE UserID = 3 OR PostID = 5;",
         "UPDATE Comments SET CommentText = 'Last comment update' WHERE CommentID = 7;",
         "UPDATE Comments SET CreatedAt = '2023-07-20', CommentText = 'Final change' WHERE CommentID = 6 AND UserID = 4;"
-
-
-
-    ],
-    
+    ],  
         "select": {
             "no_filtering": [
                 "SELECT UserID FROM Users;",
