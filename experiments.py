@@ -90,7 +90,7 @@ def random_combination(n, k):
     return sorted(combination)
 
 
-def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balance, overlap, operation=None):
+def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balance, overlap, operation=None, example_index=None):
     db_index = random.randint(1, 20)
     print(f"db_index: {db_index}")
     
@@ -158,10 +158,12 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
             populating_query += tmp_insert_populating_queries[i] + "\n"
     
 
-
-    sql_populating_query_create_database = concatenate_prompt(sql_data["drop_database"]) 
-    sql_populating_query_create_database += concatenate_prompt(sql_data["create_database"]) 
-    sql_populating_query_create_database += concatenate_prompt(sql_data["use_database"])
+    if example_index == None:
+        sql_populating_query_create_database = concatenate_prompt(sql_data["drop_database"]) 
+        sql_populating_query_create_database += concatenate_prompt(sql_data["create_database"]) 
+        sql_populating_query_create_database += concatenate_prompt(sql_data["use_database"])
+    else:
+        sql_populating_query_create_database = sql_populating_query_create_database.replace("test",f"test_{example_index}")
 
     sql_populating_query_for_create_tables = ""
     
@@ -385,7 +387,7 @@ def main():
 
         if "few_shot" in prompting:
             for p in range(FEW_SHOT_NUMBER):
-                user_prompt, true_result = generate_query_result_pair(common_prompts,all_prompts, encoding, scale, balance, overlap)
+                user_prompt, true_result = generate_query_result_pair(common_prompts,all_prompts, encoding, scale, balance, overlap,example_index=p)
                 query_result_pairs.append((user_prompt, true_result))
         
         user_prompt, true_result = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
