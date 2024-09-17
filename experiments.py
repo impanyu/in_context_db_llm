@@ -390,7 +390,7 @@ def main():
 
         if "few_shot" in prompting:
             for p in range(FEW_SHOT_NUMBER):
-                user_prompt, true_result = generate_query_result_pair(common_prompts,all_prompts, encoding, scale, balance, overlap,example_index=p)
+                user_prompt, true_result = generate_query_result_pair(common_prompts,all_prompts, encoding, 50, balance, overlap,example_index=p)
                 query_result_pairs.append((user_prompt, true_result))
         
         user_prompt, true_result = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
