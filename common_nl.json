@@ -1,6 +1,6 @@
 {
-    "system_prompt":["Now pretend you are a relational database which can execute commands in natural language. Each time you'll be given a series of insert, update, delete and select commands. You only need output the result of last query in the sequence. If the last query is a select query, you only need to output a python list with no extra words; if the last query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
-    "COT": ["Execute the queries in the given sequence step by step to figure out the output of the last query."],
+    "system_prompt":["Now pretend you are a relational database which can execute commands in natural language. Each time you'll be given a series of insert, update, delete and select commands. You need to execute all the queries one after another. You only need to output the result of last query in the sequence. If the last query is a select query, you only need to output a python list with no extra words; if the last query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
+    "COT": ["Each time execute the queries in the given sequence one by one, after each query, try to figure out the status of the database. At the last step, output the result of the last query."],
     
     "user_prompt":["Now you need to execute the following sequence of commands and return the result of the last query in the sequence. "],
 
