@@ -12,7 +12,6 @@
         "CREATE TABLE Books (BookID INT NOT NULL AUTO_INCREMENT, Title VARCHAR(100) NOT NULL, Author VARCHAR(100) NOT NULL, ISBN VARCHAR(13) NOT NULL, PRIMARY KEY (BookID));",
         "CREATE TABLE BorrowingRecords (RecordID INT NOT NULL AUTO_INCREMENT, MemberID INT NOT NULL, BookID INT NOT NULL, BorrowDate DATE NOT NULL, ReturnDate DATE, PRIMARY KEY (RecordID), FOREIGN KEY (MemberID) REFERENCES Members(MemberID), FOREIGN KEY (BookID) REFERENCES Books(BookID));"
     ],
- 
     "insert": [
             "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('John', 'Doe', '2023-01-01');",
             "INSERT INTO Members (FirstName, LastName, JoinDate) VALUES ('Jane', 'Smith', '2023-01-05');",
@@ -177,9 +176,4 @@
             "SELECT Members.MemberID FROM Members JOIN BorrowingRecords ON Members.MemberID = BorrowingRecords.MemberID JOIN Books ON BorrowingRecords.BookID = Books.BookID WHERE Books.BookID = 1;"
         ]
     }
-
-
-   
-    
-    
 }

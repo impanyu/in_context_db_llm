@@ -211,8 +211,4 @@
             "SELECT Customers.CustomerID FROM Customers JOIN Orders ON Customers.CustomerID = Orders.CustomerID JOIN OrderItems ON Orders.OrderID = OrderItems.OrderID;"
         ]
     }
-
-
-
-
 }

@@ -13,7 +13,6 @@
         "CREATE TABLE Enrollments (EnrollmentID INT NOT NULL AUTO_INCREMENT, StudentID INT NOT NULL, CourseID INT NOT NULL, EnrollmentDate DATE NOT NULL, Grade CHAR(1), PRIMARY KEY (EnrollmentID), FOREIGN KEY (StudentID) REFERENCES Students(StudentID), FOREIGN KEY (CourseID) REFERENCES Courses(CourseID));"
     ],
 "insert": [
-
     "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('John', 'Doe', '2000-01-15', 'johndoe@example.com');",
     "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('Jane', 'Smith', '1999-05-21', 'janesmith@example.com');",
     "INSERT INTO Students (FirstName, LastName, DateOfBirth, Email) VALUES ('Emily', 'Davis', '2001-03-10', 'emilydavis@example.com');",
@@ -48,7 +47,6 @@
     "INSERT INTO Enrollments (StudentID, CourseID, EnrollmentDate, Grade) VALUES (10, 10, '2023-08-24', 'A');"
   ],
   "delete": [
-
     "DELETE FROM Students WHERE StudentID = 5;",
     "DELETE FROM Students WHERE FirstName = 'John';",
     "DELETE FROM Students WHERE LastName = 'Doe' AND DateOfBirth = '1995-04-12';",
@@ -116,7 +114,6 @@
     "UPDATE Enrollments SET EnrollmentDate = '2024-05-20', Grade = 'A' WHERE EnrollmentID = 7;",
     "UPDATE Enrollments SET Grade = 'B' WHERE StudentID = 8 AND CourseID = 9;"
   ],
-
     "select": {
           "no_filtering": [
             "SELECT StudentID FROM Students;",
@@ -179,6 +176,4 @@
             "SELECT Students.StudentID FROM Students JOIN Enrollments ON Students.StudentID = Enrollments.StudentID JOIN Courses ON Enrollments.CourseID = Courses.CourseID WHERE Grade = 'A';"
           ]
         }
-      
-      
 }

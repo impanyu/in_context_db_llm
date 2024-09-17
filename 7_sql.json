@@ -60,7 +60,6 @@
     "INSERT INTO Enrollments (StudentID, ClassID) VALUES (10, 10);"
   ],
   "delete": [
-     
         "DELETE FROM Students WHERE StudentID = 1;",
         "DELETE FROM Students WHERE FirstName = 'John';",
         "DELETE FROM Students WHERE LastName = 'Doe' AND DateOfBirth = '2000-01-01';",
@@ -211,7 +210,4 @@
       "SELECT Enrollments.EnrollmentID FROM Enrollments JOIN Students ON Enrollments.StudentID = Students.StudentID JOIN Classes ON Enrollments.ClassID = Classes.ClassID;"
     ]
   }
-
-
-
 }

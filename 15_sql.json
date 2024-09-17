@@ -114,7 +114,6 @@
         "UPDATE Matches SET MatchDate = '2024-12-25' WHERE MatchID = 9;",
         "UPDATE Matches SET HomeTeamID = 9, AwayTeamID = 10 WHERE MatchID = 10 AND MatchDate = '2025-01-01';"
     ],
-
     "select": {
         "no_filtering": [
             "SELECT TeamID FROM Teams;",
@@ -177,8 +176,4 @@
             "SELECT T.TeamID FROM Teams T JOIN Matches M ON T.TeamID = M.HomeTeamID JOIN Players P ON P.TeamID = T.TeamID;"
         ]
     }
-    
-    
-
-
 }

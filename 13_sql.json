@@ -47,7 +47,6 @@
         "INSERT INTO Passengers (FirstName, LastName, FlightID) VALUES ('Patricia', 'Thomas', 10);"
       ],
       "delete": [
-
         "DELETE FROM Airlines WHERE AirlineID = 1;",
         "DELETE FROM Airlines WHERE AirlineName = 'Airline A';",
         "DELETE FROM Airlines WHERE Country = 'USA';",
@@ -58,7 +57,6 @@
         "DELETE FROM Airlines WHERE Country = 'UK' OR Country = 'France';",
         "DELETE FROM Airlines WHERE AirlineName = 'Airline B' AND Country = 'Germany';",
         "DELETE FROM Airlines WHERE Country IS NULL;",
-
 
         "DELETE FROM Flights WHERE FlightID = 1;",
         "DELETE FROM Flights WHERE FlightNumber = 'AA100';",

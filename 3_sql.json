@@ -115,21 +115,18 @@
             "SELECT BookID FROM Books;",
             "SELECT PublisherID FROM Publishers;",
             "SELECT DISTINCT AuthorID FROM Authors;"
-
         ],
         "single_filtering":[
             "SELECT AuthorID FROM Authors WHERE Nationality = 'British';",
             "SELECT BookID FROM Books WHERE Genre = 'Fantasy';",
             "SELECT PublisherID FROM Publishers WHERE Country = 'United States';",
             "SELECT AuthorID FROM Authors WHERE BirthDate > '1900-01-01';"
-
         ],
         "double_filtering":[  
              "SELECT AuthorID FROM Authors WHERE Nationality = 'British' AND BirthDate > '1900-01-01';",
             "SELECT BookID FROM Books WHERE Genre = 'Fantasy' AND PublishedYear > 2000;",
             "SELECT PublisherID FROM Publishers WHERE Country = 'United States' AND Address LIKE '%New York%';",
             "SELECT BookID FROM Books WHERE Genre = 'Dystopian' OR PublishedYear < 1950;"
-
         ],
         "triple_filtering":[
             "SELECT AuthorID FROM Authors WHERE Nationality = 'British' AND BirthDate > '1900-01-01' AND LastName = 'Orwell';",
@@ -142,28 +139,24 @@
             "SELECT BookID FROM Books WHERE PublishedYear BETWEEN 1990 AND 2000;",
             "SELECT PublisherID FROM Publishers WHERE PublisherID BETWEEN 1 AND 10;",
             "SELECT AuthorID FROM Authors WHERE AuthorID BETWEEN 5 AND 15;"
-
         ],
         "ranking":[
             "SELECT AuthorID FROM Authors ORDER BY BirthDate ASC;",
             "SELECT BookID FROM Books ORDER BY PublishedYear DESC;",
             "SELECT PublisherID FROM Publishers ORDER BY PublisherName ASC;",
             "SELECT AuthorID FROM Authors ORDER BY LastName DESC, FirstName ASC;"
-
         ],
         "count":[
             "SELECT COUNT(AuthorID) FROM Authors;",
             "SELECT COUNT(BookID) FROM Books;",
             "SELECT COUNT(PublisherID) FROM Publishers;",
             "SELECT COUNT(AuthorID) FROM Authors WHERE Nationality = 'American';"
-
         ],
         "single_table":[
             "SELECT AuthorID FROM Authors WHERE Nationality = 'British';",
             "SELECT BookID FROM Books WHERE Genre = 'Fantasy';",
             "SELECT PublisherID FROM Publishers WHERE Country = 'United Kingdom';",
             "SELECT AuthorID FROM Authors WHERE BirthDate < '1900-01-01';"
-
         ],
         "double_table":[
             "SELECT Books.BookID FROM Books JOIN Authors ON Books.AuthorID = Authors.AuthorID WHERE Authors.Nationality = 'British';",

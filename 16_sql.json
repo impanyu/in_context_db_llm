@@ -176,7 +176,4 @@
             "SELECT Reservations.ReservationID FROM Reservations INNER JOIN Rooms ON Reservations.RoomID = Rooms.RoomID INNER JOIN Hotels ON Rooms.HotelID = Hotels.HotelID WHERE Hotels.HotelID = 1;"
         ]
     }
-
-
-
 }

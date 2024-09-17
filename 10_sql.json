@@ -176,8 +176,4 @@
       "SELECT Reservations.ReservationID FROM Reservations JOIN Rooms ON Reservations.RoomID = Rooms.RoomID JOIN Guests ON Reservations.GuestID = Guests.GuestID;"
     ]
   }
-
-
-
-
 }

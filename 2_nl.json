@@ -13,7 +13,6 @@
           "Create a new 'Enrollments' table with columns for EnrollmentID (auto-incrementing), StudentID, CourseID, EnrollmentDate, and Grade, with foreign key relationships to the Students and Courses tables."
       ],
   "insert": [
-  
       "Add a new student named John Doe, born on January 15, 2000, with email johndoe@example.com.",
       "Add a new student named Jane Smith, born on May 21, 1999, with email janesmith@example.com.",
       "Add a new student named Emily Davis, born on March 10, 2001, with email emilydavis@example.com.",
@@ -48,7 +47,6 @@
       "Enroll student with ID 10 in course with ID 10 on August 24, 2023, with a grade of A."
     ],
     "delete": [
-  
       "Remove the student with ID 5 from the Students table.",
       "Remove all students named John from the Students table.",
       "Remove the student named Doe born on April 12, 1995 from the Students table.",
@@ -116,7 +114,6 @@
       "Change the enrollment date to May 20, 2024 and grade to A for the enrollment with ID 7.",
       "Change the grade to B for the enrollment with student ID 8 and course ID 9."
     ],
-  
       "select": {
             "no_filtering": [
               "Retrieve all StudentIDs from the Students table.",
@@ -178,7 +175,5 @@
               "Find the EnrollmentIDs of all enrollments, including both student and course information.",
               "Find the StudentIDs of all students who have received an A grade in any course, including course information."
             ]
-          }
-        
-        
+          }  
   }

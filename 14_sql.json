@@ -176,7 +176,4 @@
             "SELECT Dishes.DishID FROM Dishes INNER JOIN Menus ON Dishes.MenuID = Menus.MenuID INNER JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID WHERE Restaurants.RestaurantName = 'Italian Bistro';"
         ]
     }
-
-
-    
 }

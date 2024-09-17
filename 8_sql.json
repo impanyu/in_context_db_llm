@@ -176,6 +176,4 @@
             "SELECT EventRegistrations.RegistrationID FROM EventRegistrations JOIN Attendees ON EventRegistrations.AttendeeID = Attendees.AttendeeID JOIN Events ON EventRegistrations.EventID = Events.EventID;"
         ]
     }
-
-
 }

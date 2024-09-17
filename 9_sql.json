@@ -211,7 +211,4 @@
             "SELECT Appointments.AppointmentID FROM Appointments JOIN Patients ON Appointments.PatientID = Patients.PatientID JOIN Doctors ON Appointments.DoctorID = Doctors.DoctorID WHERE Doctors.Specialty = 'Neurology';"
         ]
     }
-
-
-
 }

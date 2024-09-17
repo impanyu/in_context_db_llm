@@ -80,7 +80,6 @@
         "DELETE FROM MovieActors WHERE Role IS NULL;",
         "DELETE FROM MovieActors WHERE MovieID = 4 AND ActorID BETWEEN 1 AND 3;"     
 ],
-
 "update": [
     "UPDATE Movies SET Genre = 'Comedy' WHERE ReleaseYear = 2020;",
     "UPDATE Movies SET Title = 'The Great Adventure' WHERE MovieID = 5;",
@@ -177,8 +176,4 @@
       "SELECT Movies.MovieID FROM Movies LEFT JOIN MovieActors ON Movies.MovieID = MovieActors.MovieID LEFT JOIN Actors ON MovieActors.ActorID = Actors.ActorID;"
     ]
   }
-
-
-
-
 }

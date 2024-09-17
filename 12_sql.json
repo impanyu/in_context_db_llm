@@ -176,6 +176,4 @@
             "SELECT Books.BookID FROM Books LEFT JOIN Libraries ON Books.LibraryID = Libraries.LibraryID LEFT JOIN Librarians ON Libraries.LibraryID = Librarians.LibraryID;"
         ]
     }
-
-
 }
