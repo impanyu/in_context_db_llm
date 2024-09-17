@@ -245,12 +245,5 @@
             "SELECT Menus.MenuID FROM Menus JOIN Restaurants ON Menus.RestaurantID = Restaurants.RestaurantID JOIN Dishes ON Menus.MenuID = Dishes.MenuID;",
             "SELECT Orders.OrderID FROM Orders JOIN Restaurants ON Orders.RestaurantID = Restaurants.RestaurantID JOIN Customers ON Orders.CustomerID = Customers.CustomerID;"
         ]
-    
 }
-
-        
-        
-        
-
-    
 }

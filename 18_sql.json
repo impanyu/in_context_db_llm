@@ -104,7 +104,6 @@
       "DELETE FROM Appointments WHERE PatientID = 10 AND AppointmentDate = '2024-09-10 14:00:00';",
       "DELETE FROM Appointments WHERE AppointmentID = 11 OR AppointmentDate = '2024-09-05 09:00:00';"
     ],
-
         "update": [
             "UPDATE Hospitals SET Location = 'Downtown' WHERE HospitalID = 3;",
             "UPDATE Hospitals SET HospitalName = 'Saint Mary Hospital' WHERE HospitalID = 1;",
@@ -212,12 +211,4 @@
                     "SELECT h.HospitalID  FROM Hospitals h JOIN Doctors d ON h.HospitalID = d.HospitalID JOIN Appointments a ON d.DoctorID = a.DoctorID WHERE d.Specialty = 'Cardiology';"
                 ]
             }
-        
-        
-
-    
-    
-  
-  
-
 }

@@ -11,7 +11,8 @@
         "CREATE TABLE Manufacturers (ManufacturerID INT NOT NULL AUTO_INCREMENT, ManufacturerName VARCHAR(100) NOT NULL, Country VARCHAR(50), PRIMARY KEY (ManufacturerID));",
         "CREATE TABLE Products (ProductID INT NOT NULL AUTO_INCREMENT, ProductName VARCHAR(100) NOT NULL, Price DECIMAL(10,2) NOT NULL, ManufacturerID INT NOT NULL, PRIMARY KEY (ProductID), FOREIGN KEY (ManufacturerID) REFERENCES Manufacturers(ManufacturerID));",
         "CREATE TABLE Suppliers (SupplierID INT NOT NULL AUTO_INCREMENT, SupplierName VARCHAR(100) NOT NULL, Address VARCHAR(255) NOT NULL, PRIMARY KEY (SupplierID));"
-    ],  "insert": [
+    ],  
+    "insert": [
         "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Sony', 'Japan');",
         "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Samsung', 'South Korea');",
         "INSERT INTO Manufacturers (ManufacturerName, Country) VALUES ('Apple', 'United States');",
@@ -165,7 +166,4 @@
             "SELECT Manufacturers.ManufacturerID FROM Manufacturers JOIN Products ON Manufacturers.ManufacturerID = Products.ManufacturerID JOIN Suppliers ON Products.ManufacturerID = Suppliers.SupplierID;"
         ]
     }
-
-
-
 }

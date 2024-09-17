@@ -16,7 +16,6 @@
         "CREATE TABLE Courses (CourseID INT NOT NULL AUTO_INCREMENT, CourseName VARCHAR(100) NOT NULL, DepartmentID INT NOT NULL, Credits INT NOT NULL, PRIMARY KEY (CourseID), FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID));",
         "CREATE TABLE Students (StudentID INT NOT NULL AUTO_INCREMENT, FirstName VARCHAR(50) NOT NULL, LastName VARCHAR(50) NOT NULL, DateOfBirth DATE NOT NULL, PRIMARY KEY (StudentID));"
     ],
-
     "insert": [
           "INSERT INTO Universities (UniversityName, Location) VALUES ('Harvard University', 'Cambridge, MA, USA');",
           "INSERT INTO Universities (UniversityName, Location) VALUES ('Stanford University', 'Stanford, CA, USA');",
@@ -72,8 +71,7 @@
           "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Laura', 'Garcia', '1997-08-14');",
           "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Matthew', 'Martinez', '1995-12-05');",
           "INSERT INTO Students (FirstName, LastName, DateOfBirth) VALUES ('Sophia', 'Rodriguez', '1996-06-22');"
-        ],
-        
+        ],     
             "delete": [
                 "DELETE FROM Universities WHERE UniversityID = 5;",
                 "DELETE FROM Universities WHERE UniversityName = 'Harvard University';",
@@ -97,7 +95,6 @@
                 "DELETE FROM Faculties WHERE UniversityID = 3 AND FacultyName = 'Medicine';",
                 "DELETE FROM Faculties WHERE FacultyName = 'Arts' AND UniversityID = 6;",
         
-
                 "DELETE FROM Departments WHERE DepartmentID = 2;",
                 "DELETE FROM Departments WHERE DepartmentName = 'Computer Science';",
                 "DELETE FROM Departments WHERE FacultyID = 4;",
@@ -187,7 +184,6 @@
                     "UPDATE Students SET FirstName = 'Michael' WHERE LastName = 'Davis';",
                     "UPDATE Students SET LastName = 'Wilson' WHERE StudentID = 7;"
                 ],
-
                  "select": {
                         "no_filtering": [
                             "SELECT UniversityID FROM Universities;",
@@ -249,6 +245,5 @@
                             "SELECT Departments.DepartmentID FROM Departments INNER JOIN Faculties ON Departments.FacultyID = Faculties.FacultyID INNER JOIN Universities ON Faculties.UniversityID = Universities.UniversityID;",
                             "SELECT Students.StudentID FROM Students INNER JOIN Enrollments ON Students.StudentID = Enrollments.StudentID INNER JOIN Courses ON Enrollments.CourseID = Courses.CourseID;"
                         ]
-                    }
-                
+                    }         
 }
