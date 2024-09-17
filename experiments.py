@@ -348,7 +348,7 @@ def main():
     encoding = args.encoding
     operation = args.operation
 
-    TIMES = 80
+    TIMES = 160
     FEW_SHOT_NUMBER = 3
 
     accuracy = 0
