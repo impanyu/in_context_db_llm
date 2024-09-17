@@ -1,0 +1,178 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],  
+    "drop_tables":[
+        "Remove the 'Airlines' table if it exists.",
+        "Remove the 'Flights' table if it exists.",
+        "Remove the 'Passengers' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Airlines' table with columns for AirlineID (auto-incrementing), AirlineName, and Country, with AirlineID as the primary key.",
+        "Create a new 'Flights' table with columns for FlightID (auto-incrementing), FlightNumber, DepartureCity, ArrivalCity, and AirlineID, with FlightID as the primary key and a foreign key relationship to the Airlines table.",
+        "Create a new 'Passengers' table with columns for PassengerID (auto-incrementing), FirstName, LastName, and FlightID, with PassengerID as the primary key and a foreign key relationship to the Flights table."
+    ],
+    "insert": [
+        "Add a new airline: Airways International based in USA.",
+        "Add a new airline: SkyHigh Airlines based in UK.",
+        "Add a new airline: Oceanic Air based in Australia.",
+        "Add a new airline: Eagle Wings based in Canada.",
+        "Add a new airline: Pacific Air based in New Zealand.",
+        "Add a new airline: EuroFlights based in Germany.",
+        "Add a new airline: Asian Skies based in Japan.",
+        "Add a new airline: Sunshine Air based in Brazil.",
+        "Add a new airline: Desert Airlines based in UAE.",
+        "Add a new airline: Northern Flights based in Norway.",
+
+        "Add a new flight: FL123 from New York to London operated by Airways International.",
+        "Add a new flight: FL456 from Sydney to Auckland operated by Oceanic Air.",
+        "Add a new flight: FL789 from Toronto to Vancouver operated by Eagle Wings.",
+        "Add a new flight: FL101 from Berlin to Tokyo operated by EuroFlights.",
+        "Add a new flight: FL202 from Dubai to New York operated by Desert Airlines.",
+        "Add a new flight: FL303 from London to Dubai operated by SkyHigh Airlines.",
+        "Add a new flight: FL404 from Oslo to Reykjavik operated by Northern Flights.",
+        "Add a new flight: FL505 from São Paulo to Mexico City operated by Sunshine Air.",
+        "Add a new flight: FL606 from Sydney to Los Angeles operated by Pacific Air.",
+        "Add a new flight: FL707 from Tokyo to Berlin operated by Asian Skies.",
+
+        "Add a new passenger: John Doe on flight FL123.",
+        "Add a new passenger: Jane Smith on flight FL456.",
+        "Add a new passenger: Michael Johnson on flight FL789.",
+        "Add a new passenger: Emily Davis on flight FL101.",
+        "Add a new passenger: Daniel Brown on flight FL202.",
+        "Add a new passenger: Laura Wilson on flight FL303.",
+        "Add a new passenger: Robert Garcia on flight FL404.",
+        "Add a new passenger: Linda Martinez on flight FL505.",
+        "Add a new passenger: James Anderson on flight FL606.",
+        "Add a new passenger: Patricia Thomas on flight FL707."
+    ],
+    "delete": [
+        "Remove the airline with ID 1 from the Airlines table.",
+        "Remove the airline named 'Airline A' from the Airlines table.",
+        "Remove all airlines based in USA from the Airlines table.",
+        "Remove all airlines based in Canada from the Airlines table.",
+        "Remove all airlines with names starting with 'Airline' from the Airlines table.",
+        "Remove all airlines with ID greater than 5 from the Airlines table.",
+        "Remove all airlines with ID less than 3 from the Airlines table.",
+        "Remove all airlines based in UK or France from the Airlines table.",
+        "Remove the airline named 'Airline B' based in Germany from the Airlines table.",
+        "Remove all airlines with no specified country from the Airlines table.",
+
+        "Remove the flight with ID 1 from the Flights table.",
+        "Remove the flight with flight number 'AA100' from the Flights table.",
+        "Remove all flights departing from New York from the Flights table.",
+        "Remove all flights arriving in Los Angeles from the Flights table.",
+        "Remove all flights operated by the airline with ID 2 from the Flights table.",
+        "Remove all flights with flight numbers starting with 'BA' from the Flights table.",
+        "Remove all flights departing from Chicago and arriving in Miami from the Flights table.",
+        "Remove all flights operated by airlines with ID 3 or 4 from the Flights table.",
+        "Remove all flights with ID greater than 10 from the Flights table.",
+        "Remove all flights with no specified arrival city from the Flights table.",
+
+        "Remove the passenger with first name 'John' from the Passengers table.",
+        "Remove the passenger with last name 'Doe' from the Passengers table.",
+        "Remove all passengers on flight with ID 5 from the Passengers table.",
+        "Remove all passengers with first names starting with 'A' from the Passengers table.",
+        "Remove all passengers with ID less than 10 from the Passengers table.",
+        "Remove the passenger with last name 'Smith' on flight with ID 2 from the Passengers table.",
+        "Remove all passengers on flights with ID 3 or 4 from the Passengers table.",
+        "Remove the passenger named 'Emily Brown' from the Passengers table.",
+        "Remove all passengers with no specified flight ID from the Passengers table."
+    ],
+    "update": [
+        "Change the airline name to 'New Airline Name' for the airline with ID 1.",
+        "Change the country to 'USA' for the airline named 'Airline A'.",
+        "Change the airline name to 'Updated Airline Name' for all airlines based in France.",
+        "Change the country to 'Canada' for the airline with ID 3.",
+        "Change the airline name to 'Another Airline' for the airline currently named 'Old Airline Name'.",
+        "Change the country to 'Germany' for the airline with ID 5.",
+        "Change the airline name to 'New Name' for the airline named 'Airline B' based in UK.",
+        "Change the country to 'Spain' for the airline with ID 2.",
+        "Change the airline name to 'Airline XYZ' for all airlines based in Japan.",
+        "Change the country to 'Australia' for the airline with ID 7 named 'Airline C'.",
+
+        "Change the flight number to 'AB123' for the flight with ID 1.",
+        "Change the departure city to 'New York' for the flight with ID 2.",
+        "Change the arrival city to 'Tokyo' for the flight with flight number 'XY789'.",
+        "Change the operating airline to the one with ID 3 for the flight with ID 4.",
+        "Change the departure city to 'Paris' and the arrival city to 'Berlin' for all flights operated by the airline with ID 1.",
+        "Change the flight number to 'CD456' for the flight departing from Los Angeles and arriving in Chicago.",
+        "Change the operating airline to the one with ID 5 for the flight with number 'EF789' departing from San Francisco.",
+        "Change the flight number to 'GH012' for the flight with ID 6.",
+        "Change the departure city to 'Miami' for all flights arriving in Dallas.",
+        "Change the arrival city to 'Toronto' for the flight with number 'IJ345'.",
+
+        "Change the first name to 'John' for the passenger with ID 1.",
+        "Change the last name to 'Doe' for all passengers with first name 'Jane'.",
+        "Change the flight to the one with ID 2 for the passenger with ID 3.",
+        "Change the first name to 'Alice' and the last name to 'Smith' for all passengers on the flight with ID 4.",
+        "Change the last name to 'Johnson' for the passenger with ID 5 on the flight with ID 1.",
+        "Change the first name to 'Robert' for all passengers with last name 'Brown' on the flight with ID 6.",
+        "Change the flight to the one with ID 7 for all passengers with first name 'Emily'.",
+        "Change the last name to 'Davis' for the passenger with ID 8.",
+        "Change the first name to 'Michael' for the passenger with last name 'Clark' on the flight with ID 9.",
+        "Change the flight to the one with ID 10 for all passengers with first name 'Sarah'."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all AirlineIDs from the Airlines table.",
+            "Retrieve all FlightIDs from the Flights table.",
+            "Retrieve all PassengerIDs from the Passengers table.",
+            "Retrieve all FlightNumbers from the Flights table."
+        ],
+        "single_filtering": [
+            "Find the AirlineIDs of all airlines based in USA.",
+            "Find the FlightIDs of all flights departing from New York.",
+            "Find the PassengerIDs of all passengers with the last name Smith.",
+            "Find the AirlineIDs of all airlines named 'Delta'."
+        ],
+        "double_filtering": [
+            "Find the AirlineIDs of all airlines based in USA and named 'Delta'.",
+            "Find the FlightIDs of all flights departing from New York and arriving in Los Angeles.",
+            "Find the PassengerIDs of all passengers with the last name Smith and first name John.",
+            "Find the FlightIDs of all flights operated by the airline with ID 1 or arriving in Chicago."
+        ],
+        "triple_filtering": [
+            "Find the AirlineIDs of all airlines based in USA, named 'Delta', and with ID greater than 10.",
+            "Find the FlightIDs of all flights departing from New York, arriving in Los Angeles, and with flight numbers starting with 'DL'.",
+            "Find the PassengerIDs of all passengers with the last name Smith, first name John, and on the flight with ID 2.",
+            "Find the FlightIDs of all flights operated by the airline with ID 1, or arriving in Chicago, or with flight number 'AA100'."
+        ],
+        "range_filtering": [
+            "Find the AirlineIDs of all airlines with IDs between 10 and 20.",
+            "Find the FlightIDs of all flights with IDs between 100 and 200.",
+            "Find the PassengerIDs of all passengers with IDs between 50 and 100.",
+            "Find the AirlineIDs of all airlines with IDs between 5 and 15."
+        ],
+        "ranking": [
+            "Retrieve all AirlineIDs, ordered by airline name in ascending alphabetical order.",
+            "Retrieve all FlightIDs, ordered by flight number in descending alphabetical order.",
+            "Retrieve all PassengerIDs, ordered by last name in ascending alphabetical order.",
+            "Retrieve all FlightIDs, ordered by departure city in descending alphabetical order."
+        ],
+        "count": [
+            "Count the total number of airlines.",
+            "Count the total number of flights.",
+            "Count the total number of passengers.",
+            "Count the total number of airlines based in USA."
+        ],
+        "single_table": [
+            "Retrieve all AirlineIDs from the Airlines table.",
+            "Retrieve all FlightIDs from the Flights table.",
+            "Retrieve all PassengerIDs from the Passengers table.",
+            "Find the FlightIDs of all flights arriving in Los Angeles."
+        ],
+        "double_table": [
+            "Find the FlightIDs and corresponding AirlineIDs by joining the Flights and Airlines tables.",
+            "Find the PassengerIDs and corresponding FlightIDs by joining the Passengers and Flights tables.",
+            "Find the FlightIDs and corresponding AirlineIDs for all flights operated by airlines based in USA.",
+            "Find the PassengerIDs and corresponding FlightIDs for all passengers on flights departing from New York."
+        ],
+        "three_table": [
+            "Find the PassengerIDs, FlightIDs, and AirlineIDs by joining the Passengers, Flights, and Airlines tables.",
+            "Find the FlightIDs, AirlineIDs, and PassengerIDs by joining the Flights, Airlines, and Passengers tables.",
+            "Find the PassengerIDs, FlightIDs, and AirlineIDs for all passengers on flights operated by airlines based in USA.",
+            "Find the FlightIDs, AirlineIDs, and PassengerIDs for all flights operated by airlines based in USA and carrying passengers with the last name Smith."
+        ]
+    }
+}

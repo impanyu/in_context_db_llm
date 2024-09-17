@@ -108,69 +108,66 @@
         "update the comment with the CommentID = 7 to have the CommentText = 'Last comment update'.",
         "update the comment with the CommentID = 6 and the UserID = 4 to have the CreatedAt date = '2023-07-20' and the CommentText = 'Final change'."
     ],
-        "select": {
-            "no_filtering": [
-                "SELECT UserID FROM Users;",
-                "SELECT PostID FROM Posts;",
-                "SELECT CommentID FROM Comments;",
-                "SELECT Username FROM Users;"
-            ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all UserIDs from the Users table.",
+            "Retrieve all PostIDs from the Posts table.",
+            "Retrieve all CommentIDs from the Comments table.",
+            "Retrieve all Usernames from the Users table."
+        ],
             "single_filtering": [
-                "SELECT UserID FROM Users WHERE Username = 'john_doe';",
-                "SELECT PostID FROM Posts WHERE UserID = 1;",
-                "SELECT CommentID FROM Comments WHERE PostID = 5;",
-                "SELECT UserID FROM Users WHERE CreatedAt > '2024-01-01';"
+                "Find the UserID of the user whose Username is 'john_doe'.",
+                "Find all PostIDs for posts created by the user with UserID 1.",
+                "Find all CommentIDs for comments made on the post with PostID 5.",
+                "Find the UserIDs of all users who were created after January 1, 2024."
             ],
             "double_filtering": [
-                "SELECT UserID FROM Users WHERE Username = 'john_doe' AND Email = 'john@example.com';",
-                "SELECT PostID FROM Posts WHERE UserID = 1 AND CreatedAt < '2024-01-01';",
-                "SELECT CommentID FROM Comments WHERE PostID = 5 OR UserID = 2;",
-                "SELECT PostID FROM Posts WHERE Title LIKE '%SQL%' AND CreatedAt > '2023-01-01';"
+                "Find the UserID of the user whose Username is 'john_doe' and Email is 'john@example.com'.",
+                "Find all PostIDs for posts created by the user with UserID 1 and created before January 1, 2024.",
+                "Find all CommentIDs for comments that are either on the post with PostID 5 or made by the user with UserID 2.",
+                "Find all PostIDs for posts with a Title containing 'SQL' and created after January 1, 2023."
             ],
             "triple_filtering": [
-                "SELECT UserID FROM Users WHERE Username = 'john_doe' AND Email = 'john@example.com' AND CreatedAt > '2023-01-01';",
-                "SELECT PostID FROM Posts WHERE UserID = 1 AND Title LIKE '%Python%' AND CreatedAt > '2023-01-01';",
-                "SELECT CommentID FROM Comments WHERE PostID = 5 AND UserID = 2 AND CreatedAt > '2023-01-01';",
-                "SELECT CommentID FROM Comments WHERE CommentText LIKE '%helpful%' OR UserID = 3 AND CreatedAt < '2024-01-01';"
+                "Find the UserID of the user whose Username is 'john_doe', Email is 'john@example.com', and was created after January 1, 2023.",
+                "Find all PostIDs for posts created by the user with UserID 1, with a Title containing 'Python', and created after January 1, 2023.",
+                "Find all CommentIDs for comments on the post with PostID 5, made by the user with UserID 2, and created after January 1, 2023.",
+                "Find all CommentIDs for comments that either contain 'helpful' in the CommentText, or were made by the user with UserID 3 and created before January 1, 2024."
             ],
             "range_filtering": [
-                "SELECT UserID FROM Users WHERE CreatedAt BETWEEN '2023-01-01' AND '2024-01-01';",
-                "SELECT PostID FROM Posts WHERE CreatedAt BETWEEN '2023-06-01' AND '2024-06-01';",
-                "SELECT CommentID FROM Comments WHERE CreatedAt BETWEEN '2023-01-01' AND '2024-01-01';",
-                "SELECT PostID FROM Posts WHERE PostID BETWEEN 1 AND 100;"
+                "Find the UserIDs of all users created between January 1, 2023 and January 1, 2024.",
+                "Find the PostIDs of all posts created between June 1, 2023 and June 1, 2024.",
+                "Find the CommentIDs of all comments created between January 1, 2023 and January 1, 2024.",
+                "Find the PostIDs of all posts with PostID between 1 and 100."
             ],
             "ranking": [
-                "SELECT UserID FROM Users ORDER BY CreatedAt DESC;",
-                "SELECT PostID FROM Posts ORDER BY CreatedAt ASC;",
-                "SELECT CommentID FROM Comments ORDER BY CreatedAt DESC;",
-                "SELECT UserID FROM Users ORDER BY UserID DESC;"
-            ],
-            "count": [
-                "SELECT COUNT(UserID) FROM Users;",
-                "SELECT COUNT(PostID) FROM Posts;",
-                "SELECT COUNT(CommentID) FROM Comments;",
-                "SELECT COUNT(UserID) FROM Users WHERE CreatedAt > '2024-01-01';"
-            ],
-            "single_table": [
-                "SELECT UserID FROM Users;",
-                "SELECT PostID FROM Posts WHERE UserID = 1;",
-                "SELECT CommentID FROM Comments WHERE PostID = 5;",
-                "SELECT Username FROM Users WHERE Email LIKE '%example.com%';"
-            ],
-            "double_table": [
-                "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID WHERE Users.Username = 'john_doe';",
-                "SELECT Comments.CommentID FROM Comments JOIN Posts ON Comments.PostID = Posts.PostID WHERE Posts.UserID = 1;",
-                "SELECT Comments.CommentID FROM Comments JOIN Users ON Comments.UserID = Users.UserID WHERE Users.Email = 'john@example.com';",
-                "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID ORDER BY Users.CreatedAt DESC;"
-            ],
-            "three_table": [
-                "SELECT Comments.CommentID FROM Comments JOIN Posts ON Comments.PostID = Posts.PostID JOIN Users ON Posts.UserID = Users.UserID WHERE Users.Username = 'john_doe';",
-                "SELECT Comments.CommentID FROM Comments JOIN Posts ON Comments.PostID = Posts.PostID JOIN Users ON Comments.UserID = Users.UserID WHERE Posts.Title LIKE '%Python%';",
-                "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID JOIN Comments ON Posts.PostID = Comments.PostID WHERE Users.Email LIKE '%example.com%';",
-                "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID JOIN Comments ON Posts.PostID = Comments.PostID WHERE Comments.CommentText LIKE '%helpful%';"
-            ]
-        }
-    
-    
-
+                "Retrieve all UserIDs from the Users table, ordered by creation date from newest to oldest.",
+            "Retrieve all PostIDs from the Posts table, ordered by creation date from oldest to newest.",
+            "Retrieve all CommentIDs from the Comments table, ordered by creation date from newest to oldest.",
+            "Retrieve all Usernames from the Users table, ordered by UserID from highest to lowest."
+        ],
+        "count": [
+            "Count the total number of users in the Users table.",
+            "Count the total number of posts in the Posts table.",
+            "Count the total number of comments in the Comments table.",
+            "Count the number of users created after January 1, 2024."
+        ],
+        "single_table": [
+            "Retrieve all UserIDs from the Users table.",
+            "Find all PostIDs for posts created by the user with UserID 1.",
+            "Find all CommentIDs for comments made on the post with PostID 5.",
+            "Find the Usernames of all users whose Email addresses end with 'example.com'."
+        ],
+        "double_table": [
+            "Find the PostIDs of all posts made by the user with Username 'john_doe'.",
+            "Find the CommentIDs of all comments made on posts created by the user with UserID 1.",
+            "Find the CommentIDs of all comments made by the user with Email 'john@example.com'.",
+            "Retrieve the PostIDs of all posts, ordered by the creation date of the user who made them, from newest to oldest."
+        ],
+        "three_table": [
+            "Find the CommentIDs of all comments made on posts by the user with Username 'john_doe'.",
+            "Find the CommentIDs of all comments made on posts with a Title containing 'Python'.",
+            "Find the PostIDs of all posts made by users whose Email addresses end with 'example.com'.",
+            "Find the PostIDs of all posts that have comments containing the word 'helpful'."
+        ]
+    }
 }

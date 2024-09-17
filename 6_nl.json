@@ -1,0 +1,214 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Customers' table if it exists.",
+        "Remove the 'Orders' table if it exists.",
+        "Remove the 'OrderItems' table if it exists.",
+        "Remove the 'Products' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Customers' table with columns for CustomerID (auto-incrementing), FirstName, LastName, and Email, with CustomerID as the primary key.",
+        "Create a new 'Orders' table with columns for OrderID (auto-incrementing), CustomerID, and OrderDate, with OrderID as the primary key and CustomerID as a foreign key referencing the Customers table.",
+        "Create a new 'Products' table with columns for ProductID (auto-incrementing), ProductName, Price, and Stock, with ProductID as the primary key.",
+        "Create a new 'OrderItems' table with columns for OrderItemID (auto-incrementing), OrderID, ProductID, and Quantity, with OrderItemID as the primary key, and OrderID and ProductID as foreign keys referencing the Orders and Products tables respectively."
+    ],
+    "insert": [
+        "Add a new customer: John Doe with email john.doe@example.com.",
+        "Add a new customer: Jane Smith with email jane.smith@example.com.",
+        "Add a new customer: Robert Brown with email robert.brown@example.com.",
+        "Add a new customer: Emily Davis with email emily.davis@example.com.",
+        "Add a new customer: Michael Miller with email michael.miller@example.com.",
+        "Add a new customer: Sarah Wilson with email sarah.wilson@example.com.",
+        "Add a new customer: David Moore with email david.moore@example.com.",
+        "Add a new customer: Laura Taylor with email laura.taylor@example.com.",
+        "Add a new customer: James Anderson with email james.anderson@example.com.",
+        "Add a new customer: Sophia Thomas with email sophia.thomas@example.com.",
+        
+        "Create a new order for customer 1 on January 15, 2024.",
+        "Create a new order for customer 2 on February 1, 2024.",
+        "Create a new order for customer 3 on February 10, 2024.",
+        "Create a new order for customer 4 on March 5, 2024.",
+        "Create a new order for customer 5 on March 20, 2024.",
+        "Create a new order for customer 6 on April 12, 2024.",
+        "Create a new order for customer 7 on April 25, 2024.",
+        "Create a new order for customer 8 on May 6, 2024.",
+        "Create a new order for customer 9 on May 22, 2024.",
+        "Create a new order for customer 10 on June 10, 2024.",
+
+        "Add a new product: Laptop, priced at $799.99, with 50 in stock.",
+        "Add a new product: Smartphone, priced at $599.99, with 100 in stock.",
+        "Add a new product: Tablet, priced at $299.99, with 75 in stock.",
+        "Add a new product: Monitor, priced at $199.99, with 60 in stock.",
+        "Add a new product: Keyboard, priced at $49.99, with 150 in stock.",
+        "Add a new product: Mouse, priced at $29.99, with 200 in stock.",
+        "Add a new product: Printer, priced at $99.99, with 40 in stock.",
+        "Add a new product: Webcam, priced at $79.99, with 80 in stock.",
+        "Add a new product: External Hard Drive, priced at $89.99, with 70 in stock.",
+        "Add a new product: USB Flash Drive, priced at $19.99, with 300 in stock.",
+
+        "Add 1 Laptop to order 1.",
+        "Add 2 Smartphones to order 2.",
+        "Add 1 Tablet to order 3.",
+        "Add 2 Monitors to order 4.",
+        "Add 3 Keyboards to order 5.",
+        "Add 1 Mouse to order 6.",
+        "Add 2 Printers to order 7.",
+        "Add 1 Webcam to order 8.",
+        "Add 4 External Hard Drives to order 9.",
+        "Add 5 USB Flash Drives to order 10."
+    ],
+    "delete": [
+        "Remove the customer with ID 5 from the Customers table.",
+        "Remove all customers with the last name Smith from the Customers table.",
+        "Remove the customer with email john.doe@example.com from the Customers table.",
+        "Remove all customers with the first name Jane and last name Doe from the Customers table.",
+        "Remove all customers with email addresses ending in @example.com from the Customers table.",
+        "Remove all customers with the first name Alice or the last name Johnson from the Customers table.",
+        "Remove all customers with ID greater than 10 from the Customers table.",
+        "Remove all customers with ID less than or equal to 3 from the Customers table.",
+        "Remove all customers with the last name Brown and email addresses ending in @gmail.com from the Customers table.",
+        "Remove all customers with no email address from the Customers table.",
+        
+        "Remove the order with ID 101 from the Orders table.",
+        "Remove all orders placed before January 1, 2023 from the Orders table.",
+        "Remove all orders for customer 2 from the Orders table.",
+        "Remove all orders for customers 1, 3, or 5 from the Orders table.",
+        "Remove all orders placed between January 1, 2023 and June 1, 2023 from the Orders table.",
+        "Remove all orders with ID greater than 150 from the Orders table.",
+        "Remove all orders for customer 4 placed after July 1, 2023 from the Orders table.",
+        "Remove the order with ID 200 or any orders for customer 5 from the Orders table.",
+        "Remove all orders with no order date from the Orders table.",
+        "Remove all orders except those with IDs 100, 101, or 102 from the Orders table.",
+        
+        "Remove the order item with ID 10 from the OrderItems table.",
+        "Remove all order items for product 25 from the OrderItems table.",
+        "Remove all order items with a quantity less than 5 from the OrderItems table.",
+        "Remove all order items for order 110 from the OrderItems table.",
+        "Remove all order items for order 115 with a quantity greater than 10 from the OrderItems table.",
+        "Remove all order items with ID greater than 50 from the OrderItems table.",
+        "Remove all order items for product 10 or with a quantity less than 2 from the OrderItems table.",
+        "Remove all order items for product 20 with a quantity of 1 from the OrderItems table.",
+        "Remove all order items for orders 100 or 101 from the OrderItems table.",
+        "Remove all order items with ID less than or equal to 5 from the OrderItems table.",
+        
+        "Remove the product with ID 30 from the Products table.",
+        "Remove all products with stock less than 50 from the Products table.",
+        "Remove all products with names containing 'Widget' from the Products table.",
+        "Remove all products priced over $100.00 from the Products table.",
+        "Remove the product with ID 10 or any products with zero stock from the Products table.",
+        "Remove all products with stock greater than 200 and price less than $20.00 from the Products table.",
+        "Remove the product named 'Gizmo' if it has 10 or fewer in stock from the Products table.",
+        "Remove all products except those with IDs 1, 2, or 3 from the Products table.",
+        "Remove all products priced between $50.00 and $150.00 from the Products table.",
+        "Remove all products with no name from the Products table."
+    ],
+    "update": [
+        "Change the email of the customer with ID 1 to newemail1@example.com.",
+        "Change the first name to John for all customers with the last name Doe.",
+        "Change the last name to Smith and email to newemail2@example.com for the customer with ID 2.",
+        "Change the first name to Jane for the customer with email jane.doe@example.com.",
+        "Change the email to updatedemail@example.com for the customer with ID 3 and last name Johnson.",
+        "Change the first name to Alice and last name to Wonder for the customer with email alice@example.com.",
+        "Change the last name to Brown for the customer with ID 4 or email brown@example.com.",
+        "Change the first name to Chris for the customer with ID 5.",
+        "Change the email to chris@example.com for all customers with the last name Evans.",
+        "Change the first name to Bob and last name to Builder for the customer with ID 6 and email bob@example.com.",
+
+        "Change the order date to August 1, 2024 for the order with ID 1.",
+        "Change the customer to customer 2 for the order with ID 2.",
+        "Change the order date to August 2, 2024 and the customer to customer 3 for the order with ID 3.",
+        "Change the order date to August 3, 2024 for the order with ID 4.",
+        "Change the customer to customer 5 for all orders placed on August 4, 2024.",
+        "Change the order date to August 5, 2024 for the order with ID 5 placed by customer 6.",
+        "Change the customer to customer 7 for the order with ID 6.",
+        "Change the order date to August 6, 2024 for the order with ID 7.",
+        "Change the customer to customer 8 for all orders placed on August 7, 2024.",
+        "Change the order date to August 8, 2024 and the customer to customer 9 for the order with ID 8.",
+
+        "Change the quantity to 2 for the order item with ID 1.",
+        "Change the product to product 2 for the order item with ID 2.",
+        "Change the quantity to 3 and the product to product 3 for the order item with ID 3.",
+        "Change the quantity to 4 for the order item with ID 4.",
+        "Change the product to product 5 for all order items with a quantity of 5.",
+        "Change the quantity to 6 for the order item with ID 6 and product 6.",
+        "Change the product to product 7 for the order item with ID 7.",
+        "Change the quantity to 7 for the order item with ID 8.",
+        "Change the product to product 8 for all order items with a quantity of 8.",
+        "Change the quantity to 9 and the product to product 9 for the order item with ID 9.",
+
+        "Change the price to $9.99 for the product with ID 1.",
+        "Change the stock to 50 for the product with ID 2.",
+        "Change the price to $19.99 and the stock to 40 for the product with ID 3.",
+        "Change the price to $29.99 for the product with ID 4.",
+        "Change the stock to 30 for all products priced at $39.99.",
+        "Change the price to $49.99 for the product with ID 6 and 20 in stock.",
+        "Change the stock to 10 for the product with ID 7.",
+        "Change the price to $59.99 for the product with ID 8.",
+        "Change the stock to 5 for all products priced at $69.99.",
+        "Change the price to $79.99 and the stock to 0 for the product with ID 9."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all CustomerIDs from the Customers table.",
+            "Retrieve all OrderIDs from the Orders table.",
+            "Retrieve all OrderItemIDs from the OrderItems table.",
+            "Retrieve all ProductIDs from the Products table."
+        ],
+        "single_filtering": [
+            "Find the CustomerIDs of all customers with the last name Smith.",
+            "Find the OrderIDs of all orders placed on August 1, 2023.",
+            "Find the OrderItemIDs of all order items with a quantity greater than 10.",
+            "Find the ProductIDs of all products with stock less than 50."
+        ],
+        "double_filtering": [
+            "Find the CustomerIDs of all customers with the last name Smith and email addresses ending in @gmail.com.",
+            "Find the OrderIDs of all orders placed on August 1, 2023 or by customer 5.",
+            "Find the OrderItemIDs of all order items with a quantity greater than 10 and for product 1.",
+            "Find the ProductIDs of all products with stock less than 50 and priced over $20.00."
+        ],
+        "triple_filtering": [
+            "Find the CustomerIDs of all customers with the last name Smith and email addresses ending in @gmail.com, or with the first name John.",
+            "Find the OrderIDs of all orders placed on August 1, 2023 and by customer 5, or with OrderID 10.",
+            "Find the OrderItemIDs of all order items with a quantity greater than 10 and for product 1, or in order 100.",
+            "Find the ProductIDs of all products with stock less than 50 and priced over $20.00, or with names containing 'Laptop'."
+        ],
+        "range_filtering": [
+            "Find the CustomerIDs of all customers with IDs between 1 and 10.",
+            "Find the OrderIDs of all orders placed between January 1, 2023 and December 31, 2023.",
+            "Find the OrderItemIDs of all order items with quantities between 5 and 15.",
+            "Find the ProductIDs of all products priced between $10.00 and $50.00."
+        ],
+        "ranking": [
+            "Retrieve all CustomerIDs, ordered by last name in ascending order.",
+            "Retrieve all OrderIDs, ordered by order date in descending order.",
+            "Retrieve all OrderItemIDs, ordered by quantity in ascending order.",
+            "Retrieve all ProductIDs, ordered by price in descending order."
+        ],
+        "count": [
+            "Count the total number of customers.",
+            "Count the total number of orders.",
+            "Count the total number of order items.",
+            "Count the total number of products."
+        ],
+        "single_table": [
+            "Retrieve all CustomerIDs from the Customers table.",
+            "Retrieve all OrderIDs from the Orders table.",
+            "Retrieve all OrderItemIDs from the OrderItems table.",
+            "Retrieve all ProductIDs from the Products table."
+        ],
+        "double_table": [
+            "Retrieve all OrderIDs and corresponding CustomerIDs from the Orders table, joining with the Customers table.",
+            "Retrieve all OrderItemIDs and corresponding OrderIDs from the OrderItems table, joining with the Orders table.",
+            "Retrieve all ProductIDs and corresponding OrderItemIDs from the Products table, joining with the OrderItems table.",
+            "Retrieve all CustomerIDs and corresponding OrderIDs from the Customers table, joining with the Orders table."
+        ],
+        "three_table": [
+            "Retrieve all OrderItemIDs, corresponding OrderIDs, and CustomerIDs by joining the OrderItems, Orders, and Customers tables.",
+            "Retrieve all ProductIDs, corresponding OrderItemIDs, and OrderIDs by joining the Products, OrderItems, and Orders tables.",
+            "Retrieve all OrderIDs, corresponding CustomerIDs, and OrderItemIDs by joining the Orders, Customers, and OrderItems tables.",
+            "Retrieve all CustomerIDs, corresponding OrderIDs, and OrderItemIDs by joining the Customers, Orders, and OrderItems tables."
+        ]
+    }
+}

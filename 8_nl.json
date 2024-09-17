@@ -1,0 +1,179 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Events' table if it exists.",
+        "Remove the 'Attendees' table if it exists.",
+        "Remove the 'EventRegistrations' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Events' table with columns for EventID (auto-incrementing), EventName, EventDate, and Location, with EventID as the primary key.",
+        "Create a new 'Attendees' table with columns for AttendeeID (auto-incrementing), FirstName, LastName, and Email, with AttendeeID as the primary key.",
+        "Create a new 'EventRegistrations' table with columns for RegistrationID (auto-incrementing), EventID, AttendeeID, and RegistrationDate, with RegistrationID as the primary key and foreign key relationships to the Events and Attendees tables."
+    ],
+    "insert": [
+        "Add a new event: Tech Conference 2024, scheduled for September 15, 2024, in San Francisco.",
+        "Add a new event: Music Festival, scheduled for August 22, 2024, in New York.",
+        "Add a new event: Art Expo, scheduled for July 19, 2024, in Los Angeles.",
+        "Add a new event: Startup Pitch Day, scheduled for June 10, 2024, in Boston.",
+        "Add a new event: Health and Wellness Fair, scheduled for May 12, 2024, in Chicago.",
+        "Add a new event: Book Fair, scheduled for April 9, 2024, in Seattle.",
+        "Add a new event: Culinary Expo, scheduled for March 18, 2024, in Houston.",
+        "Add a new event: Film Festival, scheduled for February 14, 2024, in Miami.",
+        "Add a new event: Charity Gala, scheduled for January 20, 2024, in Dallas.",
+        "Add a new event: Sports Meet, scheduled for December 1, 2024, in Denver.",
+        
+        "Add a new attendee: John Doe with email johndoe@example.com.",
+        "Add a new attendee: Jane Smith with email janesmith@example.com.",
+        "Add a new attendee: Emily Johnson with email emilyj@example.com.",
+        "Add a new attendee: Michael Brown with email michaelb@example.com.",
+        "Add a new attendee: Sarah Davis with email sarahd@example.com.",
+        "Add a new attendee: David Miller with email davidm@example.com.",
+        "Add a new attendee: Laura Wilson with email lauraw@example.com.",
+        "Add a new attendee: Robert Moore with email robertm@example.com.",
+        "Add a new attendee: Jennifer Taylor with email jennifert@example.com.",
+        "Add a new attendee: James Anderson with email jamesa@example.com.",
+
+        "Register attendee 1 for event 1 on August 1, 2024.",
+        "Register attendee 2 for event 2 on August 1, 2024.",
+        "Register attendee 3 for event 3 on July 5, 2024.",
+        "Register attendee 4 for event 4 on June 1, 2024.",
+        "Register attendee 5 for event 5 on May 1, 2024.",
+        "Register attendee 6 for event 6 on April 1, 2024.",
+        "Register attendee 7 for event 7 on March 1, 2024.",
+        "Register attendee 8 for event 8 on February 1, 2024.",
+        "Register attendee 9 for event 9 on January 1, 2024.",
+        "Register attendee 10 for event 10 on December 1, 2023."
+    ],
+    "delete": [
+    "Remove the event with ID 1 from the Events table.",
+    "Remove the event named 'Annual Conference' from the Events table.",
+    "Remove all events located in New York from the Events table.",
+    "Remove all events scheduled for January 1, 2024 from the Events table.",
+    "Remove the event named 'Music Festival' located in Los Angeles from the Events table.",
+    "Remove all events scheduled before January 1, 2023 from the Events table.",
+    "Remove all events with names containing 'Conference' from the Events table.",
+    "Remove the event named 'Tech Summit' or scheduled for November 15, 2023 from the Events table.",
+    "Remove all events located in San Francisco and scheduled after June 1, 2024 from the Events table.",
+    "Remove events with IDs between 5 and 10 from the Events table.",
+    
+    "Remove the attendee with ID 1 from the Attendees table.",
+    "Remove all attendees with the last name Smith from the Attendees table.",
+    "Remove the attendee with email john.doe@example.com from the Attendees table.",
+    "Remove the attendee named Jane Doe from the Attendees table.",
+    "Remove all attendees whose first names start with 'A' from the Attendees table.",
+    "Remove all attendees with ID greater than 100 from the Attendees table.",
+    "Remove the attendee with last name Brown or first name Michael from the Attendees table.",
+    "Remove all attendees with email addresses ending in @gmail.com from the Attendees table.",
+    "Remove the attendee named Emily with email emily.rose@example.com from the Attendees table.",
+    "Remove attendees with IDs between 10 and 20 from the Attendees table.",
+    
+    "Remove the event registration with ID 1 from the EventRegistrations table.",
+    "Remove all registrations for event 2 from the EventRegistrations table.",
+    "Remove all registrations for attendee 3 from the EventRegistrations table.",
+    "Remove all registrations made on May 15, 2023 from the EventRegistrations table.",
+    "Remove the registration for event 4 and attendee 5 from the EventRegistrations table.",
+    "Remove all registrations made before January 1, 2024 from the EventRegistrations table.",
+    "Remove all registrations for event 6 or made on December 1, 2023 from the EventRegistrations table.",
+    "Remove all registrations for attendee 7 made after June 1, 2023 from the EventRegistrations table.",
+    "Remove all registrations for events 1, 2, or 3 from the EventRegistrations table.",
+    "Remove all registrations for attendee 8 or event 9 from the EventRegistrations table."
+  ],
+  "update": [
+    "Change the name of the event with ID 1 to 'Tech Conference'.",
+    "Change the location to New York for the event scheduled on August 25, 2024.",
+    "Change the date to December 1, 2024 for the event named 'Music Festival'.",
+    "Change the name to 'Art Exhibition' for the event located in San Francisco and scheduled for October 15, 2024.",
+    "Change the location to Los Angeles for the event with ID 3.",
+    "Change the date to February 10, 2025 and the location to Chicago for the event with ID 4.",
+    "Change the name to 'Health Summit' for all events named 'Health Conference'.",
+    "Change the location to Miami for the event with ID 5 scheduled for November 20, 2024.",
+    "Change the date to September 15, 2024 for all events located in Boston.",
+    "Change the name to 'Science Fair' and the date to October 30, 2024 for the event with ID 6.",
+
+    "Change the first name to John for the attendee with ID 1.",
+    "Change the last name to Smith for the attendee with email jane.doe@example.com.",
+    "Change the email to john.smith@example.com for the attendee with ID 2.",
+    "Change the first name to Jane and the last name to Doe for the attendee with ID 3.",
+    "Change the email to alex.jones@example.com for the attendee named Alex Jones.",
+    "Change the last name to Brown for all attendees named Emily.",
+    "Change the email to emily.brown@example.com for the attendee with ID 4.",
+    "Change the first name to Michael for the attendee with ID 5.",
+    "Change the last name to Williams and the email to michael.williams@example.com for the attendee with ID 6.",
+    "Change the first name to Sarah for the attendee with email sarah.davis@example.com.",
+
+    "Change the registration date to August 15, 2024 for the event registration with ID 1.",
+    "Change the event to event 2 for all registrations of attendee 1.",
+    "Change the attendee to attendee 3 for the registration with ID 3 for event 2.",
+    "Change the registration date to September 1, 2024 for all registrations for event 3.",
+    "Change the event to event 4 for the registration with ID 4.",
+    "Change the attendee to attendee 5 for the registration with ID 5.",
+    "Change the event to event 6 for all registrations of attendee 4.",
+    "Change the registration date to October 20, 2024 and the event to event 5 for the registration with ID 6.",
+    "Change the registration date to November 5, 2024 for the registration of attendee 2 for event 1.",
+    "Change the event to event 3 and the attendee to attendee 6 for the registration with ID 7."
+  ],
+  "select": {
+        "no_filtering":[
+            "Retrieve all EventIDs from the Events table.",
+            "Retrieve all AttendeeIDs from the Attendees table.",
+            "Retrieve all RegistrationIDs from the EventRegistrations table.",
+            "Retrieve all EventIDs from the EventRegistrations table."
+        ],
+        "single_filtering":[
+            "Find the EventIDs of all events located in New York.",
+            "Find the AttendeeIDs of all attendees with the last name Smith.",
+            "Find the RegistrationIDs of all registrations for event 1.",
+            "Find the EventIDs of all events named 'Conference'."
+        ],
+        "double_filtering":[  
+            "Find the EventIDs of all events named 'Conference' and located in New York.",
+            "Find the AttendeeIDs of all attendees named John Doe.",
+            "Find the RegistrationIDs of all registrations for event 1 made by attendee 2.",
+            "Find the EventIDs of all events named 'Seminar' or located in Los Angeles."
+        ],
+        "triple_filtering":[
+            "Find the EventIDs of all events named 'Conference', located in New York, and scheduled for September 10, 2024.",
+            "Find the AttendeeIDs of all attendees named John Doe with email john.doe@example.com.",
+            "Find the RegistrationIDs of all registrations for event 1, made by attendee 2, on August 15, 2024.",
+            "Find the EventIDs of all events named 'Workshop', located in Chicago, or scheduled for October 1, 2024."
+        ],
+        "range_filtering":[
+            "Find the EventIDs of all events scheduled between January 1, 2024 and December 31, 2024.",
+            "Find the AttendeeIDs of attendees with IDs between 1 and 100.",
+            "Find the RegistrationIDs of all registrations made between January 1, 2024 and June 30, 2024.",
+            "Find the EventIDs of events with IDs between 1 and 10."
+        ],
+        "ranking":[
+            "Retrieve all EventIDs, ordered by event date from latest to earliest.",
+            "Retrieve all AttendeeIDs, ordered by last name alphabetically.",
+            "Retrieve all RegistrationIDs, ordered by registration date from latest to earliest.",
+            "Retrieve all EventIDs, ordered by event name alphabetically."
+        ],
+        "count":[
+            "Count the total number of events.",
+            "Count the total number of attendees.",
+            "Count the total number of registrations.",
+            "Count the total number of events that have registrations."
+        ],
+        "single_table":[
+            "Find the EventIDs of all events located in Boston.",
+            "Find the AttendeeIDs of all attendees with the last name Brown.",
+            "Find the RegistrationIDs of all registrations for event 2.",
+            "Find the EventIDs of all events named 'Symposium'."
+        ],
+        "double_table":[
+            "Find the EventIDs of all events that have any registrations.",
+            "Find the AttendeeIDs of all attendees who have registered for any event.",
+            "Find the RegistrationIDs of all registrations, including the corresponding EventIDs.",
+            "Find the RegistrationIDs of all registrations, including the corresponding AttendeeIDs."
+        ],
+        "three_table":[
+            "Find the EventIDs of all events, including the AttendeeIDs of registered attendees and the RegistrationIDs.",
+            "Find the AttendeeIDs of all attendees, including the EventIDs of events they've registered for and the RegistrationIDs.",
+            "Find the RegistrationIDs of all registrations, including the corresponding EventIDs and AttendeeIDs.",
+            "Find the RegistrationIDs of all registrations, including the corresponding AttendeeIDs and EventIDs."
+        ]
+    }
+}

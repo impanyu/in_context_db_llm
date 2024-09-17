@@ -1,0 +1,169 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Manufacturers' table if it exists.",
+        "Remove the 'Products' table if it exists.",
+        "Remove the 'Suppliers' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Manufacturers' table with columns for ManufacturerID (auto-incrementing), ManufacturerName, and Country, with ManufacturerID as the primary key.",
+        "Create a new 'Products' table with columns for ProductID (auto-incrementing), ProductName, Price, and ManufacturerID, with ProductID as the primary key and a foreign key relationship to the Manufacturers table.",
+        "Create a new 'Suppliers' table with columns for SupplierID (auto-incrementing), SupplierName, and Address, with SupplierID as the primary key."
+    ],
+    "insert": [
+        "Add a new manufacturer: Sony based in Japan.",
+        "Add a new manufacturer: Samsung based in South Korea.",
+        "Add a new manufacturer: Apple based in United States.",
+        "Add a new manufacturer: LG based in South Korea.",
+        "Add a new manufacturer: Dell based in United States.",
+        "Add a new manufacturer: HP based in United States.",
+        "Add a new manufacturer: Lenovo based in China.",
+        "Add a new manufacturer: Asus based in Taiwan.",
+        "Add a new manufacturer: Acer based in Taiwan.",
+        "Add a new manufacturer: Panasonic based in Japan.",
+        
+        "Add a new product: iPhone 13, priced at $799.99, manufactured by Apple.",
+        "Add a new product: Galaxy S21, priced at $699.99, manufactured by Samsung.",
+        "Add a new product: XPS 13, priced at $999.99, manufactured by Dell.",
+        "Add a new product: MacBook Pro, priced at $1299.99, manufactured by Apple.",
+        "Add a new product: ThinkPad X1, priced at $1099.99, manufactured by Lenovo.",
+        "Add a new product: ROG Strix, priced at $1499.99, manufactured by Asus.",
+        "Add a new product: Aspire 5, priced at $549.99, manufactured by Acer.",
+        "Add a new product: Vostro 15, priced at $599.99, manufactured by Dell.",
+        "Add a new product: Spectre x360, priced at $1199.99, manufactured by HP.",
+        "Add a new product: LG Gram, priced at $1299.99, manufactured by LG.",
+        
+        "Add a new supplier: Tech Distributors Inc. located at 123 Main St, New York, NY.",
+        "Add a new supplier: Global Tech Supplies located at 456 Elm St, Los Angeles, CA.",
+        "Add a new supplier: ElectroWorld located at 789 Oak St, Chicago, IL.",
+        "Add a new supplier: Digital Depot located at 321 Maple St, Houston, TX.",
+        "Add a new supplier: Gadget Warehouse located at 654 Pine St, Philadelphia, PA.",
+        "Add a new supplier: Tech Solutions Ltd. located at 987 Cedar St, San Francisco, CA.",
+        "Add a new supplier: Electronics Hub located at 246 Birch St, Boston, MA.",
+        "Add a new supplier: SupplyZone located at 135 Walnut St, Miami, FL.",
+        "Add a new supplier: TechSupply Co. located at 468 Maple Ave, Atlanta, GA.",
+        "Add a new supplier: Digital World located at 579 Chestnut St, Seattle, WA."
+    ],
+    "delete": [
+        "Remove the manufacturer with ID 1 from the Manufacturers table.",
+        "Remove all manufacturers based in USA from the Manufacturers table.",
+        "Remove the manufacturer named 'Acme Corp' from the Manufacturers table.",
+        "Remove all manufacturers with ID greater than 5 from the Manufacturers table.",
+        "Remove all manufacturers with names starting with 'A' from the Manufacturers table.",
+        "Remove all manufacturers based in Germany with ID less than 10 from the Manufacturers table.",
+        "Remove the manufacturer named 'Global Industries' or based in Japan from the Manufacturers table.",
+        "Remove all manufacturers with IDs between 2 and 4 from the Manufacturers table.",
+        "Remove the manufacturer named 'XYZ Manufacturing' from the Manufacturers table.",
+        "Remove all manufacturers with no specified country from the Manufacturers table.",
+
+        "Remove the product with ID 1 from the Products table.",
+        "Remove all products priced over $50.00 from the Products table.",
+        "Remove the product named 'Widget A' from the Products table.",
+        "Remove all products manufactured by the company with ID 2 from the Products table.",
+        "Remove all products priced under $20.00 and manufactured by the company with ID 3 from the Products table.",
+        "Remove all products with names ending in 'Pro' from the Products table.",
+        "Remove all products priced between $30.00 and $40.00 from the Products table.",
+        "Remove all products manufactured by the company with ID 1 or priced over $100.00 from the Products table.",
+        "Remove the product named 'Gizmo Deluxe' from the Products table.",
+        "Remove all products manufactured by companies with IDs 4, 5, or 6 from the Products table.",
+
+        "Remove the supplier with ID 1 from the Suppliers table.",
+        "Remove the supplier named 'Global Supplies' from the Suppliers table.",
+        "Remove the supplier located at '123 Main St' from the Suppliers table.",
+        "Remove all suppliers with ID greater than 10 from the Suppliers table.",
+        "Remove all suppliers with names starting with 'B' from the Suppliers table.",
+        "Remove all suppliers with no specified address from the Suppliers table.",
+        "Remove all suppliers with IDs between 5 and 8 from the Suppliers table.",
+        "Remove the supplier named 'Acme Supplies' and located at '456 Elm St' from the Suppliers table.",
+        "Remove the supplier named 'Universal Products' or with ID 2 from the Suppliers table.",
+        "Remove all suppliers with IDs not equal to 3, 6, or 9 from the Suppliers table."
+    ],
+    "update": [
+        "Change the manufacturer name to 'Global Tech' for the manufacturer with ID 1.",
+        "Change the country to 'Germany' for the manufacturer with ID 2.",
+        "Change the manufacturer name to 'TechCorp' and the country to 'USA' for the manufacturer with ID 3.",
+        "Change the manufacturer name to 'Innovative Solutions' for the manufacturer currently named 'Old Name'.",
+        "Change the country to 'Japan' for the manufacturer with ID 4 and name 'ElectroWorks'.",
+        "Change the manufacturer name to 'GreenTech' and the country to 'Canada' for the manufacturer with ID 5.",
+        "Change the manufacturer name to 'Mega Manufacturing' for all manufacturers based in UK.",
+        "Change the country to 'France' for the manufacturer with ID 6.",
+        "Change the manufacturer name to 'Alpha Manufacturing' for the manufacturer currently named 'Beta Manufacturing'.",
+        "Change the country to 'Italy' for the manufacturer with ID 7 and currently based in Spain.",
+ 
+        "Change the price to $19.99 for the product with ID 1.",
+        "Change the product name to 'Super Gadget' for the product with ID 2.",
+        "Change the price to $49.99 for the product with ID 3 manufactured by the company with ID 2.",
+        "Change the product name to 'Ultra Widget' and the price to $29.99 for the product with ID 4.",
+        "Change the manufacturer to the one with ID 1 for the product with ID 5 and priced over $20.00.",
+        "Change the price to $15.49 for the product with ID 6 or manufactured by the company with ID 3.",
+        "Change the product name to 'Eco-Friendly Gadget' for the product currently named 'Gadget Pro'.",
+        "Change the price to $9.99 for all products manufactured by the company with ID 4.",
+        "Change the product name to 'Advanced Widget' for the product with ID 7 and priced under $30.00.",
+        "Change the manufacturer to the one with ID 5 for the product with ID 8.",
+
+        "Change the supplier name to 'Global Supplies' for the supplier with ID 1.",
+        "Change the address to '123 Main St, New York, NY' for the supplier with ID 2.",
+        "Change the supplier name to 'Best Supplies' and the address to '456 Elm St, Los Angeles, CA' for the supplier with ID 3.",
+        "Change the supplier name to 'Supply Chain Experts' for the supplier located at '789 Oak St, Chicago, IL'.",
+        "Change the address to '101 Maple St, Houston, TX' for the supplier with ID 4 and name 'Quick Supplies'.",
+        "Change the supplier name to 'Top Tier Supplies' and the address to '202 Birch St, Miami, FL' for the supplier with ID 5.",
+        "Change the address to '303 Cedar St, San Francisco, CA' for the supplier with ID 6 or named 'Fast Supplies'.",
+        "Change the supplier name to 'Reliable Supplies' for the supplier currently named 'Trusty Supplies'.",
+        "Change the address to '404 Pine St, Seattle, WA' for the supplier with ID 7.",
+        "Change the supplier name to 'Quality Supplies' for the supplier located at '505 Spruce St, Denver, CO'."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all ManufacturerIDs from the Manufacturers table.",
+            "Retrieve all ProductIDs from the Products table.",
+            "Retrieve all SupplierIDs from the Suppliers table."
+        ],
+        "single_filtering": [
+            "Find the ManufacturerIDs of all manufacturers based in USA.",
+            "Find the ProductIDs of all products priced over $50.00.",
+            "Find the SupplierIDs of all suppliers with names starting with 'A'."
+        ],
+        "double_filtering": [
+            "Find the ManufacturerIDs of all manufacturers based in USA and with names starting with 'S'.",
+            "Find the ProductIDs of all products priced over $50.00 and manufactured by the company with ID 1.",
+            "Find the SupplierIDs of all suppliers located in New York or with names starting with 'A'."
+        ],
+        "triple_filtering": [
+            "Find the ManufacturerIDs of all manufacturers based in USA, with names starting with 'S', and with ID greater than 10.",
+            "Find the ProductIDs of all products priced over $50.00, manufactured by the company with ID 1, and with names starting with 'P'.",
+            "Find the SupplierIDs of all suppliers located in New York, or with names starting with 'A', and with ID greater than 5."
+        ],
+        "range_filtering": [
+            "Find the ManufacturerIDs of all manufacturers with IDs between 10 and 20.",
+            "Find the ProductIDs of all products priced between $20.00 and $100.00.",
+            "Find the SupplierIDs of all suppliers with IDs between 5 and 15."
+        ],
+        "ranking": [
+            "Retrieve all ManufacturerIDs, ordered by manufacturer name in ascending alphabetical order.",
+            "Retrieve all ProductIDs, ordered by price from highest to lowest.",
+            "Retrieve all SupplierIDs, ordered by supplier name in ascending alphabetical order."
+        ],
+        "count": [
+            "Count the total number of manufacturers.",
+            "Count the total number of products.",
+            "Count the total number of suppliers."
+        ],
+        "single_table": [
+            "Retrieve all ManufacturerIDs from the Manufacturers table.",
+            "Retrieve all ProductIDs from the Products table.",
+            "Retrieve all SupplierIDs from the Suppliers table."
+        ],
+        "double_table": [
+            "Find the ProductIDs and corresponding ManufacturerIDs by joining the Products and Manufacturers tables.",
+            "Find the SupplierIDs and corresponding ProductIDs by joining the Suppliers and Products tables.",
+            "Find the ManufacturerIDs and corresponding ProductIDs by joining the Manufacturers and Products tables."
+        ],
+        "three_table": [
+            "Find the ProductIDs, ManufacturerIDs, and SupplierIDs by joining the Products, Manufacturers, and Suppliers tables.",
+            "Find the SupplierIDs, ProductIDs, and ManufacturerIDs by joining the Suppliers, Products, and Manufacturers tables.",
+            "Find the ManufacturerIDs, ProductIDs, and SupplierIDs by joining the Manufacturers, Products, and Suppliers tables."
+        ]
+    }
+}

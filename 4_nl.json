@@ -1,0 +1,179 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Members' table if it exists.",
+        "Remove the 'Books' table if it exists.",
+        "Remove the 'BorrowingRecords' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Members' table with columns for MemberID (auto-incrementing), FirstName, LastName, and JoinDate.",
+        "Create a new 'Books' table with columns for BookID (auto-incrementing), Title, Author, and ISBN.",
+        "Create a new 'BorrowingRecords' table with columns for RecordID (auto-incrementing), MemberID, BookID, BorrowDate, and ReturnDate, with foreign key relationships to the Members and Books tables."
+    ],
+    "insert": [
+        "Add a new member: John Doe, joined on January 1, 2023.",
+        "Add a new member: Jane Smith, joined on January 5, 2023.",
+        "Add a new member: Alice Johnson, joined on January 10, 2023.",
+        "Add a new member: Bob Brown, joined on January 15, 2023.",
+        "Add a new member: Charlie Davis, joined on January 20, 2023.",
+        "Add a new member: Diana Miller, joined on January 25, 2023.",
+        "Add a new member: Eve Wilson, joined on February 1, 2023.",
+        "Add a new member: Frank Garcia, joined on February 5, 2023.",
+        "Add a new member: Grace Martinez, joined on February 10, 2023.",
+        "Add a new member: Henry Lopez, joined on February 15, 2023.",
+
+        "Add a new book: '1984' by George Orwell, ISBN: 9780451524935.",
+        "Add a new book: 'To Kill a Mockingbird' by Harper Lee, ISBN: 9780061120084.",
+        "Add a new book: 'The Great Gatsby' by F. Scott Fitzgerald, ISBN: 9780743273565.",
+        "Add a new book: 'Moby Dick' by Herman Melville, ISBN: 9781503280786.",
+        "Add a new book: 'War and Peace' by Leo Tolstoy, ISBN: 9781853260629.",
+        "Add a new book: 'Pride and Prejudice' by Jane Austen, ISBN: 9781503290563.",
+        "Add a new book: 'The Catcher in the Rye' by J.D. Salinger, ISBN: 9780316769488.",
+        "Add a new book: 'Brave New World' by Aldous Huxley, ISBN: 9780060850524.",
+        "Add a new book: 'The Lord of the Rings' by J.R.R. Tolkien, ISBN: 9780544003415.",
+        "Add a new book: 'The Hobbit' by J.R.R. Tolkien, ISBN: 9780547928227.",
+
+        "Record a borrowing: Member 1 borrowed Book 1 on March 1, 2023, not yet returned.",
+        "Record a borrowing: Member 2 borrowed Book 2 on March 5, 2023, returned on March 15, 2023.",
+        "Record a borrowing: Member 3 borrowed Book 3 on March 10, 2023, returned on March 20, 2023.",
+        "Record a borrowing: Member 4 borrowed Book 4 on March 15, 2023, returned on March 25, 2023.",
+        "Record a borrowing: Member 5 borrowed Book 5 on March 20, 2023, not yet returned.",
+        "Record a borrowing: Member 6 borrowed Book 6 on March 25, 2023, returned on April 1, 2023.",
+        "Record a borrowing: Member 7 borrowed Book 7 on March 30, 2023, returned on April 5, 2023.",
+        "Record a borrowing: Member 8 borrowed Book 8 on April 1, 2023, returned on April 10, 2023.",
+        "Record a borrowing: Member 9 borrowed Book 9 on April 5, 2023, not yet returned.",
+        "Record a borrowing: Member 10 borrowed Book 10 on April 10, 2023, not yet returned."
+    ],
+    "delete": [
+        "Remove the member with ID 1 from the Members table.",
+        "Remove all members named John from the Members table.",
+        "Remove the member named Doe who joined on January 15, 2022 from the Members table.",
+        "Remove all members who joined before January 1, 2021 from the Members table.",
+        "Remove all members named Jane or with the last name Smith from the Members table.",
+        "Remove all members with ID greater than 5 from the Members table.",
+        "Remove all members with the last name Johnson from the Members table.",
+        "Remove all members who joined between January 1, 2020 and December 31, 2021 from the Members table.",
+        "Remove all members whose first name starts with 'A' from the Members table.",
+        "Remove members with IDs 2, 3, or 4 from the Members table.",
+        
+        "Remove the book with ID 1 from the Books table.",
+        "Remove the book titled '1984' from the Books table.",
+        "Remove the book by George Orwell with ISBN 9780451524935 from the Books table.",
+        "Remove the book with ISBN 9781234567890 from the Books table.",
+        "Remove all books by J.K. Rowling or titled 'Harry Potter' from the Books table.",
+        "Remove all books with ID greater than 10 from the Books table.",
+        "Remove all books by Mark Twain from the Books table.",
+        "Remove all books with 'Guide' in the title from the Books table.",
+        "Remove all books with no ISBN from the Books table.",
+        "Remove books with IDs 5, 6, or 7 from the Books table.",
+        
+        "Remove the borrowing record with ID 1 from the BorrowingRecords table.",
+        "Remove all borrowing records for member with ID 2 from the BorrowingRecords table.",
+        "Remove all borrowing records for book with ID 3 from the BorrowingRecords table.",
+        "Remove all borrowing records made on May 1, 2023 from the BorrowingRecords table.",
+        "Remove all borrowing records with no return date from the BorrowingRecords table.",
+        "Remove the borrowing record for member 4 borrowing book 2 from the BorrowingRecords table.",
+        "Remove all borrowing records made before January 1, 2022 from the BorrowingRecords table.",
+        "Remove all borrowing records with return dates between January 1, 2023 and December 31, 2023 from the BorrowingRecords table.",
+        "Remove all borrowing records with ID greater than 10 from the BorrowingRecords table.",
+        "Remove borrowing records for members with IDs 5, 6, or 7 from the BorrowingRecords table."
+    ],
+    "update": [
+        "Change the name of the member with ID 1 to John Doe.",
+        "Change the join date to January 1, 2024 for the member with ID 2.",
+        "Change the first name to Jane for the member with ID 3 who joined on June 15, 2023.",
+        "Change the last name to Smith for the member with ID 4 or who joined on May 20, 2023.",
+        "Change the name to Alice Brown for the member with ID 5.",
+        "Change the join date to July 21, 2023 for the member with ID 6 and last name Johnson.",
+        "Change the first name to Robert for the member with ID 7.",
+        "Change the last name to Miller for the member with ID 8 who joined on August 30, 2023.",
+        "Change the join date to February 12, 2024 for the member with ID 9 or first name Emily.",
+        "Change the name to Emma Wilson for the member with ID 10.",
+
+        "Change the title of the book with ID 1 to 'New Book Title'.",
+        "Change the author of the book with ID 2 to 'Updated Author'.",
+        "Change the ISBN to 9781234567890 for the book with ID 3 and title 'Old Book Title'.",
+        "Change the title to 'Another Title' for the book with ID 4 or authored by 'Some Author'.",
+        "Change the author to 'Different Author' and ISBN to 9780987654321 for the book with ID 5.",
+        "Change the title to 'Updated Title' for the book with ID 6 and ISBN 9781112223334.",
+        "Change the ISBN to 9784445556667 for the book with ID 7.",
+        "Change the author to 'New Author' for the book with ID 8 and title 'Specific Title'.",
+        "Change the title to 'A New Title' for the book with ID 9 or ISBN 9785556667778.",
+        "Change the author to 'Final Author' and ISBN to 9782223334445 for the book with ID 10.",
+
+        "Change the return date to March 15, 2024 for the borrowing record with ID 1.",
+        "Change the borrow date to November 1, 2023 for the borrowing record with ID 2.",
+        "Change the return date to December 25, 2023 for the borrowing record with ID 3 and member ID 1.",
+        "Change the borrow date to January 10, 2024 for the borrowing record with ID 4 or book ID 2.",
+        "Change the member ID to 3 and book ID to 5 for the borrowing record with ID 5.",
+        "Change the return date to February 20, 2024 for the borrowing record with ID 6 and member ID 4.",
+        "Change the borrow date to October 5, 2023 for the borrowing record with ID 7.",
+        "Change the return date to September 15, 2023 for the borrowing record with ID 8 and book ID 3.",
+        "Change the member ID to 2 and borrow date to April 1, 2024 for the borrowing record with ID 9 or return date May 15, 2024.",
+        "Change the return date to June 10, 2024 for the borrowing record with ID 10."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all MemberIDs from the Members table.",
+            "Retrieve all BookIDs from the Books table.",
+            "Retrieve all RecordIDs from the BorrowingRecords table.",
+            "Retrieve all BookIDs from the Books table."
+        ],
+        "single_filtering": [
+            "Find the MemberIDs of all members who joined on January 1, 2023.",
+            "Find the BookIDs of all books authored by George Orwell.",
+            "Find the RecordIDs of all borrowing records where the book hasn't been returned yet.",
+            "Find the MemberIDs of all members named John."
+        ],
+        "double_filtering": [
+            "Find the MemberIDs of all members named Jane Doe.",
+            "Find the BookIDs of all books authored by Jane Austen or with ISBN 9780141439518.",
+            "Find the RecordIDs of all borrowing records for member 1 where the book has been returned.",
+            "Find the MemberIDs of all members named Emily who joined on May 1, 2022."
+        ],
+        "triple_filtering": [
+            "Find the MemberIDs of all members named John Doe who joined on January 1, 2023.",
+            "Find the BookIDs of all books titled '1984', authored by George Orwell, or with ISBN 9780451524935.",
+            "Find the RecordIDs of all borrowing records for member 2 borrowing book 3 that haven't been returned yet.",
+            "Find the BookIDs of all books authored by Mark Twain, titled 'Adventures of Huckleberry Finn', or with ISBN 9780142437179."
+        ],
+        "range_filtering": [
+            "Find the MemberIDs of all members who joined between January 1, 2020 and December 31, 2023.",
+            "Find the BookIDs of all books with IDs between 10 and 20.",
+            "Find the RecordIDs of all borrowing records made between January 1, 2022 and January 1, 2023.",
+            "Find the BookIDs of books with IDs between 5 and 15."
+        ],
+        "ranking": [
+            "Retrieve all MemberIDs, ordered by join date from latest to earliest.",
+            "Retrieve all BookIDs, ordered by title alphabetically.",
+            "Retrieve all RecordIDs, ordered by borrow date from latest to earliest.",
+            "Retrieve all BookIDs, ordered by author name alphabetically."
+        ],
+        "count": [
+            "Count the total number of members.",
+            "Count the total number of books.",
+            "Count the total number of borrowing records.",
+            "Count the total number of books."
+        ],
+        "single_table": [
+            "Retrieve all MemberIDs from the Members table.",
+            "Retrieve all BookIDs from the Books table.",
+            "Retrieve all RecordIDs from the BorrowingRecords table.",
+            "Retrieve all BookIDs from the Books table."
+        ],
+        "double_table": [
+            "Find the MemberIDs of all members who have borrowed any book.",
+            "Find the BookIDs of all books that have been borrowed by any member.",
+            "Find the RecordIDs of all borrowing records for book with ID 1.",
+            "Find the BookIDs of all books borrowed by member with ID 2."
+        ],
+        "three_table": [
+            "Find the MemberIDs of all members who have borrowed any book, including book information.",
+            "Find the BookIDs of all books that have been borrowed by any member, including member information.",
+            "Find the RecordIDs of all borrowing records, including both member and book information.",
+            "Find the MemberIDs of all members who have borrowed book with ID 1, including book information."
+        ]
+    }
+}

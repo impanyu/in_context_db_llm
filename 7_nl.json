@@ -1,0 +1,213 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],  
+    "drop_tables":[
+        "Remove the 'Students' table if it exists.",
+        "Remove the 'Classes' table if it exists.",
+        "Remove the 'Teachers' table if it exists.",
+        "Remove the 'Enrollments' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Students' table with columns for StudentID (auto-incrementing), FirstName, LastName, and DateOfBirth, with StudentID as the primary key.",
+        "Create a new 'Classes' table with columns for ClassID (auto-incrementing) and ClassName, with ClassID as the primary key.",
+        "Create a new 'Teachers' table with columns for TeacherID (auto-incrementing), FirstName, LastName, and Subject, with TeacherID as the primary key.",
+        "Create a new 'Enrollments' table with columns for EnrollmentID (auto-incrementing), StudentID, and ClassID, with EnrollmentID as the primary key and foreign key relationships to the Students and Classes tables."
+    ],
+    "insert": [
+        "Add a new student: John Doe, born on April 23, 2005.",
+        "Add a new student: Jane Smith, born on May 14, 2006.",
+        "Add a new student: Emily Davis, born on March 11, 2004.",
+        "Add a new student: Michael Johnson, born on July 20, 2005.",
+        "Add a new student: Sarah Brown, born on August 30, 2006.",
+        "Add a new student: David Wilson, born on September 15, 2005.",
+        "Add a new student: Laura Garcia, born on October 5, 2004.",
+        "Add a new student: James Martinez, born on November 21, 2006.",
+        "Add a new student: Sophia Lee, born on December 12, 2005.",
+        "Add a new student: Chris Taylor, born on February 18, 2004.",
+
+        "Add a new class: Math 101.",
+        "Add a new class: History 101.",
+        "Add a new class: Science 101.",
+        "Add a new class: English 101.",
+        "Add a new class: Art 101.",
+        "Add a new class: Physical Education.",
+        "Add a new class: Biology 101.",
+        "Add a new class: Chemistry 101.",
+        "Add a new class: Physics 101.",
+        "Add a new class: Geography 101.",
+
+        "Add a new teacher: Mr. Smith, teaching Math.",
+        "Add a new teacher: Ms. Johnson, teaching History.",
+        "Add a new teacher: Mrs. Williams, teaching Science.",
+        "Add a new teacher: Mr. Jones, teaching English.",
+        "Add a new teacher: Ms. Brown, teaching Art.",
+        "Add a new teacher: Mr. Davis, teaching Physical Education.",
+        "Add a new teacher: Mrs. Miller, teaching Biology.",
+        "Add a new teacher: Mr. Wilson, teaching Chemistry.",
+        "Add a new teacher: Ms. Moore, teaching Physics.",
+        "Add a new teacher: Mr. Taylor, teaching Geography.",
+
+        "Enroll student 1 in class 1.",
+        "Enroll student 2 in class 2.",
+        "Enroll student 3 in class 3.",
+        "Enroll student 4 in class 4.",
+        "Enroll student 5 in class 5.",
+        "Enroll student 6 in class 6.",
+        "Enroll student 7 in class 7.",
+        "Enroll student 8 in class 8.",
+        "Enroll student 9 in class 9.",
+        "Enroll student 10 in class 10."
+    ],
+    "delete": [
+        "Remove the student with ID 1 from the Students table.",
+        "Remove all students with the first name John from the Students table.",
+        "Remove the student with the last name Doe and born on January 1, 2000 from the Students table.",
+        "Remove all students born before January 1, 2000 from the Students table.",
+        "Remove the student with the first name Jane and last name Smith from the Students table.",
+        "Remove all students with the first name Michael or the last name Johnson from the Students table.",
+        "Remove all students with ID greater than 10 from the Students table.",
+        "Remove all students whose first name starts with 'A' from the Students table.",
+        "Remove the student with the last name Brown and born between January 1, 1995 and December 31, 2000 from the Students table.",
+        "Remove the student born on May 15, 2002 from the Students table.",
+
+        "Remove the class with ID 1 from the Classes table.",
+        "Remove the class named Math 101 from the Classes table.",
+        "Remove all classes with names starting with 'Physics' from the Classes table.",
+        "Remove the class named History or Geography from the Classes table.",
+        "Remove all classes with ID greater than 5 from the Classes table.",
+        "Remove the class named Biology with ID less than 10 from the Classes table.",
+        "Remove all classes with names starting with 'English' from the Classes table.",
+        "Remove the class named Chemistry with ID 3 from the Classes table.",
+        "Remove the class named Art from the Classes table.",
+        "Remove the class with ID 2 or ID 4 from the Classes table.",
+
+        "Remove the teacher with ID 1 from the Teachers table.",
+        "Remove the teacher with the first name Alice from the Teachers table.",
+        "Remove the teacher with the last name Miller and teaching Mathematics from the Teachers table.",
+        "Remove all teachers teaching subjects starting with 'Science' from the Teachers table.",
+        "Remove all teachers with ID greater than 10 from the Teachers table.",
+        "Remove the teacher with the first name Robert or the last name Williams from the Teachers table.",
+        "Remove the teacher with the last name Davis and teaching History from the Teachers table.",
+        "Remove all teachers whose first name starts with 'B' from the Teachers table.",
+        "Remove all teachers teaching English from the Teachers table.",
+        "Remove the teacher with ID 2 or ID 3 from the Teachers table.",
+
+        "Remove the enrollment with ID 1 from the Enrollments table.",
+        "Remove all enrollments for student 5 from the Enrollments table.",
+        "Remove all enrollments for class 3 from the Enrollments table.",
+        "Remove the enrollment for student 2 in class 4 from the Enrollments table.",
+        "Remove all enrollments with ID greater than 10 from the Enrollments table.",
+        "Remove all enrollments for student 1 or class 2 from the Enrollments table.",
+        "Remove the enrollment with ID 7 from the Enrollments table.",
+        "Remove all enrollments for students 1, 3, or 5 from the Enrollments table.",
+        "Remove all enrollments for class 6 with ID less than 10 from the Enrollments table.",
+        "Remove the enrollment for student 4 in class 2 from the Enrollments table."
+    ],
+    "update": [
+        "Change the first name to John for the student with ID 1.",
+        "Change the last name to Doe for the student with ID 2 who was born on January 1, 2000.",
+        "Change the date of birth to February 2, 2001 for all students with the first name Jane.",
+        "Change the first name to Emily and the last name to Clark for the student with ID 3.",
+        "Change the last name to Smith for the student with ID 4 or first name John.",
+        "Change the date of birth to March 3, 2002 for the student with the last name Brown and first name Alice.",
+        "Change the first name to Michael and the date of birth to April 4, 1999 for the student with ID 5.",
+        "Change the first name to Laura for all students with the last name Johnson.",
+        "Change the last name to White for all students born on May 5, 2003 or with the first name Chris.",
+        "Change the date of birth to June 6, 2004 for the student with ID 6.",
+
+        "Change the class name to Math 101 for the class with ID 1.",
+        "Change the class name to English Literature for the class with ID 2 that is currently named English 101.",
+        "Change the class name to Physics 102 for all classes currently named Physics 101.",
+        "Change the class name to Chemistry 101 and the ID to 3 for the class with ID 4.",
+        "Change the class name to Biology 101 for the class currently named Biology or with ID 5.",
+        "Change the class name to History 201 for the class with ID 6 that is currently named History 101.",
+        "Change the class name to Art 101 and the ID to 7 for the class with ID 8.",
+        "Change the class name to Geography 101 for all classes currently named Geography.",
+        "Change the class name to French 101 for the class with ID 9 or currently named French.",
+        "Change the class name to Computer Science 101 for the class with ID 10.",
+
+        "Change the first name to Robert for the teacher with ID 1.",
+        "Change the last name to Williams for the teacher with ID 2 who teaches Math.",
+        "Change the subject to English for all teachers with the first name Sarah.",
+        "Change the first name to James and the last name to Brown for the teacher with ID 3.",
+        "Change the last name to Davis for the teacher with ID 4 or who teaches Science.",
+        "Change the subject to History for the teacher with the last name Clark and first name Emma.",
+        "Change the first name to David and the subject to Chemistry for the teacher with ID 5.",
+        "Change the last name to Anderson for all teachers with the first name Olivia.",
+        "Change the subject to Physics for all teachers with the last name Harris or first name Liam.",
+        "Change the first name to Sophia and the last name to Robinson for the teacher with ID 6.",
+
+        "Change the student ID to 2 for the enrollment with ID 1.",
+        "Change the class ID to 4 for the enrollment with ID 2 and current student ID 3.",
+        "Change the student ID to 5 for all enrollments in class 1.",
+        "Change the enrollment ID to 6 and the student ID to 7 for the enrollment with ID 8.",
+        "Change the class ID to 3 for all enrollments with class ID 2 or student ID 4.",
+        "Change the student ID to 9 for the enrollment with ID 10 and class ID 5.",
+        "Change the student ID to 11 and the class ID to 6 for the enrollment with ID 12.",
+        "Change the class ID to 7 for all enrollments with class ID 8.",
+        "Change the student ID to 13 for the enrollment with ID 14 or class ID 9."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all StudentIDs from the Students table.",
+            "Retrieve all ClassIDs from the Classes table.",
+            "Retrieve all TeacherIDs from the Teachers table.",
+            "Retrieve all EnrollmentIDs from the Enrollments table."
+        ],
+        "single_filtering": [
+            "Find the StudentIDs of all students with the first name John.",
+            "Find the ClassIDs of all classes named Mathematics.",
+            "Find the TeacherIDs of all teachers teaching Science.",
+            "Find the EnrollmentIDs of all enrollments for student 1."
+        ],
+        "double_filtering": [
+            "Find the StudentIDs of all students with the first name John and last name Doe.",
+            "Find the ClassIDs of all classes named Mathematics and with ID 2.",
+            "Find the TeacherIDs of all teachers with the first name Alice and teaching History.",
+            "Find the EnrollmentIDs of all enrollments for student 1 in class 2."
+        ],
+        "triple_filtering": [
+            "Find the StudentIDs of all students with the first name John, last name Doe, and born on January 1, 2000.",
+            "Find the ClassIDs of all classes named Mathematics or Science, and with ID 2.",
+            "Find the TeacherIDs of all teachers with the first name Alice or last name Smith, and teaching History.",
+            "Find the EnrollmentIDs of all enrollments for student 1 and class 2, or with EnrollmentID 5."
+        ],
+        "range_filtering": [
+            "Find the StudentIDs of all students born between January 1, 2000 and December 31, 2010.",
+            "Find the ClassIDs of all classes with IDs between 1 and 10.",
+            "Find the TeacherIDs of all teachers with IDs between 5 and 15.",
+            "Find the EnrollmentIDs of all enrollments with IDs between 10 and 20."
+        ],
+        "ranking": [
+            "Retrieve all StudentIDs, ordered by date of birth from earliest to latest.",
+            "Retrieve all ClassIDs, ordered by class name alphabetically.",
+            "Retrieve all TeacherIDs, ordered by last name alphabetically.",
+            "Retrieve all EnrollmentIDs, ordered by EnrollmentID from highest to lowest."
+        ],
+        "count": [
+            "Count the total number of students.",
+            "Count the total number of classes.",
+            "Count the total number of teachers.",
+            "Count the total number of enrollments."
+        ],
+        "single_table": [
+            "Find the StudentIDs of all students with the first name John.",
+            "Find the ClassIDs of all classes named Mathematics.",
+            "Find the TeacherIDs of all teachers teaching Science.",
+            "Find the EnrollmentIDs of all enrollments for student 1."
+        ],
+        "double_table": [
+            "Find the StudentIDs and ClassIDs of all students enrolled in any class.",
+            "Find the ClassIDs and TeacherIDs of all classes and their assigned teachers.",
+            "Find the TeacherIDs and ClassIDs of all teachers and the classes they teach.",
+            "Find the EnrollmentIDs and StudentIDs of all enrollments and the corresponding students."
+        ],
+        "three_table": [
+            "Find the StudentIDs, ClassIDs, and TeacherIDs for all students enrolled in classes, including the teachers of those classes.",
+            "Find the ClassIDs, TeacherIDs, and EnrollmentIDs for all classes, their teachers, and the enrollments in those classes.",
+            "Find the TeacherIDs, ClassIDs, and EnrollmentIDs for all teachers, the classes they teach, and the enrollments in those classes.",
+            "Find the EnrollmentIDs, StudentIDs, and ClassIDs for all enrollments, including the students and the classes they are enrolled in."
+        ]
+    }
+}

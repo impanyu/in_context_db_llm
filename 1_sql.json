@@ -169,8 +169,5 @@
                 "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID JOIN Comments ON Posts.PostID = Comments.PostID WHERE Users.Email LIKE '%example.com%';",
                 "SELECT Posts.PostID FROM Posts JOIN Users ON Posts.UserID = Users.UserID JOIN Comments ON Posts.PostID = Comments.PostID WHERE Comments.CommentText LIKE '%helpful%';"
             ]
-        }
-    
-    
-
+    }
 }

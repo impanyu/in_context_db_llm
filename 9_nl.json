@@ -1,0 +1,214 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Patients' table if it exists.",
+        "Remove the 'Doctors' table if it exists.",
+        "Remove the 'Appointments' table if it exists.",
+        "Remove the 'MedicalRecords' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Patients' table with columns for PatientID (auto-incrementing), FirstName, LastName, and DateOfBirth, with PatientID as the primary key.",
+        "Create a new 'Doctors' table with columns for DoctorID (auto-incrementing), FirstName, LastName, and Specialty, with DoctorID as the primary key.",
+        "Create a new 'Appointments' table with columns for AppointmentID (auto-incrementing), PatientID, DoctorID, and AppointmentDate, with AppointmentID as the primary key and foreign key relationships to the Patients and Doctors tables.",
+        "Create a new 'MedicalRecords' table with columns for RecordID (auto-incrementing), PatientID, Diagnosis, Treatment, and RecordDate, with RecordID as the primary key and a foreign key relationship to the Patients table."
+    ],
+    "insert": [
+        "Add a new patient: John Doe, born on April 15, 1980.",
+        "Add a new patient: Jane Smith, born on August 30, 1992.",
+        "Add a new patient: Michael Johnson, born on December 10, 1975.",
+        "Add a new patient: Emily Davis, born on May 20, 1988.",
+        "Add a new patient: Daniel Brown, born on March 14, 1995.",
+        "Add a new patient: Sarah Wilson, born on July 22, 1983.",
+        "Add a new patient: Matthew Miller, born on November 1, 1990.",
+        "Add a new patient: Laura Taylor, born on February 17, 1987.",
+        "Add a new patient: James Anderson, born on September 28, 1979.",
+        "Add a new patient: Jessica Thomas, born on December 11, 1993.",
+
+        "Add a new doctor: Alice Williams, specializing in Cardiology.",
+        "Add a new doctor: Robert Jones, specializing in Neurology.",
+        "Add a new doctor: Chris Garcia, specializing in Pediatrics.",
+        "Add a new doctor: Lisa Martinez, specializing in Dermatology.",
+        "Add a new doctor: James Robinson, specializing in Oncology.",
+        "Add a new doctor: Emma Clark, specializing in Orthopedics.",
+        "Add a new doctor: David Rodriguez, specializing in Gastroenterology.",
+        "Add a new doctor: Sophia Lewis, specializing in Endocrinology.",
+        "Add a new doctor: Liam Walker, specializing in Psychiatry.",
+        "Add a new doctor: Olivia Hall, specializing in Rheumatology.",
+
+        "Schedule an appointment for patient 1 with doctor 2 on August 23, 2024 at 9:00 AM.",
+        "Schedule an appointment for patient 2 with doctor 3 on August 23, 2024 at 10:00 AM.",
+        "Schedule an appointment for patient 3 with doctor 1 on August 23, 2024 at 11:00 AM.",
+        "Schedule an appointment for patient 4 with doctor 4 on August 23, 2024 at 1:00 PM.",
+        "Schedule an appointment for patient 5 with doctor 5 on August 23, 2024 at 2:00 PM.",
+        "Schedule an appointment for patient 6 with doctor 6 on August 23, 2024 at 3:00 PM.",
+        "Schedule an appointment for patient 7 with doctor 7 on August 24, 2024 at 9:00 AM.",
+        "Schedule an appointment for patient 8 with doctor 8 on August 24, 2024 at 10:00 AM.",
+        "Schedule an appointment for patient 9 with doctor 9 on August 24, 2024 at 11:00 AM.",
+        "Schedule an appointment for patient 10 with doctor 10 on August 24, 2024 at 1:00 PM.",
+
+        "Add a medical record for patient 1: Diagnosed with Hypertension, treated with Medication: Amlodipine 5mg, recorded on August 1, 2024.",
+        "Add a medical record for patient 2: Diagnosed with Migraine, treated with Medication: Sumatriptan 50mg, recorded on August 2, 2024.",
+        "Add a medical record for patient 3: Diagnosed with Diabetes, treated with Insulin therapy, recorded on August 3, 2024.",
+        "Add a medical record for patient 4: Diagnosed with Asthma, treated with Inhaler: Albuterol, recorded on August 4, 2024.",
+        "Add a medical record for patient 5: Diagnosed with Arthritis, treated with Physical therapy, recorded on August 5, 2024.",
+        "Add a medical record for patient 6: Diagnosed with Depression, treated with Counseling and SSRIs, recorded on August 6, 2024.",
+        "Add a medical record for patient 7: Diagnosed with Allergies, treated with Antihistamines, recorded on August 7, 2024.",
+        "Add a medical record for patient 8: Diagnosed with Back pain, treated with Chiropractic care, recorded on August 8, 2024.",
+        "Add a medical record for patient 9: Diagnosed with Skin Rash, treated with Topical Steroid, recorded on August 9, 2024.",
+        "Add a medical record for patient 10: Diagnosed with High Cholesterol, treated with Statin therapy, recorded on August 10, 2024."
+    ],
+    "delete": [
+    "Remove the patient named John from the Patients table.",
+    "Remove the patient with the last name Doe from the Patients table.",
+    "Remove the patient born on May 10, 1985 from the Patients table.",
+    "Remove the patient named Jane Smith from the Patients table.",
+    "Remove all patients born before January 1, 1990 from the Patients table.",
+    "Remove the patient named Emily born on July 20, 1995 from the Patients table.",
+    "Remove all patients with the last name Brown or Davis from the Patients table.",
+    "Remove the patient with ID 5 from the Patients table.",
+    "Remove the patients with IDs 1, 3, and 7 from the Patients table.",
+    "Remove the patient named Robert Williams from the Patients table.",
+
+    "Remove the doctor named Sarah from the Doctors table.",
+    "Remove the doctor with the last name Jones from the Doctors table.",
+    "Remove all doctors specializing in Cardiology from the Doctors table.",
+    "Remove the doctor named David Miller from the Doctors table.",
+    "Remove the doctor with the last name Garcia specializing in Neurology from the Doctors table.",
+    "Remove the doctor named Michael specializing in Orthopedics from the Doctors table.",
+    "Remove the doctor with ID 2 from the Doctors table.",
+    "Remove all doctors with the last name Wilson or specializing in Dermatology from the Doctors table.",
+    "Remove all doctors with ID greater than 10 from the Doctors table.",
+    "Remove the doctor named Anna Moore from the Doctors table.",
+
+    "Remove all appointments scheduled before January 1, 2024 from the Appointments table.",
+    "Remove all appointments for patient 1 from the Appointments table.",
+    "Remove all appointments with doctor 3 from the Appointments table.",
+    "Remove the appointment with ID 4 from the Appointments table.",
+    "Remove the appointment for patient 2 scheduled on August 1, 2024 from the Appointments table.",
+    "Remove all appointments with doctor 5 scheduled after July 1, 2024 from the Appointments table.",
+    "Remove all appointments for patient 7 or scheduled on June 1, 2024 from the Appointments table.",
+    "Remove the appointments with IDs 2, 6, and 9 from the Appointments table.",
+    "Remove all appointments with doctor 4 scheduled before December 31, 2023 from the Appointments table.",
+    "Remove the appointment for patient 8 with doctor 10 from the Appointments table.",
+
+    "Remove all medical records with the diagnosis of Flu from the MedicalRecords table.",
+    "Remove all medical records with treatments including antibiotics from the MedicalRecords table.",
+    "Remove all medical records dated before January 1, 2023 from the MedicalRecords table.",
+    "Remove all medical records for patient 3 from the MedicalRecords table.",
+    "Remove all medical records with a diagnosis of Diabetes dated after June 1, 2022 from the MedicalRecords table.",
+    "Remove all medical records for patient 2 or with a diagnosis of Hypertension from the MedicalRecords table.",
+    "Remove the medical record with ID 5 from the MedicalRecords table.",
+    "Remove the medical records with IDs 7, 8, and 9 from the MedicalRecords table.",
+    "Remove all medical records with treatments including surgery and dated after May 1, 2024 from the MedicalRecords table.",
+    "Remove all medical records with a diagnosis of Asthma dated between January 1, 2023 and January 1, 2024 from the MedicalRecords table."
+  ],
+  "update": [
+        "Change the first name to John for the patient with ID 1.",
+        "Change the last name to Doe for the patient with ID 2.",
+        "Change the date of birth to January 1, 1980 for the patient named Jane Smith.",
+        "Change the last name to Johnson for patients named Alice or with the last name Brown.",
+        "Change the first name to Michael for the patient born on May 5, 1975.",
+        "Change the date of birth to October 10, 1990 for the patient with ID 3 and last name Taylor.",
+        "Change the first name to Emily for the patient with ID 4.",
+        "Change the last name to Williams for the patient named David born on August 8, 1985.",
+        "Change the first name to Robert for all patients with the last name Jones.",
+        "Change the date of birth to December 12, 2000 for the patient with ID 5.",
+
+        "Change the first name to Sarah for the doctor with ID 1.",
+        "Change the last name to Miller for the doctor with ID 2.",
+        "Change the specialty to Cardiology for the doctor named James Wilson.",
+        "Change the last name to Clark for doctors named Linda or specializing in Neurology.",
+        "Change the specialty to Pediatrics for the doctor with ID 3 and last name Martinez.",
+        "Change the first name to Christopher for all doctors specializing in Dermatology.",
+        "Change the last name to Garcia for the doctor with ID 4.",
+        "Change the specialty to Oncology for the doctor named Karen Lopez.",
+        "Change the first name to Daniel for all doctors with the last name Hernandez.",
+        "Change the specialty to Orthopedics for the doctor with ID 5.",
+
+        "Change the appointment date to January 1, 2024 at 9:00 AM for the appointment with ID 1.",
+        "Change the patient to patient 2 for the appointment with ID 2.",
+        "Change the doctor to doctor 3 for the appointment scheduled on February 15, 2024 at 10:30 AM with patient 4.",
+        "Change the appointment date to March 20, 2024 at 11:00 AM for appointments with patient 5 or doctor 1.",
+        "Change the appointment date to April 25, 2024 at 2:00 PM for the appointment with ID 3 and doctor 2.",
+        "Change the patient to patient 3 for the appointment with ID 4.",
+        "Change the doctor to doctor 4 for the appointment with ID 5.",
+        "Change the appointment date to May 30, 2024 at 3:00 PM for the appointment with patient 6 and doctor 5.",
+        "Change the patient to patient 7 for the appointment scheduled on June 10, 2024 at 4:00 PM.",
+        "Change the doctor to doctor 6 for the appointment with ID 6.",
+
+        "Change the diagnosis to Hypertension for the medical record with ID 1.",
+        "Change the treatment to 'Medication A' for the medical record with ID 2.",
+        "Change the record date to December 1, 2023 for the medical record of patient 3 with a diagnosis of Diabetes.",
+        "Change the treatment to 'Physical Therapy' for medical records of patient 4 or with a diagnosis of Arthritis.",
+        "Change the diagnosis to Asthma for the medical record with ID 3 and treatment of Inhaler.",
+        "Change the record date to January 15, 2024 for the medical record with ID 4.",
+        "Change the diagnosis to Migraine for all medical records of patient 5.",
+        "Change the treatment to 'Medication B' for the medical record with ID 5 and a diagnosis of Chronic Pain.",
+        "Change the record date to February 20, 2024 for all medical records of patient 6.",
+        "Change the diagnosis to High Cholesterol for the medical record with ID 6."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all PatientIDs from the Patients table.",
+            "Retrieve all DoctorIDs from the Doctors table.",
+            "Retrieve all AppointmentIDs from the Appointments table.",
+            "Retrieve all RecordIDs from the MedicalRecords table."
+        ],
+        "single_filtering": [
+            "Find the PatientIDs of all patients named John.",
+            "Find the DoctorIDs of all doctors specializing in Cardiology.",
+            "Find the AppointmentIDs of all appointments scheduled for August 23, 2024.",
+            "Find the RecordIDs of all medical records with a diagnosis of Flu."
+        ],
+        "double_filtering": [
+            "Find the PatientIDs of all patients named John Doe.",
+            "Find the DoctorIDs of all doctors specializing in Cardiology or with the last name Smith.",
+            "Find the AppointmentIDs of all appointments for patient 1 with doctor 2.",
+            "Find the RecordIDs of all medical records with a diagnosis of Flu and recorded on August 23, 2024."
+        ],
+        "triple_filtering": [
+            "Find the PatientIDs of all patients named John Doe born on January 1, 1990.",
+            "Find the DoctorIDs of all doctors specializing in Cardiology, with the last name Smith, and named Anna.",
+            "Find the AppointmentIDs of all appointments for patient 1 with doctor 2 scheduled for August 23, 2024.",
+            "Find the RecordIDs of all medical records with a diagnosis of Flu, treatment of Rest, and recorded on August 23, 2024."
+        ],
+        "range_filtering": [
+            "Find the PatientIDs of all patients born between January 1, 1980 and December 31, 2000.",
+            "Find the AppointmentIDs of all appointments scheduled between August 1, 2024 and August 31, 2024.",
+            "Find the RecordIDs of all medical records dated between January 1, 2024 and December 31, 2024.",
+            "Find the DoctorIDs of all doctors with IDs between 1 and 10."
+        ],
+        "ranking": [
+            "Retrieve all PatientIDs, ordered by last name alphabetically in ascending order.",
+            "Retrieve all DoctorIDs, ordered by specialty alphabetically in descending order.",
+            "Retrieve all AppointmentIDs, ordered by appointment date from latest to earliest.",
+            "Retrieve all RecordIDs, ordered by record date from earliest to latest."
+        ],
+        "count": [
+            "Count the total number of patients.",
+            "Count the total number of doctors.",
+            "Count the total number of appointments.",
+            "Count the total number of medical records."
+        ],
+        "single_table": [
+            "Find the PatientIDs of all patients with the last name Doe.",
+            "Find the DoctorIDs of all doctors specializing in Neurology.",
+            "Find the AppointmentIDs of all appointments scheduled for August 23, 2024.",
+            "Find the RecordIDs of all medical records with a diagnosis of Asthma."
+        ],
+        "double_table": [
+            "Find the AppointmentIDs and corresponding PatientIDs for all appointments.",
+            "Find the AppointmentIDs and corresponding DoctorIDs for all appointments.",
+            "Find the RecordIDs and corresponding PatientIDs for all medical records.",
+            "Find the AppointmentIDs and corresponding DoctorIDs for all appointments with doctors specializing in Cardiology."
+        ],
+        "three_table": [
+            "Find the AppointmentIDs, PatientIDs, and DoctorIDs for all appointments.",
+            "Find the RecordIDs, PatientIDs, and AppointmentIDs for all medical records and corresponding appointments.",
+            "Find the AppointmentIDs, PatientIDs, and DoctorIDs for all appointments where the patient's last name is Doe.",
+            "Find the AppointmentIDs, PatientIDs, and DoctorIDs for all appointments with doctors specializing in Neurology."
+        ]
+    }
+}

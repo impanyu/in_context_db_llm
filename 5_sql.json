@@ -81,7 +81,6 @@
     "DELETE FROM Salaries WHERE EmployeeID = 1 AND EffectiveDate = '2021-12-31';"
 ],
 "update": [
- 
         "UPDATE Employees SET FirstName = 'John' WHERE EmployeeID = 1;",
         "UPDATE Employees SET LastName = 'Doe' WHERE EmployeeID = 2;",
         "UPDATE Employees SET HireDate = '2022-01-15' WHERE EmployeeID = 3;",
@@ -115,7 +114,6 @@
         "UPDATE Salaries SET Amount = 80000.00 WHERE EmployeeID = 5 OR EffectiveDate = '2022-06-30';",
         "UPDATE Salaries SET Amount = 90000.00, EffectiveDate = '2023-09-01' WHERE SalaryID = 5 AND EmployeeID = 6;"
     ],
-
     "select": {
     "no_filtering": [
       "SELECT EmployeeID FROM Employees;",
@@ -178,5 +176,4 @@
       "SELECT Departments.DepartmentID FROM Departments JOIN Employees ON Departments.DepartmentID = Employees.DepartmentID JOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeID;"
     ]
   }
-
 }

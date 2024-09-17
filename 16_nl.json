@@ -1,0 +1,179 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Hotels' table if it exists.",
+        "Remove the 'Rooms' table if it exists.",
+        "Remove the 'Reservations' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Hotels' table with columns for HotelID (auto-incrementing), HotelName, and Address, with HotelID as the primary key.",
+        "Create a new 'Rooms' table with columns for RoomID (auto-incrementing), RoomNumber, RoomType, PricePerNight, and HotelID, with RoomID as the primary key and a foreign key relationship to the Hotels table.",
+        "Create a new 'Reservations' table with columns for ReservationID (auto-incrementing), GuestName, RoomID, CheckInDate, and CheckOutDate, with ReservationID as the primary key and a foreign key relationship to the Rooms table."
+    ],
+    "insert": [
+        "Add a new hotel: Grand Palace Hotel located at 123 Main St, Springfield.",
+        "Add a new hotel: Sunset Inn located at 456 Ocean Blvd, Miami.",
+        "Add a new hotel: Mountain Retreat located at 789 Hilltop Rd, Denver.",
+        "Add a new hotel: City Center Hotel located at 101 Downtown Ave, New York.",
+        "Add a new hotel: Beachside Resort located at 202 Seaside Dr, Los Angeles.",
+        "Add a new hotel: Lakeside Lodge located at 303 Lakeview Ln, Chicago.",
+        "Add a new hotel: Riverside Inn located at 404 River Rd, New Orleans.",
+        "Add a new hotel: Desert Oasis located at 505 Sand Dunes Rd, Phoenix.",
+        "Add a new hotel: Forest Cabin located at 606 Pine Tree Ln, Seattle.",
+        "Add a new hotel: Countryside B&B located at 707 Country Ln, Nashville.",
+        
+        "Add a new room: Room 101, Single type, priced at $100.00 per night, in hotel with ID 1.",
+        "Add a new room: Room 102, Double type, priced at $150.00 per night, in hotel with ID 1.",
+        "Add a new room: Room 201, Suite type, priced at $250.00 per night, in hotel with ID 2.",
+        "Add a new room: Room 202, Single type, priced at $100.00 per night, in hotel with ID 2.",
+        "Add a new room: Room 301, Double type, priced at $150.00 per night, in hotel with ID 3.",
+        "Add a new room: Room 302, Suite type, priced at $300.00 per night, in hotel with ID 3.",
+        "Add a new room: Room 401, Single type, priced at $100.00 per night, in hotel with ID 4.",
+        "Add a new room: Room 402, Double type, priced at $200.00 per night, in hotel with ID 4.",
+        "Add a new room: Room 501, Suite type, priced at $350.00 per night, in hotel with ID 5.",
+        "Add a new room: Room 502, Single type, priced at $120.00 per night, in hotel with ID 5.",
+        
+        "Create a new reservation: John Doe books room with ID 1 from September 20, 2024 to September 25, 2024.",
+        "Create a new reservation: Jane Smith books room with ID 2 from September 18, 2024 to September 22, 2024.",
+        "Create a new reservation: Mark Johnson books room with ID 3 from September 15, 2024 to September 20, 2024.",
+        "Create a new reservation: Emily Davis books room with ID 4 from September 22, 2024 to September 28, 2024.",
+        "Create a new reservation: Michael Brown books room with ID 5 from September 10, 2024 to September 15, 2024.",
+        "Create a new reservation: Sarah Wilson books room with ID 6 from September 25, 2024 to September 30, 2024.",
+        "Create a new reservation: David Lee books room with ID 7 from September 5, 2024 to September 10, 2024.",
+        "Create a new reservation: Chris Evans books room with ID 8 from September 8, 2024 to September 13, 2024.",
+        "Create a new reservation: Laura White books room with ID 9 from September 17, 2024 to September 22, 2024.",
+        "Create a new reservation: Kevin Harris books room with ID 10 from September 20, 2024 to September 25, 2024."
+    ],
+    "delete": [
+        "Remove the hotel with ID 1 from the Hotels table.",
+        "Remove the hotel named 'Grand Hotel' from the Hotels table.",
+        "Remove the hotel located at '123 Main St' from the Hotels table.",
+        "Remove the hotel named 'Sea View' and located at '456 Ocean Ave' from the Hotels table.",
+        "Remove the hotel with ID 2 from the Hotels table.",
+        "Remove the hotel named 'Mountain Lodge' from the Hotels table.",
+        "Remove all hotels with addresses containing 'Street' from the Hotels table.",
+        "Remove the hotel named 'City Inn' or located at '789 City Center' from the Hotels table.",
+        "Remove the hotel with ID 3 from the Hotels table.",
+        "Remove all hotels with names containing 'Resort' from the Hotels table.",
+
+        "Remove the room with ID 1 from the Rooms table.",
+        "Remove the room numbered '101' from the Rooms table.",
+        "Remove all rooms of type 'Suite' from the Rooms table.",
+        "Remove all rooms priced over $200 per night from the Rooms table.",
+        "Remove the room with ID 2 in hotel with ID 1 from the Rooms table.",
+        "Remove the room numbered '202' or priced under $100 per night from the Rooms table.",
+        "Remove all rooms of type 'Standard' in hotel with ID 3 from the Rooms table.",
+        "Remove the room with ID 3 from the Rooms table.",
+        "Remove all rooms in hotel with ID 2 from the Rooms table.",
+        "Remove all rooms priced between $150 and $250 per night from the Rooms table.",
+
+        "Remove the reservation with ID 1 from the Reservations table.",
+        "Remove all reservations for guest named 'John Doe' from the Reservations table.",
+        "Remove all reservations with check-in date September 1, 2023 from the Reservations table.",
+        "Remove all reservations with check-out date September 10, 2023 from the Reservations table.",
+        "Remove the reservation with ID 2 for room with ID 1 from the Reservations table.",
+        "Remove all reservations for guest named 'Jane Smith' or for room with ID 2 from the Reservations table.",
+        "Remove all reservations with check-in dates before August 1, 2023 from the Reservations table.",
+        "Remove all reservations for room with ID 3 and check-out dates after September 30, 2023 from the Reservations table.",
+        "Remove the reservation with ID 3 from the Reservations table.",
+        "Remove all reservations for guests with names containing 'Doe' from the Reservations table."
+    ],
+    "update": [
+        "Change the hotel name to 'Oceanview Resort' for the hotel with ID 1.",
+        "Change the address to '123 Seaside Blvd, Miami, FL' for the hotel with ID 2.",
+        "Change the hotel name to 'Mountain Retreat' and the address to '789 Alpine Way, Denver, CO' for the hotel with ID 3.",
+        "Change the address to '456 Beachfront Ave, Malibu, CA' for the hotel with ID 4.",
+        "Change the hotel name to 'Urban Oasis' for the hotel with ID 5 and address containing 'New York'.",
+        "Change the hotel name to 'Desert Paradise' for all hotels with addresses containing 'Nevada'.",
+        "Change the address to '101 Sunset Blvd, Los Angeles, CA' for the hotel with ID 6.",
+        "Change the hotel name to 'Grand Palace' and the address to '321 Royal St, New Orleans, LA' for the hotel with ID 7.",
+        "Change the address to '456 Riverfront Dr, Austin, TX' for the hotel with ID 8 and named 'Riverside Hotel'.",
+        "Change the hotel name to 'Coastal Comfort' for the hotel located at '789 Shoreline Dr, Charleston, SC'.",
+
+        "Change the room type to 'Suite' for the room with ID 101.",
+        "Change the price per night to $150.00 for the room with ID 102.",
+        "Change the room number to '202' and the price per night to $200.00 for the room with ID 103.",
+        "Change the room type to 'Deluxe' and the room number to '303' for the room with ID 104 and priced under $150.00 per night.",
+        "Change the price per night to $175.00 for the room with ID 105.",
+        "Change the room type to 'Standard' and the price per night to $100.00 for the room with ID 106.",
+        "Change the room number to '404' and the room type to 'Deluxe' for the room with ID 107.",
+        "Change the price per night to $220.00 for the room with ID 108 and type 'Suite'.",
+        "Change the room number to '505' for the room with ID 109 and priced over $200.00 per night.",
+        "Change the room type to 'Economy' for the room with ID 110 and priced under $100.00 per night.",
+
+        "Change the guest name to 'John Doe' for the reservation with ID 1001.",
+        "Change the check-in date to May 1, 2024 for the reservation with ID 1002.",
+        "Change the check-out date to May 10, 2024 and the guest name to 'Jane Smith' for the reservation with ID 1003.",
+        "Change the check-in date to June 1, 2024 and the check-out date to June 5, 2024 for the reservation with ID 1004.",
+        "Change the guest name to 'Alice Johnson' for the reservation with ID 1005 and room ID 101.",
+        "Change the room to the one with ID 102 for the reservation with ID 1006 and guest name 'Bob Brown'.",
+        "Change the check-in date to July 1, 2024 for the reservation with ID 1007.",
+        "Change the guest name to 'Charlie Davis' and the room to the one with ID 103 for the reservation with ID 1008.",
+        "Change the check-out date to August 10, 2024 for the reservation with ID 1009 and guest name 'Diana Evans'.",
+        "Change the guest name to 'Edward Green' for the reservation with ID 1010 and room ID 104."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all HotelIDs from the Hotels table.",
+            "Retrieve all RoomIDs from the Rooms table.",
+            "Retrieve all ReservationIDs from the Reservations table.",
+            "Retrieve all HotelIDs from the Hotels table."
+        ],
+        "single_filtering": [
+            "Find the HotelID of the hotel named 'Sunset Inn'.",
+            "Find the RoomIDs of all rooms of type 'Suite'.",
+            "Find the ReservationID of the reservation for guest named 'John Doe'.",
+            "Find the HotelID of the hotel located at '123 Main St'."
+        ],
+        "double_filtering": [
+            "Find the HotelID of the hotel named 'Sunset Inn' and located at '123 Main St'.",
+            "Find the RoomIDs of all rooms of type 'Suite' and priced under $200.00 per night.",
+            "Find the ReservationID of the reservation for guest named 'John Doe' with check-in date September 1, 2023.",
+            "Find the RoomIDs of all rooms of type 'Suite' or priced over $150.00 per night."
+        ],
+        "triple_filtering": [
+            "Find the HotelID of the hotel named 'Sunset Inn', located at '123 Main St', and with ID greater than 1.",
+            "Find the RoomIDs of all rooms of type 'Suite', priced under $200.00 per night, and in hotel with ID 2.",
+            "Find the ReservationID of the reservation for guest named 'John Doe', with check-in date September 1, 2023, and for room with ID 3.",
+            "Find the ReservationID of the reservation for guest named 'John Doe', or with check-in date September 1, 2023, and check-out date September 10, 2023."
+        ],
+        "range_filtering": [
+            "Find the HotelIDs of all hotels with IDs between 1 and 10.",
+            "Find the RoomIDs of all rooms priced between $100.00 and $200.00 per night.",
+            "Find the ReservationIDs of all reservations with check-in dates between September 1, 2023 and September 30, 2023.",
+            "Find the RoomIDs of all rooms with IDs between 5 and 15."
+        ],
+        "ranking": [
+            "Retrieve all HotelIDs, ordered by HotelID in descending order.",
+            "Retrieve all RoomIDs, ordered by price per night from lowest to highest.",
+            "Retrieve all ReservationIDs, ordered by check-in date from latest to earliest.",
+            "Retrieve all HotelIDs, ordered by hotel name in ascending alphabetical order."
+        ],
+        "count": [
+            "Count the total number of hotels.",
+            "Count the total number of rooms of type 'Suite'.",
+            "Count the total number of reservations for guest named 'John Doe'.",
+            "Count the total number of hotels located at '123 Main St'."
+        ],
+        "single_table": [
+            "Find the HotelIDs of all hotels with ID greater than 2.",
+            "Find the RoomIDs of all rooms of type 'Suite'.",
+            "Find the ReservationIDs of all reservations for guest named 'Jane Smith'.",
+            "Find the HotelIDs of all hotels with names starting with 'Hotel'."
+        ],
+        "double_table": [
+            "Find the HotelIDs and corresponding RoomIDs by joining the Hotels and Rooms tables.",
+            "Find the RoomIDs and corresponding ReservationIDs by joining the Rooms and Reservations tables.",
+            "Find the ReservationIDs and corresponding RoomIDs by joining the Reservations and Rooms tables.",
+            "Find the HotelIDs and corresponding RoomIDs for all rooms priced over $100.00 per night by joining the Hotels and Rooms tables."
+        ],
+        "three_table": [
+            "Find the HotelIDs, RoomIDs, and ReservationIDs by joining the Hotels, Rooms, and Reservations tables.",
+            "Find the ReservationIDs, RoomIDs, and HotelIDs by joining the Reservations, Rooms, and Hotels tables.",
+            "Find the RoomIDs, HotelIDs, and ReservationIDs by joining the Rooms, Hotels, and Reservations tables.",
+            "Find the ReservationIDs, RoomIDs, and HotelIDs for all reservations in hotel with ID 1 by joining the Reservations, Rooms, and Hotels tables."
+        ]
+    }
+}

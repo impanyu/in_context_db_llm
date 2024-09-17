@@ -1,0 +1,214 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Hospitals' table if it exists.",
+        "Remove the 'Doctors' table if it exists.",
+        "Remove the 'Patients' table if it exists.",
+        "Remove the 'Appointments' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Hospitals' table with columns for HospitalID (auto-incrementing), HospitalName, and Location, with HospitalID as the primary key.",
+        "Create a new 'Doctors' table with columns for DoctorID (auto-incrementing), FirstName, LastName, Specialty, and HospitalID, with DoctorID as the primary key and a foreign key relationship to the Hospitals table.",
+        "Create a new 'Patients' table with columns for PatientID (auto-incrementing), FirstName, LastName, and DateOfBirth, with PatientID as the primary key.",
+        "Create a new 'Appointments' table with columns for AppointmentID (auto-incrementing), PatientID, DoctorID, and AppointmentDate, with AppointmentID as the primary key and foreign key relationships to the Patients and Doctors tables."
+    ],
+    "insert": [
+        "Add a new hospital: General Hospital located at 123 Main St, Springfield.",
+        "Add a new hospital: City Medical Center located at 456 Elm St, Metropolis.",
+        "Add a new hospital: St. Mary's Hospital located at 789 Oak St, Smallville.",
+        "Add a new hospital: County General located at 101 Pine St, Hill Valley.",
+        "Add a new hospital: Valley Hospital located at 202 Maple St, Riverdale.",
+        "Add a new hospital: Sunrise Hospital located at 303 Birch St, Gotham.",
+        "Add a new hospital: Central Hospital located at 404 Cedar St, Star City.",
+        "Add a new hospital: Bayview Hospital located at 505 Walnut St, Emerald City.",
+        "Add a new hospital: Lakeside Hospital located at 606 Chestnut St, Central City.",
+        "Add a new hospital: Mercy Hospital located at 707 Willow St, Raccoon City.",
+
+        "Add a new doctor: John Doe, specializing in Cardiology, working at General Hospital.",
+        "Add a new doctor: Jane Smith, specializing in Neurology, working at City Medical Center.",
+        "Add a new doctor: James Brown, specializing in Orthopedics, working at St. Mary's Hospital.",
+        "Add a new doctor: Emily Davis, specializing in Pediatrics, working at County General.",
+        "Add a new doctor: Michael Johnson, specializing in Dermatology, working at Valley Hospital.",
+        "Add a new doctor: Sarah Wilson, specializing in Gynecology, working at Sunrise Hospital.",
+        "Add a new doctor: David Taylor, specializing in Psychiatry, working at Central Hospital.",
+        "Add a new doctor: Laura Moore, specializing in Ophthalmology, working at Bayview Hospital.",
+        "Add a new doctor: Robert Anderson, specializing in Radiology, working at Lakeside Hospital.",
+        "Add a new doctor: Sophia Thomas, specializing in Oncology, working at Mercy Hospital.",
+
+        "Add a new patient: Alice Green, born on January 1, 1980.",
+        "Add a new patient: Bob White, born on February 14, 1975.",
+        "Add a new patient: Charlie Black, born on March 30, 1990.",
+        "Add a new patient: Daisy Blue, born on April 25, 1985.",
+        "Add a new patient: Eve Red, born on May 5, 1995.",
+        "Add a new patient: Frank Orange, born on June 15, 1988.",
+        "Add a new patient: Grace Yellow, born on July 7, 1978.",
+        "Add a new patient: Henry Pink, born on August 8, 1982.",
+        "Add a new patient: Ivy Purple, born on September 9, 1993.",
+        "Add a new patient: Jack Gray, born on October 10, 1979.",
+
+        "Schedule an appointment for Alice Green with Dr. John Doe on September 1, 2023 at 10:00 AM.",
+        "Schedule an appointment for Bob White with Dr. Jane Smith on September 2, 2023 at 11:00 AM.",
+        "Schedule an appointment for Charlie Black with Dr. James Brown on September 3, 2023 at 9:30 AM.",
+        "Schedule an appointment for Daisy Blue with Dr. Emily Davis on September 4, 2023 at 2:00 PM.",
+        "Schedule an appointment for Eve Red with Dr. Michael Johnson on September 5, 2023 at 3:30 PM.",
+        "Schedule an appointment for Frank Orange with Dr. Sarah Wilson on September 6, 2023 at 1:00 PM.",
+        "Schedule an appointment for Grace Yellow with Dr. David Taylor on September 7, 2023 at 8:30 AM.",
+        "Schedule an appointment for Henry Pink with Dr. Laura Moore on September 8, 2023 at 12:00 PM.",
+        "Schedule an appointment for Ivy Purple with Dr. Robert Anderson on September 9, 2023 at 10:30 AM.",
+        "Schedule an appointment for Jack Gray with Dr. Sophia Thomas on September 10, 2023 at 11:15 AM."
+    ],
+    "delete": [
+        "Remove the hospital with ID 5 from the Hospitals table.",
+        "Remove all hospitals located in New York from the Hospitals table.",
+        "Remove the hospital named 'Central Hospital' from the Hospitals table.",
+        "Remove the hospital located in Chicago and named 'Lakeview Hospital' from the Hospitals table.",
+        "Remove all hospitals located in Los Angeles or named 'St. Mary Hospital' from the Hospitals table.",
+        "Remove all hospitals with ID greater than 10 from the Hospitals table.",
+        "Remove all hospitals with names starting with 'M' from the Hospitals table.",
+        "Remove the hospital located in Miami from the Hospitals table.",
+        "Remove all hospitals located in Boston and with ID less than 5 from the Hospitals table.",
+        "Remove the hospital with ID 12 or located in San Francisco from the Hospitals table.",
+
+        "Remove the doctor with ID 3 from the Doctors table.",
+        "Remove all doctors specializing in Cardiology from the Doctors table.",
+        "Remove the doctor with last name Smith working at the hospital with ID 2 from the Doctors table.",
+        "Remove all doctors with first name John or specializing in Neurology from the Doctors table.",
+        "Remove all doctors working at the hospital with ID 1 and specializing in Pediatrics from the Doctors table.",
+        "Remove all doctors with ID greater than 20 from the Doctors table.",
+        "Remove all doctors with last names starting with 'J' from the Doctors table.",
+        "Remove all doctors working at the hospital with ID 4 from the Doctors table.",
+        "Remove all doctors specializing in Oncology and working at the hospital with ID 3 from the Doctors table.",
+        "Remove all doctors with first name Emily or last name Brown from the Doctors table.",
+
+        "Remove the patient with ID 6 from the Patients table.",
+        "Remove all patients with last name Doe from the Patients table.",
+        "Remove all patients born on January 1, 1990 from the Patients table.",
+        "Remove the patient with first name Michael and last name Johnson from the Patients table.",
+        "Remove all patients born before January 1, 1980 from the Patients table.",
+        "Remove all patients with ID greater than 15 from the Patients table.",
+        "Remove all patients with last names starting with 'A' from the Patients table.",
+        "Remove the patient with first name Anna from the Patients table.",
+        "Remove all patients born after January 1, 2000 and with last name Williams from the Patients table.",
+        "Remove the patient with ID 9 or last name Lee from the Patients table.",
+
+        "Remove the appointment with ID 7 from the Appointments table.",
+        "Remove all appointments scheduled for September 1, 2024 at 10:00 AM from the Appointments table.",
+        "Remove the appointment for patient with ID 3 and doctor with ID 5 from the Appointments table.",
+        "Remove all appointments scheduled before January 1, 2023 from the Appointments table.",
+        "Remove all appointments for patient with ID 8 or doctor with ID 2 from the Appointments table.",
+        "Remove all appointments with ID greater than 20 from the Appointments table.",
+        "Remove all appointments scheduled between June 1, 2023 and June 30, 2023 from the Appointments table.",
+        "Remove all appointments with doctor with ID 4 from the Appointments table.",
+        "Remove the appointment for patient with ID 10 scheduled for September 10, 2024 at 2:00 PM from the Appointments table.",
+        "Remove the appointment with ID 11 or scheduled for September 5, 2024 at 9:00 AM from the Appointments table."
+    ],
+    "update": [
+        "Change the location to 'Downtown' for the hospital with ID 3.",
+        "Change the hospital name to 'Saint Mary Hospital' for the hospital with ID 1.",
+        "Change the location to 'Uptown' for all hospitals currently located in the Suburb.",
+        "Change the location to 'Midtown' for the hospital named 'City Hospital'.",
+        "Change the location to 'Eastside' for the hospital with ID 2.",
+        "Change the hospital name to 'General Hospital' and the location to 'Westside' for the hospital with ID 4.",
+        "Change the hospital name to 'Community Hospital' for all hospitals located in the Suburb.",
+        "Change the location to 'Northside' for the hospital with ID 5.",
+        "Change the hospital name to 'National Hospital' and the location to 'Central' for the hospital with ID 6.",
+        "Change the hospital name to 'City Medical Center' for all hospitals located Downtown.",
+
+        "Change the specialty to 'Cardiology' for the doctor with ID 2.",
+        "Change the first name to 'John' and the last name to 'Doe' for the doctor with ID 1.",
+        "Change the specialty to 'Neurology' for all doctors working at the hospital with ID 3.",
+        "Change the last name to 'Smith' and the specialty to 'Pediatrics' for the doctor with ID 5.",
+        "Change the hospital to the one with ID 4 for all doctors specializing in Orthopedics.",
+        "Change the first name to 'Alice' and the last name to 'Jones' for the doctor with ID 6.",
+        "Change the specialty to 'Oncology' for the doctor with first name Jane and last name Doe.",
+        "Change the specialty to 'Dermatology' and the hospital to the one with ID 2 for the doctor with ID 7.",
+        "Change the first name to 'Chris' and the last name to 'Brown' for the doctor with ID 3.",
+        "Change the hospital to the one with ID 5 for all doctors specializing in Gastroenterology.",
+
+        "Change the last name to 'Johnson' for the patient with ID 3.",
+        "Change the first name to 'Emily' and the last name to 'White' for the patient with ID 1.",
+        "Change the date of birth to June 15, 1985 for the patient with ID 4.",
+        "Change the last name to 'Brown' and the first name to 'Michael' for the patient with ID 5.",
+        "Change the date of birth to August 20, 1990 for all patients with first name Sara.",
+        "Change the first name to 'Jessica' and the last name to 'Lee' for the patient with ID 6.",
+        "Change the date of birth to December 12, 2000 and the last name to 'Davis' for the patient with ID 7.",
+        "Change the last name to 'Martin' for all patients with first name John.",
+        "Change the first name to 'Anna' and the last name to 'Scott' for the patient with ID 8.",
+        "Change the date of birth to April 22, 1995 for all patients with last name Taylor.",
+
+        "Change the appointment date to December 1, 2023 at 9:00 AM for the appointment with ID 1.",
+        "Change the doctor to the one with ID 4 for the appointment with ID 2.",
+        "Change the appointment date to December 10, 2023 at 2:30 PM and the doctor to the one with ID 3 for all appointments with patient ID 5.",
+        "Change the patient to the one with ID 6 for the appointment with ID 3.",
+        "Change the doctor to the one with ID 7 for all appointments scheduled for December 15, 2023 at 10:00 AM.",
+        "Change the appointment date to December 20, 2023 at 11:00 AM and the patient to the one with ID 7 for the appointment with ID 4.",
+        "Change the appointment date to December 25, 2023 at 3:00 PM for all appointments with doctor ID 6.",
+        "Change the patient to the one with ID 8 for all appointments with doctor ID 2.",
+        "Change the appointment date to December 30, 2023 at 8:00 AM for the appointment with ID 5.",
+        "Change the doctor to the one with ID 5 for the appointment with patient ID 3 scheduled for December 5, 2023 at 1:00 PM."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all HospitalIDs from the Hospitals table.",
+            "Retrieve all DoctorIDs from the Doctors table.",
+            "Retrieve all PatientIDs from the Patients table.",
+            "Retrieve all AppointmentIDs from the Appointments table."
+        ],
+        "single_filtering": [
+            "Find the HospitalIDs of all hospitals located in New York.",
+            "Find the DoctorIDs of all doctors specializing in Cardiology.",
+            "Find the PatientIDs of all patients with last name Smith.",
+            "Find the AppointmentIDs of all appointments with doctor ID 1."
+        ],
+        "double_filtering": [
+            "Find the HospitalIDs of all hospitals located in New York and named 'City Hospital'.",
+            "Find the DoctorIDs of all doctors specializing in Cardiology and working at the hospital with ID 2.",
+            "Find the PatientIDs of all patients with last name Smith and first name John.",
+            "Find the AppointmentIDs of all appointments with doctor ID 1 and patient ID 5."
+        ],
+        "triple_filtering": [
+            "Find the HospitalIDs of all hospitals located in New York, named 'City Hospital', or located in Boston.",
+            "Find the DoctorIDs of all doctors specializing in Cardiology, working at the hospital with ID 2, or specializing in Neurology.",
+            "Find the PatientIDs of all patients with last name Smith, first name John, or born on January 1, 1990.",
+            "Find the AppointmentIDs of all appointments with doctor ID 1, patient ID 5, or scheduled for September 1, 2023."
+        ],
+        "range_filtering": [
+            "Find the HospitalIDs of all hospitals with IDs between 1 and 10.",
+            "Find the DoctorIDs of all doctors with IDs between 5 and 15.",
+            "Find the PatientIDs of all patients with IDs between 10 and 20.",
+            "Find the AppointmentIDs of all appointments scheduled between January 1, 2023 and December 31, 2023."
+        ],
+        "ranking": [
+            "Retrieve all HospitalIDs, ordered by HospitalID in descending order.",
+            "Retrieve all DoctorIDs, ordered by DoctorID in ascending order.",
+            "Retrieve all PatientIDs, ordered by LastName in ascending alphabetical order.",
+            "Retrieve all AppointmentIDs, ordered by AppointmentDate in descending order."
+        ],
+        "count": [
+            "Count the total number of hospitals.",
+            "Count the total number of doctors.",
+            "Count the total number of patients.",
+            "Count the total number of appointments."
+        ],
+        "single_table": [
+            "Retrieve all HospitalIDs from the Hospitals table.",
+            "Retrieve all DoctorIDs from the Doctors table.",
+            "Retrieve all PatientIDs from the Patients table.",
+            "Retrieve all AppointmentIDs from the Appointments table."
+        ],
+        "double_table": [
+            "Find the HospitalIDs and corresponding DoctorIDs by joining the Hospitals and Doctors tables.",
+            "Find the DoctorIDs and corresponding AppointmentIDs by joining the Doctors and Appointments tables.",
+            "Find the PatientIDs and corresponding AppointmentIDs by joining the Patients and Appointments tables.",
+            "Find the HospitalIDs and corresponding DoctorIDs for all doctors specializing in Cardiology by joining the Hospitals and Doctors tables."
+        ],
+        "three_table": [
+            "Find the HospitalIDs, DoctorIDs, and AppointmentIDs by joining the Hospitals, Doctors, and Appointments tables.",
+            "Find the DoctorIDs, AppointmentIDs, and PatientIDs by joining the Doctors, Appointments, and Patients tables.",
+            "Find the PatientIDs, AppointmentIDs, and DoctorIDs by joining the Patients, Appointments, and Doctors tables.",
+            "Find the HospitalIDs, DoctorIDs, and AppointmentIDs for all appointments with doctors specializing in Cardiology by joining the Hospitals, Doctors, and Appointments tables."
+        ]
+    }
+}

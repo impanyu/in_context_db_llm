@@ -1,0 +1,179 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Teams' table if it exists.",
+        "Remove the 'Players' table if it exists.",
+        "Remove the 'Matches' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Teams' table with columns for TeamID (auto-incrementing), TeamName, and CoachName, with TeamID as the primary key.",
+        "Create a new 'Players' table with columns for PlayerID (auto-incrementing), FirstName, LastName, Position, and TeamID, with PlayerID as the primary key and a foreign key relationship to the Teams table.",
+        "Create a new 'Matches' table with columns for MatchID (auto-incrementing), MatchDate, HomeTeamID, and AwayTeamID, with MatchID as the primary key and foreign key relationships to the Teams table for both HomeTeamID and AwayTeamID."
+    ],
+    "insert": [
+        "Add a new team: Lakers with coach Frank Vogel.",
+        "Add a new team: Warriors with coach Steve Kerr.",
+        "Add a new team: Nets with coach Steve Nash.",
+        "Add a new team: Bulls with coach Billy Donovan.",
+        "Add a new team: Celtics with coach Ime Udoka.",
+        "Add a new team: Heat with coach Erik Spoelstra.",
+        "Add a new team: Knicks with coach Tom Thibodeau.",
+        "Add a new team: 76ers with coach Doc Rivers.",
+        "Add a new team: Clippers with coach Tyronn Lue.",
+        "Add a new team: Suns with coach Monty Williams.",
+
+        "Add a new player: LeBron James, position Forward, to team Lakers.",
+        "Add a new player: Stephen Curry, position Guard, to team Warriors.",
+        "Add a new player: Kevin Durant, position Forward, to team Nets.",
+        "Add a new player: Zach LaVine, position Guard, to team Bulls.",
+        "Add a new player: Jayson Tatum, position Forward, to team Celtics.",
+        "Add a new player: Jimmy Butler, position Forward, to team Heat.",
+        "Add a new player: Julius Randle, position Forward, to team Knicks.",
+        "Add a new player: Joel Embiid, position Center, to team 76ers.",
+        "Add a new player: Kawhi Leonard, position Forward, to team Clippers.",
+        "Add a new player: Chris Paul, position Guard, to team Suns.",
+
+        "Schedule a match between Lakers (home) and Warriors (away) on January 15, 2023.",
+        "Schedule a match between Nets (home) and Bulls (away) on January 20, 2023.",
+        "Schedule a match between Celtics (home) and Heat (away) on January 25, 2023.",
+        "Schedule a match between Knicks (home) and 76ers (away) on January 30, 2023.",
+        "Schedule a match between Clippers (home) and Suns (away) on February 5, 2023.",
+        "Schedule a match between Warriors (home) and Lakers (away) on February 10, 2023.",
+        "Schedule a match between Bulls (home) and Nets (away) on February 15, 2023.",
+        "Schedule a match between Heat (home) and Celtics (away) on February 20, 2023.",
+        "Schedule a match between 76ers (home) and Knicks (away) on February 25, 2023.",
+        "Schedule a match between Suns (home) and Clippers (away) on March 1, 2023."
+    ],
+    "delete": [
+        "Remove the team with ID 5 from the Teams table.",
+        "Remove the team with coach named John Doe from the Teams table.",
+        "Remove the team named Eagles from the Teams table.",
+        "Remove the team named Panthers or with coach named Jane Smith from the Teams table.",
+        "Remove all teams with ID greater than 10 from the Teams table.",
+        "Remove all teams with coach names starting with 'A' from the Teams table.",
+        "Remove the team named Falcons with coach Sam Johnson from the Teams table.",
+        "Remove all teams with ID less than or equal to 3 from the Teams table.",
+        "Remove all teams with IDs between 7 and 9 from the Teams table.",
+        "Remove all teams with names containing 'Wolves' from the Teams table.",
+
+        "Remove the player with ID 12 from the Players table.",
+        "Remove all players with last name Smith from the Players table.",
+        "Remove all players with position Forward from the Players table.",
+        "Remove all players with first name John or last name Doe from the Players table.",
+        "Remove all players from team with ID 2 from the Players table.",
+        "Remove all players with positions starting with 'G' from the Players table.",
+        "Remove all players from team with ID 3 who play as Defender from the Players table.",
+        "Remove all players with ID greater than 15 from the Players table.",
+        "Remove all players with last name Brown who play as Midfielder from the Players table.",
+        "Remove all players with IDs between 4 and 8 from the Players table.",
+
+        "Remove the match with ID 22 from the Matches table.",
+        "Remove the match scheduled for May 15, 2024 from the Matches table.",
+        "Remove all matches where team with ID 3 is the home team from the Matches table.",
+        "Remove all matches where team with ID 4 is the away team or team with ID 5 is the home team from the Matches table.",
+        "Remove all matches with ID greater than 30 from the Matches table.",
+        "Remove all matches scheduled before January 1, 2023 from the Matches table.",
+        "Remove the match where team with ID 1 is the home team and team with ID 2 is the away team from the Matches table.",
+        "Remove all matches with IDs between 10 and 20 from the Matches table.",
+        "Remove the match scheduled for June 10, 2024 or where team with ID 6 is the home team from the Matches table.",
+        "Remove all matches where team with ID 7 is the away team and scheduled after January 1, 2024 from the Matches table."
+    ],
+    "update": [
+        "Change the team name to Eagles and coach name to John Smith for the team with ID 1.",
+        "Change the coach name to Mike Johnson for the team with ID 2.",
+        "Change the team name to Sharks for the team with ID 3 and coach name Sarah Lee.",
+        "Change the team name to Tigers for all teams with coach name David Miller.",
+        "Change the coach name to Chris Evans for the team with ID 5.",
+        "Change the team name to Panthers and coach name to Karen Johnson for the team with ID 6.",
+        "Change the team name to Wolves for the team with ID 7 or coach name Anna Davis.",
+        "Change the coach name to Patricia Clark for the team with ID 8 and team name Bears.",
+        "Change the team name to Hawks and coach name to Lisa Williams for the team with ID 9.",
+        "Change the coach name to James Wilson for the team with ID 10 and team name Lions.",
+
+        "Change the first name to Tom, last name to Brady, and position to Quarterback for the player with ID 1.",
+        "Change the position to Running Back for the player with ID 2.",
+        "Change the first name to Aaron and last name to Rodgers for the player with ID 3 who is in team with ID 1.",
+        "Change the last name to Mahomes and position to Quarterback for the player with ID 4.",
+        "Change the team to the one with ID 2 for the player with ID 5.",
+        "Change the first name to Russell, last name to Wilson, and position to Quarterback for the player with ID 6.",
+        "Change the position to Wide Receiver for the player with ID 7 or all players in team with ID 3.",
+        "Change the last name to Brown for the player with ID 8 who plays as Tight End.",
+        "Change the first name to Drew and last name to Brees for the player with ID 9.",
+        "Change the position to Linebacker for the player with ID 10 who is in team with ID 4.",
+
+        "Change the match date to September 15, 2024 for the match with ID 1.",
+        "Change the home team to the one with ID 3 for the match with ID 2.",
+        "Change the away team to the one with ID 2 for the match with ID 3 where the home team is the one with ID 1.",
+        "Change the match date to October 10, 2024 for all matches where the home team is the one with ID 4.",
+        "Change the home team to the one with ID 5 and the away team to the one with ID 6 for the match with ID 5.",
+        "Change the match date to November 20, 2024 for the match with ID 6 or all matches where the home team is the one with ID 2.",
+        "Change the home team to the one with ID 7 for the match with ID 7 where the away team is the one with ID 8.",
+        "Change the away team to the one with ID 4 for the match with ID 8 scheduled for December 5, 2024.",
+        "Change the match date to December 25, 2024 for the match with ID 9.",
+        "Change the home team to the one with ID 9 and the away team to the one with ID 10 for the match with ID 10 scheduled for January 1, 2025."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all TeamIDs from the Teams table.",
+            "Retrieve all PlayerIDs from the Players table.",
+            "Retrieve all MatchIDs from the Matches table.",
+            "Retrieve all TeamNames from the Teams table."
+        ],
+        "single_filtering": [
+            "Find the TeamID of the team named Team A.",
+            "Find the PlayerIDs of all players who play as Forward.",
+            "Find the MatchIDs of all matches where the team with ID 1 is the home team.",
+            "Find the TeamID of the team coached by John Doe."
+        ],
+        "double_filtering": [
+            "Find the TeamID of the team named Team A with coach John Doe.",
+            "Find the PlayerIDs of all players who play as Forward in the team with ID 2.",
+            "Find the MatchIDs of all matches where the team with ID 1 is the home team or the team with ID 2 is the away team.",
+            "Find the TeamID of the team named Team B or coached by Jane Smith."
+        ],
+        "triple_filtering": [
+            "Find the TeamID of the team named Team A with coach John Doe or coach Jane Smith.",
+            "Find the PlayerIDs of all players who play as Forward in the team with ID 2 or have the first name John.",
+            "Find the MatchIDs of all matches where the team with ID 1 is the home team and the team with ID 2 is the away team, or the match is scheduled for September 15, 2024.",
+            "Find the TeamID of the team named Team C with coach John Doe or named Team D."
+        ],
+        "range_filtering": [
+            "Find the MatchIDs of all matches scheduled between January 1, 2024 and December 31, 2024.",
+            "Find the PlayerIDs of all players with IDs between 1 and 50.",
+            "Find the TeamIDs of all teams with IDs between 1 and 5.",
+            "Find the MatchIDs of all matches where the home team has an ID between 1 and 3."
+        ],
+        "ranking": [
+            "Retrieve all TeamIDs, ordered by TeamName in ascending alphabetical order.",
+            "Retrieve all PlayerIDs, ordered by LastName in descending alphabetical order.",
+            "Retrieve all MatchIDs, ordered by MatchDate from earliest to latest.",
+            "Retrieve all TeamIDs, ordered by TeamID from highest to lowest."
+        ],
+        "count": [
+            "Count the total number of teams.",
+            "Count the total number of players who play as Forward.",
+            "Count the total number of matches where the team with ID 1 is the home team.",
+            "Count the total number of teams coached by John Doe."
+        ],
+        "single_table": [
+            "Find the TeamID of the team named Team A.",
+            "Find the PlayerIDs of all players who play as Goalkeeper.",
+            "Find the MatchID of the match where the team with ID 2 is the home team.",
+            "Find the TeamID of the team with ID 3."
+        ],
+        "double_table": [
+            "Find the TeamIDs and corresponding PlayerIDs by joining the Teams and Players tables.",
+            "Find the MatchIDs and corresponding home TeamIDs by joining the Matches and Teams tables.",
+            "Find the PlayerIDs and corresponding TeamIDs of all players in teams coached by John Doe.",
+            "Find the MatchIDs and corresponding away TeamIDs of all matches where the away team is named Team B."
+        ],
+        "three_table": [
+            "Find the MatchIDs, home TeamIDs, and away TeamIDs by joining the Matches table with the Teams table twice (once for home teams and once for away teams).",
+            "Find the PlayerIDs, TeamIDs, and MatchIDs of all players in teams that have played home matches.",
+            "Find the MatchIDs, TeamIDs, and PlayerIDs of all matches, including the teams and players of the home team.",
+            "Find the TeamIDs, MatchIDs, and PlayerIDs of all teams, including their home matches and players."
+        ]
+    }
+}

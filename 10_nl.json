@@ -1,0 +1,179 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],  
+    "drop_tables":[
+        "Remove the 'Guests' table if it exists.",
+        "Remove the 'Rooms' table if it exists.",
+        "Remove the 'Reservations' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Guests' table with columns for GuestID (auto-incrementing), FirstName, LastName, and Email, with GuestID as the primary key.",
+        "Create a new 'Rooms' table with columns for RoomID (auto-incrementing), RoomNumber, RoomType, and PricePerNight, with RoomID as the primary key.",
+        "Create a new 'Reservations' table with columns for ReservationID (auto-incrementing), GuestID, RoomID, CheckInDate, and CheckOutDate, with ReservationID as the primary key and foreign key relationships to the Guests and Rooms tables."
+    ],
+    "insert": [
+        "Add a new guest: John Doe with email johndoe@example.com.",
+        "Add a new guest: Jane Smith with email janesmith@example.com.",
+        "Add a new guest: Michael Brown with email michaelbrown@example.com.",
+        "Add a new guest: Emily Davis with email emilydavis@example.com.",
+        "Add a new guest: David Wilson with email davidwilson@example.com.",
+        "Add a new guest: Sarah Taylor with email sarahtaylor@example.com.",
+        "Add a new guest: Chris Johnson with email chrisjohnson@example.com.",
+        "Add a new guest: Jessica Lee with email jessicalee@example.com.",
+        "Add a new guest: Daniel Walker with email danielwalker@example.com.",
+        "Add a new guest: Laura Martinez with email lauramartinez@example.com.",
+
+        "Add a new room: Room 101, Single type, priced at $75.00 per night.",
+        "Add a new room: Room 102, Double type, priced at $100.00 per night.",
+        "Add a new room: Room 103, Suite type, priced at $150.00 per night.",
+        "Add a new room: Room 104, Single type, priced at $75.00 per night.",
+        "Add a new room: Room 105, Double type, priced at $100.00 per night.",
+        "Add a new room: Room 106, Suite type, priced at $150.00 per night.",
+        "Add a new room: Room 107, Single type, priced at $75.00 per night.",
+        "Add a new room: Room 108, Double type, priced at $100.00 per night.",
+        "Add a new room: Room 109, Suite type, priced at $150.00 per night.",
+        "Add a new room: Room 110, Single type, priced at $75.00 per night.",
+
+        "Create a new reservation: Guest 1 books Room 101 from August 1, 2024 to August 5, 2024.",
+        "Create a new reservation: Guest 2 books Room 102 from August 2, 2024 to August 6, 2024.",
+        "Create a new reservation: Guest 3 books Room 103 from August 3, 2024 to August 7, 2024.",
+        "Create a new reservation: Guest 4 books Room 104 from August 4, 2024 to August 8, 2024.",
+        "Create a new reservation: Guest 5 books Room 105 from August 5, 2024 to August 9, 2024.",
+        "Create a new reservation: Guest 6 books Room 106 from August 6, 2024 to August 10, 2024.",
+        "Create a new reservation: Guest 7 books Room 107 from August 7, 2024 to August 11, 2024.",
+        "Create a new reservation: Guest 8 books Room 108 from August 8, 2024 to August 12, 2024.",
+        "Create a new reservation: Guest 9 books Room 109 from August 9, 2024 to August 13, 2024.",
+        "Create a new reservation: Guest 10 books Room 110 from August 10, 2024 to August 14, 2024."
+    ],
+    "delete": [
+        "Remove the guest with ID 1 from the Guests table.",
+        "Remove all guests named John Doe from the Guests table.",
+        "Remove all guests with email addresses ending in @example.com from the Guests table.",
+        "Remove all guests with ID greater than 5 from the Guests table.",
+        "Remove all guests named Jane or with the last name Smith from the Guests table.",
+        "Remove all guests with ID less than or equal to 3 and email addresses ending in @gmail.com from the Guests table.",
+        "Remove all guests with the last name Brown from the Guests table.",
+        "Remove all guests named Alice with ID less than 10 from the Guests table.",
+        "Remove all guests with email addresses starting with johndoe from the Guests table.",
+        "Remove all guests with IDs between 2 and 8 from the Guests table.",
+        
+        "Remove the room with ID 101 from the Rooms table.",
+        "Remove all rooms of type Deluxe from the Rooms table.",
+        "Remove all rooms priced over $200.00 per night from the Rooms table.",
+        "Remove the room numbered A101 from the Rooms table.",
+        "Remove all rooms of type Suite priced over $300.00 per night from the Rooms table.",
+        "Remove all rooms with numbers starting with B from the Rooms table.",
+        "Remove all rooms with ID less than 50 or priced under $100.00 per night from the Rooms table.",
+        "Remove all rooms of type Standard from the Rooms table.",
+        "Remove all rooms with ID greater than or equal to 200 and priced under $150.00 per night from the Rooms table.",
+        "Remove the room numbered C305 from the Rooms table.",
+        
+        "Remove the reservation with ID 1001 from the Reservations table.",
+        "Remove all reservations for guest with ID 2 from the Reservations table.",
+        "Remove all reservations with check-in date August 1, 2023 from the Reservations table.",
+        "Remove all reservations with check-out date August 15, 2023 from the Reservations table.",
+        "Remove all reservations with check-in dates between July 1, 2023 and July 31, 2023 from the Reservations table.",
+        "Remove all reservations for guest with ID 3 in room 101 from the Reservations table.",
+        "Remove all reservations for room 102 from the Reservations table.",
+        "Remove all reservations with ID greater than 500 from the Reservations table.",
+        "Remove all reservations with check-out dates before June 1, 2023 from the Reservations table.",
+        "Remove all reservations for guest with ID 4 or for room 103 from the Reservations table."
+    ],
+    "update": [
+        "Change the email to newemail1@example.com for the guest with ID 1.",
+        "Change the first name to John and the last name to Doe for the guest with ID 2.",
+        "Change the email to updatedemail2@example.com for the guest with ID 3 and last name Smith.",
+        "Change the last name to Johnson for the guest with ID 4 or email oldemail@example.com.",
+        "Change the first name to Alice for the guest with ID 5.",
+        "Change the email to contact@example.com and the last name to Brown for the guest with ID 6.",
+        "Change the first name to Bob for all guests with the last name White.",
+        "Change the email to newcontact@example.com for all guests with email previouscontact@example.com.",
+        "Change the last name to Davis for all guests named Michael.",
+        "Change the email to finalupdate@example.com for the guest with ID 10.",
+
+        "Change the price per night to $150.00 for the room with ID 1.",
+        "Change the room type to Deluxe and the price per night to $200.00 for the room with ID 2.",
+        "Change the room number to 202 for the room with ID 3 and type Suite.",
+        "Change the room type to Standard for all rooms priced at $100.00 per night or numbered 303.",
+        "Change the price per night to $175.50 for the room with ID 5.",
+        "Change the room number to 101 and the room type to Economy for the room with ID 6.",
+        "Change the room type to Deluxe for the room with ID 7.",
+        "Change the price per night to $250.00 for the room numbered 404.",
+        "Change the room number to 505 for the room with ID 9 and type Standard.",
+        "Change the room type to Suite and the price per night to $300.00 for the room with ID 10.",
+
+        "Change the check-in date to August 20, 2024 for the reservation with ID 1.",
+        "Change the check-out date to August 30, 2024 for the reservation with ID 2.",
+        "Change the room to room 3 for the reservation with ID 3 and guest ID 1.",
+        "Change the check-in date to September 1, 2024 and the check-out date to September 10, 2024 for the reservation with ID 4.",
+        "Change the guest to guest 2 for the reservation with ID 5.",
+        "Change the room to room 4 and the check-in date to August 25, 2024 for the reservation with ID 6.",
+        "Change the check-out date to September 5, 2024 for all reservations with guest ID 3 and room ID 2.",
+        "Change the check-in date to August 15, 2024 for the reservation with ID 8.",
+        "Change the room to room 5 for the reservation with ID 9.",
+        "Change the guest to guest 4 for the reservation with ID 10 and room ID 3."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all GuestIDs from the Guests table.",
+            "Retrieve all RoomIDs from the Rooms table.",
+            "Retrieve all ReservationIDs from the Reservations table.",
+            "Retrieve all RoomNumbers from the Rooms table."
+        ],
+        "single_filtering": [
+            "Find the GuestIDs of all guests with the last name Smith.",
+            "Find the RoomIDs of all rooms of type Suite.",
+            "Find the ReservationIDs of all reservations with check-in date January 1, 2024.",
+            "Find the RoomNumbers of all rooms priced at $100.00 per night."
+        ],
+        "double_filtering": [
+            "Find the GuestIDs of all guests with the last name Smith and first name John.",
+            "Find the RoomIDs of all rooms of type Suite priced over $150.00 per night.",
+            "Find the ReservationIDs of all reservations with check-in date January 1, 2024 and check-out date January 5, 2024.",
+            "Find the RoomNumbers of all rooms of type Deluxe or priced over $200.00 per night."
+        ],
+        "triple_filtering": [
+            "Find the GuestIDs of all guests with the last name Smith, first name John, and email john.smith@example.com.",
+            "Find the RoomIDs of all rooms of type Suite, priced over $150.00 per night, and numbered 101.",
+            "Find the ReservationIDs of all reservations with check-in date January 1, 2024, check-out date January 5, 2024, and for room 1.",
+            "Find the RoomNumbers of all rooms of type Deluxe or priced over $200.00 per night, and with numbers starting with 1."
+        ],
+        "range_filtering": [
+            "Find the GuestIDs of all guests with IDs between 1 and 10.",
+            "Find the RoomIDs of all rooms priced between $100.00 and $200.00 per night.",
+            "Find the ReservationIDs of all reservations with check-in dates between January 1, 2024 and December 31, 2024.",
+            "Find the RoomNumbers of all rooms with IDs between 1 and 5."
+        ],
+        "ranking": [
+            "Retrieve all GuestIDs, ordered by last name in ascending alphabetical order.",
+            "Retrieve all RoomIDs, ordered by price per night from highest to lowest.",
+            "Retrieve all ReservationIDs, ordered by check-in date from latest to earliest.",
+            "Retrieve all RoomNumbers, ordered by room number in ascending order."
+        ],
+        "count": [
+            "Count the total number of guests.",
+            "Count the total number of rooms.",
+            "Count the total number of reservations.",
+            "Count the total number of room numbers."
+        ],
+        "single_table": [
+            "Retrieve all GuestIDs from the Guests table.",
+            "Retrieve all RoomIDs from the Rooms table.",
+            "Retrieve all ReservationIDs from the Reservations table.",
+            "Retrieve all RoomNumbers from the Rooms table."
+        ],
+        "double_table": [
+            "Find the ReservationIDs and corresponding GuestIDs by joining the Reservations and Guests tables.",
+            "Find the ReservationIDs and corresponding RoomIDs by joining the Reservations and Rooms tables.",
+            "Find the GuestIDs and corresponding ReservationIDs by joining the Guests and Reservations tables.",
+            "Find the RoomIDs and corresponding ReservationIDs by joining the Rooms and Reservations tables."
+        ],
+        "three_table": [
+            "Find the ReservationIDs, GuestIDs, and RoomIDs by joining the Reservations, Guests, and Rooms tables.",
+            "Find the RoomIDs, ReservationIDs, and GuestIDs by joining the Rooms, Reservations, and Guests tables.",
+            "Find the GuestIDs, ReservationIDs, and RoomIDs by joining the Guests, Reservations, and Rooms tables.",
+            "Find the ReservationIDs, RoomIDs, and GuestIDs by joining the Reservations, Rooms, and Guests tables."
+        ]
+    }
+}

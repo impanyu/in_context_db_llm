@@ -1,0 +1,179 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Libraries' table if it exists.",
+        "Remove the 'Books' table if it exists.",
+        "Remove the 'Librarians' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Libraries' table with columns for LibraryID (auto-incrementing), LibraryName, and Address, with LibraryID as the primary key.",
+        "Create a new 'Books' table with columns for BookID (auto-incrementing), Title, Author, ISBN, and LibraryID, with BookID as the primary key and a foreign key relationship to the Libraries table.",
+        "Create a new 'Librarians' table with columns for LibrarianID (auto-incrementing), FirstName, LastName, HireDate, and LibraryID, with LibrarianID as the primary key and a foreign key relationship to the Libraries table."
+    ],
+    "insert": [
+        "Add a new library: Central Library, located at 123 Main St, Springfield, IL.",
+        "Add a new library: Westside Branch, located at 456 Elm St, Springfield, IL.",
+        "Add a new library: Eastside Branch, located at 789 Maple Ave, Springfield, IL.",
+        "Add a new library: Northside Branch, located at 321 Oak St, Springfield, IL.",
+        "Add a new library: Southside Branch, located at 654 Pine St, Springfield, IL.",
+        "Add a new library: Downtown Library, located at 987 Cedar St, Springfield, IL.",
+        "Add a new library: Uptown Library, located at 159 Walnut St, Springfield, IL.",
+        "Add a new library: Midtown Library, located at 753 Chestnut St, Springfield, IL.",
+        "Add a new library: Riverfront Library, located at 852 River Rd, Springfield, IL.",
+        "Add a new library: Suburban Library, located at 951 Birch St, Springfield, IL.",
+
+        "Add a new book: The Great Gatsby by F. Scott Fitzgerald, ISBN 9780743273565, located in library 1.",
+        "Add a new book: To Kill a Mockingbird by Harper Lee, ISBN 9780061120084, located in library 2.",
+        "Add a new book: 1984 by George Orwell, ISBN 9780451524935, located in library 3.",
+        "Add a new book: Pride and Prejudice by Jane Austen, ISBN 9780141439518, located in library 4.",
+        "Add a new book: The Catcher in the Rye by J.D. Salinger, ISBN 9780316769488, located in library 5.",
+        "Add a new book: Moby-Dick by Herman Melville, ISBN 9780142437247, located in library 6.",
+        "Add a new book: War and Peace by Leo Tolstoy, ISBN 9780307388875, located in library 7.",
+        "Add a new book: The Odyssey by Homer, ISBN 9780140268867, located in library 8.",
+        "Add a new book: Crime and Punishment by Fyodor Dostoevsky, ISBN 9780140449136, located in library 9.",
+        "Add a new book: The Brothers Karamazov by Fyodor Dostoevsky, ISBN 9780374528379, located in library 10.",
+
+        "Add a new librarian: John Smith, hired on June 1, 2015, working at library 1.",
+        "Add a new librarian: Jane Doe, hired on July 15, 2016, working at library 2.",
+        "Add a new librarian: Emily Johnson, hired on August 10, 2017, working at library 3.",
+        "Add a new librarian: Michael Brown, hired on September 25, 2018, working at library 4.",
+        "Add a new librarian: Sarah Davis, hired on October 30, 2019, working at library 5.",
+        "Add a new librarian: David Miller, hired on November 20, 2020, working at library 6.",
+        "Add a new librarian: Laura Wilson, hired on December 1, 2021, working at library 7.",
+        "Add a new librarian: Chris Martinez, hired on January 10, 2022, working at library 8.",
+        "Add a new librarian: Jessica Garcia, hired on February 14, 2023, working at library 9.",
+        "Add a new librarian: Daniel Rodriguez, hired on March 18, 2024, working at library 10."
+    ],
+    "delete": [
+        "Remove the library with ID 1 from the Libraries table.",
+        "Remove the library named 'Central Library' from the Libraries table.",
+        "Remove the library located at '123 Main St' from the Libraries table.",
+        "Remove all libraries with names containing 'Public' from the Libraries table.",
+        "Remove all libraries with addresses containing 'Avenue' from the Libraries table.",
+        "Remove all libraries with IDs greater than 5 from the Libraries table.",
+        "Remove all libraries with IDs between 3 and 7 from the Libraries table.",
+        "Remove the library named 'Downtown Library' located at '456 Elm St' from the Libraries table.",
+        "Remove the library named 'Eastside Library' or located at '789 Pine St' from the Libraries table.",
+        "Remove all libraries with non-null IDs and addresses containing 'Boulevard' from the Libraries table.",
+
+        "Remove the book with ID 1 from the Books table.",
+        "Remove the book titled 'Moby Dick' from the Books table.",
+        "Remove all books by author 'Jane Austen' from the Books table.",
+        "Remove the book with ISBN '978-1234567890' from the Books table.",
+        "Remove all books located in library 2 from the Books table.",
+        "Remove all books with null authors from the Books table.",
+        "Remove all books with titles containing 'Guide' from the Books table.",
+        "Remove all books located in library 3 by author 'Mark Twain' from the Books table.",
+        "Remove the book titled 'War and Peace' or with ISBN '978-9876543210' from the Books table.",
+        "Remove all books with IDs greater than 10 located in library 4 from the Books table.",
+
+        "Remove the librarian with ID 1 from the Librarians table.",
+        "Remove all librarians with first name 'John' from the Librarians table.",
+        "Remove all librarians with last name 'Doe' from the Librarians table.",
+        "Remove all librarians hired on January 1, 2023 from the Librarians table.",
+        "Remove all librarians working at library 2 from the Librarians table.",
+        "Remove all librarians with last names containing 'Smith' from the Librarians table.",
+        "Remove all librarians hired before January 1, 2020 from the Librarians table.",
+        "Remove the librarian named Emily Jones from the Librarians table.",
+        "Remove all librarians named Michael or hired after January 1, 2022 from the Librarians table.",
+        "Remove all librarians with IDs between 5 and 10 working at library 3 from the Librarians table."
+    ],
+    "update": [
+        "Change the name to 'Central Library' for the library with ID 1.",
+        "Change the address to '123 Main St' for the library named 'Eastside Library'.",
+        "Change the address to '456 Oak St' for the library with ID 2.",
+        "Change the name to 'Downtown Library' and the address to '789 Pine St' for the library with ID 3.",
+        "Change the address to '101 Maple St' for the library named 'Westside Library' with ID 4.",
+        "Change the name to 'Uptown Library' for the library located at '202 Birch St'.",
+        "Change the address to '303 Cedar St' for the library with ID 5.",
+        "Change the name to 'Northside Library' and the address to '404 Elm St' for the library with ID 6.",
+        "Change the address to '505 Spruce St' for the library named 'Southside Library'.",
+        "Change the name to 'Midtown Library' for the library with ID 7 located at '606 Willow St'.",
+
+        "Change the title to 'The Great Gatsby' for the book with ID 1.",
+        "Change the author to 'F. Scott Fitzgerald' for the book titled 'The Great Gatsby'.",
+        "Change the ISBN to '9780141182636' for the book titled '1984' by George Orwell.",
+        "Change the title to 'Moby Dick' and the author to 'Herman Melville' for the book with ID 2.",
+        "Change the library to library 3 for the book with ID 3.",
+        "Change the ISBN to '9780451524935' for the book titled 'To Kill a Mockingbird'.",
+        "Change the author to 'Harper Lee' for the book with ID 4.",
+        "Change the title to 'Pride and Prejudice' and the author to 'Jane Austen' for the book with ID 5.",
+        "Change the library to library 4 for the book titled 'War and Peace'.",
+        "Change the ISBN to '9781853260629' for the book by Leo Tolstoy titled 'War and Peace'.",
+
+        "Change the first name to 'John' for the librarian with ID 1.",
+        "Change the last name to 'Doe' for the librarian with first name 'Jane'.",
+        "Change the hire date to January 1, 2024 for the librarian named John Smith.",
+        "Change the library to library 2 for the librarian with ID 2.",
+        "Change the first name to 'Alice' and the last name to 'Johnson' for the librarian with ID 3.",
+        "Change the hire date to December 15, 2023 for the librarian with ID 4.",
+        "Change the library to library 3 for the librarian named Robert.",
+        "Change the first name to 'Emily' and the last name to 'Clark' for the librarian with ID 5.",
+        "Change the hire date to February 1, 2024 for the librarian named Sarah Brown.",
+        "Change the library to library 4 for the librarian with last name Williams."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all LibraryIDs from the Libraries table.",
+            "Retrieve all BookIDs from the Books table.",
+            "Retrieve all LibrarianIDs from the Librarians table.",
+            "Retrieve all LibraryIDs from the Books table."
+        ],
+        "single_filtering": [
+            "Find the LibraryID of the library named 'Central Library'.",
+            "Find the BookID of the book titled '1984'.",
+            "Find the LibrarianID of the librarian with last name 'Smith'.",
+            "Find the BookIDs of all books in library 1."
+        ],
+        "double_filtering": [
+            "Find the LibraryID of the library named 'Central Library' located at '123 Main St'.",
+            "Find the BookIDs of all books titled '1984' or written by George Orwell.",
+            "Find the LibrarianID of the librarian with last name 'Smith' hired on January 1, 2023.",
+            "Find the BookIDs of all books in library 1 with ISBN '9780451524935'."
+        ],
+        "triple_filtering": [
+            "Find the LibraryID of the library named 'Central Library' located at '123 Main St' or '456 Elm St'.",
+            "Find the BookIDs of all books titled '1984', written by George Orwell, and located in library 1.",
+            "Find the LibrarianID of the librarian with last name 'Smith' or first name 'John', and hired on January 1, 2023.",
+            "Find the BookIDs of all books in library 1 with ISBN '9780451524935' or titled 'Animal Farm'."
+        ],
+        "range_filtering": [
+            "Find the LibrarianIDs of all librarians hired between January 1, 2022 and December 31, 2023.",
+            "Find the BookIDs of all books with IDs between 100 and 200.",
+            "Find the LibraryIDs of all libraries with IDs between 1 and 5.",
+            "Find the LibrarianIDs of all librarians with IDs between 10 and 20."
+        ],
+        "ranking": [
+            "Retrieve all BookIDs, ordered by title alphabetically in ascending order.",
+            "Retrieve all LibrarianIDs, ordered by hire date from latest to earliest.",
+            "Retrieve all LibraryIDs, ordered by library name alphabetically in ascending order.",
+            "Retrieve all BookIDs, ordered by BookID in descending order."
+        ],
+        "count": [
+            "Count the total number of libraries.",
+            "Count the total number of books.",
+            "Count the total number of librarians.",
+            "Count the total number of books in library 1."
+        ],
+        "single_table": [
+            "Retrieve all LibraryIDs from the Libraries table.",
+            "Retrieve all BookIDs from the Books table.",
+            "Retrieve all LibrarianIDs from the Librarians table.",
+            "Retrieve all LibraryIDs from the Books table."
+        ],
+        "double_table": [
+            "Find the BookIDs and corresponding LibraryIDs by joining the Books and Libraries tables.",
+            "Find the LibrarianIDs and corresponding LibraryIDs by joining the Librarians and Libraries tables.",
+            "Find the BookIDs and corresponding LibraryIDs by joining the Books and Libraries tables, including books without a library.",
+            "Find the LibrarianIDs and corresponding LibraryIDs by joining the Librarians and Libraries tables, including libraries without librarians."
+        ],
+        "three_table": [
+            "Find the BookIDs, LibraryIDs, and LibrarianIDs by joining the Books, Libraries, and Librarians tables.",
+            "Find the LibrarianIDs, LibraryIDs, and BookIDs by joining the Librarians, Libraries, and Books tables.",
+            "Find the LibraryIDs, BookIDs, and LibrarianIDs by joining the Libraries, Books, and Librarians tables.",
+            "Find the BookIDs, LibraryIDs, and LibrarianIDs by joining the Books, Libraries, and Librarians tables, including books without libraries and librarians."
+        ]
+    }
+}

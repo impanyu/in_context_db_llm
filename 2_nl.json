@@ -1,0 +1,184 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],  
+    "drop_tables":[
+          "Remove the 'Students' table if it exists.",
+          "Remove the 'Courses' table if it exists.",
+          "Remove the 'Enrollments' table if it exists."
+      ],
+      "create_tables":[
+          "Create a new 'Students' table with columns for StudentID (auto-incrementing), FirstName, LastName, DateOfBirth, and Email.",
+          "Create a new 'Courses' table with columns for CourseID (auto-incrementing), CourseName, Description, and Credits.",
+          "Create a new 'Enrollments' table with columns for EnrollmentID (auto-incrementing), StudentID, CourseID, EnrollmentDate, and Grade, with foreign key relationships to the Students and Courses tables."
+      ],
+  "insert": [
+  
+      "Add a new student named John Doe, born on January 15, 2000, with email johndoe@example.com.",
+      "Add a new student named Jane Smith, born on May 21, 1999, with email janesmith@example.com.",
+      "Add a new student named Emily Davis, born on March 10, 2001, with email emilydavis@example.com.",
+      "Add a new student named Michael Johnson, born on November 22, 2000, with email michaeljohnson@example.com.",
+      "Add a new student named Sarah Williams, born on July 30, 1998, with email sarahwilliams@example.com.",
+      "Add a new student named David Brown, born on September 13, 1999, with email davidbrown@example.com.",
+      "Add a new student named Anna Taylor, born on June 18, 2001, with email annataylor@example.com.",
+      "Add a new student named James Lee, born on December 2, 1998, with email jameslee@example.com.",
+      "Add a new student named Laura Miller, born on April 27, 2000, with email lauramiller@example.com.",
+      "Add a new student named Robert Wilson, born on August 14, 1999, with email robertwilson@example.com.",
+  
+      "Add a new course named Computer Science, described as 'Introduction to computer science', worth 3 credits.",
+      "Add a new course named Mathematics, described as 'Advanced calculus and algebra', worth 4 credits.",
+      "Add a new course named Physics, described as 'Fundamentals of classical physics', worth 3 credits.",
+      "Add a new course named Chemistry, described as 'Introduction to organic chemistry', worth 4 credits.",
+      "Add a new course named History, described as 'World history overview', worth 3 credits.",
+      "Add a new course named Biology, described as 'Introduction to molecular biology', worth 4 credits.",
+      "Add a new course named English Literature, described as 'Study of classic English literature', worth 3 credits.",
+      "Add a new course named Philosophy, described as 'Introduction to philosophical concepts', worth 3 credits.",
+      "Add a new course named Economics, described as 'Principles of macro and microeconomics', worth 4 credits.",
+      "Add a new course named Art History, described as 'Overview of art movements', worth 3 credits.",
+  
+      "Enroll student with ID 1 in course with ID 1 on August 20, 2023, with a grade of A.",
+      "Enroll student with ID 2 in course with ID 2 on August 20, 2023, with a grade of B.",
+      "Enroll student with ID 3 in course with ID 3 on August 21, 2023, with a grade of A.",
+      "Enroll student with ID 4 in course with ID 4 on August 21, 2023, with a grade of B.",
+      "Enroll student with ID 5 in course with ID 5 on August 22, 2023, with a grade of C.",
+      "Enroll student with ID 6 in course with ID 6 on August 22, 2023, with a grade of B.",
+      "Enroll student with ID 7 in course with ID 7 on August 23, 2023, with a grade of A.",
+      "Enroll student with ID 8 in course with ID 8 on August 23, 2023, with a grade of C.",
+      "Enroll student with ID 9 in course with ID 9 on August 24, 2023, with a grade of B.",
+      "Enroll student with ID 10 in course with ID 10 on August 24, 2023, with a grade of A."
+    ],
+    "delete": [
+  
+      "Remove the student with ID 5 from the Students table.",
+      "Remove all students named John from the Students table.",
+      "Remove the student named Doe born on April 12, 1995 from the Students table.",
+      "Remove all students with Gmail email addresses from the Students table.",
+      "Remove all students named Smith born before January 1, 2000 from the Students table.",
+      "Remove all students named Emily or with the last name Johnson from the Students table.",
+      "Remove all students born on August 21, 1998 with Yahoo email addresses from the Students table.",
+      "Remove the student with email jane.doe@example.com from the Students table.",
+      "Remove all students named Michael with Hotmail email addresses from the Students table.",
+      "Remove all students with the last name Brown or first name Sarah from the Students table.",
+  
+      "Remove the course with ID 3 from the Courses table.",
+      "Remove the Mathematics course from the Courses table.",
+      "Remove all 3-credit courses from the Courses table.",
+      "Remove the 4-credit History course from the Courses table.",
+      "Remove all courses with 'Science' in their name from the Courses table.",
+      "Remove all courses with no description from the Courses table.",
+      "Remove the Art course or any 2-credit courses from the Courses table.",
+      "Remove the Biology course if its description contains 'introductory' from the Courses table.",
+      "Remove the 4-credit Chemistry course from the Courses table.",
+      "Remove the Physics course or the English course from the Courses table.",
+  
+      "Remove the enrollment with ID 2 from the Enrollments table.",
+      "Remove all enrollments for student with ID 5 from the Enrollments table.",
+      "Remove all enrollments for course with ID 4 from the Enrollments table.",
+      "Remove all A-grade enrollments from the Enrollments table.",
+      "Remove all enrollments made before January 1, 2023 from the Enrollments table.",
+      "Remove the B-grade enrollment for student with ID 3 from the Enrollments table.",
+      "Remove all enrollments for course with ID 2 or with a C grade from the Enrollments table.",
+      "Remove the enrollment made on May 10, 2024 for course with ID 1 from the Enrollments table.",
+      "Remove the D-grade enrollment for student with ID 4 from the Enrollments table.",
+      "Remove all F-grade enrollments or enrollments made after June 1, 2024 from the Enrollments table."
+    ],
+    "update": [
+      "Change the name of the student with ID 1 to John Doe.",
+      "Change the email of the student with ID 2 and last name Doe to jane.doe@example.com.",
+      "Change the birth date to July 22, 1998 for students named John or with email john@example.com.",
+      "Change the last name to Smith and email to smith.j@example.com for the student with ID 3.",
+      "Change the first name to Alice and birth date to March 15, 2000 for the student with email alice@example.com.",
+      "Change the email to bob@example.com for the student named Bob Johnson.",
+      "Change the birth date to December 1, 2001 and last name to Brown for the student with ID 4.",
+      "Change the last name to Williams for students named Alice or with ID 5.",
+      "Change the email to charlie@example.com and last name to Evans for students named Charlie.",
+      "Change the first name to David and email to david.b@example.com for the student with last name Brown and ID 6.",
+      
+      "Rename the course with ID 1 to 'Introduction to Programming'.",
+      "Change the credits to 4 for the course with ID 2 and description 'Advanced Mathematics'.",
+      "Change the description to 'Introduction to Biology' for the course with ID 3 or named 'Biology 101'.",
+      "Rename the course with ID 4 to 'History of Art' and change its credits to 3.",
+      "Change the credits to 2 for the course named 'Basic English'.",
+      "Change the description to 'Advanced Physics' for the 5-credit course with ID 5.",
+      "Rename the course with ID 6 to 'Chemistry Lab' and change its description to 'Chemistry Laboratory Course'.",
+      "Change the credits to 4 for the course described as 'Calculus I' or with ID 7.",
+      "Change the description to 'Psychology 101' and credits to 3 for the course named 'Introduction to Psychology'.",
+      "Rename the course with ID 8 to 'Statistics' and change its credits to 3.",
+      
+      "Change the grade to A for the enrollment with ID 1 and student ID 1.",
+      "Change the enrollment date to January 15, 2024 for the enrollment with student ID 2 and course ID 2.",
+      "Change the grade to B for enrollments with student ID 3 or course ID 3.",
+      "Change the grade to C and enrollment date to March 22, 2024 for the enrollment with ID 4.",
+      "Change the course ID to 5 for the enrollment with student ID 4 and enrollment date February 10, 2024.",
+      "Change the grade to B for the enrollment with ID 5 or course ID 6.",
+      "Change the enrollment date to April 1, 2024 for the enrollment with student ID 5 and course ID 7.",
+      "Change the grade to A and course ID to 8 for enrollments with student ID 6.",
+      "Change the enrollment date to May 20, 2024 and grade to A for the enrollment with ID 7.",
+      "Change the grade to B for the enrollment with student ID 8 and course ID 9."
+    ],
+  
+      "select": {
+            "no_filtering": [
+              "Retrieve all StudentIDs from the Students table.",
+              "Retrieve all CourseIDs from the Courses table.",
+              "Retrieve all EnrollmentIDs from the Enrollments table.",
+              "Retrieve all StudentIDs from the Students table."
+            ],
+            "single_filtering": [
+              "Find the StudentIDs of all students named John.",
+              "Find the CourseIDs of all 3-credit courses.",
+              "Find the EnrollmentIDs of all A-grade enrollments.",
+              "Find the StudentIDs of all students with email addresses ending in @example.com."
+            ],
+            "double_filtering": [
+              "Find the StudentIDs of all students named John Doe.",
+              "Find the CourseIDs of all 4-credit Math courses.",
+              "Find the EnrollmentIDs for student 1 in course 101.",
+              "Find the StudentIDs of all students named John or with the last name Doe."
+            ],
+            "triple_filtering": [
+              "Find the StudentIDs of all students named John Doe with email addresses ending in @example.com.",
+              "Find the CourseIDs of all 4-credit Math courses that have a description.",
+              "Find the EnrollmentIDs for student 1 in course 101 with an A grade.",
+              "Find the StudentIDs of all students named John, or with the last name Doe and born on January 1, 2000."
+            ],
+            "range_filtering": [
+              "Find the StudentIDs of all students born between January 1, 1990 and December 31, 2000.",
+              "Find the CourseIDs of all courses worth between 3 and 5 credits.",
+              "Find the EnrollmentIDs of all enrollments made between January 1, 2020 and January 1, 2021.",
+              "Find the StudentIDs of the first 10 students."
+            ],
+            "ranking": [
+              "Retrieve all StudentIDs, ordered by last name in ascending order.",
+              "Retrieve all CourseIDs, ordered by number of credits in descending order.",
+              "Retrieve all EnrollmentIDs, ordered by enrollment date in descending order.",
+              "Retrieve all StudentIDs, ordered by first name in ascending order, then by last name in descending order."
+            ],
+            "count": [
+              "Count the total number of students.",
+              "Count the total number of courses.",
+              "Count the total number of enrollments.",
+              "Count the number of students born after January 1, 2000."
+            ],
+            "single_table": [
+              "Retrieve all StudentIDs from the Students table.",
+              "Find the CourseIDs of all courses.",
+              "Find the EnrollmentIDs of all enrollments.",
+              "Find the StudentIDs of all students named John."
+            ],
+            "double_table": [
+              "Find the StudentIDs of all students who have enrolled in any course.",
+              "Find the CourseIDs of all courses that have any students enrolled.",
+              "Find the EnrollmentIDs of all enrollments made by any student.",
+              "Find the StudentIDs of all students who have received an A grade in any course."
+            ],
+            "three_table": [
+              "Find the StudentIDs of all students who have enrolled in any course, including course information.",
+              "Find the CourseIDs of all courses that have any students enrolled, including student information.",
+              "Find the EnrollmentIDs of all enrollments, including both student and course information.",
+              "Find the StudentIDs of all students who have received an A grade in any course, including course information."
+            ]
+          }
+        
+        
+  }

@@ -1,0 +1,179 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Movies' table if it exists.",
+        "Remove the 'Actors' table if it exists.",
+        "Remove the 'MovieActors' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Movies' table with columns for MovieID (auto-incrementing), Title, Genre, and ReleaseYear, with MovieID as the primary key.",
+        "Create a new 'Actors' table with columns for ActorID (auto-incrementing), FirstName, LastName, and BirthDate, with ActorID as the primary key.",
+        "Create a new 'MovieActors' table with columns for MovieActorID (auto-incrementing), MovieID, ActorID, and Role, with MovieActorID as the primary key and foreign key relationships to the Movies and Actors tables."
+    ],
+    "insert": [
+        "Add a new movie: Inception, genre Sci-Fi, released in 2010.",
+        "Add a new movie: The Dark Knight, genre Action, released in 2008.",
+        "Add a new movie: Interstellar, genre Sci-Fi, released in 2014.",
+        "Add a new movie: Pulp Fiction, genre Crime, released in 1994.",
+        "Add a new movie: The Matrix, genre Sci-Fi, released in 1999.",
+        "Add a new movie: The Godfather, genre Crime, released in 1972.",
+        "Add a new movie: Forrest Gump, genre Drama, released in 1994.",
+        "Add a new movie: Gladiator, genre Action, released in 2000.",
+        "Add a new movie: Titanic, genre Romance, released in 1997.",
+        "Add a new movie: Avatar, genre Sci-Fi, released in 2009.",
+
+        "Add a new actor: Leonardo DiCaprio, born on November 11, 1974.",
+        "Add a new actor: Robert De Niro, born on August 17, 1943.",
+        "Add a new actor: Morgan Freeman, born on June 1, 1937.",
+        "Add a new actor: Brad Pitt, born on December 18, 1963.",
+        "Add a new actor: Tom Hanks, born on July 9, 1956.",
+        "Add a new actor: Christian Bale, born on January 30, 1974.",
+        "Add a new actor: Natalie Portman, born on June 9, 1981.",
+        "Add a new actor: Samuel Jackson, born on December 21, 1948.",
+        "Add a new actor: Scarlett Johansson, born on November 22, 1984.",
+        "Add a new actor: Matt Damon, born on October 8, 1970.",
+
+        "Associate actor Leonardo DiCaprio with the movie Inception in the role of Dom Cobb.",
+        "Associate actor Christian Bale with the movie The Dark Knight in the role of Bruce Wayne.",
+        "Associate actor Leonardo DiCaprio with the movie Interstellar in the role of Cooper.",
+        "Associate actor Samuel Jackson with the movie Pulp Fiction in the role of Jules Winnfield.",
+        "Associate actor Brad Pitt with the movie The Matrix in the role of Neo.",
+        "Associate actor Robert De Niro with the movie The Godfather in the role of Vito Corleone.",
+        "Associate actor Tom Hanks with the movie Forrest Gump in the role of Forrest Gump.",
+        "Associate actor Scarlett Johansson with the movie Gladiator in the role of Maximus.",
+        "Associate actor Leonardo DiCaprio with the movie Titanic in the role of Jack Dawson.",
+        "Associate actor Leonardo DiCaprio with the movie Avatar in the role of Jake Sully."
+    ],
+    "delete": [
+        "Remove the movie with ID 1 from the Movies table.",
+        "Remove the movie titled 'Inception' from the Movies table.",
+        "Remove all movies in the Action genre from the Movies table.",
+        "Remove all movies released in 2020 from the Movies table.",
+        "Remove all movies with titles containing 'Star' from the Movies table.",
+        "Remove all movies in the Comedy genre released before 2010 from the Movies table.",
+        "Remove the movie titled 'Avatar' or released in 2009 from the Movies table.",
+        "Remove the movies with IDs 2, 3, and 5 from the Movies table.",
+        "Remove all movies with no title from the Movies table.",
+        "Remove all movies in the Drama genre released between 2000 and 2010 from the Movies table.",
+
+        "Remove the actor with ID 1 from the Actors table.",
+        "Remove the actor with first name 'Robert' from the Actors table.",
+        "Remove the actor with last name 'Smith' from the Actors table.",
+        "Remove the actor born on January 1, 1980 from the Actors table.",
+        "Remove all actors with first names starting with 'A' from the Actors table.",
+        "Remove the actor with last name 'Johnson' born after January 1, 1990 from the Actors table.",
+        "Remove the actor with first name 'Chris' or last name 'Evans' from the Actors table.",
+        "Remove the actors with IDs 4, 6, and 8 from the Actors table.",
+        "Remove all actors with no birth date from the Actors table.",
+        "Remove all actors born between January 1, 1970 and December 31, 1980 from the Actors table.",
+
+        "Remove the movie-actor association with ID 1 from the MovieActors table.",
+        "Remove all associations for the movie with ID 2 from the MovieActors table.",
+        "Remove all associations for the actor with ID 3 from the MovieActors table.",
+        "Remove all associations with the role 'Lead' from the MovieActors table.",
+        "Remove all associations with roles containing 'Supporting' from the MovieActors table.",
+        "Remove the association for movie 1 and actor 2 from the MovieActors table.",
+        "Remove all associations with the role 'Cameo' or for actor 5 from the MovieActors table.",
+        "Remove the associations with IDs 3, 5, and 7 from the MovieActors table.",
+        "Remove all associations with no specified role from the MovieActors table.",
+        "Remove all associations for movie 4 and actors with IDs between 1 and 3 from the MovieActors table."
+    ],
+    "update": [
+        "Change the genre to Comedy for all movies released in 2020.",
+        "Change the title to 'The Great Adventure' for the movie with ID 5.",
+        "Change the genre to Drama for the movie titled 'Mystery of the Old House'.",
+        "Change the release year to 2019 for all movies in the Horror genre.",
+        "Change the genre to Action and the release year to 2021 for the movie with ID 3.",
+        "Change the title to 'Romantic Escape' and the genre to Romance for all movies released in 2018 in the Comedy genre.",
+        "Change the genre to Thriller for all movies with titles starting with 'The' and released in 2017.",
+        "Change the title to 'New Dawn' and the release year to 2022 for the movie with ID 7.",
+        "Change the genre to Sci-Fi for all movies released between 2016 and 2019.",
+        "Change the title to 'The Final Battle' and the genre to Action for the movie with ID 10 released in 2020.",
+
+        "Change the last name to 'Doe' for the actor with first name 'John'.",
+        "Change the birth date to July 15, 1985 for the actor with ID 2.",
+        "Change the first name to 'Jane' and the last name to 'Smith' for the actor with ID 3.",
+        "Change the birth date to January 1, 1990 for the actor named 'Emily Clark'.",
+        "Change the last name to 'Johnson' for all actors with first name 'Michael'.",
+        "Change the first name to 'Robert' and the last name to 'Brown' for the actor with ID 4.",
+        "Change the birth date to May 23, 1978 for all actors with last name 'Davis'.",
+        "Change the first name to 'Alice' for the actor with ID 6 born before January 1, 1980.",
+        "Change the last name to 'Taylor' for all actors named 'Jessica' born after January 1, 1995.",
+        "Change the first name to 'David' and the last name to 'Wilson' for the actor with ID 8.",
+
+        "Change the role to 'Lead Actor' for the association of movie 1 and actor 3.",
+        "Change the role to 'Supporting Actor' for the movie-actor association with ID 5.",
+        "Change the movie to movie 2 and the actor to actor 4 for the movie-actor association with ID 6.",
+        "Change the role to 'Cameo' for all associations involving actor 7.",
+        "Change the movie to movie 3 for the association with ID 8 where the role is 'Lead Actress'.",
+        "Change the role to 'Antagonist' for the association of actor 2 and movie 4.",
+        "Change the role to 'Protagonist' for the movie-actor association with ID 9.",
+        "Change the actor to actor 6 for the association of movie 1 where the role is 'Supporting Actress'.",
+        "Change the role to 'Cameo' and the actor to actor 10 for the movie-actor association with ID 10.",
+        "Change the movie to movie 5 for the association of actor 8 where the role is 'Antagonist'."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all MovieIDs from the Movies table.",
+            "Retrieve all ActorIDs from the Actors table.",
+            "Retrieve all MovieActorIDs from the MovieActors table.",
+            "Retrieve all Titles from the Movies table."
+        ],
+        "single_filtering": [
+            "Find the MovieIDs of all movies in the Comedy genre.",
+            "Find the ActorIDs of all actors with the last name Smith.",
+            "Find the MovieActorIDs of all associations where the role is 'Lead'.",
+            "Find the MovieIDs of all movies released in 2022."
+        ],
+        "double_filtering": [
+            "Find the MovieIDs of all movies in the Comedy genre released in 2022.",
+            "Find the ActorIDs of all actors with the last name Smith or the first name John.",
+            "Find the MovieActorIDs of all associations where the role is 'Lead' and the movie ID is 1.",
+            "Find the MovieIDs of all movies titled 'Inception' and released in 2010."
+        ],
+        "triple_filtering": [
+            "Find the MovieIDs of all movies in the Action genre, released in 2020, and titled 'Tenet'.",
+            "Find the ActorIDs of all actors with the last name Doe, or the first name Jane and born on January 1, 1990.",
+            "Find the MovieActorIDs of all associations where the role is 'Support', the movie ID is 2, or the actor ID is 3.",
+            "Find the MovieIDs of all movies in the Drama genre, released in 2021, and titled 'Nomadland'."
+        ],
+        "range_filtering": [
+            "Find the MovieIDs of all movies released between 2000 and 2010.",
+            "Find the ActorIDs of all actors born between January 1, 1980 and December 31, 1990.",
+            "Find the MovieActorIDs of all associations where the movie ID is between 1 and 10.",
+            "Find the MovieIDs of all movies released between 1995 and 2005."
+        ],
+        "ranking": [
+            "Retrieve all MovieIDs, ordered by release year from latest to earliest.",
+            "Retrieve all ActorIDs, ordered by birth date from earliest to latest.",
+            "Retrieve all MovieActorIDs, ordered by role in descending alphabetical order.",
+            "Retrieve all MovieIDs, ordered by title in ascending alphabetical order."
+        ],
+        "count": [
+            "Count the total number of movies.",
+            "Count the total number of actors.",
+            "Count the total number of movie-actor associations.",
+            "Count the total number of unique release years for all movies."
+        ],
+        "single_table": [
+            "Retrieve all MovieIDs from the Movies table.",
+            "Retrieve all ActorIDs from the Actors table.",
+            "Retrieve all MovieActorIDs from the MovieActors table.",
+            "Retrieve all Titles from the Movies table."
+        ],
+        "double_table": [
+            "Find the MovieIDs and corresponding ActorIDs for all movie-actor associations.",
+            "Find the ActorIDs and corresponding MovieIDs for all movie-actor associations.",
+            "Find the MovieIDs and their Titles for all movies that have any actor associations.",
+            "Find the ActorIDs and their FirstNames for all actors who are associated with any movie."
+        ],
+        "three_table": [
+            "Find the MovieIDs, ActorIDs, and Roles for all movie-actor associations, including movie titles and actor names.",
+            "Find the MovieActorIDs, Movie Titles, and Actor FirstNames for all associations.",
+            "Find the ActorIDs, MovieIDs, and Roles for all associations, including actor full names and movie titles.",
+            "Find the MovieIDs, ActorIDs, and MovieActorIDs for all associations, including movie genres and actor birth dates."
+        ]
+    }
+}

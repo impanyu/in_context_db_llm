@@ -1,0 +1,179 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Restaurants' table if it exists.",
+        "Remove the 'Menus' table if it exists.",
+        "Remove the 'Dishes' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Restaurants' table with columns for RestaurantID (auto-incrementing), RestaurantName, and Address, with RestaurantID as the primary key.",
+        "Create a new 'Menus' table with columns for MenuID (auto-incrementing), MenuName, and RestaurantID, with MenuID as the primary key and a foreign key relationship to the Restaurants table.",
+        "Create a new 'Dishes' table with columns for DishID (auto-incrementing), DishName, Price, and MenuID, with DishID as the primary key and a foreign key relationship to the Menus table."
+    ],
+    "insert": [
+        "Add a new restaurant: Pasta Palace located at 123 Main St.",
+        "Add a new restaurant: Sushi World located at 456 Elm St.",
+        "Add a new restaurant: Burger Bonanza located at 789 Oak St.",
+        "Add a new restaurant: Taco Town located at 101 Pine St.",
+        "Add a new restaurant: Pizza Planet located at 202 Maple St.",
+        "Add a new restaurant: BBQ Barn located at 303 Cedar St.",
+        "Add a new restaurant: Curry Corner located at 404 Birch St.",
+        "Add a new restaurant: Steakhouse Supreme located at 505 Walnut St.",
+        "Add a new restaurant: Seafood Shack located at 606 Chestnut St.",
+        "Add a new restaurant: Deli Delight located at 707 Spruce St.",
+        
+        "Add a new menu: Lunch Menu for restaurant with ID 1.",
+        "Add a new menu: Dinner Menu for restaurant with ID 1.",
+        "Add a new menu: Sushi Specials for restaurant with ID 2.",
+        "Add a new menu: Burger Menu for restaurant with ID 3.",
+        "Add a new menu: Taco Fiesta for restaurant with ID 4.",
+        "Add a new menu: Pizza Pies for restaurant with ID 5.",
+        "Add a new menu: BBQ Favorites for restaurant with ID 6.",
+        "Add a new menu: Curry Creations for restaurant with ID 7.",
+        "Add a new menu: Steak Selections for restaurant with ID 8.",
+        "Add a new menu: Seafood Specials for restaurant with ID 9.",
+    
+        "Add a new dish: Spaghetti Carbonara priced at $12.99 to menu with ID 1.",
+        "Add a new dish: Fettuccine Alfredo priced at $13.99 to menu with ID 1.",
+        "Add a new dish: Salmon Sushi priced at $8.99 to menu with ID 3.",
+        "Add a new dish: Tuna Roll priced at $9.99 to menu with ID 3.",
+        "Add a new dish: Cheeseburger priced at $7.99 to menu with ID 4.",
+        "Add a new dish: Double Bacon Burger priced at $9.49 to menu with ID 4.",
+        "Add a new dish: Chicken Taco priced at $3.49 to menu with ID 5.",
+        "Add a new dish: Beef Taco priced at $3.99 to menu with ID 5.",
+        "Add a new dish: Pepperoni Pizza priced at $10.99 to menu with ID 6.",
+        "Add a new dish: BBQ Chicken Pizza priced at $11.99 to menu with ID 6."
+      ],
+      "delete": [
+        "Remove the restaurant with ID 1 from the Restaurants table.",
+        "Remove the restaurant named 'Gourmet Kitchen' from the Restaurants table.",
+        "Remove the restaurant located at '123 Main St' from the Restaurants table.",
+        "Remove all restaurants with ID greater than 5 from the Restaurants table.",
+        "Remove all restaurants with names containing 'Deli' from the Restaurants table.",
+        "Remove the restaurant with ID 3 or located at '456 Elm St' from the Restaurants table.",
+        "Remove the restaurant with ID 7 and named 'Ocean View' from the Restaurants table.",
+        "Remove the restaurants with IDs 2, 4, and 6 from the Restaurants table.",
+        "Remove the restaurant named 'Bistro Cafe' or located at '789 Maple Ave' from the Restaurants table.",
+        "Remove all restaurants with IDs between 1 and 5 from the Restaurants table.",
+    
+        "Remove the menu with ID 1 from the Menus table.",
+        "Remove the menu named 'Lunch Specials' from the Menus table.",
+        "Remove all menus for the restaurant with ID 3 from the Menus table.",
+        "Remove all menus with ID greater than 5 from the Menus table.",
+        "Remove all menus with names containing 'Dinner' from the Menus table.",
+        "Remove the menu with ID 3 or belonging to restaurant with ID 2 from the Menus table.",
+        "Remove the menu with ID 7 and named 'Breakfast Menu' from the Menus table.",
+        "Remove all menus for restaurants with IDs 1, 3, or 5 from the Menus table.",
+        "Remove the menu named 'Kids Menu' or belonging to restaurant with ID 4 from the Menus table.",
+        "Remove all menus with IDs between 1 and 5 from the Menus table.",
+    
+        "Remove the dish with ID 1 from the Dishes table.",
+        "Remove the dish named 'Pasta Primavera' from the Dishes table.",
+        "Remove all dishes priced over $15.00 from the Dishes table.",
+        "Remove all dishes from the menu with ID 3 from the Dishes table.",
+        "Remove all dishes with names containing 'Salad' from the Dishes table.",
+        "Remove the dish with ID 4 or belonging to menu with ID 2 from the Dishes table.",
+        "Remove the dish with ID 5 and priced under $10.00 from the Dishes table.",
+        "Remove all dishes from menus with IDs 2, 4, or 6 from the Dishes table.",
+        "Remove the dish named 'Steak' or priced over $20.00 from the Dishes table.",
+        "Remove all dishes with IDs between 1 and 5 from the Dishes table."
+      ],
+      "update": [
+        "Change the restaurant name to 'New Flavors' for the restaurant with ID 1.",
+        "Change the address to '123 New Address' for the restaurant with ID 2.",
+        "Change the restaurant name to 'Gourmet Hub' for the restaurant located at '456 Old Street'.",
+        "Change the address to '789 New Lane' for the restaurant named 'Tasty Bites'.",
+        "Change the restaurant name to 'The Food Place' and the address to '1010 Gourmet Blvd' for the restaurant with ID 3.",
+        "Change the address to '2222 Flavor Ave' for the restaurant with ID 4 and named 'Yummy Corner'.",
+        "Change the restaurant name to 'Savory Delights' for all restaurants with addresses containing 'Main St'.",
+        "Change the address to '3030 Culinary Road' for the restaurant with ID 5 or named 'Culinary Arts'.",
+        "Change the restaurant name to 'Bistro Delight' and the address to '4040 Cuisine Lane' for the restaurant with ID 6.",
+        "Change the restaurant name to 'Epic Eats' for the restaurant located at '5050 Foodie Drive'.",
+
+        "Change the menu name to 'Brunch Specials' for the menu with ID 1.",
+        "Change the menu name to 'Dinner Delights' for the menu with ID 2 belonging to restaurant with ID 1.",
+        "Change the menu name to 'Healthy Choices' for all menus belonging to restaurant with ID 2.",
+        "Change the menu name to 'Vegan Feast' for the menu with ID 3 or belonging to restaurant with ID 3.",
+        "Change the menu name to 'Classic Dishes' for the menu with ID 4.",
+        "Change the menu name to 'Seafood Specials' for the menu with ID 5 and currently named 'Daily Catch'.",
+        "Change the menu name to 'Dessert Menu' for the menu with ID 6 belonging to restaurant with ID 4.",
+        "Change the menu name to 'Lunch Combos' for all menus belonging to restaurant with ID 5.",
+        "Change the menu name to 'Specialty Drinks' for the menu with ID 7.",
+        "Change the menu name to 'Chef's Choice' for all menus belonging to restaurant with ID 6.",
+
+        "Change the dish name to 'Grilled Salmon' and the price to $18.99 for the dish with ID 1.",
+        "Change the price to $12.99 for the dish with ID 2 belonging to menu with ID 1.",
+        "Change the dish name to 'Vegetable Stir Fry' for the dish with ID 3 and priced over $10.00.",
+        "Change the dish name to 'Beef Wellington' and the price to $25.99 for all dishes belonging to menu with ID 2.",
+        "Change the price to $9.99 for the dish with ID 4 or named 'Pasta Primavera'.",
+        "Change the dish name to 'Chicken Alfredo' for the dish with ID 5.",
+        "Change the dish name to 'Margarita Pizza' and the price to $14.99 for the dish belonging to menu with ID 3 and having ID 6.",
+        "Change the price to $8.99 for the dish with ID 7 and named 'Caesar Salad'.",
+        "Change the dish name to 'Chocolate Lava Cake' for the dish with ID 8.",
+        "Change the price to $19.99 for all dishes belonging to menu with ID 4 and named 'Lobster Bisque'."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all RestaurantIDs from the Restaurants table.",
+            "Retrieve all MenuIDs from the Menus table.",
+            "Retrieve all DishIDs from the Dishes table.",
+            "Retrieve all MenuIDs from the Menus table."
+        ],
+        "single_filtering": [
+            "Find the RestaurantIDs of all restaurants named 'Italian Bistro'.",
+            "Find the MenuIDs of all menus named 'Lunch Menu'.",
+            "Find the DishIDs of all dishes priced over $20.00.",
+            "Find the RestaurantIDs of all restaurants with addresses containing 'Main Street'."
+        ],
+        "double_filtering": [
+            "Find the RestaurantIDs of all restaurants named 'Italian Bistro' and located on 'Main Street'.",
+            "Find the MenuIDs of all menus named 'Lunch Menu' belonging to restaurant with ID 1.",
+            "Find the DishIDs of all dishes priced over $20.00 and belonging to menu with ID 2.",
+            "Find the DishIDs of all dishes priced over $10.00 or belonging to menu with ID 3."
+        ],
+        "triple_filtering": [
+            "Find the RestaurantIDs of all restaurants named 'Italian Bistro', located on 'Main Street', and with ID 1.",
+            "Find the MenuIDs of all menus named 'Lunch Menu', belonging to restaurant with ID 1, and with ID 2.",
+            "Find the DishIDs of all dishes priced over $20.00, belonging to menu with ID 2, and with names containing 'Pasta'.",
+            "Find the DishIDs of all dishes priced over $10.00, belonging to menu with ID 3, or with names containing 'Salad'."
+        ],
+        "range_filtering": [
+            "Find the RestaurantIDs of all restaurants with IDs between 1 and 5.",
+            "Find the MenuIDs of all menus with IDs between 2 and 10.",
+            "Find the DishIDs of all dishes priced between $10.00 and $20.00.",
+            "Find the DishIDs of all dishes belonging to menus with IDs between 1 and 3."
+        ],
+        "ranking": [
+            "Retrieve all RestaurantIDs, ordered by RestaurantID in descending order.",
+            "Retrieve all MenuIDs, ordered by MenuID in ascending order.",
+            "Retrieve all DishIDs, ordered by Price in descending order.",
+            "Retrieve all DishIDs, ordered by MenuID in ascending order."
+        ],
+        "count": [
+            "Count the total number of restaurants.",
+            "Count the total number of menus.",
+            "Count the total number of dishes.",
+            "Count the total number of menus belonging to restaurant with ID 1."
+        ],
+        "single_table": [
+            "Retrieve all RestaurantIDs from the Restaurants table.",
+            "Retrieve all MenuIDs from the Menus table.",
+            "Retrieve all DishIDs from the Dishes table.",
+            "Find the MenuIDs of all menus belonging to restaurant with ID 1."
+        ],
+        "double_table": [
+            "Find the RestaurantIDs and corresponding MenuIDs by joining the Restaurants and Menus tables.",
+            "Find the MenuIDs and corresponding DishIDs by joining the Menus and Dishes tables.",
+            "Find the DishIDs and corresponding MenuIDs by joining the Dishes and Menus tables.",
+            "Find the RestaurantIDs and corresponding MenuIDs for all menus named 'Lunch Menu' by joining the Restaurants and Menus tables."
+        ],
+        "three_table": [
+            "Find the RestaurantIDs, MenuIDs, and DishIDs by joining the Restaurants, Menus, and Dishes tables.",
+            "Find the MenuIDs, RestaurantIDs, and DishIDs by joining the Menus, Restaurants, and Dishes tables.",
+            "Find the DishIDs, MenuIDs, and RestaurantIDs by joining the Dishes, Menus, and Restaurants tables.",
+            "Find the DishIDs, MenuIDs, and RestaurantIDs for all restaurants named 'Italian Bistro' by joining the Dishes, Menus, and Restaurants tables."
+        ]
+    }
+}

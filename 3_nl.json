@@ -1,0 +1,174 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],
+    "drop_tables":[
+        "Remove the 'Authors' table if it exists.",
+        "Remove the 'Books' table if it exists.",
+        "Remove the 'Publishers' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Authors' table with columns for AuthorID (auto-incrementing), FirstName, LastName, BirthDate, and Nationality.",
+        "Create a new 'Publishers' table with columns for PublisherID (auto-incrementing), PublisherName, Address, and Country.",
+        "Create a new 'Books' table with columns for BookID (auto-incrementing), Title, Genre, PublishedYear, AuthorID, and PublisherID, with foreign key relationships to the Authors and Publishers tables."
+    ],
+    "insert":[
+        "Add a new author: George Orwell, born on June 25, 1903, British nationality.",
+        "Add a new author: Jane Austen, born on December 16, 1775, British nationality.",
+        "Add a new author: Mark Twain, born on November 30, 1835, American nationality.",
+        "Add a new author: J.K. Rowling, born on July 31, 1965, British nationality.",
+        "Add a new author: Ernest Hemingway, born on July 21, 1899, American nationality.",
+        "Add a new author: Leo Tolstoy, born on September 9, 1828, Russian nationality.",
+        "Add a new author: Gabriel García Márquez, born on March 6, 1927, Colombian nationality.",
+        "Add a new author: F. Scott Fitzgerald, born on September 24, 1896, American nationality.",
+        "Add a new author: Virginia Woolf, born on January 25, 1882, British nationality.",
+        "Add a new author: James Joyce, born on February 2, 1882, Irish nationality.",
+        "Add a new publisher: Penguin Random House, located at 1745 Broadway, New York, NY 10019, United States.",
+        "Add a new publisher: HarperCollins, located at 195 Broadway, New York, NY 10007, United States.",
+        "Add a new publisher: Simon & Schuster, located at 1230 Avenue of the Americas, New York, NY 10020, United States.",
+        "Add a new publisher: Hachette Livre, located at 43 Quai de Grenelle, 75015 Paris, France.",
+        "Add a new publisher: Macmillan Publishers, located at 120 Broadway, New York, NY 10271, United States.",
+        "Add a new publisher: Scholastic Corporation, located at 557 Broadway, New York, NY 10012, United States.",
+        "Add a new publisher: Oxford University Press, located at Great Clarendon Street, Oxford, OX2 6DP, United Kingdom.",
+        "Add a new publisher: Cambridge University Press, located at University Printing House, Cambridge, CB2 8BS, United Kingdom.",
+        "Add a new publisher: Pearson Education, located at 80 Strand, London, WC2R 0RL, United Kingdom.",
+        "Add a new publisher: Harvard University Press, located at 79 Garden Street, Cambridge, MA 02138, United States.",
+        "Add a new book: '1984', genre 'Dystopian', published in 1949, by author with ID 1, published by publisher with ID 1.",
+        "Add a new book: 'Animal Farm', genre 'Political Satire', published in 1945, by author with ID 1, published by publisher with ID 2.",
+        "Add a new book: 'Pride and Prejudice', genre 'Romance', published in 1813, by author with ID 2, published by publisher with ID 3.",
+        "Add a new book: 'Sense and Sensibility', genre 'Romance', published in 1811, by author with ID 2, published by publisher with ID 4.",
+        "Add a new book: 'Adventures of Huckleberry Finn', genre 'Adventure', published in 1884, by author with ID 3, published by publisher with ID 5.",
+        "Add a new book: 'The Adventures of Tom Sawyer', genre 'Adventure', published in 1876, by author with ID 3, published by publisher with ID 6.",
+        "Add a new book: 'Harry Potter and the Philosopher's Stone', genre 'Fantasy', published in 1997, by author with ID 4, published by publisher with ID 7.",
+        "Add a new book: 'Harry Potter and the Chamber of Secrets', genre 'Fantasy', published in 1998, by author with ID 4, published by publisher with ID 8.",
+        "Add a new book: 'The Old Man and the Sea', genre 'Fiction', published in 1952, by author with ID 5, published by publisher with ID 9.",
+        "Add a new book: 'A Farewell to Arms', genre 'War', published in 1929, by author with ID 5, published by publisher with ID 10.",
+        "Add a new book: 'War and Peace', genre 'Historical Fiction', published in 1869, by author with ID 6, published by publisher with ID 11."
+    ],
+    "delete":[
+        "Remove the author with ID 1 from the Authors table.",
+        "Remove the author named Jane Austen from the Authors table.",
+        "Remove all American authors from the Authors table.",
+        "Remove all authors born before January 1, 1900 from the Authors table.",
+        "Remove authors named George or with the last name Joyce from the Authors table.",
+        "Remove British authors born before January 1, 1800 from the Authors table.",
+        "Remove authors with ID greater than 5 from the Authors table.",
+        "Remove authors whose last name starts with 'Fitz' from the Authors table.",
+        "Remove the author named J.K. Rowling who is British from the Authors table.",
+        "Remove authors born between January 1, 1800 and January 1, 1900 from the Authors table.",
+        "Remove the book with ID 10 from the Books table.",
+        "Remove the book titled '1984' from the Books table.",
+        "Remove Romance books published before 1900 from the Books table.",
+        "Remove books published in 1925 or 1934 from the Books table.",
+        "Remove books by the author with ID 3 from the Books table.",
+        "Remove Fantasy books published by the publisher with ID 2 from the Books table.",
+        "Remove books with titles starting with 'Harry Potter' from the Books table.",
+        "Remove books with no published year from the Books table.",
+        "Remove books in the Magic Realism or Modernist Novel genres from the Books table.",
+        "Remove books published by publisher with ID 1 and written by author with ID 4 from the Books table.",
+        "Remove the publisher with ID 5 from the Publishers table.",
+        "Remove all publishers in the United States from the Publishers table.",
+        "Remove publishers with 'University' in their name from the Publishers table.",
+        "Remove publishers with addresses in New York from the Publishers table.",
+        "Remove publishers in the United Kingdom with addresses in Oxford from the Publishers table.",
+        "Remove the publisher named Penguin Random House from the Publishers table.",
+        "Remove publishers with no address from the Publishers table.",
+        "Remove publishers with ID less than 3 from the Publishers table.",
+        "Remove publishers whose names start with 'Hachette' from the Publishers table.",
+        "Remove publishers in the United States or France from the Publishers table."
+    ],
+    "update":[
+        "Change the nationality of the author with last name Orwell to British.",
+        "Change the first name of the author with last name Rowling and birth date July 31, 1965 to Joanne.",
+        "Set the birth date of the British author with last name Woolf to January 25, 1882.",
+        "Change the last name of the Irish author named James to Joyce.",
+        "Change the nationality of authors with last name Twain or Hemingway to American.",
+        "Change the first name of the British author with last name Orwell to George.",
+        "Set the birth date of the author with last name Hemingway to July 21, 1899.",
+        "Change the last name of the Colombian author García Márquez to Garcia Marquez.",
+        "Change the nationality of the author with last name Tolstoy to Russian.",
+        "Change the first name to Leo and nationality to Russian for the author with last name Tolstoy.",
+        "Change the genre of the book '1984' to Science Fiction.",
+        "Change the published year of the book 'Animal Farm' in the Political Satire genre to 1945.",
+        "Change the genre to Fantasy and published year to 1997 for the book 'Harry Potter and the Philosopher's Stone'.",
+        "Change the title of the book with ID 6 to 'The Adventures of Tom Sawyer'.",
+        "Change the genre to Magic Realism for books by author with ID 7 or titled 'One Hundred Years of Solitude'.",
+        "Change the published year to 1925 for the book 'The Great Gatsby' in the Tragedy genre.",
+        "Change the genre to Modernist Novel for the book 'Mrs. Dalloway' by author with ID 9.",
+        "Change the publisher to the one with ID 2 for the book 'Pride and Prejudice' in the Romance genre.",
+        "Change the title to 'Ulysses' and genre to Modernist Novel for the book with ID 19.",
+        "Change the publisher to the one with ID 4 for the book '1984' by author with ID 1.",
+        "Change the address of Penguin Random House to '21 New Oxford Street, London, UK'.",
+        "Change the country of Oxford University Press to United Kingdom.",
+        "Change the name of publishers with ID 2 or 3 to 'Harper & Brothers'.",
+        "Change the country to United States and address to '123 Broadway, New York, NY' for the publisher with ID 5.",
+        "Change the address to '123 Fourth Street, New York, NY' for HarperCollins in the United States.",
+        "Change the name of the publisher with ID 6 in the United States to 'Scholastic Inc.'.",
+        "Change the country to France and address to '20 Avenue de l'Opéra, Paris' for Hachette Livre.",
+        "Change the name of the publisher with ID 9 in the United Kingdom to 'Pearson Plc'.",
+        "Change the address of Simon & Schuster to '32 Avenue of the Americas, New York, NY'.",
+        "Change the name of the publisher with ID 10 in the United States to 'Harvard Press'."
+    ],
+   "select": {
+        "no_filtering":[
+            "Retrieve all AuthorIDs from the Authors table.",
+            "Retrieve all BookIDs from the Books table.",
+            "Retrieve all PublisherIDs from the Publishers table.",
+            "Retrieve all unique AuthorIDs from the Authors table."
+        ],
+        "single_filtering":[
+            "Find the AuthorIDs of all British authors.",
+            "Find the BookIDs of all Fantasy books.",
+            "Find the PublisherIDs of all publishers in the United States.",
+            "Find the AuthorIDs of all authors born after January 1, 1900."
+        ],
+        "double_filtering":[  
+             "Find the AuthorIDs of all British authors born after January 1, 1900.",
+            "Find the BookIDs of all Fantasy books published after 2000.",
+            "Find the PublisherIDs of all publishers in the United States with addresses in New York.",
+            "Find the BookIDs of all Dystopian books or books published before 1950."
+        ],
+        "triple_filtering":[
+            "Find the AuthorIDs of all British authors born after January 1, 1900 with the last name Orwell.",
+            "Find the BookIDs of all Fantasy books published after 2000 with titles starting with 'Harry Potter'.",
+            "Find the PublisherIDs of all publishers in the United States with addresses in New York and named Penguin Random House.",
+            "Find the AuthorIDs of all American authors, or authors born after January 1, 1900 with the last name Hemingway."
+        ],
+        "range_filtering":[
+            "Find the AuthorIDs of all authors born between January 1, 1900 and December 31, 1950.",
+            "Find the BookIDs of all books published between 1990 and 2000.",
+            "Find the PublisherIDs of publishers with IDs between 1 and 10.",
+            "Find the AuthorIDs of authors with IDs between 5 and 15."
+        ],
+        "ranking":[
+            "Retrieve all AuthorIDs, ordered by birth date from earliest to latest.",
+            "Retrieve all BookIDs, ordered by published year from latest to earliest.",
+            "Retrieve all PublisherIDs, ordered by publisher name alphabetically.",
+            "Retrieve all AuthorIDs, ordered by last name alphabetically descending, then by first name alphabetically ascending."
+        ],
+        "count":[
+            "Count the total number of authors.",
+            "Count the total number of books.",
+            "Count the total number of publishers.",
+            "Count the number of American authors."
+        ],
+        "single_table":[
+            "Find the AuthorIDs of all British authors.",
+            "Find the BookIDs of all Fantasy books.",
+            "Find the PublisherIDs of all publishers in the United Kingdom.",
+            "Find the AuthorIDs of all authors born before January 1, 1900."
+        ],
+        "double_table":[
+            "Find the BookIDs of all books written by British authors.",
+            "Find the BookIDs of all books published by publishers in the United States.",
+            "Find the AuthorIDs of all authors who have written Fantasy books.",
+            "Find the PublisherIDs of all publishers who have published books after 2000."
+        ],
+        "three_table":[
+            "Find the BookIDs of all books written by British authors and published by publishers in the United States.",
+            "Find the AuthorIDs of all authors who have written Fantasy books published by publishers in the United Kingdom.",
+            "Find the PublisherIDs of all publishers who have published books by authors born before January 1, 1900.",
+            "Find the BookIDs of all books written by Orwell and published by Penguin Random House."
+        ]
+    }   
+}

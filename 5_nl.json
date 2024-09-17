@@ -1,0 +1,179 @@
+{
+    "drop_database": ["Remove the 'test' database if it exists."],
+    "create_database": ["Create a new database named 'test' if it doesn't already exist."],
+    "use_database": ["Switch to using the 'test' database."],  
+    "drop_tables":[
+        "Remove the 'Employees' table if it exists.",
+        "Remove the 'Departments' table if it exists.",
+        "Remove the 'Salaries' table if it exists."
+    ],
+    "create_tables":[
+        "Create a new 'Employees' table with columns for EmployeeID (auto-incrementing), FirstName, LastName, HireDate, and DepartmentID, with EmployeeID as the primary key.",
+        "Create a new 'Departments' table with columns for DepartmentID (auto-incrementing) and DepartmentName, with DepartmentID as the primary key.",
+        "Create a new 'Salaries' table with columns for SalaryID (auto-incrementing), EmployeeID, Amount, and EffectiveDate, with SalaryID as the primary key and EmployeeID as a foreign key referencing the Employees table."
+    ],
+    "insert": [
+        "Add a new employee: John Doe, hired on January 15, 2020, in department 1.",
+        "Add a new employee: Jane Smith, hired on May 23, 2019, in department 2.",
+        "Add a new employee: Michael Johnson, hired on June 30, 2021, in department 3.",
+        "Add a new employee: Emily Davis, hired on August 12, 2018, in department 1.",
+        "Add a new employee: David Wilson, hired on September 5, 2017, in department 4.",
+        "Add a new employee: Sarah Miller, hired on November 20, 2016, in department 2.",
+        "Add a new employee: Chris Brown, hired on March 14, 2022, in department 3.",
+        "Add a new employee: Jessica Williams, hired on April 1, 2015, in department 4.",
+        "Add a new employee: Daniel Jones, hired on July 7, 2020, in department 1.",
+        "Add a new employee: Laura Garcia, hired on December 15, 2019, in department 3.",
+
+        "Add a new department: Human Resources.",
+        "Add a new department: Finance.",
+        "Add a new department: IT.",
+        "Add a new department: Marketing.",
+        "Add a new department: Sales.",
+        "Add a new department: Customer Support.",
+        "Add a new department: Operations.",
+        "Add a new department: Legal.",
+        "Add a new department: Research and Development.",
+        "Add a new department: Administration.",
+
+        "Record a salary: Employee 1, $55,000.00, effective from January 15, 2020.",
+        "Record a salary: Employee 2, $60,000.00, effective from May 23, 2019.",
+        "Record a salary: Employee 3, $75,000.00, effective from June 30, 2021.",
+        "Record a salary: Employee 4, $65,000.00, effective from August 12, 2018.",
+        "Record a salary: Employee 5, $70,000.00, effective from September 5, 2017.",
+        "Record a salary: Employee 6, $72,000.00, effective from November 20, 2016.",
+        "Record a salary: Employee 7, $68,000.00, effective from March 14, 2022.",
+        "Record a salary: Employee 8, $50,000.00, effective from April 1, 2015.",
+        "Record a salary: Employee 9, $53,000.00, effective from July 7, 2020.",
+        "Record a salary: Employee 10, $62,000.00, effective from December 15, 2019."
+    ],
+    "delete": [
+        "Remove the employee with ID 1 from the Employees table.",
+        "Remove all employees named John from the Employees table.",
+        "Remove the employee named Doe who works in department 3 from the Employees table.",
+        "Remove all employees hired before January 1, 2020 from the Employees table.",
+        "Remove all employees in department 2 from the Employees table.",
+        "Remove all employees named Smith or hired after June 15, 2021 from the Employees table.",
+        "Remove the employee named Jane Doe from the Employees table.",
+        "Remove employees with IDs between 5 and 10 from the Employees table.",
+        "Remove all employees in department 4 hired after January 1, 2022 from the Employees table.",
+        "Remove the employee named Alice in department 1 from the Employees table.",
+
+        "Remove the department with ID 1 from the Departments table.",
+        "Remove the department named HR from the Departments table.",
+        "Remove the department named Engineering with ID 3 from the Departments table.",
+        "Remove all departments with ID greater than 5 from the Departments table.",
+        "Remove all departments whose names start with 'Sales' from the Departments table.",
+        "Remove the department named Finance or the department with ID 4 from the Departments table.",
+        "Remove the department with ID 2 named Marketing from the Departments table.",
+        "Remove departments with IDs 3, 6, or 9 from the Departments table.",
+        "Remove the department named Support with ID 5 from the Departments table.",
+        "Remove the department named Research with ID 8 from the Departments table.",
+
+        "Remove the salary record with ID 1 from the Salaries table.",
+        "Remove all salary records for employee 2 from the Salaries table.",
+        "Remove all salary records greater than $50,000 from the Salaries table.",
+        "Remove all salary records with effective dates before January 1, 2022 from the Salaries table.",
+        "Remove the salary record for employee 3 that is less than $40,000 from the Salaries table.",
+        "Remove salary records with IDs between 5 and 15 from the Salaries table.",
+        "Remove all salary records of $60,000 or with an effective date of June 1, 2023 from the Salaries table.",
+        "Remove salary records for employees 2, 4, or 6 from the Salaries table.",
+        "Remove all salary records less than $35,000 with effective dates after January 1, 2023 from the Salaries table.",
+        "Remove the salary record for employee 1 with an effective date of December 31, 2021 from the Salaries table."
+    ],
+    "update": [
+        "Change the first name of the employee with ID 1 to John.",
+        "Change the last name of the employee with ID 2 to Doe.",
+        "Change the hire date of the employee with ID 3 to January 15, 2022.",
+        "Change the department ID of the employee with ID 4 to 2.",
+        "Change the first name to Jane and last name to Smith for the employee with ID 5.",
+        "Change the hire date to June 1, 2021 for all employees in department 1.",
+        "Change the department ID to 3 for all employees hired after January 1, 2020.",
+        "Change the last name to Brown for all employees named Michael.",
+        "Change the first name to Emily and hire date to March 21, 2023 for the employee with ID 6 in department 4.",
+        "Change the last name to Williams for the employee with ID 7 or for employees hired before December 31, 2020.",
+
+        "Change the name of the department with ID 1 to HR.",
+        "Change the name of the department with ID 2 to Finance.",
+        "Change the name of the department with ID 3 to IT.",
+        "Change the name of the department with ID 4 to Marketing.",
+        "Change the name of the department with ID 5 to Sales.",
+        "Change the name of the department with ID 6 to Operations.",
+        "Change the name of the department with ID 7 to Logistics.",
+        "Change the name of the department with ID 8 to Legal.",
+        "Change the name of the department with ID 9 to Customer Service.",
+        "Change the name of the department with ID 10 to R&D.",
+
+        "Change the salary amount to $50,000.00 for the salary record with ID 1.",
+        "Change the salary amount to $55,000.00 for the salary record with ID 2.",
+        "Change the effective date to May 1, 2023 for the salary record with ID 3.",
+        "Change the salary amount to $60,000.00 for all salary records of employee 1.",
+        "Change the effective date to December 1, 2022 for all salary records of employee 2.",
+        "Change the salary amount to $45,000.00 and effective date to January 15, 2021 for the salary record with ID 4.",
+        "Change the salary amount to $70,000.00 for all salary records of employee 3 with effective dates before January 1, 2023.",
+        "Change the effective date to January 1, 2024 for all salary records of employee 4.",
+        "Change the salary amount to $80,000.00 for all salary records of employee 5 or for records with an effective date of June 30, 2022.",
+        "Change the salary amount to $90,000.00 and effective date to September 1, 2023 for the salary record with ID 5 for employee 6."
+    ],
+    "select": {
+        "no_filtering": [
+            "Retrieve all EmployeeIDs from the Employees table.",
+            "Retrieve all DepartmentIDs from the Departments table.",
+            "Retrieve all SalaryIDs from the Salaries table.",
+            "Retrieve all EmployeeIDs from the Salaries table."
+        ],
+        "single_filtering": [
+            "Find the EmployeeIDs of all employees in department 1.",
+            "Find the DepartmentID of the department named HR.",
+            "Find the SalaryIDs of all salary records greater than $50,000.",
+            "Find the EmployeeIDs of all employees hired on January 1, 2023."
+        ],
+        "double_filtering": [
+            "Find the EmployeeIDs of all employees in department 1 hired after January 1, 2020.",
+            "Find the DepartmentIDs of departments named HR or Finance.",
+            "Find the SalaryIDs of all salary records greater than $50,000 with effective dates after January 1, 2022.",
+            "Find the EmployeeIDs of all employees named John Doe."
+        ],
+        "triple_filtering": [
+            "Find the EmployeeIDs of all employees in department 1, hired after January 1, 2020, and named John.",
+            "Find the DepartmentIDs of departments named HR or Finance, or with ID 2.",
+            "Find the SalaryIDs of all salary records greater than $50,000, with effective dates after January 1, 2022, and for employee 1.",
+            "Find the EmployeeIDs of all employees named John Doe or hired on January 1, 2023."
+        ],
+        "range_filtering": [
+            "Find the EmployeeIDs of all employees hired between January 1, 2020 and January 1, 2022.",
+            "Find the SalaryIDs of all salary records between $40,000 and $60,000.",
+            "Find the DepartmentIDs of departments with IDs between 1 and 3.",
+            "Find the EmployeeIDs of all employees with salary records effective between January 1, 2021 and January 1, 2023."
+        ],
+        "ranking": [
+            "Retrieve all EmployeeIDs, ordered by hire date from latest to earliest.",
+            "Retrieve all DepartmentIDs, ordered by department name alphabetically.",
+            "Retrieve all SalaryIDs, ordered by salary amount from highest to lowest.",
+            "Retrieve all EmployeeIDs from salary records, ordered by effective date from earliest to latest."
+        ],
+        "count": [
+            "Count the total number of employees.",
+            "Count the total number of departments.",
+            "Count the total number of salary records.",
+            "Count the total number of employees with salary records."
+        ],
+        "single_table": [
+            "Find the EmployeeIDs of all employees named John.",
+            "Find the DepartmentID of the department named HR.",
+            "Find the SalaryIDs of all salary records greater than $50,000.",
+            "Find the EmployeeIDs of all employees hired after January 1, 2021."
+        ],
+        "double_table": [
+            "Find the EmployeeIDs of all employees and their corresponding DepartmentIDs.",
+            "Find the SalaryIDs and corresponding EmployeeIDs for all salary records.",
+            "Find the EmployeeIDs of all employees and their corresponding SalaryIDs.",
+            "Find the DepartmentIDs and corresponding EmployeeIDs for all employees."
+        ],
+        "three_table": [
+            "Find the EmployeeIDs of all employees, along with their corresponding SalaryIDs and DepartmentIDs.",
+            "Find the SalaryIDs of all salary records, along with the corresponding EmployeeIDs and DepartmentIDs.",
+            "Find the EmployeeIDs of all employees, along with their corresponding DepartmentIDs and SalaryIDs.",
+            "Find the DepartmentIDs of all departments, along with the corresponding EmployeeIDs and SalaryIDs."
+        ]
+    }
+}
