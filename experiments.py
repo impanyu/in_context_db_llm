@@ -171,6 +171,8 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
 
     sql_populating_query =  sql_populating_query_create_database + sql_populating_query_for_create_tables + sql_populating_query
 
+    
+
     populating_query_create_database = concatenate_prompt(data["drop_database"])
     populating_query_create_database += concatenate_prompt(data["create_database"])
     populating_query_create_database += concatenate_prompt(data["use_database"])
@@ -186,7 +188,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
 
     populating_query = populating_query_create_database + populating_query_for_create_tables + populating_query
 
-    populating_query = concatenate_prompt(common_prompts[encoding]["user_prompt_1"]) + populating_query
+    populating_query = concatenate_prompt(common_prompts[encoding]["user_prompt"]) + populating_query
 
 
     if operation == None:
@@ -222,7 +224,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
         sql_query = db_queries[random_index]
         query = queries[random_index]
 
-    populating_query = populating_query + concatenate_prompt(common_prompts[encoding]["user_prompt_2"]) + query
+    populating_query = populating_query + query
 
     sql_populating_queries = sql_populating_query.split("\n")[:-1]
     print(sql_populating_queries)
@@ -363,11 +365,11 @@ def main():
     true_empty_rate = 0
 
     sql = read_data("common","sql")
-    #nl = read_data("common",encoding)
+    nl = read_data("common","nl")
 
     common_prompts={}
     common_prompts["sql"] = sql
-    #common_prompts["nl"] = nl
+    common_prompts["nl"] = nl
 
     all_prompts = {"sql":{}, "nl":{}}
     for i in range(1,21):
@@ -375,6 +377,11 @@ def main():
       
         data = read_data(i,"sql")
         all_prompts["sql"][i] = data
+
+        
+        data = read_data(i,"nl")
+        all_prompts["nl"][i] = data
+
 
         #data = read_data(i,"nl")
         #all_prompts["nl"][i] = data

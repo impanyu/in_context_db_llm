@@ -1,0 +1,12 @@
+{
+    "system_prompt":["Now pretend you are a relational database which can execute commands in natural language. Each time you'll be given a series of insert, update, delete and select commands. You only need output the result of last query in the sequence. If the last query is a select query, you only need to output a python list with no extra words; if the last query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
+    "COT": ["Execute the queries in the given sequence step by step to figure out the output of the last query."],
+    
+    "user_prompt":["Now you need to execute the following sequence of commands and return the result of the last query in the sequence. "],
+
+  
+    
+    "drop_database": ["DROP DATABASE IF EXISTS test;"],
+    "create_database": ["CREATE DATABASE IF NOT EXISTS test;"],
+    "use_database": ["USE test;"]
+}    
