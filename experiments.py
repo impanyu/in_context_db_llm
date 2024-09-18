@@ -363,6 +363,11 @@ def main():
     true_fail_rate = 0
     fail_rate = 0
 
+    accuracy_1 = 0
+    accuracy_2 = 0
+
+    accuracy_1_count = 0
+
     true_empty_rate = 0
 
     sql = read_data("common","sql")
@@ -444,6 +449,22 @@ def main():
         print(f"Accuracy delta: {accuracy_delta}")
         accuracy += accuracy_delta
 
+        if "select" in user_prompt.split("\n")[-1].lower():
+            if not len(true_result) == 0:
+                accuracy_1 += accuracy_delta
+                accuracy_1_count += 1
+            else:
+                accuracy_2 += accuracy_delta
+
+        else:
+            if "Succeed" in true_result:
+                accuracy_1 += accuracy_delta
+                accuracy_1_count += 1
+            else:
+                accuracy_2 += accuracy_delta
+
+        
+
         
                 
 
@@ -460,7 +481,13 @@ def main():
     
         
 
-    accuracy = accuracy / TIMES
+    #accuracy = accuracy / TIMES
+    if not accuracy_1_count == 0:
+        accuracy = accuracy_1 / accuracy_1_count
+    if not TIMES - accuracy_1_count == 0:
+        accuracy += accuracy_2 / (TIMES - accuracy_1_count)
+    accuracy = accuracy / 2
+    
     true_fail_rate = true_fail_rate / TIMES
     fail_rate = fail_rate / TIMES
 
