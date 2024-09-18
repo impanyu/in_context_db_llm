@@ -463,6 +463,8 @@ def main():
             else:
                 accuracy_2 += accuracy_delta
 
+        print(f"round {t}: accuracy_1: {accuracy_1}, accuracy_2: {accuracy_2}") 
+
         
 
         
