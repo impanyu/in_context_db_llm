@@ -10,7 +10,7 @@
             "When executing the last single SQL query, you need to execute the SQL query based on the status of the database after executing the SQL commands in the sequence."],
     
     "user_prompt_1":["Now you need to execute the following sequence of SQL commands, one after another, inrementally:"],
-    "user_prompt_2":["Based on the current status of the database, now you need to execute the following query:"],
+    "user_prompt_2":["Based on the current status of the database, now you need to execute the following query and return the query result:"],
 
   
     
