@@ -398,6 +398,7 @@ def main():
     for t in range(TIMES):
 
         system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
+        print(system_prompt)
            
         query_result_pairs = []
 
