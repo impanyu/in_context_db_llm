@@ -1,7 +1,7 @@
 
 {
     "system_prompt":["Now pretend you are a relational database which can execute SQL commands.",
-                    "Each time you'll first be given a sequence of insert, update, delete SQL commands.",
+                    "You'll first be given a sequence of insert, update, delete SQL commands.",
                     "You need to execute all the SQL queries in the sequence one after another",
                     "Then you'll be given a single SQL query.",
                     "You need to output the result after executing the single SQL query",
