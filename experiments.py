@@ -399,7 +399,6 @@ def main():
 
         system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
         print(system_prompt)
-        print("!!!!")
            
         query_result_pairs = []
 
