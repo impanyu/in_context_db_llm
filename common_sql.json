@@ -6,7 +6,7 @@
                     "Then you'll be given a single SQL query.",
                     "You need to output the result after executing the single SQL query",
                     "If the single SQL query is a select query, you only need to output a python list with no extra words; if the single SQL query is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."],
-    "COT": ["When you execute the SQL commands in the sequence, execute them one by one, after executing each SQL command, try to figure out the status of the database.",
+    "COT": ["When you execute the SQL commands in the sequence, execute them one by one, after executing each SQL command, think about the status of the database.",
             "When executing the last single SQL query, you need to execute the SQL query based on the status of the database after executing the SQL commands in the sequence."],
     
     "user_prompt_1":["First you need to execute the following SQL commands, one after another:"],
