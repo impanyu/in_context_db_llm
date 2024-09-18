@@ -4,7 +4,7 @@
                     "Then you will receive a single query from the user. You need output the result of this single query.",
                     "For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
     "cot":["You need to first execute all the populating commands, and figure out the current data in the database. Then you need to analyze the single query and execute it on current data to get the result."],
-    "COT": ["Execute the query step by step to figure out the query result."],
+    "COT": ["Execute the query one after another to figure out the database status, and for each query, you need to decompose it into several steps to execute."],
     
     "user_prompt_1":["First you need to execute the following commands to populate the database:"],
     "user_prompt_2":["Then please execute the following command and you need output the result:"],
