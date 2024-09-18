@@ -7,7 +7,7 @@
     "COT": ["Execute the query step by step to figure out the query result."],
     
     "user_prompt_1":["First you need to execute the following commands to populate the database:"],
-    "user_prompt_2":["Then please execute the following command and you need output the result"],
+    "user_prompt_2":["Then please execute the following command and you need output the result:"],
   
     
     "drop_database": ["DROP DATABASE IF EXISTS test;"],
