@@ -227,6 +227,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     populating_query = populating_query + concatenate_prompt(common_prompts[encoding]["user_prompt_2"]) + query
 
     sql_populating_queries = sql_populating_query.split("\n")[:-1]
+    print(populating_query)
     print(sql_populating_queries)
     print(query)
 
