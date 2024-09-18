@@ -1,16 +1,12 @@
 
-{
-    "system_prompt":["Now pretend you are a relational database which can execute SQL commands.",
-                    "You'll first be given a sequence of insert, update, delete SQL commands.",
-                    "You need to execute all the SQL queries in the sequence one after another",
-                    "Then you'll be given a single SQL query.",
-                    "You need to output the result after executing the single SQL query",
-                    "If the single SQL query is a select query, you only need to output a python list with no extra words; if the single SQL query is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."],
-    "COT": ["When you execute the SQL commands, execute them one by one, after executing each SQL command, think about the status of the database."],
-    
-    "user_prompt_1":["First you need to execute the following SQL commands, one after another:"],
-    "user_prompt_2":["Then you need to execute the following query and return the query result:"],
 
+{
+    "system_prompt":["Now pretend you are a relational database which can execute SQL commands. First you'll execute a bunch of insert, update, delete commands to populate the database. Then you will receive a single SQL query from the user. You need output the result of this single SQL query.For select query, you only need to output a python list with no extra words, for insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
+    "cot":["You need to first execute all the populating SQL commands, and figure out the current data in the database. Then you need to analyze the single query and execute it on current data to get the result."],
+    "COT": ["Think about the problem step by step to figure out the query result."],
+    
+    "user_prompt_1":["First you need to execute the following SQL commands to populate the database:"],
+    "user_prompt_2":["Then please execute the following SQL command and you need output the result"],
   
     
     "drop_database": ["DROP DATABASE IF EXISTS test;"],
