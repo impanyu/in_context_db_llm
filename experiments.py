@@ -488,7 +488,7 @@ def main():
     if "select" in user_prompt.split("\n")[-1].lower():
         accuracy = accuracy_1 * 0.9 + accuracy_2 * 0.1
     else:
-        accuracy = accuracy / 2
+        accuracy = (accuracy_1 + accuracy_2) / 2
     
     true_fail_rate = true_fail_rate / TIMES
     fail_rate = fail_rate / TIMES
