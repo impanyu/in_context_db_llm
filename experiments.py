@@ -188,7 +188,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
 
     populating_query = populating_query_create_database + populating_query_for_create_tables + populating_query
 
-    populating_query = concatenate_prompt(common_prompts[encoding]["user_prompt"]) + populating_query
+    populating_query = concatenate_prompt(common_prompts[encoding]["user_prompt_1"]) + populating_query
 
 
     if operation == None:
@@ -224,7 +224,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
         sql_query = db_queries[random_index]
         query = queries[random_index]
 
-    populating_query = populating_query + query
+    populating_query = populating_query + concatenate_prompt(common_prompts[encoding]["user_prompt_2"]) + query
 
     sql_populating_queries = sql_populating_query.split("\n")[:-1]
     print(sql_populating_queries)
