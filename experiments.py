@@ -449,7 +449,7 @@ def main():
         print(f"Accuracy delta: {accuracy_delta}")
         accuracy += accuracy_delta
 
-        if "select" in user_prompt.split("\n")[-1].lower():
+        if not operation in ["update","delete","insert"]:# "select" in user_prompt.split("\n")[-1].lower():
             if not len(true_result) == 0:
                 accuracy_1 += accuracy_delta
                 accuracy_1_count += 1
@@ -485,7 +485,7 @@ def main():
     if not TIMES - accuracy_1_count == 0:
         accuracy_2 = accuracy_2 / (TIMES - accuracy_1_count)
 
-    if "select" in user_prompt.split("\n")[-1].lower():
+    if not operation in ["update","delete","insert"]:#"select" in user_prompt.split("\n")[-1].lower():
         accuracy = accuracy_1 * 0.9 + accuracy_2 * 0.1
     else:
         accuracy = (accuracy_1 + accuracy_2) / 2
