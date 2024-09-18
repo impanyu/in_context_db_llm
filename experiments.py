@@ -466,10 +466,6 @@ def main():
         print(f"round {t}: accuracy_1: {accuracy_1}, accuracy_2: {accuracy_2}") 
 
         
-
-        
-                
-
         print(true_result)
         print(result)
         if "Fail" in true_result:
@@ -485,10 +481,14 @@ def main():
 
     #accuracy = accuracy / TIMES
     if not accuracy_1_count == 0:
-        accuracy = accuracy_1 / accuracy_1_count
+        accuracy_1 = accuracy_1 / accuracy_1_count
     if not TIMES - accuracy_1_count == 0:
-        accuracy += accuracy_2 / (TIMES - accuracy_1_count)
-    accuracy = accuracy / 2
+        accuracy_2 = accuracy_2 / (TIMES - accuracy_1_count)
+
+    if "select" in user_prompt.split("\n")[-1].lower():
+        accuracy = accuracy_1 * 0.9 + accuracy_2 * 0.1
+    else:
+        accuracy = accuracy / 2
     
     true_fail_rate = true_fail_rate / TIMES
     fail_rate = fail_rate / TIMES
