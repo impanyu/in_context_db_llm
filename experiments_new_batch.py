@@ -51,7 +51,7 @@ def connect_to_server():
         connection = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='1q2w3e4r5t'
+            password=''
         )
         if connection.is_connected():
             print("Connected to MySQL server")
