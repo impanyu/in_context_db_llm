@@ -416,11 +416,13 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 print("The request timed out.")
                 t = t - 1
                 time.sleep(1)
+                continue
 
             except Exception as e:
                 print(f"An error occurred: {e}")
                 t = t - 1
                 time.sleep(1)
+                continue
 
             response = ollama.chat(model='llama3.1', messages=messages)
             result = response['message']['content']
