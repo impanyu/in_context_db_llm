@@ -241,7 +241,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     if connection is not None:    
         print("populating db")
         for query in sql_populating_queries:
-            true_result = execute_query(connection, query)[0]
+            true_result = execute_query(connection, query)
             if "DROP DATABASE" in query or "CREATE DATABASE" in query or "USE test" in query or "CREATE TABLE" in query: 
                 if len(true_result) == 0:
                     true_result = ["Succeed"]
