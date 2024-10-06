@@ -49,9 +49,10 @@ def execute_query(connection, query):
 def connect_to_server():
     try:
         connection = mysql.connector.connect(
-            host='localhost',
+            #host='localhost',
             user='root',
-            password=''
+            password='',
+            unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
         )
         if connection.is_connected():
             print("Connected to MySQL server")
