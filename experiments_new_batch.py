@@ -11,7 +11,7 @@ import time
 import requests.exceptions
 import ollama
 
-TIMES = 100  
+TIMES = 300  
 
 def is_json(my_string):
     try:
