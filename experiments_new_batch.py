@@ -458,7 +458,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
 def main():
     # Read cmd line arguments with argparse
     parser = argparse.ArgumentParser(description='Run experiments')
-    parser.add_argument('--model', type=str, default='gpt4', help='Model to evaluate')
+    parser.add_argument('--model', type=str, default="llama3.1-8B", help='Model to evaluate')
     parser.add_argument('--prompting', type=str, default='zero_shot', help='Prompting strategy')
     parser.add_argument('--encoding', type=str, default='sql', help='Encoding method for data and query')
 
