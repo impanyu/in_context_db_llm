@@ -2,4 +2,4 @@ python-dotenv
 openai
 requests
 ollama
-mysql
+mysql-connector-python
