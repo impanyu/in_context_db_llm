@@ -483,7 +483,7 @@ def main():
 
     parser.add_argument('--scale', type=int, default=50, help='Number of operations in the dataset')
     parser.add_argument('--balance', type=float, default=0.5, help='Ratio of insert in the operations in the dataset, a number between 0 and 1')
-    parser.add_argument('--overlap', type=float, default=0.5, help='Ratio of overlap between the operations in the dataset, a number between 0 and 1')
+    parser.add_argument('--overlap', type=float, default=1, help='Ratio of overlap between the operations in the dataset, a number between 0 and 1')
     args = parser.parse_args()
     #args_dict = vars(args)
 
@@ -516,7 +516,7 @@ def main():
 
     scale = args.scale
     balance = args.balance
-    overlap = min(args.overlap,0.5)
+    overlap = min(args.overlap,1)
 
     model = args.model
     prompting = args.prompting
