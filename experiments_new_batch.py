@@ -535,10 +535,10 @@ def main():
         else:
             all_encoding = ["sql","nl"]
         for current_encoding in all_encoding:
-            if operation in ["select","update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]:  
+            if operation in ["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]:  
                 all_operation = [operation]
             else:
-                all_operation = ["select","update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]
+                all_operation = ["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]
             for current_operation in all_operation:
                 if scale <0:
                     all_scale = [10,50,90,130,170,210,250]
