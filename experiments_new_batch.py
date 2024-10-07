@@ -420,7 +420,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
 
             except Exception as e:
                 print(f"An error occurred: {e}")
-                t = t - 1
+                
                 time.sleep(1)
                 continue
 
@@ -541,7 +541,7 @@ def main():
                 all_operation = ["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]
             for current_operation in all_operation:
                 if scale <0:
-                    all_scale = [10,50,100,150,200,250,300]
+                    all_scale = [10,50,100,150,200,250,300,350,400,450,500]
                 else:
                     all_scale = [scale]
                 for current_scale in all_scale:
