@@ -78,7 +78,7 @@ def read_data(name,encoding):
 
 
 def generate_system_prompt(common_prompts,encoding,prompting):
-    prompting_translations = {"zero_shot":"ZERO-SHOT","zero_cot":"ZERO-COT","few_shot":"FEW-SHOT","few_shot_cot":"FEW-SHOT-COT"}
+    prompting_translations = {"zero_shot":"ZERO-SHOT","zero_shot_cot":"ZERO-COT","few_shot":"FEW-SHOT","few_shot_cot":"FEW-SHOT-COT"}
     system_prompt = concatenate_prompt(common_prompts[encoding]["system_prompt"])
     
     system_prompt += concatenate_prompt(common_prompts[encoding][prompting_translations[prompting]])
