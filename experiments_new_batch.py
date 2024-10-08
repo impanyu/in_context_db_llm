@@ -559,8 +559,8 @@ def main():
                             accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation)
                             output[f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}"] = accuracy
     
-    with open(f"output_{model}.json", "w") as file:
-        json.dump(output, file)
+                            with open(f"output_{model}.json", "w") as file:
+                                json.dump(output, file)
 
 
 
