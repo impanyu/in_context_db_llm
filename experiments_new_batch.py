@@ -424,8 +424,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 time.sleep(1)
                 continue
 
-   
-        
+      
         elif model == "mistral":
             try:
                 response = ollama.chat(model='mistral', messages=messages)
