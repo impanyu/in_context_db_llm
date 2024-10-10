@@ -590,6 +590,7 @@ def main():
     
                             with open(f"output_{model}.json", "w") as file:
                                 json.dump(output, file)
+                                file.flush()
 
 
 
