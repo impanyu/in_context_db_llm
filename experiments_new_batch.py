@@ -441,6 +441,22 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 
                 time.sleep(1)
                 continue
+        
+        elif model == "gemma2":
+            try:
+                response = ollama.chat(model='gemma2', messages=messages)
+                result = response['message']['content']
+            except requests.exceptions.Timeout:
+                print("The request timed out.")
+                t = t - 1
+                time.sleep(1)
+                continue
+
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                
+                time.sleep(1)
+                continue
 
 
         accuracy_delta = calculate_accuracy(true_result, result,queries[-1])
