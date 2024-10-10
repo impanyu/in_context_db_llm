@@ -380,7 +380,6 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
         true_result = true_results[-1]
                 
 
-
         if model == "gpt4":
             # Load environment variables from the .env file
             load_dotenv()
