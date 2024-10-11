@@ -349,7 +349,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             return 0
 
 
-def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, model, prompting, operation):
+def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, model, prompting, operation,samples):
 
     accuracy = 0
 
@@ -378,6 +378,10 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
             
         messages.append({"role": "user", "content": queries[-1]})
         true_result = true_results[-1]
+
+        sample = {"messages":messages,"true_result":true_result}
+        samples.append(sample)
+        
                 
 
         if model == "gpt4":
@@ -513,6 +517,8 @@ def main():
     parser.add_argument('--scale', type=int, default=50, help='Number of operations in the dataset')
     parser.add_argument('--balance', type=float, default=0.5, help='Ratio of insert in the operations in the dataset, a number between 0 and 1')
     parser.add_argument('--overlap', type=float, default=1, help='Ratio of overlap between the operations in the dataset, a number between 0 and 1')
+
+    parser.add_argument('--generate_sample', type=bool, default=False, help='If generate the sample data or not') 
     args = parser.parse_args()
     #args_dict = vars(args)
 
@@ -551,6 +557,9 @@ def main():
     prompting = args.prompting
     encoding = args.encoding
     operation = args.operation
+
+    generate_sample = args.generate_sample
+    samples = []
 
 
     #current_model = model
@@ -591,29 +600,19 @@ def main():
                                 all_overlap = [overlap]
                             for current_overlap in all_overlap:
                                 current_overlap = current_overlap/2
-                                accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation)
+                                accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation,samples)
                                 output[f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}"] = accuracy
 
                                 with open(f"output_{model}.json", "w") as file:
                                     json.dump(output, file)
                                     file.flush()
 
+    if generate_sample:
+        with open(f"samples.json", "w") as file:
+            json.dump(samples, file)
+            file.flush()
 
 
-
-  
-
-
-   
-
-
-
-
-    
-
-
-      
-        
 
 
   
