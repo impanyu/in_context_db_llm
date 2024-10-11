@@ -52,7 +52,7 @@ def connect_to_server():
         connection = mysql.connector.connect(
             #host='localhost',
             user='root',
-            password='',
+            password='1q2w3e4r5t',
             unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
         )
         if connection.is_connected():
