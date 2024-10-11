@@ -18,8 +18,8 @@
                 "If the new SQL query is a select query, you only need to output a python list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
     "FEW-SHOT-COT":["Each historical SQL command is given to you one by one, with the true result of the command execution.",
                 "Then you need to execute the new SQL query from the user. You need to output the result of this SQL query.",
-                "For the new query, when necessary you can decompose it into several sub-steps to execute.",
-                "For the new query, when necessary, you can put down notes about the middle result for each sub-step.",
+                "For the new query, you can decompose it into several sub-steps to execute.",
+                "For the new query, you can output notes about the middle result for each sub-step.",
                 "And at the last line of your output: you need to put down in the following format: if the new SQL query is a select query, you only need to output a JSON list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."]
     
 }    
