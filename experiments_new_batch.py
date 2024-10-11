@@ -374,7 +374,8 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
             # true_result is an array
             true_result = true_results[i]
             messages.append({"role": "user", "content": query})
-            messages.append({"role": "assistant", "content": true_result[0]})
+            if "few_shot" in prompting:
+                messages.append({"role": "assistant", "content": true_result[0]})
             
         messages.append({"role": "user", "content": queries[-1]})
         true_result = true_results[-1]
@@ -401,7 +402,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     temperature=0.5,  # Set the temperature here (adjust as needed)
                     timeout=5  # Set a timeout of 10 seconds
                 )
-                sample = {"messages":messages,"true_result":true_result,"response":response.choices[0].message.content}
+                sample = {"messages":messages,"true_result":true_result}
                 samples.append(sample)
             except APITimeoutError:
                 t = t-1
