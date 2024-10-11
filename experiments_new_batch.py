@@ -553,44 +553,50 @@ def main():
     operation = args.operation
 
 
-    current_model = model
-    if prompting in ["zero_shot","zero_shot_cot","few_shot","few_shot_cot"]:
-        all_prompting = [prompting]
+    #current_model = model
+    if model in ["gpt4","llama3.1-8B","mistral","gemma2"]:
+        all_model = [model]
     else:
-        all_prompting = ["zero_shot","zero_shot_cot","few_shot","few_shot_cot"]
-    for current_prompting in all_prompting:
-        if encoding in ["sql","nl"]:
-            all_encoding = [encoding]
+        all_model = ["llama3.1-8B","mistral","gemma2"]
+    for current_model in all_model:
+
+        if prompting in ["zero_shot","zero_shot_cot","few_shot","few_shot_cot"]:
+            all_prompting = [prompting]
         else:
-            all_encoding = ["sql","nl"]
-        for current_encoding in all_encoding:
-            if operation in ["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]:  
-                all_operation = [operation]
+            all_prompting = ["zero_shot","zero_shot_cot","few_shot","few_shot_cot"]
+        for current_prompting in all_prompting:
+            if encoding in ["sql","nl"]:
+                all_encoding = [encoding]
             else:
-                all_operation = ["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]
-            for current_operation in all_operation:
-                if scale <0:
-                    all_scale = [10,50,100,150,200,250,300,350,400,450,500]
+                all_encoding = ["sql","nl"]
+            for current_encoding in all_encoding:
+                if operation in ["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]:  
+                    all_operation = [operation]
                 else:
-                    all_scale = [scale]
-                for current_scale in all_scale:
-                    if balance <0:
-                        all_balance = [0,0.2,0.4,0.6,0.8,1]
+                    all_operation = ["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]
+                for current_operation in all_operation:
+                    if scale <0:
+                        all_scale = [10,50,100,150,200,250,300,350,400,450,500]
                     else:
-                        all_balance = [balance]
-                    for current_balance in all_balance:
-                        if overlap <0:
-                            all_overlap = [0,0.2,0.4,0.6,0.8,1]
+                        all_scale = [scale]
+                    for current_scale in all_scale:
+                        if balance <0:
+                            all_balance = [0,0.2,0.4,0.6,0.8,1]
                         else:
-                            all_overlap = [overlap]
-                        for current_overlap in all_overlap:
-                            current_overlap = current_overlap/2
-                            accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation)
-                            output[f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}"] = accuracy
-    
-                            with open(f"output_{model}.json", "w") as file:
-                                json.dump(output, file)
-                                file.flush()
+                            all_balance = [balance]
+                        for current_balance in all_balance:
+                            if overlap <0:
+                                all_overlap = [0,0.2,0.4,0.6,0.8,1]
+                            else:
+                                all_overlap = [overlap]
+                            for current_overlap in all_overlap:
+                                current_overlap = current_overlap/2
+                                accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation)
+                                output[f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}"] = accuracy
+
+                                with open(f"output_{model}.json", "w") as file:
+                                    json.dump(output, file)
+                                    file.flush()
 
 
 
