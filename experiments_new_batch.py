@@ -150,7 +150,25 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     for i in range(delete_update_scale):
         # get a random number between 0 and 1
         random_number = random.random()
-        if random_number <= 0.5: # insert a delete query
+
+        if random_number <= 0.2: # insert a select query
+            db_query_categories = list(data["select"].keys())
+
+            category_index = random.randint(0, len(db_query_categories)-1)
+            category = db_query_categories[category_index]
+
+            db_queries = sql_data["select"][category]
+            queries = data["select"][category]
+
+            random_index = random.randint(0, len(db_queries)-1)
+
+            sql_query = db_queries[random_index]
+            query = queries[random_index]
+
+            tmp_sql_delete_update_populating_queries[insert_scale].append(sql_query)
+            tmp_delete_update_populating_queries[insert_scale].append(query)
+
+        elif random_number <= 0.6: # insert a delete query
             # get a random number between 0 and 1
             random_index_in_populating_queries = random.randint(insert_scale-radius*2,insert_scale)
             random_index = random.randint(0, len(sql_data["delete"])-1)
@@ -376,7 +394,10 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
             true_result = true_results[i]
             messages.append({"role": "user", "content": query})
             if "few_shot" in prompting:
-                messages.append({"role": "assistant", "content": true_result[0]})
+                if "Succeed" in true_result or "Fail" in true_result:
+                    messages.append({"role": "assistant", "content": true_result[0]})
+                else:
+                    messages.append({"role": "assistant", "content": json.dumps(true_result)})
             
         messages.append({"role": "user", "content": queries[-1]})
         true_result = true_results[-1]
