@@ -50,11 +50,11 @@ def execute_query(connection, query):
 def connect_to_server():
     try:
         connection = mysql.connector.connect(
-            host='localhost',
-            password='1q2w3e4r5t',
-            user='root'
-            #password='',
-            #unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
+            #host='localhost',
+            #password='1q2w3e4r5t',
+            user='root',
+            password='',
+            unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
         )
         if connection.is_connected():
             print("Connected to MySQL server")
@@ -484,6 +484,38 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 time.sleep(1)
                 continue
 
+        elif model == "codellama":
+            try:
+                response = ollama.chat(model='codellama', messages=messages)
+                result = response['message']['content']
+            except requests.exceptions.Timeout:
+                print("The request timed out.")
+                t = t - 1
+                time.sleep(1)
+                continue
+
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                
+                time.sleep(1)
+                continue
+
+        elif model == "phi3":
+            try:
+                response = ollama.chat(model='phi3', messages=messages)
+                result = response['message']['content']
+            except requests.exceptions.Timeout:
+                print("The request timed out.")
+                t = t - 1
+                time.sleep(1)
+                continue
+
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                
+                time.sleep(1)
+                continue
+
 
         accuracy_delta = calculate_accuracy(true_result, result,queries[-1])
         print(f"Accuracy delta: {accuracy_delta}")
@@ -587,10 +619,11 @@ def main():
 
 
     #current_model = model
-    if model in ["gpt4","llama3.1-8B","mistral","gemma2"]:
+    if model in ["llama3.1-8B","mistral","gemma2","codellama","phi3"]:
         all_model = [model]
     else:
-        all_model = ["llama3.1-8B","mistral","gemma2"]
+        #all_model = ["llama3.1-8B","mistral","gemma2","codellama","phi3"]
+        all_model = ["codellama","phi3"]
     for current_model in all_model:
 
         if prompting in ["zero_shot","few_shot"]:

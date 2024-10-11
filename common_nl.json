@@ -4,22 +4,12 @@
                     "Now in this step, you will receive a new query from the user. You need to output the result of this query."
                     ],
 
-    "ZERO-SHOT":["The historical commands and the new query are given to you together, where the last command is the new query.",
-                 "You need to execute all the historical commands first to figure out the current data in the database, and then execute the new command to get the query result of the new command.",
-                "If the new query is a select query, you only need to output a python list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
-    "ZERO-COT": ["The historical commands and the new query are given to you together, where the last command is the new query.",
-                 "You need to execute all the historical commands first to figure out the current data in the database, and then execute the new command to get the query result of the new command.",
-                 "Execute all the commands one after another to figure out the database status, and for each query, when necessary you can decompose it into several sub-steps to execute.",
-                 "You can output notes about the status of the database after each command execution",
-                 "For each query, you can output notes about the middle result for each sub-step.",
-                 "And at the last line of your output: you need to put down in the following format: if the new query is a select query, you only need to output a python list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
-    "FEW-SHOT":["Each historical command is given to you one by one, with the true result of the command execution.",
-                "Then you need to execute the new query from the user. You need to output the result of this query.",
-                "If the new query is a select query, you only need to output a python list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
-    "FEW-SHOT-COT":["Each historical command is given to you one by one, with the true result of the command execution.",
-                "Then you need to execute the new query from the user. ",
-                "For the new query, you can decompose it into several sub-steps to execute.",
-                "For the new query, you can output notes about the middle result for each sub-step.",
-                "And at the last line of your output: you need to put down in the following format: if the new query is a select query, you only need to output a JSON list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."]
-
+    "ZERO-SHOT":["The historical commands are given to you by the user one by one.",
+                    "Then a new command is given to you at last.",
+                    "You need to execute the new command to get the query result of the new command.",
+                   "If the new query is a select query, you only need to output a python list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
+    "FEW-SHOT":["The historical commands is given to you by the user one by one, each followed by the true result of the command execution.",
+                   "Then a new command is given to you at last.",
+                   "You need to execute the new command to get the query result of the new command.",
+                   "If the new query is a select query, you only need to output a python list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."],
 }    
