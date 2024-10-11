@@ -403,7 +403,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     temperature=0.5,  # Set the temperature here (adjust as needed)
                     timeout=5  # Set a timeout of 10 seconds
                 )
-                sample = {"messages":messages,"true_result":true_result}
+                sample = {"messages":messages,"true_result":true_result,"response":response.choices[0].message.content}
                 samples.append(sample)
             except APITimeoutError:
                 t = t-1
