@@ -165,8 +165,11 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
             sql_query = db_queries[random_index]
             query = queries[random_index]
 
-            tmp_sql_delete_update_populating_queries[insert_scale].append(sql_query)
-            tmp_delete_update_populating_queries[insert_scale].append(query)
+            random_index_in_populating_queries = random.randint(insert_scale-radius*2,insert_scale)
+            
+
+            tmp_sql_delete_update_populating_queries[random_index_in_populating_queries].append(sql_query)
+            tmp_delete_update_populating_queries[random_index_in_populating_queries].append(query)
 
         elif random_number <= 0.6: # insert a delete query
             # get a random number between 0 and 1
