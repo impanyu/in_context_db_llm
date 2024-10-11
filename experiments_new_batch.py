@@ -593,10 +593,10 @@ def main():
         all_model = ["llama3.1-8B","mistral","gemma2"]
     for current_model in all_model:
 
-        if prompting in ["zero_shot","zero_shot_cot","few_shot","few_shot_cot"]:
+        if prompting in ["zero_shot","few_shot"]:
             all_prompting = [prompting]
         else:
-            all_prompting = ["zero_shot","zero_shot_cot","few_shot","few_shot_cot"]
+            all_prompting = ["zero_shot","few_shot"]
         for current_prompting in all_prompting:
             if encoding in ["sql","nl"]:
                 all_encoding = [encoding]
