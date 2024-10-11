@@ -7,10 +7,10 @@
     "ZERO-SHOT":["The historical SQL commands are given to you by the user one by one.",
                  "Then a new SQL command is given to you at last.",
                  "You need to execute the new SQL command to get the query result of the new SQL command.",
-                "If the new SQL query is a select query, you only need to output a python list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
+                "If the new SQL command is a select query, you only need to output a JSON list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
      "FEW-SHOT":["The historical SQL commands is given to you by the user one by one, each followed by the true result of the command execution",
                 "Then a new SQL command is given to you at last.",
                 "You need to execute the new SQL command to get the query result of the new SQL command.",
-                "If the new SQL query is a select query, you only need to output a python list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."]
+                "If the new SQL command is a select query, you only need to output a JSON list with no extra words; if the new query is insert, delete and update, you only need to output 'Succeed' or 'Fail', with no extra words."]
        
 }    
