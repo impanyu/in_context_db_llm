@@ -370,11 +370,34 @@ def calculate_accuracy(true_result, result,user_prompt):
             print(e)
             return 0
 
+def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, model, prompting, operation,samples):
+    for t in range(TIMES*2):
 
-def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, model, prompting, operation,samples):
+        system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
+        print(system_prompt)
+           
+    
+        
+        queries, true_results = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
+        messages = [{"role": "system", "content": system_prompt}]
+        for i in range(len(queries)):
+            query = queries[i]
+            # true_result is an array
+            true_result = true_results[i]
+            messages.append({"role": "user", "content": query})
+            if "few_shot" in prompting:
+                if "Succeed" in true_result or "Fail" in true_result:
+                    messages.append({"role": "assistant", "content": true_result[0]})
+                else:
+                    messages.append({"role": "assistant", "content": json.dumps(true_result)})
+        
+        sample = {"messages":messages}
+        samples.append(sample)
+
+
+def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, model, prompting, operation):
 
     accuracy = 0
-
 
     accuracy_1 = 0
     accuracy_2 = 0
@@ -401,9 +424,10 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     messages.append({"role": "assistant", "content": true_result[0]})
                 else:
                     messages.append({"role": "assistant", "content": json.dumps(true_result)})
-            
+        
         messages.append({"role": "user", "content": queries[-1]})
         true_result = true_results[-1]
+
 
         
         
@@ -427,8 +451,8 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     temperature=0.5,  # Set the temperature here (adjust as needed)
                     timeout=5  # Set a timeout of 10 seconds
                 )
-                sample = {"messages":messages,"true_result":true_result,"response":response.choices[0].message.content}
-                samples.append(sample)
+                
+                
             except APITimeoutError:
                 t = t-1
                 time.sleep(1)
@@ -660,17 +684,22 @@ def main():
                                 all_overlap = [overlap]
                             for current_overlap in all_overlap:
                                 current_overlap = current_overlap/2
-                                accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation,samples)
-                                output[f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}"] = accuracy
 
-                                with open(f"output_{model}.json", "w") as file:
-                                    json.dump(output, file)
-                                    file.flush()
+                                if not generate_sample:
+                                    accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation)
+                                    output[f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}"] = accuracy
 
-    if generate_sample:
-        with open(f"samples.json", "w") as file:
-            json.dump(samples, file)
-            file.flush()
+                                    with open(f"output_{model}.json", "w") as file:
+                                        json.dump(output, file)
+                                        file.flush()
+                                else:
+                                    get_samples(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation,samples)
+                                    with open(f"samples.json", "w") as file:
+                                        json.dump(samples, file)
+                                        file.flush()
+
+
+        
 
 
 
