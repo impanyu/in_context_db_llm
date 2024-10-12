@@ -371,7 +371,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             return 0
 
 def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, model, prompting, operation,samples):
-    for t in range(10):
+    for t in range(20):
 
         system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
         print(system_prompt)
