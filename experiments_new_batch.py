@@ -12,6 +12,9 @@ import requests.exceptions
 import ollama
 import requests
 
+from llamafactory.chat import ChatModel
+from llamafactory.extras.misc import torch_gc
+
 TIMES = 300  
 
 def is_json(my_string):
@@ -536,6 +539,27 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 t = t - 1
                 time.sleep(1)
                 continue
+
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                
+                time.sleep(1)
+                continue
+
+        elif model == "fine_tuned_llama3.1-8B":
+            try:
+                args = dict(
+                    model_name_or_path="unsloth/llama-3-8b-Instruct-bnb-4bit", # use bnb-4bit-quantized Llama-3-8B-Instruct model
+                    adapter_name_or_path="llama3_lora",            # load the saved LoRA adapters
+                    template="llama3",                     # same to the one in training
+                    finetuning_type="lora",                  # same to the one in training
+                    quantization_bit=4,                    # load 4-bit quantized model
+                    )
+                chat_model = ChatModel(args)
+                result = chat_model.chat(messages=messages)
+            
+                time.sleep(1)
+          
 
             except Exception as e:
                 print(f"An error occurred: {e}")
