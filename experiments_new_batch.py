@@ -557,6 +557,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     )
                 chat_model = ChatModel(args)
                 result = chat_model.chat(messages=messages)
+                result = result[0].response_text
             
                 time.sleep(1)
           
