@@ -670,7 +670,7 @@ def main():
 
 
     #current_model = model
-    if model in ["gpt4","llama3.1-8B","mistral","gemma2","codellama","phi3"]:
+    if model in ["gpt4","llama3.1-8B","mistral","gemma2","codellama","phi3","fine_tuned_llama3.1-8B"]:
         all_model = [model]
     else:
         #all_model = ["llama3.1-8B","mistral","gemma2","codellama","phi3"]
