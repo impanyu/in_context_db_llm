@@ -559,7 +559,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     quantization_bit=4,                    # load 4-bit quantized model
                     )
                 chat_model = ChatModel(args)
-                result = chat_model.chat(messages=messages)
+                result = chat_model.chat(messages=messages, temperature=0.5)
                 result = result[0].response_text
             
                 time.sleep(1)
