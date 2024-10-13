@@ -402,6 +402,8 @@ def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, mod
                     messages.append({"role": "assistant", "content": true_result[0]})
                 else:
                     messages.append({"role": "assistant", "content": json.dumps(true_result)})
+            else:
+                messages.append({"role": "assistant", "content": ""})
         
         sample = {"messages":messages}
         samples.append(sample)
@@ -439,6 +441,8 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     messages.append({"role": "assistant", "content": true_result[0]})
                 else:
                     messages.append({"role": "assistant", "content": json.dumps(true_result)})
+            else:
+                messages.append({"role": "assistant", "content": ""})
         
         messages.append({"role": "user", "content": queries[-1]})
         true_result = true_results[-1]
