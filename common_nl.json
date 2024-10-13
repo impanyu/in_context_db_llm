@@ -7,9 +7,9 @@
     "ZERO-SHOT":["The historical commands are given to you by the user one by one.",
                     "Then a new command is given to you at last.",
                     "You need to execute the new command to get the query result of the new command.",
-                   "If the new command is a select query, you only need to output a JSON list with no extra words; if the new query is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
+                   "If the new command is a select query, you only need to output a JSON string of list with no extra words(note: only JSON string, not enclosed with ```json and ```); if the new query is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
     "FEW-SHOT":["The historical commands is given to you by the user one by one, each followed by the true result of the command execution.",
                    "Then a new command is given to you at last.",
                    "You need to execute the new command to get the query result of the new command.",
-                   "If the new command is a select query, you only need to output a JSON list with no extra words; if the new query is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."]
+                   "If the new command is a select query, you only need to output a JSON string of list with no extra words(note: only JSON string, not enclosed with ```json and ```); if the new query is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."]
 }    
