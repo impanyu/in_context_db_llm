@@ -374,7 +374,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             return 0
 
 def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, model, prompting, operation,samples):
-    for t in range(10):
+    for t in range(20):
 
         system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
         print(system_prompt)
@@ -620,7 +620,7 @@ def main():
     # Read cmd line arguments with argparse
     parser = argparse.ArgumentParser(description='Run experiments')
     parser.add_argument('--model', type=str, default="llama3.1-8B", help='Model to evaluate')
-    
+
     parser.add_argument('--prompting', type=str, default='zero_shot', help='Prompting strategy')
     parser.add_argument('--encoding', type=str, default='sql', help='Encoding method for data and query')
     parser.add_argument('--operation', type=str, default='select', help='Dataset query operation')
