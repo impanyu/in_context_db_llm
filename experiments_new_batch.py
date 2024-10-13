@@ -620,9 +620,9 @@ def main():
     # Read cmd line arguments with argparse
     parser = argparse.ArgumentParser(description='Run experiments')
     parser.add_argument('--model', type=str, default="llama3.1-8B", help='Model to evaluate')
+    
     parser.add_argument('--prompting', type=str, default='zero_shot', help='Prompting strategy')
     parser.add_argument('--encoding', type=str, default='sql', help='Encoding method for data and query')
-
     parser.add_argument('--operation', type=str, default='select', help='Dataset query operation')
 
     parser.add_argument('--scale', type=int, default=50, help='Number of operations in the dataset')
