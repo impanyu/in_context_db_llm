@@ -39,7 +39,7 @@ def execute_query(connection, query):
         else:
             return [r[0] for r in result]
     except Error as e:
-        print(query)
+        #print(query)
         print(f"Error: '{e}'")
         
         connection.rollback()
@@ -60,7 +60,7 @@ def connect_to_server():
             unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
         )
         if connection.is_connected():
-            print("Connected to MySQL server")
+            #print("Connected to MySQL server")
             return connection
     except Error as e:
         print(f"Error: '{e}'")
@@ -101,14 +101,14 @@ def random_combination(n, k):
     for i in range(k-n):
         random_index = random.randint(0, n-1)
         combination.append(random_index)
-    print(sorted(combination))
+    #print(sorted(combination))
 
     return sorted(combination)
 
 
 def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balance, overlap, operation=None):
     db_index = random.randint(1, 20)
-    print(f"db_index: {db_index}")
+    #print(f"db_index: {db_index}")
     
     sql_data = all_prompts["sql"][db_index]
     data = all_prompts[encoding][db_index]
@@ -257,16 +257,16 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
 
     populating_queries = populating_query.split("\n")[:-1]
     sql_populating_queries = sql_populating_query.split("\n")[:-1]
-    print(populating_query)
-    print(sql_populating_queries)
-    print(query)
+    #print(populating_query)
+    #print(sql_populating_queries)
+    #print(query)
 
     # execute the db_populating_query and db_query
     # now populating query include original population query and the new query
     true_results = []
     connection = connect_to_server()
     if connection is not None:    
-        print("populating db")
+        #print("populating db")
         for query in sql_populating_queries:
             true_result = execute_query(connection, query)
             if "DROP DATABASE" in query or "CREATE DATABASE" in query or "USE test" in query or "CREATE TABLE" in query: 
@@ -282,7 +282,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
         #true_result = execute_query(connection, sql_query)
 
         connection.close()
-        print("Connection closed")
+        #print("Connection closed")
     
     # true_result is an array
     return populating_queries, true_results
@@ -292,19 +292,19 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
 def calculate_accuracy(true_result, result,user_prompt):
     # result is a string
     # true_result is an array
-    print("in calculate_accuracy")
-    print(type(true_result))
+    #print("in calculate_accuracy")
+    #print(type(true_result))
     if "Fail" in true_result:
         if "Fail" in result:
             return 1
         else:
-            print("Fail in true_result")
+            #print("Fail in true_result")
             return 0
     elif "Succeed" in true_result:
         if "Succeed" in result:
             return 1
         else:
-            print("Succeed in true_result")
+            #print("Succeed in true_result")
             return 0
     else:
         #true_result = json.loads(true_result)
@@ -319,7 +319,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             if not type(result) == list:
                 #print(true_result)
                 #print(result)
-                print("result not a list")
+                #print("result not a list")
 
                 return 0
             
@@ -351,13 +351,13 @@ def calculate_accuracy(true_result, result,user_prompt):
             result_overlap = set(true_result).intersection(set(result))
             result_union = set(true_result).union(set(result))
             if len(result_union) == 0:
-                print("union is 0")
+                #print("union is 0")
                 return 1 * order_accuracy  
             else:
-                print("union is not 0")
-                print(result_union)
-                print(len(true_result))
-                print(len(result))
+                #print("union is not 0")
+                #print(result_union)
+                #print(len(true_result))
+                #print(len(result))
            
                 return len(result_overlap) / len(result_union) * order_accuracy
             
@@ -377,7 +377,7 @@ def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, mod
     for t in range(20):
 
         system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
-        print(system_prompt)
+        #print(system_prompt)
            
     
         
@@ -411,7 +411,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
     for t in range(TIMES):
 
         system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
-        print(system_prompt)
+        #print(system_prompt)
            
     
         
@@ -449,7 +449,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
             # Initialize the OpenAI client with the API key
             client = OpenAI(api_key=api_key)
 
-            print("start api call")
+            #print("start api call")
             try:
                 response = client.chat.completions.create(
                     model="gpt-4o",
@@ -463,7 +463,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 t = t-1
                 time.sleep(1)
                 continue
-            print("end api call")
+            #print("end api call")
 
             # get the response
             result = response.choices[0].message.content
@@ -645,7 +645,7 @@ def main():
 
     all_prompts = {"sql":{}, "nl":{}}
     for i in range(1,21):
-        print(i)
+        #print(i)
       
         data = read_data(i,"sql")
         all_prompts["sql"][i] = data
