@@ -12,8 +12,8 @@ import requests.exceptions
 import ollama
 import requests
 
-#from llamafactory.chat import ChatModel
-#from llamafactory.extras.misc import torch_gc
+from llamafactory.chat import ChatModel
+from llamafactory.extras.misc import torch_gc
 
 import logging
 
@@ -388,7 +388,7 @@ def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, mod
     
         
         queries, true_results = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
-        if "llama3" in model:
+        if  not "gpt4" in model:
             messages = [{"role": "user", "content": system_prompt}]
         else:
             messages = [{"role": "system", "content": system_prompt}]
@@ -425,7 +425,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
     
         
         queries, true_results = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
-        if "llama3" in model:
+        if not "gpt4" in model:
             messages = [{"role": "user", "content": system_prompt}]
         else:
             messages = [{"role": "system", "content": system_prompt}]
