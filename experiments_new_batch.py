@@ -380,7 +380,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             return 0
 
 def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, model, prompting, operation,samples):
-    for t in range(20):
+    for t in range(15):
 
         system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
         #print(system_prompt)
@@ -388,7 +388,10 @@ def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, mod
     
         
         queries, true_results = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
-        messages = [{"role": "system", "content": system_prompt}]
+        if "llama3" in model:
+            messages = [{"role": "user", "content": system_prompt}]
+        else:
+            messages = [{"role": "user", "content": system_prompt}]
         for i in range(len(queries)):
             query = queries[i]
             # true_result is an array
@@ -422,7 +425,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
     
         
         queries, true_results = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
-        if model == "fine_tuned_llama3.1-8B":
+        if "llama3" in model:
             messages = [{"role": "user", "content": system_prompt}]
         else:
             messages = [{"role": "user", "content": system_prompt}]
