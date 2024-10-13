@@ -726,12 +726,14 @@ def main():
                                 if not generate_sample:
                                     accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation)
                                     output[f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}"] = accuracy
+                                    
 
                                     with open(f"output_{current_model}.json", "w") as file:
                                         json.dump(output, file)
                                         file.flush()
                                 else:
                                     get_samples(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation,samples)
+                                    print(f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}")
                                     with open(f"samples.json", "w") as file:
                                         json.dump(samples, file)
                                         file.flush()
