@@ -12,8 +12,8 @@ import requests.exceptions
 import ollama
 import requests
 
-from llamafactory.chat import ChatModel
-from llamafactory.extras.misc import torch_gc
+#from llamafactory.chat import ChatModel
+#from llamafactory.extras.misc import torch_gc
 
 import logging
 
@@ -59,11 +59,11 @@ def execute_query(connection, query):
 def connect_to_server():
     try:
         connection = mysql.connector.connect(
-            #host='localhost',
-            #password='1q2w3e4r5t',
+            host='localhost',
+            password='1q2w3e4r5t',
             user='root',
-            password='',
-            unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
+            #password='',
+            #unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
         )
         if connection.is_connected():
             #print("Connected to MySQL server")
@@ -392,19 +392,31 @@ def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, mod
             messages = [{"role": "system", "content": system_prompt}]
         else:
             messages = [{"role": "system", "content": system_prompt}]
+        user_message = ""
         for i in range(len(queries)):
             query = queries[i]
             # true_result is an array
             true_result = true_results[i]
-            messages.append({"role": "user", "content": query})
+            
             if "few_shot" in prompting:
+                messages.append({"role": "user", "content": query})
                 if "Succeed" in true_result or "Fail" in true_result:
                     messages.append({"role": "assistant", "content": true_result[0]})
                 else:
                     messages.append({"role": "assistant", "content": json.dumps(true_result)})
             else:
-                messages.append({"role": "assistant", "content": ""})
+                user_message += query + "\n"
+                
+                if i == len(queries)-1:
+                    messages.append({"role": "user", "content": user_message})
+                    if "Succeed" in true_result or "Fail" in true_result:
+                        messages.append({"role": "assistant", "content": true_result[0]})
+                    else:
+                        messages.append({"role": "assistant", "content": json.dumps(true_result)})
+
+                
         
+            
         sample = {"messages":messages}
         samples.append(sample)
 
@@ -431,20 +443,27 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
             messages = [{"role": "user", "content": system_prompt}]
         else:
             messages = [{"role": "system", "content": system_prompt}]
+        user_message = ""
         for i in range(len(queries)-1):
             query = queries[i]
             # true_result is an array
             true_result = true_results[i]
-            messages.append({"role": "user", "content": query})
+            
             if "few_shot" in prompting:
+                messages.append({"role": "user", "content": query})
                 if "Succeed" in true_result or "Fail" in true_result:
                     messages.append({"role": "assistant", "content": true_result[0]})
                 else:
                     messages.append({"role": "assistant", "content": json.dumps(true_result)})
             else:
-                messages.append({"role": "assistant", "content": ""})
-        
-        messages.append({"role": "user", "content": queries[-1]})
+                user_message += query + "\n"
+                
+  
+        if "few_shot" in prompting:
+            messages.append({"role": "user", "content": queries[-1]})
+        else:
+            user_message += queries[-1] + "\n"
+            messages.append({"role": "user", "content": user_message})
         true_result = true_results[-1]
 
 
