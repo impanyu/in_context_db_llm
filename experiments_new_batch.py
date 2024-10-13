@@ -40,7 +40,7 @@ def execute_query(connection, query):
             return [r[0] for r in result]
     except Error as e:
         #print(query)
-        print(f"Error: '{e}'")
+        #print(f"Error: '{e}'")
         
         connection.rollback()
 
@@ -559,8 +559,8 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     quantization_bit=4,                    # load 4-bit quantized model
                     )
                 chat_model = ChatModel(args)
-                result = chat_model.chat(messages=messages, temperature=0.5)
-                result = result[0].response_text
+                response = chat_model.chat(messages=messages, temperature=0.5)
+                result = response[0].response_text
             
                 time.sleep(1)
           
@@ -595,6 +595,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
         
         print(true_result)
         print(result)
+        print(response)
 
 
     
