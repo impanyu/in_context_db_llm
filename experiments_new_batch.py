@@ -416,7 +416,10 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
     
         
         queries, true_results = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
-        messages = [{"role": "system", "content": system_prompt}]
+        if model == "fine_tuned_llama3.1-8B":
+            messages = [{"role": "user", "content": system_prompt}]
+        else:
+            messages = [{"role": "system", "content": system_prompt}]
         for i in range(len(queries)-1):
             query = queries[i]
             # true_result is an array
