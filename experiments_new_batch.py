@@ -15,6 +15,12 @@ import requests
 from llamafactory.chat import ChatModel
 from llamafactory.extras.misc import torch_gc
 
+import logging
+
+# Suppress info and warning messages, only show errors
+logging.getLogger().setLevel(logging.ERROR)
+
+
 TIMES = 300  
 
 def is_json(my_string):
