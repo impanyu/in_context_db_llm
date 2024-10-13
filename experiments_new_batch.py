@@ -595,7 +595,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
         
         print(true_result)
         print(result)
-        print(response)
+        #print(response)
 
 
     
