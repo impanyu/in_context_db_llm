@@ -12,8 +12,8 @@ import requests.exceptions
 import ollama
 import requests
 
-from llamafactory.chat import ChatModel
-from llamafactory.extras.misc import torch_gc
+#from llamafactory.chat import ChatModel
+#from llamafactory.extras.misc import torch_gc
 
 import logging
 
@@ -59,11 +59,11 @@ def execute_query(connection, query):
 def connect_to_server():
     try:
         connection = mysql.connector.connect(
-            #host='localhost',
-            #password='1q2w3e4r5t',
+            host='localhost',
+            password='1q2w3e4r5t',
             user='root',
-            password='',
-            unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
+            #password='',
+            #unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
         )
         if connection.is_connected():
             #print("Connected to MySQL server")
@@ -389,7 +389,7 @@ def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, mod
         
         queries, true_results = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
         if  not "gpt4" in model:
-            messages = [{"role": "user", "content": system_prompt}]
+            messages = [{"role": "system", "content": system_prompt}]
         else:
             messages = [{"role": "system", "content": system_prompt}]
         for i in range(len(queries)):
