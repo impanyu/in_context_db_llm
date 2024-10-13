@@ -391,7 +391,7 @@ def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, mod
         if "llama3" in model:
             messages = [{"role": "user", "content": system_prompt}]
         else:
-            messages = [{"role": "user", "content": system_prompt}]
+            messages = [{"role": "system", "content": system_prompt}]
         for i in range(len(queries)):
             query = queries[i]
             # true_result is an array
@@ -428,7 +428,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
         if "llama3" in model:
             messages = [{"role": "user", "content": system_prompt}]
         else:
-            messages = [{"role": "user", "content": system_prompt}]
+            messages = [{"role": "system", "content": system_prompt}]
         for i in range(len(queries)-1):
             query = queries[i]
             # true_result is an array
