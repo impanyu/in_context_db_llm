@@ -23,7 +23,7 @@ logging.getLogger().setLevel(logging.ERROR)
 
 TIMES = 300 
 connection = None 
-
+chat_model = None
 
 def is_json(my_string):
     try:
@@ -434,6 +434,8 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
 
     accuracy_1_count = 0
 
+    global chat_model
+
     # repeat the experiment TIMES times
     for t in range(TIMES):
 
@@ -611,7 +613,8 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                         finetuning_type="lora",                  # same to the one in training
                         quantization_bit=4,                    # load 4-bit quantized model
                         )
-                chat_model = ChatModel(args)
+                if chat_model is None:               
+                    chat_model = ChatModel(args)
                 response = chat_model.chat(messages=messages, temperature=0.5)
                 result = response[0].response_text
             
