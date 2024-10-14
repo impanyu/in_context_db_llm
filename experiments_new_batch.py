@@ -12,8 +12,8 @@ import requests.exceptions
 import ollama
 import requests
 
-from llamafactory.chat import ChatModel
-from llamafactory.extras.misc import torch_gc
+#from llamafactory.chat import ChatModel
+#from llamafactory.extras.misc import torch_gc
 
 import logging
 
@@ -59,11 +59,11 @@ def execute_query(connection, query):
 def connect_to_server():
     try:
         connection = mysql.connector.connect(
-            #host='localhost',
-            #password='1q2w3e4r5t',
+            host='localhost',
+            password='1q2w3e4r5t',
             user='root',
-            password='',
-            unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
+            #password='',
+            #unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
         )
         if connection.is_connected():
             #print("Connected to MySQL server")
@@ -380,7 +380,7 @@ def calculate_accuracy(true_result, result,user_prompt):
             return 0
 
 def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, model, prompting, operation,samples):
-    for t in range(15):
+    for t in range(20):
 
         system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
         #print(system_prompt)
