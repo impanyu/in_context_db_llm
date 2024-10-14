@@ -12,8 +12,8 @@ import requests.exceptions
 import ollama
 import requests
 
-from llamafactory.chat import ChatModel
-from llamafactory.extras.misc import torch_gc
+#from llamafactory.chat import ChatModel
+#from llamafactory.extras.misc import torch_gc
 
 import logging
 
@@ -21,7 +21,9 @@ import logging
 logging.getLogger().setLevel(logging.ERROR)
 
 
-TIMES = 300  
+TIMES = 300 
+connection = None 
+
 
 def is_json(my_string):
     try:
@@ -57,14 +59,16 @@ def execute_query(connection, query):
 
 
 def connect_to_server():
+    global connection
     try:
         connection = mysql.connector.connect(
-            #host='localhost',
-            #password='1q2w3e4r5t',
+            host='localhost',
+            password='1q2w3e4r5t',
             user='root',
-            password='',
-            unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
-        )
+            #password='',
+            #unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
+        )      
+
         if connection.is_connected():
             #print("Connected to MySQL server")
             return connection
@@ -270,7 +274,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     # execute the db_populating_query and db_query
     # now populating query include original population query and the new query
     true_results = []
-    connection = connect_to_server()
+    #connection = connect_to_server()
     if connection is not None:    
         #print("populating db")
         for query in sql_populating_queries:
@@ -287,7 +291,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
         #print("executing query")
         #true_result = execute_query(connection, sql_query)
 
-        connection.close()
+        #connection.close()
         #print("Connection closed")
     
     # true_result is an array
@@ -439,11 +443,18 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
     
         
         queries, true_results = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
+
+        if not len(true_results) == len(queries):
+            time.sleep(1)
+            t = t - 1
+            continue
+
         if not "gpt4" in model:
             messages = [{"role": "user", "content": system_prompt}]
         else:
             messages = [{"role": "system", "content": system_prompt}]
         user_message = ""
+        
         for i in range(len(queries)-1):
             query = queries[i]
             # true_result is an array
@@ -660,6 +671,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
     return accuracy
 
 def main():
+    
     # Read cmd line arguments with argparse
     parser = argparse.ArgumentParser(description='Run experiments')
     parser.add_argument('--model', type=str, default="llama3.1-8B", help='Model to evaluate')
@@ -780,4 +792,7 @@ def main():
   
     
 if __name__ == "__main__":
+    
+    connection = connect_to_server()
     main()
+    connection.close()
