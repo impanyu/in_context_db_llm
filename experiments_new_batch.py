@@ -12,8 +12,8 @@ import requests.exceptions
 import ollama
 import requests
 
-#from llamafactory.chat import ChatModel
-#from llamafactory.extras.misc import torch_gc
+from llamafactory.chat import ChatModel
+from llamafactory.extras.misc import torch_gc
 
 import logging
 
@@ -62,11 +62,11 @@ def connect_to_server():
     global connection
     try:
         connection = mysql.connector.connect(
-            host='localhost',
-            password='1q2w3e4r5t',
+            #host='localhost',
+            #password='1q2w3e4r5t',
             user='root',
-            #password='',
-            #unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
+            password='',
+            unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
         )      
 
         if connection.is_connected():
@@ -671,7 +671,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
     return accuracy
 
 def main():
-    print(connection)
+    
     # Read cmd line arguments with argparse
     parser = argparse.ArgumentParser(description='Run experiments')
     parser.add_argument('--model', type=str, default="llama3.1-8B", help='Model to evaluate')
