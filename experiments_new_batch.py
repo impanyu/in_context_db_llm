@@ -139,6 +139,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     
     insert_scale = int(scale * balance)
     delete_update_scale = int(scale * (1 - balance))
+    select_scale = int(scale * 0.1)
 
 
     radius = int(overlap * insert_scale)
@@ -160,31 +161,33 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
         tmp_sql_insert_populating_queries.append(sql_data["insert"][random_index])
         tmp_insert_populating_queries.append(data["insert"][random_index])
 
+    for i in range(select_scale):
+        db_query_categories = list(data["select"].keys())
+
+        category_index = random.randint(0, len(db_query_categories)-1)
+        category = db_query_categories[category_index]
+
+        db_queries = sql_data["select"][category]
+        queries = data["select"][category]
+
+        random_index = random.randint(0, len(db_queries)-1)
+
+        sql_query = db_queries[random_index]
+        query = queries[random_index]
+
+        random_index_in_populating_queries = random.randint(insert_scale-radius*2,insert_scale)
+        
+
+        tmp_sql_delete_update_populating_queries[random_index_in_populating_queries].append(sql_query)
+        tmp_delete_update_populating_queries[random_index_in_populating_queries].append(query)
+
     for i in range(delete_update_scale):
         # get a random number between 0 and 1
         random_number = random.random()
 
-        if random_number <= 0.2: # insert a select query
-            db_query_categories = list(data["select"].keys())
+        
 
-            category_index = random.randint(0, len(db_query_categories)-1)
-            category = db_query_categories[category_index]
-
-            db_queries = sql_data["select"][category]
-            queries = data["select"][category]
-
-            random_index = random.randint(0, len(db_queries)-1)
-
-            sql_query = db_queries[random_index]
-            query = queries[random_index]
-
-            random_index_in_populating_queries = random.randint(insert_scale-radius*2,insert_scale)
-            
-
-            tmp_sql_delete_update_populating_queries[random_index_in_populating_queries].append(sql_query)
-            tmp_delete_update_populating_queries[random_index_in_populating_queries].append(query)
-
-        elif random_number <= 0.6: # insert a delete query
+        if random_number <= 0.5: # insert a delete query
             # get a random number between 0 and 1
             random_index_in_populating_queries = random.randint(insert_scale-radius*2,insert_scale)
             random_index = random.randint(0, len(sql_data["delete"])-1)
@@ -753,7 +756,7 @@ def main():
         all_model = [model]
     else:
         #all_model = ["llama3.1-8B","mistral","gemma2","codellama","phi3"]
-        all_model = ["llama3.2","mistral","gemma2","phi3","fine_tuned_llama3.1-8B"]
+        all_model = ["llama3.1-8B","codellama","mistral","gemma2","phi3","fine_tuned_llama3.1-8B"]
     for current_model in all_model:
 
         if prompting in ["zero_shot","few_shot"]:
