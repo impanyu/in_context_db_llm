@@ -753,7 +753,7 @@ def main():
         all_model = [model]
     else:
         #all_model = ["llama3.1-8B","mistral","gemma2","codellama","phi3"]
-        all_model = ["llama3.1-8B","llama3.2","mistral","gemma2","phi3","fine_tuned_llama3.1-8B"]
+        all_model = ["llama3.2","mistral","gemma2","phi3","fine_tuned_llama3.1-8B"]
     for current_model in all_model:
 
         if prompting in ["zero_shot","few_shot"]:
