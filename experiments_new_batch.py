@@ -671,7 +671,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
     return accuracy
 
 def main():
-    
+    print(connection)
     # Read cmd line arguments with argparse
     parser = argparse.ArgumentParser(description='Run experiments')
     parser.add_argument('--model', type=str, default="llama3.1-8B", help='Model to evaluate')
