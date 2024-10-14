@@ -12,8 +12,8 @@ import requests.exceptions
 import ollama
 import requests
 
-#from llamafactory.chat import ChatModel
-#from llamafactory.extras.misc import torch_gc
+from llamafactory.chat import ChatModel
+from llamafactory.extras.misc import torch_gc
 
 import logging
 
@@ -59,11 +59,11 @@ def execute_query(connection, query):
 def connect_to_server():
     try:
         connection = mysql.connector.connect(
-            host='localhost',
-            password='1q2w3e4r5t',
+            #host='localhost',
+            #password='1q2w3e4r5t',
             user='root',
-            #password='',
-            #unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
+            password='',
+            unix_socket='/var/run/mysqld/mysqld.sock'  # Replace with the actual path to your MySQL socket
         )
         if connection.is_connected():
             #print("Connected to MySQL server")
@@ -583,13 +583,23 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
 
         elif model == "fine_tuned_llama3.1-8B":
             try:
-                args = dict(
-                    model_name_or_path="unsloth/llama-3-8b-Instruct-bnb-4bit", # use bnb-4bit-quantized Llama-3-8B-Instruct model
-                    adapter_name_or_path="llama3_lora",            # load the saved LoRA adapters
-                    template="llama3",                     # same to the one in training
-                    finetuning_type="lora",                  # same to the one in training
-                    quantization_bit=4,                    # load 4-bit quantized model
-                    )
+                if "few_shot" in prompting:
+               
+                    args = dict(
+                        model_name_or_path="unsloth/llama-3-8b-Instruct-bnb-4bit", # use bnb-4bit-quantized Llama-3-8B-Instruct model
+                        adapter_name_or_path="llama3_lora",            # load the saved LoRA adapters
+                        template="llama3",                     # same to the one in training
+                        finetuning_type="lora",                  # same to the one in training
+                        quantization_bit=4,                    # load 4-bit quantized model
+                        )
+                else:
+                    args = dict(
+                        model_name_or_path="unsloth/llama-3-8b-Instruct-bnb-4bit", # use bnb-4bit-quantized Llama-3-8B-Instruct model
+                        adapter_name_or_path="llama3_lora_zero_shot",            # load the saved LoRA adapters
+                        template="llama3",                     # same to the one in training
+                        finetuning_type="lora",                  # same to the one in training
+                        quantization_bit=4,                    # load 4-bit quantized model
+                        )
                 chat_model = ChatModel(args)
                 response = chat_model.chat(messages=messages, temperature=0.5)
                 result = response[0].response_text
