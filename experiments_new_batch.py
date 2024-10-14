@@ -479,7 +479,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
             messages.append({"role": "user", "content": user_message})
         true_result = true_results[-1]
 
-
+        result = ""
         
         
                 
@@ -753,7 +753,7 @@ def main():
         all_model = [model]
     else:
         #all_model = ["llama3.1-8B","mistral","gemma2","codellama","phi3"]
-        all_model = ["codellama","phi3"]
+        all_model = ["llama3.1-8B","llama3.2","mistral","gemma2","phi3","fine_tuned_llama3.1-8B"]
     for current_model in all_model:
 
         if prompting in ["zero_shot","few_shot"]:
@@ -772,7 +772,7 @@ def main():
                     all_operation = ["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]
                 for current_operation in all_operation:
                     if scale <0:
-                        all_scale = [10,50,100,150,200,250,300,350,400,450,500]
+                        all_scale = [10,50,100,150,200,250,300,350,400]
                     else:
                         all_scale = [scale]
                     for current_scale in all_scale:
@@ -791,11 +791,24 @@ def main():
                                 if not generate_sample:
                                     accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation)
                                     output[f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}"] = accuracy
-                                    
 
-                                    with open(f"output_{current_model}.json", "w") as file:
-                                        json.dump(output, file)
-                                        file.flush()
+                                    if scale <0:
+                                        with open(f"batch_output_scale.json", "w") as file:
+                                            json.dump(output, file)
+                                            file.flush()
+                                    elif balance <0:
+                                        with open(f"batch_output_balance.json", "w") as file:
+                                            json.dump(output, file)
+                                            file.flush()
+                                    elif overlap <0:
+                                        with open(f"batch_output_overlap.json", "w") as file:
+                                            json.dump(output, file)
+                                            file.flush()
+                                        
+                                    else:
+                                        with open(f"output_{current_model}.json", "w") as file:
+                                            json.dump(output, file)
+                                            file.flush()
                                 else:
                                     get_samples(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation,samples)
                                     print(f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}")
