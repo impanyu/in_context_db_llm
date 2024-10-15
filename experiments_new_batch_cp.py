@@ -527,7 +527,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 response = ollama.chat(model='llama3.1', messages=messages)
                 result = response['message']['content']
             except requests.exceptions.Timeout:
-                print("The request timed out.")
+                print("The request timed out.",flush=True)
                 t = t - 1
                 time.sleep(1)
                 continue
