@@ -397,10 +397,10 @@ def get_samples(common_prompts,all_prompts,encoding,scale, balance, overlap, mod
     
         
         queries, true_results = generate_query_result_pair(common_prompts,all_prompts,encoding, scale, balance, overlap, operation)
-        if  not "gpt4" in model:
-            messages = [{"role": "system", "content": system_prompt}]
-        else:
-            messages = [{"role": "system", "content": system_prompt}]
+        
+        messages = [{"role": "system", "content": system_prompt}]
+        
+            
         user_message = ""
         for i in range(len(queries)):
             query = queries[i]
@@ -455,11 +455,8 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
             time.sleep(1)
             t = t - 1
             continue
-
-        if not "gpt4" in model:
-            messages = [{"role": "user", "content": system_prompt}]
-        else:
-            messages = [{"role": "system", "content": system_prompt}]
+            
+        messages = [{"role": "system", "content": system_prompt}]
         user_message = ""
         
         for i in range(len(queries)-1):
