@@ -646,7 +646,12 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 time.sleep(1)
                 continue
 
-        result = result.split("\n")[-1]
+        result_1 = result.split("\n")[-1]
+        result_2 = result.split("\n")[-2]
+        if result_1 == "":
+            result = result_2
+        else:
+            result = result_1
         accuracy_delta = calculate_accuracy(true_result, result,queries[-1])
         print(f"Accuracy delta: {accuracy_delta}")
         accuracy += accuracy_delta
