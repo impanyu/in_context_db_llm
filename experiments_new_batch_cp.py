@@ -841,6 +841,8 @@ def main():
                                             file.flush()
                                 else:
                                     get_samples(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation,samples)
+                                    accuracy = run_experiment(common_prompts,all_prompts,current_encoding,current_scale, current_balance, current_overlap, current_model, current_prompting, current_operation)
+                              
                                     print(f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}")
                                     with open(f"samples.json", "w") as file:
                                         json.dump(samples, file)
