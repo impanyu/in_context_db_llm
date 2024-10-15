@@ -734,9 +734,9 @@ def main():
         #print(i)
       
         data = read_data(i,"sql")
-        data["drop_database"][0] = data["drop_database"][0].replace("test","test1")
-        data["create_database"][0] = data["create_database"][0].replace("test","test1")
-        data["use_database"][0] = data["use_database"][0].replace("test","test1")
+        #data["drop_database"][0] = data["drop_database"][0].replace("test","test1")
+        #data["create_database"][0] = data["create_database"][0].replace("test","test1")
+        #data["use_database"][0] = data["use_database"][0].replace("test","test1")
 
         all_prompts["sql"][i] = data
 
@@ -744,9 +744,9 @@ def main():
 
         
         data = read_data(i,"nl")
-        data["drop_database"][0] = data["drop_database"][0].replace("test","test1")
-        data["create_database"][0] = data["create_database"][0].replace("test","test1")
-        data["use_database"][0] = data["use_database"][0].replace("test","test1")
+        #data["drop_database"][0] = data["drop_database"][0].replace("test","test1")
+        #data["create_database"][0] = data["create_database"][0].replace("test","test1")
+        #data["use_database"][0] = data["use_database"][0].replace("test","test1")
         all_prompts["nl"][i] = data
 
 
