@@ -6,6 +6,14 @@
                 "You need to execute all the commands.",
                 "You only need to output the query result of the last command.",
                 "If the last command is a select query, you only need to output a JSON string representing a list, with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last  command is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
+     
+    "ZERO-COT":["You are given a sequence of commands by the user",             
+                "You need to execute all the commands.",
+                "You can output your execution process for the sequence of commands.",
+                "At the last line of your response, you only need to output the query result of the last command.",
+               "If the last command is a select query, at the last line of your response, you only need to output a JSON string representing a list, with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last SQL command is insert, delete or update, at the last line of your response,you only need to output 'Succeed' or 'Fail', with no extra words."], 
+ 
+    
 
         "FEW-SHOT":[ "In historical steps you have executed a seris of insert, update, delete or select commands, requested by the user.",
                  "Now in this step, you will receive a new query from the user. You need to output the result of this query.",
