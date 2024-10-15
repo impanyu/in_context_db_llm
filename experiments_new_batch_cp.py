@@ -533,7 +533,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 continue
 
             except Exception as e:
-                print(f"An error occurred: {e}")
+                print(f"An error occurred: {e}",flush=True)
                 
                 time.sleep(1)
                 continue
