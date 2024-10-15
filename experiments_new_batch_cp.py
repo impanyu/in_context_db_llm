@@ -21,7 +21,7 @@ import logging
 logging.getLogger().setLevel(logging.ERROR)
 
 
-TIMES = 1
+TIMES = 2
 connection = None 
 chat_model = None
 
