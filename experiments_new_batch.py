@@ -769,7 +769,7 @@ def main():
         all_model = ["llama3.1-8B","codellama","mistral","gemma2","phi3","fine_tuned_llama3.1-8B"]
     for current_model in all_model:
 
-        if prompting in ["zero_shot","few_shot"]:
+        if prompting in ["zero_shot","few_shot","zero_shot_cot"]:
             all_prompting = [prompting]
         else:
             all_prompting = ["zero_shot","few_shot"]
