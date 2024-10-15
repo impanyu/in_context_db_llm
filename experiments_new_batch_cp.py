@@ -275,8 +275,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
         sql_query = db_queries[random_index]
         query = queries[random_index]
 
-    populating_query += query + "\n"
-    sql_populating_query += sql_query + "\n"
+   
 
     populating_queries = populating_query.split("\n")[:-1]
     sql_populating_queries = sql_populating_query.split("\n")[:-1]
