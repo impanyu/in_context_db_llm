@@ -498,12 +498,15 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
         if model == "gpt4":
             # Load environment variables from the .env file
             load_dotenv()
+            
 
             # Fetch the API key from the environment variable
             api_key = os.getenv("OPENAI_API_KEY")
 
             # Initialize the OpenAI client with the API key
             client = OpenAI(api_key=api_key)
+
+            print(messages)
 
             #print("start api call")
             try:
