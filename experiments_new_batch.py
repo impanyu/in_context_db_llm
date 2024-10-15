@@ -649,7 +649,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
         result_array = result.split("\n")
         k = len(result_array)-1
         while k >= 0:
-            if result_array[k] == "" or "```":
+            if result_array[k] == "" or result_array[k] == "```":
                 k = k - 1
             else:
                 break
