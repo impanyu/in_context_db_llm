@@ -11,7 +11,7 @@
     "ZERO-COT":["You are given a sequence of SQL commands by the user",             
                  "You need to execute all the SQL commands.",
                  "You can output your execution process for the sequence of SQL commands.",
-                 "At the last line of your response, you only need to output the query result of the last SQL command.",
+                 "At the last line of your response, you need to output the query result of the last SQL command.",
                 "If the last SQL command is a select query, at the last line of your response, you only need to output a JSON list of the query result, in the format such as [1,2,3,5], with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last SQL command is insert, delete or update, at the last line of your response,you only need to output 'Succeed' or 'Fail', with no extra words."], 
   
      
