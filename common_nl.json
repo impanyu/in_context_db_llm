@@ -17,7 +17,7 @@
 
         "FEW-SHOT":[ "In historical steps you have executed a series of insert, update, delete or select commands, requested by the user.",
                  "Now in this step, you will receive a new query from the user. You need to output the result of this query.",
-                  "The historical commands is given to you by the user one by one, each followed by the true result of the command execution.",
+                  "The historical commands are given to you by the user one by one, each followed by the true result of the command execution.",
                    "Then a new command is given to you at last.",
                    "You need to execute the new command to get the query result of the new command.",
                    "If the last command is a select query, you only need to output a JSON list of the query result, in the format such as [1,2,3,5], with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last command is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."]
