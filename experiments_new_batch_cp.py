@@ -667,7 +667,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 k = k - 1
             else:
                 break
-        result = result_array[k]
+        
 
         
         accuracy_delta = calculate_accuracy(true_result, result,queries[-1])
