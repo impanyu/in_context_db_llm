@@ -502,7 +502,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     model="gpt-4o",
                     messages= messages,
                     temperature=0.5,  # Set the temperature here (adjust as needed)
-                    timeout=5  # Set a timeout of 10 seconds
+                    timeout=25  # Set a timeout of 10 seconds
                 )
                 
                 
