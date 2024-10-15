@@ -451,7 +451,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
     # repeat the experiment TIMES times
     for t in range(TIMES):
 
-        print(t)
+        
 
         system_prompt = generate_system_prompt(common_prompts,encoding,prompting)
         #print(system_prompt)
@@ -523,6 +523,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
 
             # get the response
             result = response.choices[0].message.content
+            print(result)
 
         elif model == "llama3.1-8B":
             try:
