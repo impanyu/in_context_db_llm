@@ -21,7 +21,7 @@ import logging
 logging.getLogger().setLevel(logging.ERROR)
 
 
-TIMES = 2
+TIMES = 1
 connection = None 
 chat_model = None
 
@@ -527,7 +527,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
 
             # get the response
             result = response.choices[0].message.content
-            print(result)
+            
 
         elif model == "llama3.1-8B":
             try:
