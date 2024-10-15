@@ -506,7 +506,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
             # Initialize the OpenAI client with the API key
             client = OpenAI(api_key=api_key)
 
-            print(messages)
+            
 
             #print("start api call")
             try:
@@ -516,7 +516,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                     temperature=0.5,  # Set the temperature here (adjust as needed)
                     timeout=5  # Set a timeout of 10 seconds
                 )
-                
+                print(response)
                 
             except APITimeoutError:
                 t = t-1
