@@ -221,7 +221,7 @@ def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balanc
     sql_populating_query_string = "INSERT INTO Authors (FirstName, LastName, BirthDate, Nationality) VALUES ('F. Scott', 'Fitzgerald', '1896-09-24', 'American');\nDELETE FROM Publishers WHERE Country = 'United States';\nINSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Simon & Schuster', '1230 Avenue of the Americas, New York, NY 10020', 'United States');\n"
     sql_populating_query_string += "SELECT PublisherID FROM Publishers WHERE PublisherID BETWEEN 1 AND 10;\n UPDATE Publishers SET PublisherName = 'Harper & Brothers' WHERE PublisherID = 2 OR PublisherID = 3;\n"
     sql_populating_query_string += "UPDATE Books SET Genre = 'Magic Realism' WHERE AuthorID = 7 OR Title = 'One Hundred Years of Solitude';\nINSERT INTO Publishers (PublisherName, Address, Country) VALUES ('Scholastic Corporation', '557 Broadway, New York, NY 10012', 'United States');\n"
-    sql_populating_query_string += "DELETE FROM Publishers WHERE PublisherName LIKE 'Hachette%';\nINSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('1984', 'Dystopian', 1949, 1, 1);"
+    sql_populating_query_string += "DELETE FROM Publishers WHERE PublisherName LIKE 'Hachette%';\nINSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('1984', 'Dystopian', 1949, 1, 1);\n"
     sql_populating_query_string += "INSERT INTO Books (Title, Genre, PublishedYear, AuthorID, PublisherID) VALUES ('Pride and Prejudice', 'Romance', 1813, 2, 3);\n UPDATE Authors SET FirstName = 'Joanne' WHERE LastName = 'Rowling' AND BirthDate = '1965-07-31';\n"
     sql_populating_query_string += " SELECT PublisherID FROM Publishers WHERE Country = 'United States';\n"
 
