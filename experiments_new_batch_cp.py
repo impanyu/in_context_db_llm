@@ -117,7 +117,7 @@ def random_combination(n, k):
 
 
 def generate_query_result_pair(common_prompts,all_prompts,encoding,scale, balance, overlap, operation=None):
-    db_index = random.randint(1, 20)
+    db_index = 3
     #print(f"db_index: {db_index}")
     
     sql_data = all_prompts["sql"][db_index]
@@ -738,7 +738,7 @@ def main():
     common_prompts["nl"] = nl
 
     all_prompts = {"sql":{}, "nl":{}}
-    for i in range(3,4):
+    for i in range(1,21):
         #print(i)
       
         data = read_data(i,"sql")
