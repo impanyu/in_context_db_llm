@@ -5,13 +5,13 @@
     "ZERO-SHOT":["You are given a sequence of commands by the user",             
                 "You need to execute all the commands.",
                 "You only need to output the query result of the last command.",
-                "If the last command is a select query, you only need to output a JSON string representing a list, with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last  command is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
-     
+                "If the last command is a select query,  you only need to output a JSON list of the query result, in the format such as [1,2,3,5], with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last command is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
+ 
     "ZERO-COT":["You are given a sequence of commands by the user",             
                 "You need to execute all the commands.",
                 "You can output your execution process for the sequence of commands.",
                 "At the last line of your response, you only need to output the query result of the last command.",
-               "If the last command is a select query, at the last line of your response, you only need to output a JSON string representing a list, with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last SQL command is insert, delete or update, at the last line of your response,you only need to output 'Succeed' or 'Fail', with no extra words."], 
+               "If the last command is a select query, at the last line of your response, you only need to output a JSON list of the query result, in the format such as [1,2,3,5], with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last command is insert, delete or update, at the last line of your response,you only need to output 'Succeed' or 'Fail', with no extra words."], 
  
     
 
@@ -20,5 +20,5 @@
                   "The historical commands is given to you by the user one by one, each followed by the true result of the command execution.",
                    "Then a new command is given to you at last.",
                    "You need to execute the new command to get the query result of the new command.",
-                   "If the new command is a select query, you only need to output a JSON string of list with no extra words(note: only JSON string, not enclosed with ```json and ```); if the new query is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."]
+                   "If the last command is a select query, you only need to output a JSON list of the query result, in the format such as [1,2,3,5], with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last command is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."]
 }    

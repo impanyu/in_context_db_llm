@@ -6,13 +6,13 @@
     "ZERO-SHOT":["You are given a sequence of SQL commands by the user",             
                  "You need to execute all the SQL commands.",
                  "You only need to output the query result of the last SQL command.",
-                "If the last SQL command is a select query, you only need to output a JSON string representing a list, with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last SQL command is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
-     
+                 "If the last SQL command is a select query,  you only need to output a JSON list of the query result, in the format such as [1,2,3,5], with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last command is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."], 
+ 
     "ZERO-COT":["You are given a sequence of SQL commands by the user",             
                  "You need to execute all the SQL commands.",
                  "You can output your execution process for the sequence of SQL commands.",
                  "At the last line of your response, you only need to output the query result of the last SQL command.",
-                "If the last SQL command is a select query, at the last line of your response, you only need to output a JSON string representing a list, with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last SQL command is insert, delete or update, at the last line of your response,you only need to output 'Succeed' or 'Fail', with no extra words."], 
+                "If the last SQL command is a select query, at the last line of your response, you only need to output a JSON list of the query result, in the format such as [1,2,3,5], with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last SQL command is insert, delete or update, at the last line of your response,you only need to output 'Succeed' or 'Fail', with no extra words."], 
   
      
     "FEW-SHOT":[
@@ -21,6 +21,6 @@
                 "The historical SQL commands is given to you by the user one by one, each followed by the true result of the command execution",
                 "Then a new SQL command is given to you at last.",
                 "You need to execute the new SQL command to get the query result of the new SQL command.",
-                "If the new SQL command is a select query, you only need to output a JSON string representing a list, with no extra words(note: only JSON string, not enclosed with ```json and ```); if the new query is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."]
+                "If the last SQL command is a select query, you only need to output a JSON list of the query result, in the format such as [1,2,3,5], with no extra words(note: only JSON string, not enclosed with ```json and ```); if the last SQL command is insert, delete or update, you only need to output 'Succeed' or 'Fail', with no extra words."]
        
 }    
