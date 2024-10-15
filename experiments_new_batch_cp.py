@@ -520,7 +520,7 @@ def run_experiment(common_prompts,all_prompts,encoding,scale, balance, overlap, 
                 
             except APITimeoutError:
                 t = t-1
-                print("The request timed out.")
+                print("The request timed out.",flush=True)
                 time.sleep(1)
                 continue
             #print("end api call")
