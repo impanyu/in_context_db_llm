@@ -786,11 +786,11 @@ def main():
 
 
     #current_model = model
-    if model in ["gpt4","llama3.1-8B","mistral","gemma2","codellama","phi3","fine_tuned_llama3.1-8B"]:
+    if model in ["gpt4","llama3.1-8B","mistral","gemma2","codellama","fine_tuned_llama3.1-8B"]:
         all_model = [model]
     else:
         #all_model = ["llama3.1-8B","mistral","gemma2","codellama","phi3"]
-        all_model = ["fine_tuned_llama3.1-8B","llama3.1-8B","llama3.2","mistral","gemma2","phi3"]
+        all_model = ["fine_tuned_llama3.1-8B","llama3.1-8B","llama3.2","mistral","gemma2"]
     for current_model in all_model:
 
         if prompting in ["zero_shot","few_shot","zero_shot_cot"]:
