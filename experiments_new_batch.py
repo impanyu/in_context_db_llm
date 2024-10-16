@@ -815,15 +815,15 @@ def main():
                                     output[f"{current_model}_{current_prompting}_{current_encoding}_{current_operation}_{current_scale}_{current_balance}_{current_overlap*2}"] = accuracy
 
                                     if scale <0:
-                                        with open(f"batch_output_scale.json", "w") as file:
+                                        with open(f"batch_output_scale_{current_model}.json", "w") as file:
                                             json.dump(output, file)
                                             file.flush()
                                     elif balance <0:
-                                        with open(f"batch_output_balance.json", "w") as file:
+                                        with open(f"batch_output_balance_{current_model}.json", "w") as file:
                                             json.dump(output, file)
                                             file.flush()
                                     elif overlap <0:
-                                        with open(f"batch_output_overlap.json", "w") as file:
+                                        with open(f"batch_output_overlap_{current_model}.json", "w") as file:
                                             json.dump(output, file)
                                             file.flush()
                                         
