@@ -781,7 +781,7 @@ def main():
         if prompting in ["zero_shot","few_shot","zero_shot_cot"]:
             all_prompting = [prompting]
         else:
-            all_prompting = ["zero_shot","few_shot"]
+            all_prompting = ["zero_shot","few_shot","zero_shot_cot"]
         for current_prompting in all_prompting:
             if encoding in ["sql","nl"]:
                 all_encoding = [encoding]
