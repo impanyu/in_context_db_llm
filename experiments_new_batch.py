@@ -791,7 +791,7 @@ def main():
                 if operation in ["select","update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]:  
                     all_operation = [operation]
                 else:
-                    all_operation = ["update","no_filtering","single_table"]#["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]
+                    all_operation =["update","delete","insert","no_filtering","single_filtering","double_filtering","triple_filtering","range_filtering","ranking","count","single_table","double_table","three_table"]
                 for current_operation in all_operation:
                     if scale <0:
                         all_scale = [10,50,100,150,200,250,300,350,400]
