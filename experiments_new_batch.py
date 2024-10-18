@@ -828,7 +828,7 @@ def main():
                                             file.flush()
                                         
                                     else:
-                                        with open(f"output_{current_model}.json", "w") as file:
+                                        with open(f"output_{current_model}_{current_prompting}.json", "w") as file:
                                             json.dump(output, file)
                                             file.flush()
                                 else:
